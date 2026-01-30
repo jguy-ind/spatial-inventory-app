@@ -376,6 +376,9 @@ export function OfficesPageClient() {
       {/* Nav drawer for mobile/tablet (< lg) */}
       <Sheet open={navDrawerOpen} onOpenChange={setNavDrawerOpen}>
         <SheetContent side="left" className="w-full max-w-[85vw] sm:max-w-sm p-0">
+          <SheetHeader className="sr-only">
+            <SheetTitle>Navigation menu</SheetTitle>
+          </SheetHeader>
           <div className="flex flex-col h-full pt-6">
             <SidebarNavContent collapsed={false} onItemClick={() => setNavDrawerOpen(false)} />
           </div>
