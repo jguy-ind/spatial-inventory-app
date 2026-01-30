@@ -141,20 +141,30 @@ function SidebarNavContent({
   const handleClick = () => {
     onItemClick?.();
   };
-  const sectionClass = mobileDrawer ? "mb-6" : "mb-4";
+  const sectionClass = mobileDrawer ? "mb-6" : "mb-2.5";
   const labelClass = mobileDrawer ? "text-xs" : "text-[10px]";
+  const sectionHeaderClass = mobileDrawer
+    ? "font-semibold text-nav-label uppercase tracking-wider"
+    : "font-bold text-nav-item-active uppercase tracking-wider";
   const itemClass = cn(
     "w-full flex items-center rounded-md transition-colors",
     collapsed && "justify-center",
-    mobileDrawer ? "gap-4 px-4 py-3.5 text-base min-h-[48px]" : "gap-3 px-3 py-2 text-sm"
+    mobileDrawer ? "gap-4 px-4 py-3.5 text-base min-h-[48px]" : "gap-3 px-3 py-1.5 text-sm"
   );
   const iconSize = mobileDrawer ? "h-5 w-5" : "h-[18px] w-[18px]";
   return (
-    <nav className={cn("flex-1 overflow-y-auto min-h-0", mobileDrawer ? "py-6 pb-8" : "py-4 pb-6")}>
+    <nav
+      className={cn(
+        "flex flex-col min-h-0",
+        mobileDrawer ? "flex-1 overflow-y-auto py-6 pb-8" : "flex-1 py-3 pb-4"
+      )}
+    >
+      {/* Top sections: scrollable on sidebar so bottom section can stick */}
+      <div className={cn(!mobileDrawer && "flex-1 min-h-0 overflow-y-auto")}>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className={cn("mb-2", mobileDrawer ? "px-4" : "px-4")}>
-            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Activity</span>
+          <div className={cn(mobileDrawer ? "mb-2 px-4" : "mb-1 px-4")}>
+            <span className={cn(sectionHeaderClass, labelClass)}>Activity</span>
           </div>
         )}
         <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
@@ -166,8 +176,8 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className="px-4 mb-2">
-            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Manage</span>
+          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+            <span className={cn(sectionHeaderClass, labelClass)}>Manage</span>
           </div>
         )}
         <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
@@ -206,8 +216,8 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className="px-4 mb-2">
-            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Sales</span>
+          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+            <span className={cn(sectionHeaderClass, labelClass)}>Sales</span>
           </div>
         )}
         <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
@@ -223,8 +233,8 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className="px-4 mb-2">
-            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Finance</span>
+          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+            <span className={cn(sectionHeaderClass, labelClass)}>Finance</span>
           </div>
         )}
         <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
@@ -234,7 +244,14 @@ function SidebarNavContent({
           </button>
         </div>
       </div>
-      <div className={cn("border-t border-sidebar-border", mobileDrawer ? "py-4" : "py-3")}>
+      </div>
+      {/* Bottom section: sticks to bottom when sidebar (not mobile drawer) */}
+      <div
+        className={cn(
+          "border-t border-sidebar-border shrink-0",
+          mobileDrawer ? "py-4" : "py-2.5 mt-auto"
+        )}
+      >
         <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <BarChart3 className={cn("shrink-0 text-nav-label", iconSize)} />
