@@ -112,7 +112,7 @@ function OfficeCard({
       className="w-full text-left p-4 rounded-lg border border-border bg-card hover:bg-muted/30 transition-colors"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
-        <span className="font-medium text-[#1a7f64]">{space.name}</span>
+        <span className="font-medium text-primary">{space.name}</span>
         {getStatusBadge(space.status)}
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
@@ -132,110 +132,120 @@ function OfficeCard({
 function SidebarNavContent({
   collapsed,
   onItemClick,
+  mobileDrawer = false,
 }: {
   collapsed: boolean;
   onItemClick?: () => void;
+  mobileDrawer?: boolean;
 }) {
   const handleClick = () => {
     onItemClick?.();
   };
+  const sectionClass = mobileDrawer ? "mb-6" : "mb-4";
+  const labelClass = mobileDrawer ? "text-xs" : "text-[10px]";
+  const itemClass = cn(
+    "w-full flex items-center rounded-md transition-colors",
+    collapsed && "justify-center",
+    mobileDrawer ? "gap-4 px-4 py-3.5 text-base min-h-[48px]" : "gap-3 px-3 py-2 text-sm"
+  );
+  const iconSize = mobileDrawer ? "h-5 w-5" : "h-[18px] w-[18px]";
   return (
-    <nav className="flex-1 overflow-y-auto py-4">
-      <div className="mb-4">
+    <nav className={cn("flex-1 overflow-y-auto min-h-0", mobileDrawer ? "py-6 pb-8" : "py-4 pb-6")}>
+      <div className={sectionClass}>
         {!collapsed && (
-          <div className="px-4 mb-2">
-            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Activity</span>
+          <div className={cn("mb-2", mobileDrawer ? "px-4" : "px-4")}>
+            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Activity</span>
           </div>
         )}
-        <div className="px-2 space-y-0.5">
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Calendar className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Calendar className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Reservations</span>}
           </button>
         </div>
       </div>
-      <div className="mb-4">
+      <div className={sectionClass}>
         {!collapsed && (
           <div className="px-4 mb-2">
-            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Manage</span>
+            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Manage</span>
           </div>
         )}
-        <div className="px-2 space-y-0.5">
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Building className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Building className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Accounts</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <User className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <User className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Members</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Building2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Building2 className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Locations</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <CheckSquare className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <CheckSquare className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && (
               <>
                 <span className="flex-1 text-left">Products</span>
-                <ChevronUp className="h-4 w-4 text-slate-400" />
+                <ChevronUp className={cn("text-nav-label", mobileDrawer ? "h-5 w-5" : "h-4 w-4")} />
               </>
             )}
           </button>
           {!collapsed && (
-            <div className="pl-9 space-y-0.5">
-              <button type="button" onClick={handleClick} className="w-full text-left px-3 py-1.5 text-sm text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-md transition-colors">
+            <div className={cn("space-y-0.5", mobileDrawer ? "pl-12 space-y-1" : "pl-9 space-y-0.5")}>
+              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors", mobileDrawer ? "px-4 py-3 text-base text-nav-item hover:bg-nav-item-active-bg min-h-[44px]" : "px-3 py-1.5 text-sm text-nav-item hover:text-nav-item-active hover:bg-nav-item-active-bg")}>
                 Meeting Rooms
               </button>
-              <button type="button" onClick={handleClick} className="w-full text-left px-3 py-1.5 text-sm font-medium text-slate-900 bg-slate-100 rounded-md transition-colors">
+              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors font-medium text-nav-item-active bg-nav-item-active-bg", mobileDrawer ? "px-4 py-3 text-base min-h-[44px]" : "px-3 py-1.5 text-sm")}>
                 Offices
               </button>
             </div>
           )}
         </div>
       </div>
-      <div className="mb-4">
+      <div className={sectionClass}>
         {!collapsed && (
           <div className="px-4 mb-2">
-            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Sales</span>
+            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Sales</span>
           </div>
         )}
-        <div className="px-2 space-y-0.5">
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Tag className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Tag className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Promotions</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <FileText className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <FileText className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Proposals</span>}
           </button>
         </div>
       </div>
-      <div className="mb-4">
+      <div className={sectionClass}>
         {!collapsed && (
           <div className="px-4 mb-2">
-            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Finance</span>
+            <span className={cn("font-semibold text-nav-label uppercase tracking-wider", labelClass)}>Finance</span>
           </div>
         )}
-        <div className="px-2 space-y-0.5">
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Wallet className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Wallet className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Security Deposits</span>}
           </button>
         </div>
       </div>
-      <div className="border-t border-slate-100 py-3">
-        <div className="px-2 space-y-0.5">
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <BarChart3 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+      <div className={cn("border-t border-sidebar-border", mobileDrawer ? "py-4" : "py-3")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <BarChart3 className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Analytics</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Link2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Link2 className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Shortcuts</span>}
           </button>
-          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
-            <Sparkles className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+          <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
+            <Sparkles className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Product Updates</span>}
           </button>
         </div>
@@ -312,14 +322,14 @@ export function OfficesPageClient() {
         return (
           <Badge
             variant="outline"
-            className="border-[#1a7f64] text-[#1a7f64] bg-transparent font-normal"
+            className="border-primary text-primary bg-transparent font-normal"
           >
             Available
           </Badge>
         );
       case "occupied":
         return (
-          <Badge className="bg-[#f0f0f0] text-foreground hover:bg-[#f0f0f0] font-normal">
+          <Badge className="bg-secondary text-foreground hover:bg-secondary font-normal">
             Occupied
           </Badge>
         );
@@ -355,72 +365,61 @@ export function OfficesPageClient() {
   const useCards = showCardsOnly || (showListToggle && listUi === 'cards');
 
   return (
-    <div className="flex h-screen bg-background">
-      {/* Left Sidebar Navigation - persistent on lg+ */}
-      {showPersistentSidebar && (
-        <aside className={cn(
-          "h-screen border-r border-slate-200 bg-white flex flex-col transition-all duration-200 shrink-0 relative",
-          sidebarCollapsed ? "w-14" : "w-52"
-        )}>
-          <button
-            type="button"
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="absolute -right-3 top-6 z-10 w-6 h-6 flex items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm hover:bg-slate-50 hover:shadow transition-all"
-          >
-            {sidebarCollapsed ? <ChevronRight className="h-3.5 w-3.5 text-slate-500" /> : <ChevronLeft className="h-3.5 w-3.5 text-slate-500" />}
-          </button>
-          <SidebarNavContent collapsed={sidebarCollapsed} />
-        </aside>
-      )}
-
-      {/* Nav drawer for mobile/tablet (< lg) */}
-      <Sheet open={navDrawerOpen} onOpenChange={setNavDrawerOpen}>
-        <SheetContent side="left" className="w-full max-w-[85vw] sm:max-w-sm p-0">
-          <SheetHeader className="sr-only">
-            <SheetTitle>Navigation menu</SheetTitle>
-          </SheetHeader>
-          <div className="flex flex-col h-full pt-6">
-            <SidebarNavContent collapsed={false} onItemClick={() => setNavDrawerOpen(false)} />
+    <div className="flex flex-col h-screen bg-background">
+      {/* Top Header - full width, above sidebar and content */}
+      <header className="h-14 border-b border-border flex items-center justify-between px-4 md:px-6 bg-background shrink-0 gap-2">
+          <div className="flex items-center min-w-0 flex-1 gap-3 sm:gap-0">
+            {/* Left block: on desktop fixed width for pipe alignment; on mobile bee icon + Admin Portal */}
+            <div
+              className={cn(
+                "flex items-center min-w-0 shrink-0",
+                showPersistentSidebar && "w-[11.5rem] md:w-[11rem]",
+                !showPersistentSidebar && "gap-3"
+              )}
+            >
+              {/* Mobile: small bee icon in left corner with spacing */}
+              <img
+                src="/ind-logo-bee-small.png"
+                alt="Industrious"
+                className="h-6 w-auto shrink-0 sm:hidden mr-2"
+                onError={(e) => {
+                  e.currentTarget.classList.add("!hidden");
+                }}
+              />
+              <img
+                src="/ind-logo-horizontal.png"
+                alt="Industrious"
+                className="header-logo-img h-7 object-contain object-left w-auto max-w-[160px] shrink-0 hidden sm:block"
+                onError={(e) => {
+                  e.currentTarget.classList.add("!hidden");
+                }}
+              />
+            </div>
+            {/* Pipe + Admin Portal: pipe lines up with sidebar border when sidebar visible */}
+            <span className="hidden sm:inline text-sm font-semibold text-muted-foreground mx-1.5 shrink-0">
+              |
+            </span>
+            <span className="hidden sm:inline text-sm font-semibold tracking-wide truncate">
+              Admin Portal
+            </span>
+            <span className="text-sm font-semibold tracking-wide truncate sm:hidden" aria-hidden="true">
+              Admin Portal
+            </span>
           </div>
-        </SheetContent>
-      </Sheet>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Header */}
-        <header className="h-14 border-b border-border flex items-center justify-between px-4 md:px-6 bg-background shrink-0 gap-2">
-          <div className="flex items-center gap-2 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            {/* Mobile: hamburger on the right */}
             {!showPersistentSidebar && (
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-9 w-9 shrink-0"
+                className="h-9 w-9 shrink-0 sm:hidden"
                 onClick={() => setNavDrawerOpen(true)}
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
               </Button>
             )}
-            <svg
-              className="h-5 w-5 shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"
-                fill="currentColor"
-              />
-            </svg>
-            <span className="text-sm font-semibold tracking-wide truncate">
-              <span className="hidden sm:inline">INDUSTRIOUS</span>
-              <span className="sm:hidden">Admin</span>
-              <span className="hidden md:inline text-muted-foreground mx-1.5">|</span>
-              <span className="hidden md:inline text-sm">Admin Portal</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Button
               variant="outline"
               size="sm"
@@ -433,7 +432,7 @@ export function OfficesPageClient() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-sm font-normal h-9 gap-2"
+                  className="text-sm font-normal h-9 gap-2 hidden sm:inline-flex"
                 >
                   Evelyn Lee
                   <ChevronDown className="h-4 w-4" />
@@ -449,7 +448,40 @@ export function OfficesPageClient() {
           </div>
         </header>
 
-        {/* Page Content */}
+      {/* Body: sidebar + main content */}
+      <div className="flex flex-1 min-h-0">
+        {/* Left Sidebar Navigation - persistent on lg+, below header */}
+        {showPersistentSidebar && (
+          <aside className={cn(
+            "border-r border-sidebar-border bg-sidebar flex flex-col min-h-0 transition-all duration-200 shrink-0 relative",
+            sidebarCollapsed ? "w-14" : "w-52"
+          )}>
+          <button
+            type="button"
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="absolute -right-3 top-4 z-10 w-6 h-6 flex items-center justify-center rounded-full bg-sidebar border border-sidebar-border shadow-sm hover:bg-sidebar-accent hover:shadow transition-all"
+            aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            {sidebarCollapsed ? <ChevronRight className="h-3.5 w-3.5 text-nav-label" /> : <ChevronLeft className="h-3.5 w-3.5 text-nav-label" />}
+          </button>
+          <SidebarNavContent collapsed={sidebarCollapsed} />
+        </aside>
+        )}
+
+        {/* Nav drawer for mobile/tablet (< lg) */}
+        <Sheet open={navDrawerOpen} onOpenChange={setNavDrawerOpen}>
+          <SheetContent side="right" className="w-full max-w-[100vw] sm:max-w-sm p-0 flex flex-col">
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigation menu</SheetTitle>
+            </SheetHeader>
+            <div className="flex flex-col h-full pt-8 pb-8 px-5 sm:px-4">
+              <SidebarNavContent collapsed={false} onItemClick={() => setNavDrawerOpen(false)} mobileDrawer />
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        {/* Main Content - no header here */}
+        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <main className="flex-1 overflow-auto">
           <div className="p-4 sm:p-6">
             {/* Page Header - stacks on mobile */}
@@ -480,7 +512,7 @@ export function OfficesPageClient() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Button className="bg-[#1a3a2f] hover:bg-[#0f2a1f] text-white gap-2 min-h-[44px] shrink-0 w-full sm:w-auto">
+              <Button className="bg-primary-dark hover:bg-primary-dark-hover text-primary-foreground gap-2 min-h-[44px] shrink-0 w-full sm:w-auto">
                 <Plus className="h-4 w-4" />
                 New office
               </Button>
@@ -761,31 +793,31 @@ export function OfficesPageClient() {
                 )}
                 {/* Table - tablet (when toggled) and desktop */}
                 {!useCards && (
-                <div className="border border-border rounded-lg overflow-hidden bg-card flex-1 flex flex-col min-w-0">
+                <div className="border border-border rounded-lg overflow-hidden bg-card flex-1 flex flex-col min-w-0 shadow-xs">
                   <div className="overflow-x-auto flex-1 min-w-0">
                     <Table className="min-w-[600px]">
                       <TableHeader>
-                        <TableRow className="bg-muted/50 hover:bg-muted/50">
-                          <TableHead className="w-10 sticky left-0 z-10 bg-muted/50" />
-                          <TableHead className="font-medium text-foreground sticky left-10 z-10 bg-muted/50 min-w-[120px]">
+                        <TableRow className="bg-table-header-bg hover:bg-table-header-bg">
+                          <TableHead className="w-10 sticky left-0 z-10 bg-table-header-bg" />
+                          <TableHead className="font-medium text-table-header-foreground sticky left-10 z-10 bg-table-header-bg min-w-[120px]">
                             Office number
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             Price
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             Seats
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             Floor
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             Window/Interior
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             Status
                           </TableHead>
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="font-medium text-table-header-foreground">
                             <div className="flex items-center gap-1">
                               Available date
                               <TooltipProvider>
@@ -820,7 +852,7 @@ export function OfficesPageClient() {
                               <TableCell className="sticky left-10 z-10 bg-card min-w-[120px]">
                                 <button
                                   type="button"
-                                  className="text-[#1a7f64] hover:underline cursor-pointer font-medium bg-transparent border-none p-0"
+                                  className="text-primary hover:underline cursor-pointer font-medium bg-transparent border-none p-0"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     setSelectedSpaceForDrawer(space);
@@ -833,10 +865,10 @@ export function OfficesPageClient() {
                               <TableCell>
                                 ${space.price.toLocaleString()}/mo
                               </TableCell>
-                              <TableCell className="text-[#1a7f64]">
+                              <TableCell className="text-primary">
                                 {space.capacity}
                               </TableCell>
-                              <TableCell className="text-[#1a7f64]">
+                              <TableCell className="text-primary">
                                 {space.floor}
                               </TableCell>
                               <TableCell>
@@ -876,7 +908,7 @@ export function OfficesPageClient() {
                                               href={`https://admin-portal.industriousoffice.com/accounts/unit/${space.id || '67abf8ac06607405a6995136'}`}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="text-[#1a7f64] hover:underline flex items-center gap-1"
+                                              className="text-primary hover:underline flex items-center gap-1"
                                               onClick={(e) => e.stopPropagation()}
                                             >
                                               {space.occupiedBy || "N/A"}
@@ -1163,6 +1195,7 @@ export function OfficesPageClient() {
             )}
           </div>
         </main>
+        </div>
       </div>
 
       {/* Office Detail Drawer */}
@@ -1222,7 +1255,7 @@ export function OfficesPageClient() {
                           href={`https://admin-portal.industriousoffice.com/accounts/unit/${selectedSpaceForDrawer.id || '67abf8ac06607405a6995136'}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#1a7f64] hover:underline font-medium inline-flex items-center gap-1"
+                          className="text-primary hover:underline font-medium inline-flex items-center gap-1"
                         >
                           {selectedSpaceForDrawer.occupiedBy}
                           <ExternalLink className="h-3 w-3" />
@@ -1297,23 +1330,23 @@ export function OfficesPageClient() {
 
                 {/* Package Details - Enhanced for offices with 8+ seats */}
                 {selectedSpaceForDrawer.capacity > 8 ? (
-                  <div className="p-3 rounded-lg border-2 border-[#1a7f64]/30 bg-gradient-to-br from-[#e8f5f1] to-white">
-                    <div className="text-xs font-semibold text-[#1a7f64] uppercase tracking-wide mb-3">
+                  <div className="p-3 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary-muted to-white">
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">
                       Package Includes
                     </div>
                     <div className="grid grid-cols-3 gap-3">
                       <div className="text-center p-2 rounded-md bg-white/80">
-                        <div className="w-8 h-8 rounded-full bg-[#1a7f64]/10 flex items-center justify-center mx-auto mb-1.5">
-                          <Users className="h-4 w-4 text-[#1a7f64]" />
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
+                          <Users className="h-4 w-4 text-primary" />
                         </div>
-                        <div className="text-lg font-bold text-[#1a7f64]">{selectedSpaceForDrawer.capacity}</div>
+                        <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity}</div>
                         <div className="text-[10px] text-muted-foreground">Seats</div>
                       </div>
                       <div className="text-center p-2 rounded-md bg-white/80">
-                        <div className="w-8 h-8 rounded-full bg-[#1a7f64]/10 flex items-center justify-center mx-auto mb-1.5">
-                          <Users className="h-4 w-4 text-[#1a7f64]" />
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
+                          <Users className="h-4 w-4 text-primary" />
                         </div>
-                        <div className="text-lg font-bold text-[#1a7f64]">{selectedSpaceForDrawer.capacity + 2}</div>
+                        <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity + 2}</div>
                         <div className="text-[10px] text-muted-foreground">Memberships Included</div>
                       </div>
                       <div className="text-center p-2 rounded-md bg-white/80">
@@ -1326,10 +1359,10 @@ export function OfficesPageClient() {
                     </div>
                   </div>
                 ) : (
-                  <div className="flex gap-4 p-3 rounded-lg border border-border bg-muted/20">
+                    <div className="flex gap-4 p-3 rounded-lg border border-border bg-muted/20">
                     <div className="flex items-center gap-2.5 flex-1">
-                      <div className="w-8 h-8 rounded-md bg-[#e8f5f1] flex items-center justify-center shrink-0">
-                        <Users className="h-4 w-4 text-[#1a7f64]" />
+                      <div className="w-8 h-8 rounded-md bg-primary-muted flex items-center justify-center shrink-0">
+                        <Users className="h-4 w-4 text-primary" />
                       </div>
                       <div>
                         <div className="text-base font-semibold leading-none">{selectedSpaceForDrawer.capacity + 2}</div>
@@ -1372,11 +1405,11 @@ export function OfficesPageClient() {
                 </div>
 
                 {/* Price Display */}
-                <div className="p-3 rounded-lg bg-[#e8f5f1] border border-[#1a7f64]/20">
+                <div className="p-3 rounded-lg bg-primary-muted border border-primary/20">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs text-muted-foreground">Monthly Rate</div>
-                      <div className="text-xl font-bold text-[#1a7f64]">
+                      <div className="text-xl font-bold text-primary">
                         ${Math.round(selectedSpaceForDrawer.price * (1 - (selectedTerm - 1) * 0.01)).toLocaleString()}/mo
                       </div>
                     </div>
@@ -1395,7 +1428,7 @@ export function OfficesPageClient() {
               {/* CTA Buttons - Fixed at bottom */}
               <div className="px-4 py-4 mt-auto shrink-0 border-t border-border/50 bg-background">
                 <div className="space-y-2">
-                  <Button className="w-full h-10 bg-[#1a3a2f] hover:bg-[#0f2a1f] gap-2">
+                  <Button className="w-full h-10 bg-primary-dark hover:bg-primary-dark-hover gap-2">
                     <Settings className="h-4 w-4" />
                     Manage Office
                   </Button>
