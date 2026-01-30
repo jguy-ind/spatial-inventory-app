@@ -386,10 +386,10 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
   const svgViewBox = `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`;
 
   return (
-    <div className="border border-border rounded-lg overflow-hidden bg-card h-[calc(100vh-260px)] min-h-[420px] flex flex-col">
-      {/* Toolbar */}
-      <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
-        <div className="flex items-center gap-3">
+    <div className="border border-border rounded-lg overflow-hidden bg-card min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)] flex flex-col">
+      {/* Toolbar - wraps on small screens */}
+      <div className="min-h-12 border-b border-border flex flex-wrap items-center justify-between gap-2 px-3 md:px-4 py-2 bg-muted/30 shrink-0">
+        <div className="flex flex-wrap items-center gap-2 md:gap-3">
           <Select value={currentFloor.toString()} onValueChange={(v) => setCurrentFloor(Number.parseInt(v))}>
             <SelectTrigger className="w-32 h-8"><SelectValue placeholder="Select floor" /></SelectTrigger>
             <SelectContent>{floors.map((floor) => (<SelectItem key={floor} value={floor.toString()}>Floor {floor}</SelectItem>))}</SelectContent>

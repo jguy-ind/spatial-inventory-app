@@ -80,6 +80,8 @@ import {
 
 import { FloorPlanView } from "@/components/offices/floor-plan-view";
 import { cn } from "@/lib/utils";
+import { useBreakpoint } from "@/hooks/use-mobile";
+import { Menu } from "lucide-react";
 
 const PRICING_OPTIONS = [
   { label: "12-23 months", value: "12-23" },
@@ -94,9 +96,160 @@ const STATUS_OPTIONS: { label: string; value: SpaceStatus }[] = [
   { label: "Maintenance", value: "maintenance" },
 ];
 
+function OfficeCard({
+  space,
+  onSelect,
+  getStatusBadge,
+}: {
+  space: Space;
+  onSelect: () => void;
+  getStatusBadge: (status: SpaceStatus) => React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className="w-full text-left p-4 rounded-lg border border-border bg-card hover:bg-muted/30 transition-colors"
+    >
+      <div className="flex items-start justify-between gap-2 mb-2">
+        <span className="font-medium text-[#1a7f64]">{space.name}</span>
+        {getStatusBadge(space.status)}
+      </div>
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+        <span>${space.price.toLocaleString()}/mo</span>
+        <span>{space.capacity} seats</span>
+        <span>Floor {space.floor}</span>
+      </div>
+      <div className="mt-2 text-xs text-muted-foreground">
+        {space.status === "occupied"
+          ? `Move-out: ${space.moveOutDate || "pending"}`
+          : `Available: ${space.availableFrom || "Today"}`}
+      </div>
+    </button>
+  );
+}
+
+function SidebarNavContent({
+  collapsed,
+  onItemClick,
+}: {
+  collapsed: boolean;
+  onItemClick?: () => void;
+}) {
+  const handleClick = () => {
+    onItemClick?.();
+  };
+  return (
+    <nav className="flex-1 overflow-y-auto py-4">
+      <div className="mb-4">
+        {!collapsed && (
+          <div className="px-4 mb-2">
+            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Activity</span>
+          </div>
+        )}
+        <div className="px-2 space-y-0.5">
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Calendar className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Reservations</span>}
+          </button>
+        </div>
+      </div>
+      <div className="mb-4">
+        {!collapsed && (
+          <div className="px-4 mb-2">
+            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Manage</span>
+          </div>
+        )}
+        <div className="px-2 space-y-0.5">
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Building className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Accounts</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <User className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Members</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Building2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Locations</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <CheckSquare className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && (
+              <>
+                <span className="flex-1 text-left">Products</span>
+                <ChevronUp className="h-4 w-4 text-slate-400" />
+              </>
+            )}
+          </button>
+          {!collapsed && (
+            <div className="pl-9 space-y-0.5">
+              <button type="button" onClick={handleClick} className="w-full text-left px-3 py-1.5 text-sm text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-md transition-colors">
+                Meeting Rooms
+              </button>
+              <button type="button" onClick={handleClick} className="w-full text-left px-3 py-1.5 text-sm font-medium text-slate-900 bg-slate-100 rounded-md transition-colors">
+                Offices
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="mb-4">
+        {!collapsed && (
+          <div className="px-4 mb-2">
+            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Sales</span>
+          </div>
+        )}
+        <div className="px-2 space-y-0.5">
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Tag className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Promotions</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <FileText className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Proposals</span>}
+          </button>
+        </div>
+      </div>
+      <div className="mb-4">
+        {!collapsed && (
+          <div className="px-4 mb-2">
+            <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Finance</span>
+          </div>
+        )}
+        <div className="px-2 space-y-0.5">
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Wallet className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Security Deposits</span>}
+          </button>
+        </div>
+      </div>
+      <div className="border-t border-slate-100 py-3">
+        <div className="px-2 space-y-0.5">
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <BarChart3 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Analytics</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Link2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Shortcuts</span>}
+          </button>
+          <button type="button" onClick={handleClick} className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", collapsed && "justify-center")}>
+            <Sparkles className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+            {!collapsed && <span>Product Updates</span>}
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export function OfficesPageClient() {
   const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
     useAppStore();
+  const breakpoint = useBreakpoint();
+  const showPersistentSidebar = breakpoint === "desktop";
+  const [navDrawerOpen, setNavDrawerOpen] = useState(false);
   const [selectedPricing, setSelectedPricing] = useState<string[]>(["24-35"]);
   const [selectedStatuses, setSelectedStatuses] = useState<SpaceStatus[]>([
     "available",
@@ -195,143 +348,59 @@ export function OfficesPageClient() {
     return space.amenities.includes("Window View") ? "Window" : "Interior";
   };
 
+  const [listUi, setListUi] = useState<'cards' | 'table'>('table');
+  const showCardsOnly = breakpoint === 'mobile';
+  const showTableOnly = breakpoint === 'desktop';
+  const showListToggle = !showCardsOnly && !showTableOnly;
+  const useCards = showCardsOnly || (showListToggle && listUi === 'cards');
+
   return (
     <div className="flex h-screen bg-background">
-      {/* Left Sidebar Navigation */}
-      <aside className={cn(
-        "h-screen border-r border-slate-200 bg-white flex flex-col transition-all duration-200 shrink-0 relative",
-        sidebarCollapsed ? "w-14" : "w-52"
-      )}>
-        {/* Collapse Toggle - Positioned at edge */}
-        <button 
-          type="button"
-          onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-          className="absolute -right-3 top-6 z-10 w-6 h-6 flex items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm hover:bg-slate-50 hover:shadow transition-all"
-        >
-          {sidebarCollapsed ? <ChevronRight className="h-3.5 w-3.5 text-slate-500" /> : <ChevronLeft className="h-3.5 w-3.5 text-slate-500" />}
-        </button>
-        
-        {/* Navigation Content */}
-        <nav className="flex-1 overflow-y-auto py-4">
-          {/* ACTIVITY Section */}
-          <div className="mb-4">
-            {!sidebarCollapsed && (
-              <div className="px-4 mb-2">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Activity</span>
-              </div>
-            )}
-            <div className="px-2 space-y-0.5">
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <Calendar className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Reservations</span>}
-              </button>
-            </div>
-          </div>
+      {/* Left Sidebar Navigation - persistent on lg+ */}
+      {showPersistentSidebar && (
+        <aside className={cn(
+          "h-screen border-r border-slate-200 bg-white flex flex-col transition-all duration-200 shrink-0 relative",
+          sidebarCollapsed ? "w-14" : "w-52"
+        )}>
+          <button
+            type="button"
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="absolute -right-3 top-6 z-10 w-6 h-6 flex items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm hover:bg-slate-50 hover:shadow transition-all"
+          >
+            {sidebarCollapsed ? <ChevronRight className="h-3.5 w-3.5 text-slate-500" /> : <ChevronLeft className="h-3.5 w-3.5 text-slate-500" />}
+          </button>
+          <SidebarNavContent collapsed={sidebarCollapsed} />
+        </aside>
+      )}
 
-          {/* MANAGE Section */}
-          <div className="mb-4">
-            {!sidebarCollapsed && (
-              <div className="px-4 mb-2">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Manage</span>
-              </div>
-            )}
-            <div className="px-2 space-y-0.5">
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <Building className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Accounts</span>}
-              </button>
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <User className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Members</span>}
-              </button>
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <Building2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Locations</span>}
-              </button>
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <CheckSquare className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && (
-                  <>
-                    <span className="flex-1 text-left">Products</span>
-                    <ChevronUp className="h-4 w-4 text-slate-400" />
-                  </>
-                )}
-              </button>
-              {!sidebarCollapsed && (
-                <div className="pl-9 space-y-0.5">
-                  <button type="button" className="w-full text-left px-3 py-1.5 text-sm text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-md transition-colors">
-                    Meeting Rooms
-                  </button>
-                  <button type="button" className="w-full text-left px-3 py-1.5 text-sm font-medium text-slate-900 bg-slate-100 rounded-md transition-colors">
-                    Offices
-                  </button>
-                </div>
-              )}
-            </div>
+      {/* Nav drawer for mobile/tablet (< lg) */}
+      <Sheet open={navDrawerOpen} onOpenChange={setNavDrawerOpen}>
+        <SheetContent side="left" className="w-full max-w-[85vw] sm:max-w-sm p-0">
+          <div className="flex flex-col h-full pt-6">
+            <SidebarNavContent collapsed={false} onItemClick={() => setNavDrawerOpen(false)} />
           </div>
-
-          {/* SALES Section */}
-          <div className="mb-4">
-            {!sidebarCollapsed && (
-              <div className="px-4 mb-2">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Sales</span>
-              </div>
-            )}
-            <div className="px-2 space-y-0.5">
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <Tag className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Promotions</span>}
-              </button>
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <FileText className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Proposals</span>}
-              </button>
-            </div>
-          </div>
-
-          {/* FINANCE Section */}
-          <div className="mb-4">
-            {!sidebarCollapsed && (
-              <div className="px-4 mb-2">
-                <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Finance</span>
-              </div>
-            )}
-            <div className="px-2 space-y-0.5">
-              <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-                <Wallet className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-                {!sidebarCollapsed && <span>Security Deposits</span>}
-              </button>
-            </div>
-          </div>
-        </nav>
-
-        {/* Bottom Section */}
-        <div className="border-t border-slate-100 py-3">
-          <div className="px-2 space-y-0.5">
-            <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-              <BarChart3 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-              {!sidebarCollapsed && <span>Analytics</span>}
-            </button>
-            <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-              <Link2 className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-              {!sidebarCollapsed && <span>Shortcuts</span>}
-            </button>
-            <button type="button" className={cn("w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-md transition-colors", sidebarCollapsed && "justify-center")}>
-              <Sparkles className="h-[18px] w-[18px] shrink-0 text-slate-500" />
-              {!sidebarCollapsed && <span>Product Updates</span>}
-            </button>
-          </div>
-        </div>
-      </aside>
+        </SheetContent>
+      </Sheet>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header */}
-        <header className="h-14 border-b border-border flex items-center justify-between px-6 bg-background shrink-0">
-          <div className="flex items-center">
-            {/* Industrious Logo Icon */}
+        <header className="h-14 border-b border-border flex items-center justify-between px-4 md:px-6 bg-background shrink-0 gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            {!showPersistentSidebar && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9 shrink-0"
+                onClick={() => setNavDrawerOpen(true)}
+                aria-label="Open menu"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            )}
             <svg
-              className="h-5 w-5 mr-2"
+              className="h-5 w-5 shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -341,15 +410,18 @@ export function OfficesPageClient() {
                 fill="currentColor"
               />
             </svg>
-            <span className="text-sm font-semibold tracking-wide">INDUSTRIOUS</span>
-            <span className="text-muted-foreground mx-1.5">|</span>
-            <span className="text-sm">Admin Portal</span>
+            <span className="text-sm font-semibold tracking-wide truncate">
+              <span className="hidden sm:inline">INDUSTRIOUS</span>
+              <span className="sm:hidden">Admin</span>
+              <span className="hidden md:inline text-muted-foreground mx-1.5">|</span>
+              <span className="hidden md:inline text-sm">Admin Portal</span>
+            </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Button
               variant="outline"
               size="sm"
-              className="text-sm font-normal h-9 bg-transparent"
+              className="hidden sm:inline-flex text-sm font-normal h-9 bg-transparent"
             >
               Go To Member Portal
             </Button>
@@ -376,17 +448,17 @@ export function OfficesPageClient() {
 
         {/* Page Content */}
         <main className="flex-1 overflow-auto">
-          <div className="p-6">
-            {/* Page Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-semibold">Offices</h1>
-                <span className="text-muted-foreground">/</span>
+          <div className="p-4 sm:p-6">
+            {/* Page Header - stacks on mobile */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-6">
+              <div className="flex items-center gap-2 flex-wrap min-w-0">
+                <h1 className="text-xl sm:text-2xl font-semibold shrink-0">Offices</h1>
+                <span className="text-muted-foreground hidden sm:inline">/</span>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="text-base font-normal gap-1 h-auto p-1"
+                      className="text-base font-normal gap-1 h-auto min-h-[44px] p-1 sm:p-2"
                     >
                       {currentBuildingData?.name || "Select Location"}
                       <ChevronDown className="h-4 w-4" />
@@ -405,7 +477,7 @@ export function OfficesPageClient() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Button className="bg-[#1a3a2f] hover:bg-[#0f2a1f] text-white gap-2">
+              <Button className="bg-[#1a3a2f] hover:bg-[#0f2a1f] text-white gap-2 min-h-[44px] shrink-0 w-full sm:w-auto">
                 <Plus className="h-4 w-4" />
                 New office
               </Button>
@@ -421,13 +493,13 @@ export function OfficesPageClient() {
               const occupancyRate = totalSeats > 0 ? Math.round((occupiedSeats / totalSeats) * 100) : 0;
               
               return (
-                <div className="bg-white rounded-lg border border-slate-200 px-4 py-2.5 mb-3 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-5">
+                <div className="bg-white rounded-lg border border-slate-200 px-3 md:px-4 py-2.5 mb-3 shadow-sm">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
+                    <div className="flex flex-wrap items-center gap-3 md:gap-5">
                       {/* Occupancy Rate - Compact */}
                       <div className="flex items-center gap-2.5">
                         <div className={cn(
-                          "w-10 h-10 rounded-lg flex items-center justify-center font-bold text-base",
+                          "w-10 h-10 rounded-lg flex items-center justify-center font-bold text-base shrink-0",
                           occupancyRate >= 80 ? "bg-emerald-100 text-emerald-700" :
                           occupancyRate >= 50 ? "bg-amber-100 text-amber-700" :
                           "bg-slate-100 text-slate-700"
@@ -439,27 +511,24 @@ export function OfficesPageClient() {
                           <p className="text-[11px] text-slate-500">{occupiedSeats} / {totalSeats} seats</p>
                         </div>
                       </div>
-                      
-                      <div className="h-8 w-px bg-slate-200" />
-                      
+                      <div className="h-px w-8 md:h-8 md:w-px bg-slate-200 shrink-0" />
                       {/* Office Metrics - Horizontal compact */}
-                      <div className="flex items-center gap-5">
+                      <div className="flex items-center gap-4 md:gap-5">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-lg font-bold text-slate-900">{totalOffices}</span>
+                          <span className="text-base md:text-lg font-bold text-slate-900">{totalOffices}</span>
                           <span className="text-xs text-slate-500">Total</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-lg font-bold text-emerald-600">{availableOffices}</span>
+                          <span className="text-base md:text-lg font-bold text-emerald-600">{availableOffices}</span>
                           <span className="text-xs text-slate-500">Available</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-lg font-bold text-slate-400">{occupiedOffices}</span>
+                          <span className="text-base md:text-lg font-bold text-slate-400">{occupiedOffices}</span>
                           <span className="text-xs text-slate-500">Occupied</span>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="text-[11px] text-slate-400">
+                    <div className="text-[11px] text-slate-400 shrink-0">
                       Floor 31 | {currentBuildingData?.name || "101 Marietta St"}
                     </div>
                   </div>
@@ -468,51 +537,51 @@ export function OfficesPageClient() {
             })()}
 
             {/* View Tabs and Filters */}
-            <div className="flex items-center justify-between mb-4 gap-4">
-              <div className="flex items-center gap-3">
-                {/* View Mode Tabs */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3 sm:gap-4">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {/* View Mode Tabs - min touch target 44px */}
                 <div className="flex items-center border border-border rounded-md overflow-hidden">
                   <Button
                     variant="ghost"
                     size="sm"
                     className={cn(
-                      "h-9 px-3 rounded-none gap-2 font-normal",
+                      "h-10 min-w-[44px] sm:h-9 sm:min-w-0 sm:px-3 rounded-none gap-1.5 sm:gap-2 font-normal",
                       viewMode === "list"
                         ? "bg-muted text-foreground"
                         : "text-muted-foreground"
                     )}
                     onClick={() => setViewMode("list")}
                   >
-                    <List className="h-4 w-4" />
-                    List
+                    <List className="h-4 w-4 shrink-0" />
+                    <span className="sm:inline">List</span>
                   </Button>
                   <Button
                     variant="ghost"
                     size="sm"
                     className={cn(
-                      "h-9 px-3 rounded-none gap-2 font-normal border-l border-border",
+                      "h-10 min-w-[44px] sm:h-9 sm:min-w-0 sm:px-3 rounded-none gap-1.5 sm:gap-2 font-normal border-l border-border",
                       viewMode === "2d"
                         ? "bg-muted text-foreground"
                         : "text-muted-foreground"
                     )}
                     onClick={() => setViewMode("2d")}
                   >
-                    <LayoutGrid className="h-4 w-4" />
-                    2D
+                    <LayoutGrid className="h-4 w-4 shrink-0" />
+                    <span className="sm:inline">2D</span>
                   </Button>
                   <Button
                     variant="ghost"
                     size="sm"
                     className={cn(
-                      "h-9 px-3 rounded-none gap-2 font-normal border-l border-border",
+                      "h-10 min-w-[44px] sm:h-9 sm:min-w-0 sm:px-3 rounded-none gap-1.5 sm:gap-2 font-normal border-l border-border",
                       viewMode === "3d"
                         ? "bg-muted text-foreground"
                         : "text-muted-foreground"
                     )}
                     onClick={() => setViewMode("3d")}
                   >
-                    <Box className="h-4 w-4" />
-                    3D
+                    <Box className="h-4 w-4 shrink-0" />
+                    <span className="sm:inline">3D</span>
                   </Button>
                 </div>
 
@@ -598,13 +667,13 @@ export function OfficesPageClient() {
                 )}
               </div>
 
-              {/* Search - Hidden on 3D and 2D tabs */}
+              {/* Search - Hidden on 3D and 2D tabs; full width on mobile */}
               {viewMode === "list" && (
-                <div className="relative w-72">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <div className="relative w-full max-w-full sm:max-w-xs md:w-72">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                   <Input
                     placeholder="Search by office name, occupant"
-                    className="pl-9 h-9"
+                    className="pl-9 h-9 min-h-[44px] sm:min-h-0"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -614,15 +683,88 @@ export function OfficesPageClient() {
 
             {/* Content based on view mode */}
             {viewMode === "list" && (
-              <div className="flex flex-col h-[calc(100vh-260px)] min-h-[420px]">
-                {/* List View Table */}
-                <div className="border border-border rounded-lg overflow-hidden bg-card flex-1 flex flex-col">
-                  <div className="overflow-auto flex-1">
-                    <Table>
+              <div className="flex flex-col min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]">
+                {/* Cards / Table toggle - tablet only */}
+                {showListToggle && (
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-sm text-muted-foreground">View:</span>
+                    <div className="flex rounded-md border border-border overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => setListUi('cards')}
+                        className={cn(
+                          "px-3 py-1.5 text-sm",
+                          listUi === 'cards' ? "bg-muted font-medium" : "text-muted-foreground hover:bg-muted/50"
+                        )}
+                      >
+                        Cards
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setListUi('table')}
+                        className={cn(
+                          "px-3 py-1.5 text-sm border-l border-border",
+                          listUi === 'table' ? "bg-muted font-medium" : "text-muted-foreground hover:bg-muted/50"
+                        )}
+                      >
+                        Table
+                      </button>
+                    </div>
+                  </div>
+                )}
+                {/* Card list - mobile and tablet when toggled */}
+                {useCards && (
+                  <div className="flex-1 overflow-auto">
+                    <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+                      {filteredSpaces.map((space) => (
+                        <OfficeCard
+                          key={space.id}
+                          space={space}
+                          onSelect={() => {
+                            setSelectedSpaceForDrawer(space);
+                            setDrawerOpen(true);
+                          }}
+                          getStatusBadge={getStatusBadge}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between pt-3 mt-2 border-t border-border">
+                      <span className="text-sm text-muted-foreground">{filteredSpaces.length} offices</span>
+                      <div className="flex items-center gap-1">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-8 w-8"
+                          disabled={currentPage === 1}
+                          onClick={() => setCurrentPage((p) => p - 1)}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+                        <span className="text-sm px-2">
+                          {currentPage} / {Math.max(1, Math.ceil(filteredSpaces.length / itemsPerPage))}
+                        </span>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-8 w-8"
+                          disabled={currentPage >= Math.ceil(filteredSpaces.length / itemsPerPage) || filteredSpaces.length === 0}
+                          onClick={() => setCurrentPage((p) => p + 1)}
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {/* Table - tablet (when toggled) and desktop */}
+                {!useCards && (
+                <div className="border border-border rounded-lg overflow-hidden bg-card flex-1 flex flex-col min-w-0">
+                  <div className="overflow-x-auto flex-1 min-w-0">
+                    <Table className="min-w-[600px]">
                       <TableHeader>
                         <TableRow className="bg-muted/50 hover:bg-muted/50">
-                          <TableHead className="w-10" />
-                          <TableHead className="font-medium text-foreground">
+                          <TableHead className="w-10 sticky left-0 z-10 bg-muted/50" />
+                          <TableHead className="font-medium text-foreground sticky left-10 z-10 bg-muted/50 min-w-[120px]">
                             Office number
                           </TableHead>
                           <TableHead className="font-medium text-foreground">
@@ -664,7 +806,7 @@ export function OfficesPageClient() {
                               className="cursor-pointer hover:bg-muted/30"
                               onClick={() => toggleRowExpansion(space.id)}
                             >
-                              <TableCell className="w-10">
+                              <TableCell className="w-10 sticky left-0 z-10 bg-card">
                                 <ChevronDown
                                   className={cn(
                                     "h-4 w-4 text-muted-foreground transition-transform",
@@ -672,7 +814,7 @@ export function OfficesPageClient() {
                                   )}
                                 />
                               </TableCell>
-                              <TableCell>
+                              <TableCell className="sticky left-10 z-10 bg-card min-w-[120px]">
                                 <button
                                   type="button"
                                   className="text-[#1a7f64] hover:underline cursor-pointer font-medium bg-transparent border-none p-0"
@@ -796,71 +938,70 @@ export function OfficesPageClient() {
                       </TableBody>
                     </Table>
                   </div>
-
-                  </div>
-                
-                {/* Pagination - Fixed at bottom */}
-                <div className="flex items-center justify-between pt-3 shrink-0">
-                  <span className="text-sm text-muted-foreground">
-                    {filteredSpaces.length} offices
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 bg-transparent"
-                      disabled={currentPage === 1}
-                      onClick={() => setCurrentPage((p) => p - 1)}
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </Button>
-                    {Array.from({ length: Math.min(filteredSpaces.length / itemsPerPage, 3) }, (_, i) => (
+                  {/* Pagination - Fixed at bottom */}
+                  <div className="flex items-center justify-between pt-3 shrink-0 px-4 pb-2">
+                    <span className="text-sm text-muted-foreground">
+                      {filteredSpaces.length} offices
+                    </span>
+                    <div className="flex items-center gap-1">
                       <Button
-                        key={i + 1}
-                        variant={currentPage === i + 1 ? "default" : "outline"}
+                        variant="outline"
                         size="icon"
-                        className={cn(
-                          "h-8 w-8",
-                          currentPage === i + 1
-                            ? "bg-foreground text-background hover:bg-foreground/90"
-                            : "bg-transparent"
-                        )}
-                        onClick={() => setCurrentPage(i + 1)}
+                        className="h-8 w-8 bg-transparent"
+                        disabled={currentPage === 1}
+                        onClick={() => setCurrentPage((p) => p - 1)}
                       >
-                        {i + 1}
+                        <ChevronLeft className="h-4 w-4" />
                       </Button>
-                    ))}
-                    {filteredSpaces.length / itemsPerPage > 3 && (
-                      <>
-                        <span className="px-2 text-muted-foreground">...</span>
+                      {Array.from({ length: Math.min(Math.ceil(filteredSpaces.length / itemsPerPage), 3) }, (_, i) => (
                         <Button
-                          variant={
-                            currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) ? "default" : "outline"
-                          }
+                          key={i + 1}
+                          variant={currentPage === i + 1 ? "default" : "outline"}
                           size="icon"
                           className={cn(
                             "h-8 w-8",
-                            currentPage === Math.ceil(filteredSpaces.length / itemsPerPage)
+                            currentPage === i + 1
                               ? "bg-foreground text-background hover:bg-foreground/90"
                               : "bg-transparent"
                           )}
-                          onClick={() => setCurrentPage(Math.ceil(filteredSpaces.length / itemsPerPage))}
+                          onClick={() => setCurrentPage(i + 1)}
                         >
-                          {Math.ceil(filteredSpaces.length / itemsPerPage)}
+                          {i + 1}
                         </Button>
-                      </>
-                    )}
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 bg-transparent"
-                      disabled={currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) || filteredSpaces.length === 0}
-                      onClick={() => setCurrentPage((p) => p + 1)}
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </Button>
+                      ))}
+                      {Math.ceil(filteredSpaces.length / itemsPerPage) > 3 && (
+                        <>
+                          <span className="px-2 text-muted-foreground">...</span>
+                          <Button
+                            variant={
+                              currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) ? "default" : "outline"
+                            }
+                            size="icon"
+                            className={cn(
+                              "h-8 w-8",
+                              currentPage === Math.ceil(filteredSpaces.length / itemsPerPage)
+                                ? "bg-foreground text-background hover:bg-foreground/90"
+                                : "bg-transparent"
+                            )}
+                            onClick={() => setCurrentPage(Math.ceil(filteredSpaces.length / itemsPerPage))}
+                          >
+                            {Math.ceil(filteredSpaces.length / itemsPerPage)}
+                          </Button>
+                        </>
+                      )}
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-8 w-8 bg-transparent"
+                        disabled={currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) || filteredSpaces.length === 0}
+                        onClick={() => setCurrentPage((p) => p + 1)}
+                      >
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
+                )}
               </div>
             )}
 
@@ -878,9 +1019,9 @@ export function OfficesPageClient() {
             )}
 
             {viewMode === "3d" && (
-              <div className="flex gap-5 h-[calc(100vh-260px)] min-h-[420px]">
-                {/* Matterport Viewer - Primary Focus (takes most space) */}
-                <div className="flex-1 relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-5 min-h-[40vh] md:min-h-[420px] h-[50vh] md:h-[calc(100vh-260px)]">
+                {/* Matterport Viewer - Primary Focus (takes most space); full width when sidebar stacks below */}
+                <div className="flex-1 min-h-0 relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
                   <iframe
                     src="https://my.matterport.com/show/?m=8WCGaab4DrW"
                     className="w-full h-full"
@@ -911,8 +1052,8 @@ export function OfficesPageClient() {
                   </div>
                 </div>
 
-                {/* Right Sidebar - Compact, well-organized */}
-                <div className="w-56 flex flex-col gap-3 shrink-0">
+                {/* Right Sidebar - stacks below iframe on mobile/tablet */}
+                <div className="w-full lg:w-56 flex flex-col gap-3 shrink-0 lg:shrink-0">
                   {/* Location Context Card */}
                   <div className="bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
                     <div className="flex items-center gap-2.5 mb-2">
@@ -1023,7 +1164,7 @@ export function OfficesPageClient() {
 
       {/* Office Detail Drawer */}
       <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
-        <SheetContent className="w-[420px] sm:w-[460px] p-0 [&>button]:top-3 [&>button]:right-3 [&>button]:z-10 [&>button]:bg-white/90 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-1.5 [&>button]:shadow-md">
+        <SheetContent className="w-full max-w-[100vw] sm:max-w-[420px] sm:w-[420px] md:w-[460px] p-0 [&>button]:top-3 [&>button]:right-3 [&>button]:z-10 [&>button]:bg-white/90 [&>button]:backdrop-blur-sm [&>button]:rounded-full [&>button]:p-1.5 [&>button]:shadow-md">
           {selectedSpaceForDrawer && (
             <div className="flex flex-col h-full">
               <SheetHeader className="sr-only">
@@ -1299,7 +1440,7 @@ export function OfficesPageClient() {
 
       {/* 3D Modal */}
       <Dialog open={show3DModal} onOpenChange={setShow3DModal}>
-        <DialogContent className="max-w-5xl h-[80vh] p-0">
+        <DialogContent className="max-w-[100vw] w-full h-[90vh] sm:max-w-5xl sm:h-[80vh] p-0">
           <DialogHeader className="sr-only">
             <DialogTitle>3D View</DialogTitle>
           </DialogHeader>
