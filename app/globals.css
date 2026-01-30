@@ -4,39 +4,55 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.2 0.01 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.01 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.01 240);
-  --primary: oklch(0.35 0.1 160);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0.003 240);
-  --secondary-foreground: oklch(0.3 0.01 240);
-  --muted: oklch(0.96 0.003 240);
-  --muted-foreground: oklch(0.45 0.01 240);
-  --accent: oklch(0.35 0.1 160);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.55 0.2 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.003 240);
-  --input: oklch(0.92 0.003 240);
-  --ring: oklch(0.35 0.1 160);
-  --chart-1: oklch(0.35 0.1 160);
-  --chart-2: oklch(0.5 0.12 250);
-  --chart-3: oklch(0.65 0.15 45);
-  --chart-4: oklch(0.55 0.2 25);
-  --chart-5: oklch(0.6 0.12 280);
+  /* Figma design system – Industrious admin portal */
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #1a7f64;
+  --primary-foreground: #ffffff;
+  --primary-dark: #1a3a2f;
+  --primary-dark-hover: #0f2a1f; /* use hover:bg-primary-dark/90 or similar */
+  --primary-muted: #e8f5f1;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #374151;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --accent: #1a7f64;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #1a7f64;
+  --chart-1: #1a7f64;
+  --chart-2: #3b82f6;
+  --chart-3: #f59e0b;
+  --chart-4: #dc2626;
+  --chart-5: #8b5cf6;
   --radius: 0.375rem;
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.2 0.01 240);
-  --sidebar-primary: oklch(0.35 0.1 160);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.97 0.003 240);
-  --sidebar-accent-foreground: oklch(0.3 0.01 240);
-  --sidebar-border: oklch(0.92 0.003 240);
-  --sidebar-ring: oklch(0.35 0.1 160);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #1a7f64;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #374151;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #1a7f64;
+  /* Section labels, nav text */
+  --nav-label: #9ca3af;
+  --nav-item: #4b5563;
+  --nav-item-active: #111827;
+  --nav-item-active-bg: #f3f4f6;
+  /* Table */
+  --table-header-bg: #f9fafb;
+  --table-header-foreground: #111827;
+  --table-border: #e5e7eb;
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   
   /* Custom spatial app tokens - Industrious brand */
   --space-available: oklch(0.55 0.15 160);
@@ -87,8 +103,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: var(--font-hanken, 'Hanken Grotesk'), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -97,6 +113,9 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-dark-hover: var(--primary-dark-hover);
+  --color-primary-muted: var(--primary-muted);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -125,6 +144,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-nav-label: var(--nav-label);
+  --color-nav-item: var(--nav-item);
+  --color-nav-item-active: var(--nav-item-active);
+  --color-nav-item-active-bg: var(--nav-item-active-bg);
+  --color-table-header-bg: var(--table-header-bg);
+  --color-table-header-foreground: var(--table-header-foreground);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
 }
 
 @theme inline {

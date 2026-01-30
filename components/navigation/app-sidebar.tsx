@@ -159,7 +159,7 @@ export function AppSidebar({
     <TooltipProvider delayDuration={0}>
       <aside
         className={cn(
-          "h-screen border-r border-slate-200 bg-white flex flex-col transition-all duration-200 shrink-0 relative",
+          "h-screen border-r border-sidebar-border bg-sidebar flex flex-col transition-all duration-200 shrink-0 relative",
           isCollapsed ? "w-14" : "w-52",
           className
         )}
@@ -180,7 +180,7 @@ export function AppSidebar({
               {/* Section Label */}
               {!isCollapsed && (
                 <div className="px-4 mb-2">
-                  <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[10px] font-semibold text-nav-label uppercase tracking-wider">
                     {section.label}
                   </span>
                 </div>
@@ -202,20 +202,20 @@ export function AppSidebar({
                         "w-full flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-colors",
                         isCollapsed && "justify-center",
                         isItemActive && !hasChildren
-                          ? "font-medium text-slate-900 bg-slate-100"
-                          : "text-slate-600 hover:bg-slate-50"
+                          ? "font-medium text-nav-item-active bg-nav-item-active-bg"
+                          : "text-nav-item hover:bg-nav-item-active-bg"
                       )}
                       aria-expanded={hasChildren ? isExpanded : undefined}
                     >
-                      <Icon className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+                      <Icon className="h-[18px] w-[18px] shrink-0 text-nav-label" />
                       {!isCollapsed && (
                         <>
                           <span className="flex-1 text-left">{item.label}</span>
                           {hasChildren && (
                             isExpanded ? (
-                              <ChevronUp className="h-4 w-4 text-slate-400" />
+                              <ChevronUp className="h-4 w-4 text-nav-label" />
                             ) : (
-                              <ChevronDown className="h-4 w-4 text-slate-400" />
+                              <ChevronDown className="h-4 w-4 text-nav-label" />
                             )
                           )}
                         </>
@@ -252,8 +252,8 @@ export function AppSidebar({
                                 className={cn(
                                   "w-full text-left px-3 py-1.5 text-sm rounded-md transition-colors",
                                   isChildActive
-                                    ? "font-medium text-slate-900 bg-slate-100"
-                                    : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                                    ? "font-medium text-nav-item-active bg-nav-item-active-bg"
+                                    : "text-nav-item hover:text-nav-item-active hover:bg-nav-item-active-bg"
                                 )}
                               >
                                 {child.label}
@@ -271,7 +271,7 @@ export function AppSidebar({
         </nav>
 
         {/* Bottom Section */}
-        <div className="border-t border-slate-100 py-3">
+        <div className="border-t border-sidebar-border py-3">
           <div className="px-2 space-y-0.5">
             {bottomItems.map((item) => {
               const Icon = item.icon;
@@ -286,11 +286,11 @@ export function AppSidebar({
                     "w-full flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-colors",
                     isCollapsed && "justify-center",
                     isItemActive
-                      ? "font-medium text-slate-900 bg-slate-100"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "font-medium text-nav-item-active bg-nav-item-active-bg"
+                      : "text-nav-item hover:bg-nav-item-active-bg"
                   )}
                 >
-                  <Icon className="h-[18px] w-[18px] shrink-0 text-slate-500" />
+                  <Icon className="h-[18px] w-[18px] shrink-0 text-nav-label" />
                   {!isCollapsed && <span>{item.label}</span>}
                 </button>
               );
