@@ -281,7 +281,7 @@ const DEFAULT_MATTERPORT_URL =
   "https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57";
 
 export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryData }) {
-  const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
+  const { viewMode, setViewMode, currentBuilding, setCurrentBuilding, setSpaces } =
     useAppStore();
   const breakpoint = useBreakpoint();
   const showPersistentSidebar = breakpoint === "desktop";
@@ -319,6 +319,12 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
       setCurrentBuilding(buildings[0].id);
     }
   }, [buildings, currentBuilding, setCurrentBuilding]);
+
+  // Hydrate store with spaces from inventory (for MapCanvas, ShortlistPanel, CompareView)
+  useEffect(() => {
+    const allSpaces = Object.values(spacesByLocationId).flat();
+    setSpaces(allSpaces);
+  }, [spacesByLocationId, setSpaces]);
 
   // Delayed show/hide for floor plan hover card (UX: reduce flicker, allow moving between regions)
   const HOVER_CARD_SHOW_MS = 280;
@@ -608,11 +614,13 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
 
             {/* Persistent Location Overview - Compact for desktop */}
             {(() => {
-              const totalOffices = filteredSpaces.filter(s => s.type === "office" || s.type === "suite").length;
-              const occupiedOffices = filteredSpaces.filter(s => (s.type === "office" || s.type === "suite") && s.status === "occupied").length;
-              const availableOffices = filteredSpaces.filter(s => (s.type === "office" || s.type === "suite") && s.status === "available").length;
-              const totalSeats = filteredSpaces.filter(s => s.type === "office" || s.type === "suite").reduce((acc, s) => acc + s.capacity, 0);
-              const occupiedSeats = filteredSpaces.filter(s => (s.type === "office" || s.type === "suite") && s.status === "occupied").reduce((acc, s) => acc + s.capacity, 0);
+              const isOfficeOrSuite = (s: Space) => ["office", "suite"].includes(s.type);
+              const officeSpaces = filteredSpaces.filter(isOfficeOrSuite);
+              const totalOffices = officeSpaces.length;
+              const occupiedOffices = officeSpaces.filter(s => s.status === "occupied").length;
+              const availableOffices = officeSpaces.filter(s => s.status === "available").length;
+              const totalSeats = officeSpaces.reduce((acc, s) => acc + s.capacity, 0);
+              const occupiedSeats = officeSpaces.filter(s => s.status === "occupied").reduce((acc, s) => acc + s.capacity, 0);
               const occupancyRate = totalSeats > 0 ? Math.round((occupiedSeats / totalSeats) * 100) : 0;
 
               return (
@@ -1136,8 +1144,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 <FloorPlan
                   imageUrl={currentBuildingData.image}
                   regions={currentRegions}
-                  imageWidth={3300}
-                  imageHeight={2550}
+                  imageWidth={currentBuildingData.floorPlanWidth}
+                  imageHeight={currentBuildingData.floorPlanHeight}
                   flipY
                   onRegionClick={(region) => {
                     const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);

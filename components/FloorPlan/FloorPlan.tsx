@@ -6,6 +6,27 @@ import { cn } from "@/lib/utils";
 
 const PADDING = 20;
 
+/** Detect image dimensions on load; used when imageWidth/imageHeight are not provided. */
+function useImageDimensions(imageUrl: string): { width: number; height: number } | null {
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
+
+  React.useEffect(() => {
+    if (!imageUrl) return;
+    setDimensions(null);
+    const img = new Image();
+    img.onload = () => {
+      setDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.src = imageUrl;
+    return () => {
+      img.onload = null;
+      img.src = "";
+    };
+  }, [imageUrl]);
+
+  return dimensions;
+}
+
 function getBounds(regions: Region[]): {
   minX: number;
   minY: number;
@@ -63,14 +84,20 @@ export function FloorPlan({
   onRegionClick,
   onRegionHover,
   selectedRegionId,
-  imageWidth,
-  imageHeight,
+  imageWidth: imageWidthProp,
+  imageHeight: imageHeightProp,
   flipY = false,
   rotationDeg = 0,
   className,
 }: FloorPlanProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const detectedDimensions = useImageDimensions(imageUrl);
   const bounds = useMemo(() => getBounds(regions), [regions]);
+
+  // Use explicit props if provided; otherwise use auto-detected dimensions from image load
+  const imageWidth = imageWidthProp ?? detectedDimensions?.width;
+  const imageHeight = imageHeightProp ?? detectedDimensions?.height;
+
   const viewBox = useMemo(() => {
     if (imageWidth != null && imageHeight != null) {
       return `0 0 ${imageWidth} ${imageHeight}`;
