@@ -1,26 +1,25 @@
 /**
  * Resolves floor plan image URL from location data.
- * Handles local paths (./public/...) and future remote URLs (CDN/git link).
+ * Converts paths to file URLs; no fallback - returns empty string when unresolved.
  */
-const FALLBACK_FLOOR_PLAN = "/short-hills-floor-plan.png";
-
 export function resolveFloorPlanImageUrl(
   url: string | null | undefined
 ): string {
   if (!url || typeof url !== "string") {
-    return FALLBACK_FLOOR_PLAN;
+    return "";
   }
   const trimmed = url.trim();
-  if (!trimmed) return FALLBACK_FLOOR_PLAN;
+  if (!trimmed) return "";
 
   // Remote URL (https://, http://) - return as-is
   if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
     return trimmed;
   }
 
-  // Local path: ./public/short_hills_floorplan.png or ./public/... → /short-hills-floor-plan.png
-  if (trimmed.startsWith("./public/") || trimmed.includes("short_hills") || trimmed.includes("short-hills")) {
-    return FALLBACK_FLOOR_PLAN;
+  // Local path: ./public/<filename> → /<filename> (Next.js serves public at root)
+  if (trimmed.startsWith("./public/")) {
+    const filename = trimmed.slice("./public/".length);
+    return filename ? `/${filename}` : "";
   }
 
   // Already a root path like /short-hills-floor-plan.png
@@ -28,5 +27,5 @@ export function resolveFloorPlanImageUrl(
     return trimmed;
   }
 
-  return FALLBACK_FLOOR_PLAN;
+  return "";
 }

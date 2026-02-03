@@ -5,9 +5,6 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useAppStore } from "@/lib/store";
 import type { Space, SpaceStatus } from "@/lib/types";
 import type { InventoryData } from "@/lib/inventory-types";
-
-const DEFAULT_MATTERPORT_URL =
-  "https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -84,6 +81,7 @@ import {
 
 import { FloorPlanView } from "@/components/offices/floor-plan-view";
 import { FloorPlan } from "@/components/FloorPlan";
+import type { Region } from "@/components/FloorPlan";
 import { cn } from "@/lib/utils";
 import { useBreakpoint } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
@@ -279,15 +277,13 @@ function SidebarNavContent({
   );
 }
 
-interface OfficesPageClientProps {
-  inventoryData: InventoryData;
-}
+const DEFAULT_MATTERPORT_URL =
+  "https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57";
 
-export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
+export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryData }) {
   const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
     useAppStore();
   const breakpoint = useBreakpoint();
-  const prefersReducedMotion = useReducedMotion();
   const showPersistentSidebar = breakpoint === "desktop";
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
   const [selectedPricing, setSelectedPricing] = useState<string[]>(["24-35"]);
@@ -305,9 +301,9 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const [drawerPriceLoading, setDrawerPriceLoading] = useState(false);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
-  const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<Region | null>(null);
   const [floorPlanHoverCardVisible, setFloorPlanHoverCardVisible] = useState(false);
-  const [floorPlanDisplayRegion, setFloorPlanDisplayRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanDisplayRegion, setFloorPlanDisplayRegion] = useState<Region | null>(null);
   const [floorPlanHoverPosition, setFloorPlanHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
   const floorPlanContainerRef = useRef<HTMLDivElement>(null);
   const floorPlanHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -315,6 +311,16 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const itemsPerPage = 15;
 
   const { buildings, spacesByLocationId, regionsByLocationId } = inventoryData;
+  const prefersReducedMotion = useReducedMotion();
+
+  // Sync currentBuilding when it's not in the buildings list (e.g. first load with new data)
+  useEffect(() => {
+    if (buildings.length === 0) return;
+    const buildingIds = new Set(buildings.map((b) => b.id));
+    if (!currentBuilding || !buildingIds.has(currentBuilding)) {
+      setCurrentBuilding(buildings[0].id);
+    }
+  }, [buildings, currentBuilding, setCurrentBuilding]);
 
   // Delayed show/hide for floor plan hover card (UX: reduce flicker, allow moving between regions)
   const HOVER_CARD_SHOW_MS = 280;
@@ -359,48 +365,6 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
     }
   }, [buildings, currentBuilding, setCurrentBuilding]);
 
-  // Fetch price when drawer opens with an office or when term changes in drawer
-  useEffect(() => {
-    if (!drawerOpen || !selectedSpaceForDrawer?.id) {
-      setDrawerFetchedPrice(null);
-      return;
-    }
-    const url = `/api/offices/${encodeURIComponent(selectedSpaceForDrawer.id)}/pricing?term=${selectedTerm}`;
-    const request = { method: "GET", url };
-    console.log("[pricing] Request (floor plan office click):", JSON.stringify(request, null, 2));
-
-    let cancelled = false;
-    setDrawerPriceLoading(true);
-    fetch(url)
-      .then((res) => {
-        const responseMeta = {
-          status: res.status,
-          statusText: res.statusText,
-          url: res.url,
-          ok: res.ok,
-        };
-        return res.json().then((data: unknown) => {
-          console.log("[pricing] Response (floor plan office click):", JSON.stringify({ ...responseMeta, body: data }, null, 2));
-          return data as { price?: number };
-        });
-      })
-      .then((data) => {
-        if (!cancelled && typeof data?.price === "number") {
-          setDrawerFetchedPrice(data.price);
-        }
-      })
-      .catch((err) => {
-        console.log("[pricing] Response error (floor plan office click):", err);
-        if (!cancelled) setDrawerFetchedPrice(null);
-      })
-      .finally(() => {
-        if (!cancelled) setDrawerPriceLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [drawerOpen, selectedSpaceForDrawer?.id, selectedTerm]);
-
   // List-view spaces from inventory for current building
   const listSpacesForBuilding = useMemo(
     () => spacesByLocationId[currentBuilding] ?? [],
@@ -434,7 +398,6 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const currentBuildingData = buildings.find(
     (b) => b.id === currentBuilding
   );
-
   const currentRegions = regionsByLocationId[currentBuilding] ?? [];
   const currentSpaces = spacesByLocationId[currentBuilding] ?? [];
   const matterportUrl =
@@ -700,7 +663,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                       </div>
                     </div>
                     <div className="text-[11px] text-slate-400 shrink-0">
-                      Floor {currentBuildingData?.floors ?? 1} | {currentBuildingData?.name ?? "—"}
+                      Floor {currentBuildingData?.floors ?? 1} | {currentBuildingData?.name || "Short Hills"}
                     </div>
                   </div>
                 </div>
@@ -738,7 +701,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                     onClick={() => setViewMode("2d")}
                   >
                     <LayoutGrid className="h-4 w-4 shrink-0" />
-                    <span className="sm:inline">Floor plan</span>
+                    <span className="sm:inline">Floor Plan</span>
                   </Button>
                   <Button
                     variant="ghost"
@@ -1176,13 +1139,13 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
               </div>
             )}
 
-            {viewMode === "2d" && currentRegions.length > 0 && (
+            {viewMode === "2d" && currentBuildingData?.image && (
               <div
                 ref={floorPlanContainerRef}
                 className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
               >
                 <FloorPlan
-                  imageUrl={currentBuildingData?.image ?? "/short-hills-floor-plan.png"}
+                  imageUrl={currentBuildingData.image}
                   regions={currentRegions}
                   imageWidth={3300}
                   imageHeight={2550}
@@ -1207,7 +1170,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                     }
                   }}
                 />
-                {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated (UX best practices) */}
+                {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated */}
                 <AnimatePresence mode="wait">
                   {floorPlanHoverCardVisible && floorPlanDisplayRegion && (() => {
                     const space = currentSpaces.find((s) => s.name === floorPlanDisplayRegion.id || s.id === floorPlanDisplayRegion.id);
@@ -1249,7 +1212,6 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                         aria-live="polite"
                         aria-label={`${space.name}, ${space.status}`}
                       >
-                        {/* Primary: name + status */}
                         <div
                           className={cn(
                             "px-4 py-3 border-b",
@@ -1274,7 +1236,6 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                             </span>
                           </div>
                         </div>
-                        {/* Secondary: metrics row */}
                         {hasMetrics && (
                           <div className="px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-600 border-b border-slate-100">
                             {(space.capacity ?? 0) > 0 && (
@@ -1293,7 +1254,6 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                             )}
                           </div>
                         )}
-                        {/* Tertiary: affordance hint */}
                         <div className="px-4 py-2 bg-slate-50/80">
                           <p className="text-[11px] text-slate-500">Click for full details</p>
                         </div>
@@ -1303,7 +1263,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                 </AnimatePresence>
               </div>
             )}
-            {viewMode === "2d" && currentRegions.length === 0 && currentBuildingData && (
+            {viewMode === "2d" && currentBuildingData && !currentBuildingData.image && (
               <FloorPlanView
                 spaces={filteredSpaces}
                 building={currentBuildingData}
@@ -1365,7 +1325,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                     </div>
                     <div className="flex items-center gap-2 text-[11px] text-slate-500 pt-2 border-t border-slate-100">
                       <MapPin className="h-3 w-3" />
-                      <span>{currentBuildingData?.name ?? "—"}</span>
+                      <span>{currentBuildingData?.name || "101 Marietta St"}</span>
                     </div>
                   </div>
 

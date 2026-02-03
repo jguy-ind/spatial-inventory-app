@@ -3,7 +3,7 @@
     "_id": {
       "$oid": "6424657d16a40d45431865c6"
     },
-    "floorplanUrl": "./public/short_hills_floorplan.png",
+    "floorplanUrl": "/short-hills-floor-plan.png",
     "address": "1200 Morris Turnpike",
     "address2": "Suite 3005",
     "amenities": {
@@ -2813,5 +2813,2555 @@
         ]
       }
     ]
+  },
+  {
+    "_id": {
+      "$oid": "6424657d16a40d45431865e0"
+    },
+    "address": "500 N Brand Blvd",
+    "address2": "Suite 2000",
+    "amenities": {
+      "standard": [
+        "642ed3588bf6c389c39858ae",
+        "642ed358ac422fdb0f5315fb",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e3e6cf0fd868e6d584",
+        "643755e38d8f008035da4a5c",
+        "643756618d8f008035da4a65",
+        "643756611ea063e001eb4f87",
+        "6746afa231c07c4d86ec567f",
+        "6746afa231c07c4d86ec5683",
+        "6746afa231c07c4d86ec5680",
+        "6746afa231c07c4d86ec5682",
+        "6746afa231c07c4d86ec5681",
+        "6746bd932f605015d01a8486",
+        "643756611ea063e001eb4f86"
+      ],
+      "unique": [
+        "642ed358ac422fdb0f5315fe",
+        "642ed358ac422fdb0f5315fa",
+        "643756618d8f008035da4a68",
+        "643756618d8f008035da4a69",
+        "644bc08ba926bb4153bcb480",
+        "66a7d49c3d0b8bcdd70cebc9",
+        "66db573c25aae6fe8b37d858",
+        "643756611ea063e001eb4f85"
+      ],
+      "onDemand": [
+        "643755e31ea063e001eb4f7b",
+        "643755e38d8f008035da4a5c",
+        "643756611ea063e001eb4f89",
+        "66394a7609fb2c2049896e44"
+      ]
+    },
+    "attractions": [],
+    "bikeRacks": "Yes",
+    "brandName": "Industrious",
+    "brochureLink": "https://www.canva.com/design/DAFW7RyOf0w/SU6p0sU2GR8EFwK2Vt9UIg/edit",
+    "buildingCheckInInstructions": "Check in at the security desk in the first floor lobby, give them your name, and you'll be let up to the 20th floor where you'll check in with Industrious staff.",
+    "calendlyLinks": {
+      "inPersonTour": "calendly.com/industrious-west-region/industrious-downtown-glendale-tour",
+      "phoneCall": "calendly.com/industrious-west-region/industrious-los-angeles-downtown-glendale-call"
+    },
+    "city": "Glendale",
+    "country": "United States",
+    "createdAt": {
+      "$date": "2023-04-13T01:09:49.879Z"
+    },
+    "currencyIsoCode": "USD",
+    "email": "6424657d16a40d45431865e0@domain.invalid",
+    "embedSocialId": null,
+    "firstDayOfBusiness": {
+      "$date": "2019-06-17T00:00:00.000Z"
+    },
+    "geolocalization": {
+      "type": "Point",
+      "coordinates": [
+        -118.2546747,
+        34.153387
+      ]
+    },
+    "images": [
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e932913d6070b2d4a7b.webp",
+        "altText": {
+          "en": "A wooden table and chairs in a coworking office with a view of the mountains.",
+          "fr": "Un espace de coworking à Glendale meublé d'une table et de chaises en bois, offrant une vue imprenable sur les montagnes.",
+          "de": "Moderner Coworking Space in Glendale mit rundem Tisch, Stühlen und großen Fenstern mit atemberaubendem Blick auf die Stadt. Zimmerpflanzen und moderne Beleuchtung verstärken die helle, offene Atmosphäre, perfekt für jeden Besprechungsraum.",
+          "nl": "Moderne coworkingruimte in Glendale met ronde tafel, stoelen en grote ramen met adembenemend uitzicht op de stad. Kamerplanten en moderne verlichting versterken de heldere, open sfeer, perfect voor elke vergaderruimte.",
+          "es": "Espacio de coworking moderno en Glendale con mesa redonda, sillas y grandes ventanales con impresionantes vistas a la ciudad. Las plantas de interior y la iluminación contemporánea realzan el ambiente luminoso y abierto, perfecto para cualquier sala de reuniones."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 1,
+        "tags": [
+          "Cafe",
+          "CommonArea",
+          "HasSoftSeating",
+          "HasWorkstation",
+          "Reception",
+          "PrivateOutdoorSpace"
+        ],
+        "thumbHash": "aBgGFYScd5hehIiWagZ4aaGyPxn5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e992913d6070b2d4a7c.webp",
+        "altText": {
+          "en": "A coworking space in Glendale with a desk, chair, and a poster.",
+          "fr": "Un bureau à Glendale avec un bureau, une chaise et une affiche.",
+          "de": "Ein moderner Coworking-Bereich mit einem eleganten Schreibtisch, einem ergonomischen Stuhl und einem Computer, umgeben von üppigen Pflanzen. Ein Vintage-Poster schmückt die Wand, während links ein kleiner Barwagen steht, der diesem einladenden Arbeitsbereich Flair verleiht.",
+          "nl": "Een moderne coworkingruimte met een strak bureau, ergonomische stoel en computer omgeven door weelderige planten. Een vintage poster siert de muur, terwijl links een kleine barwagen staat, die flair toevoegt aan deze uitnodigende werkruimte.",
+          "es": "Un moderno espacio de coworking con un elegante escritorio, una silla ergonómica y una computadora rodeada de exuberantes plantas. Un póster antiguo adorna la pared, mientras que un pequeño carrito de bar se encuentra a la izquierda, lo que agrega estilo a este acogedor espacio de trabajo."
+        },
+        "caption": {
+          "en": "Private office",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 2,
+        "tags": [
+          "HasWorkstation",
+          "OfficeUpTo15Seats"
+        ],
+        "thumbHash": "JvgJFYJqWVifZZpneHiIloGAbQPF"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e872913d6070b2d4a79.webp",
+        "altText": {
+          "en": "A workspace with a TV on the wall in an office setting.",
+          "fr": "Une salle de réunion dans un bureau ou un espace de coworking avec une télévision au mur.",
+          "de": "Ein Coworking-Bereich mit einem langen Holztisch, Stühlen und einem an der Wand montierten Bildschirm mit einer Landschaftsdarstellung, ergänzt durch zwei Topfpflanzen, die die Atmosphäre des Konferenzraums verbessern.",
+          "nl": "Een coworkingruimte met een lange houten tafel, stoelen en een aan de muur gemonteerd scherm met een landschapsdisplay, aangevuld met twee potplanten die de sfeer van de vergaderruimte versterken.",
+          "es": "Un espacio de coworking con una mesa larga de madera, sillas y un biombo de pared con visualización paisajística, complementado con dos plantas en macetas que realzan el ambiente de la sala de reuniones."
+        },
+        "caption": {
+          "en": "Meeting room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 3,
+        "tags": [
+          "MeetingRoom"
+        ],
+        "thumbHash": "YggODYK0uml/iIiEZUqndRWATAH4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e7b2913d6070b2d4a77.webp",
+        "altText": {
+          "en": "An open coworking space with a kitchenette equipped with stools and a bar.",
+          "fr": "Une cuisine ouverte avec des tabourets et un bar conçu pour le coworking à Glendale.",
+          "de": "Modernes Küchenmodell mit langer Arbeitsplatte, Barhockern, Deckenleuchten und Getränkespender. Die Rückwand ist mit weißen Fliesen und schwebenden Regalen verziert, die mit dekorativen Elementen verziert sind, was sie zu einem idealen kulinarischen Arbeitsplatz macht.",
+          "nl": "Moderne keuken in Glendale met een lang aanrecht, barkrukken, plafondlampen en een drankdispenser. De achterwand is voorzien van witte metrotegels en zwevende planken versierd met decoratieve items, wat het een ideale culinaire werkruimte maakt.",
+          "es": "Modelo de cocina moderna con encimera larga, taburetes de bar, lámparas de techo y dispensador de bebidas La pared trasera presenta azulejos blancos y estantes flotantes adornados con elementos decorativos, lo que la convierte en un espacio de trabajo culinario ideal."
+        },
+        "caption": {
+          "en": "Café",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 4,
+        "tags": [
+          "Cafe",
+          "HasWorkstation"
+        ],
+        "thumbHash": "YRgOFYKHhoePh4dxeFiHenl0nyb3"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e6a2913d6070b2d4a74.webp",
+        "altText": {
+          "en": "A Glendale coworking meeting room equipped with a chair and a mirror.",
+          "fr": "Une salle de bain de bureau à Glendale avec une chaise et un miroir.",
+          "de": "Modernes Zimmer in Glendale mit einem runden Spiegel über einem Wandwaschbecken, einem grauen Sessel mit Kissen, einer Stehlampe und Kunstwerken an der Wand – perfekt, um es in ein gemütliches Büro oder einen intimen Besprechungsraum zu verwandeln.",
+          "nl": "Moderne kamer in Glendale voorzien van een ronde spiegel boven een aan de muur gemonteerde wastafel, een grijze fauteuil met kussens, een staande lamp en kunstwerken aan de muur - perfect om te transformeren in een gezellig kantoor of intieme vergaderruimte.",
+          "es": "Habitación moderna en Glendale con un espejo redondo sobre un lavabo montado en la pared, un sillón gris con cojines, una lámpara de pie y obras de arte en la pared: perfecta para convertirla en una acogedora oficina o una sala de reuniones íntima."
+        },
+        "caption": {
+          "en": "Example shown: Wellness room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 5,
+        "tags": [
+          "HasSoftSeating",
+          "WellnessRoom"
+        ],
+        "thumbHash": "JggODYCSeIV8iYWAiGiGiQ2xp0HP"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e6e2913d6070b2d4a75.webp",
+        "altText": {
+          "en": "Glass booths in a Glendale office workspace.",
+          "fr": "cabines vitrées offrant un espace de travail dans un bureau.",
+          "de": "Im Herzen von Glendale verfügt ein stilvoller Coworking Space über vier moderne, schallisolierte Telefonzellen. Mit Glastüren und Hochstühlen sind diese Kabinen nebeneinander angeordnet und bieten eine gemütliche Arbeitsumgebung, die Privatsphäre und Komfort für alle gewährleistet.",
+          "nl": "In het hart van Glendale bevindt zich een stijlvolle coworkingruimte met vier moderne, geluiddichte telefooncellen. Met glazen deuren en hoge stoelen zijn deze cabines naast elkaar geplaatst, waardoor een gezellige werkomgeving ontstaat die privacy en comfort voor iedereen garandeert.",
+          "es": "En el corazón de Glendale, un elegante espacio de coworking cuenta con cuatro cabinas telefónicas modernas e insonorizadas. Con puertas de vidrio y sillas altas, estas cabinas están dispuestas una al lado de la otra en un ambiente de espacio de trabajo acogedor, lo que garantiza privacidad y comodidad para todos."
+        },
+        "caption": {
+          "en": "Example shown: Phone room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 6,
+        "tags": [
+          "FocusRoom",
+          "HasWorkstation"
+        ],
+        "thumbHash": "JwgGFYLy/ZrGaVVchgeEh4SRTwj5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e8d2913d6070b2d4a7a.webp",
+        "altText": {
+          "en": "A woman walks into a coworking office in Glendale.",
+          "fr": "Une femme entre dans un bureau à Glendale.",
+          "de": "Der Eingang des Büros in Glendale besteht aus einer dunklen Wand, auf der über einer eleganten Bank das Industrious-Logo prangt. Wenn man durch die Tür geht, gelangt man in einen hellen Besprechungsraum, in dem Kreativität und Zusammenarbeit zum Leben erwachen.",
+          "nl": "De ingang van het Glendale-kantoor bestaat uit een donkere muur met het Industrious-logo boven een elegante bank. Als u door de deur loopt, komt u in een lichte vergaderruimte waar creativiteit en samenwerking tot leven komen.",
+          "es": "La entrada a la oficina de Glendale consta de una pared oscura con el logo de Industrious encima de un elegante sofá. Al cruzar la puerta se accede a una luminosa sala de reuniones donde la creatividad y la colaboración cobran vida."
+        },
+        "caption": {
+          "en": "Entrance",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 7,
+        "tags": [
+          "HasPeople"
+        ],
+        "thumbHash": "GAgKDYKwSqmVaoeEdip5eFKQXxT4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e632913d6070b2d4a73.webp",
+        "altText": {
+          "en": "A coworking workspace in Glendale with a balcony overlooking the mountains.",
+          "fr": "Un bureau de coworking avec une salle de réunion et un balcon offrant une vue imprenable sur la montagne.",
+          "de": "Attrappe einer Dachterrasse mit Tischen und Stühlen aus weißem Metall, Topfpflanzen und Blick auf die Bergkette unter einem klaren blauen Himmel. Perfekt für einen Coworking Space, der Kreativität anregt und gleichzeitig die wunderschöne Landschaft genießt.",
+          "nl": "Dakterras in Glendale met witte metalen tafels en stoelen, potplanten en uitzicht op de bergketen onder een helderblauwe lucht. Perfect voor een coworkingruimte die creativiteit inspireert terwijl u geniet van het prachtige landschap.",
+          "es": "Modelo de patio en la azotea con mesas y sillas de metal blanco, plantas en macetas y vistas a la cordillera bajo un cielo azul despejado. Perfecto para un espacio de coworking que inspira creatividad mientras disfruta del hermoso paisaje."
+        },
+        "caption": {
+          "en": "Outdoor space",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 8,
+        "tags": [
+          "PrivateOutdoorSpace",
+          "HasWorkstation"
+        ],
+        "thumbHash": "ZNcJPYpVenmfiYU4SEmWdYVQVQhV"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e812913d6070b2d4a78.webp",
+        "altText": {
+          "en": "A Glendale workspace with a view of the mountains.",
+          "fr": "Un espace de coworking de bureau à Glendale avec une vue imprenable sur les montagnes.",
+          "de": "Moderne Coworking-Lounge mit orangefarbenen Stühlen, beigem Sofa und dekorativen Lampen. Ein großes Fenster gibt den Blick auf die Berge frei, was für Ruhe am Arbeitsplatz sorgt. Kunstwerke und Pflanzen setzen lebendige Akzente in der Büroumgebung und machen sie zu einem inspirierenden Arbeitsplatz.",
+          "nl": "Moderne coworking lounge met oranje stoelen, een beige bank en decoratieve lampen. Een groot raam biedt uitzicht op de bergen, wat rust brengt in de werkruimte. Kunstwerken en planten voegen levendige accenten toe aan de kantooromgeving, waardoor het een inspirerende plek is om te werken.",
+          "es": "Salón de coworking moderno con sillas naranjas, sofá beige y lámparas decorativas. Un gran ventanal ofrece vistas a las montañas, lo que garantiza paz y tranquilidad en el trabajo. Las obras de arte y las plantas añaden acentos animados al ambiente de la oficina y lo convierten en un lugar de trabajo inspirador."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 9,
+        "tags": [
+          "Cafe",
+          "HasSoftSeating"
+        ],
+        "thumbHash": "JhgOFYSXeXWNeIeQZ4d3h0mUjzT4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e0/649a2e742913d6070b2d4a76.webp",
+        "altText": {
+          "en": "A tall building with an office and a street sign.",
+          "fr": "Une salle de réunion dans un grand immeuble à Glendale servant d'espace de travail.",
+          "de": "Ein elegantes, modernes Bürogebäude in Glendale verfügt über reflektierende Glasfenster, auf denen die Zahl 500 deutlich zu sehen ist. Im Vordergrund bereichert eine Straße mit Ampeln, Laubbäumen und einem Fahrrad die lebendige Atmosphäre dieses Arbeitsplatzes.",
+          "nl": "Een strak, modern kantoorgebouw in Glendale is voorzien van reflecterende glazen ramen die het nummer 500 duidelijk weergeven. Op de voorgrond verrijkt een straat met verkeerslichten, loofbomen en een fiets de levendige sfeer van deze werkplek.",
+          "es": "Un elegante y moderno edificio de oficinas en Glendale cuenta con ventanas de vidrio reflectante con el número 500 en un lugar destacado. En primer plano, una calle con semáforos, árboles frondosos y una bicicleta enriquecen la vibrante atmósfera de este espacio de trabajo."
+        },
+        "caption": {
+          "en": "Building exterior",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 10,
+        "tags": [
+          "BuildingExterior"
+        ],
+        "thumbHash": "3PcJJYSPgmGqiWh5mFhWilBDBSN0"
+      }
+    ],
+    "isTenantExperienceManaged": false,
+    "locationManagers": [
+      {
+        "userId": {
+          "$oid": "63c1989808b6d9dc6356db3d"
+        },
+        "locationContactRelationSfId": "a4y1Q000000SwEIQA0",
+        "roles": [
+          "Regional Director"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b07b90c"
+        },
+        "locationContactRelationSfId": "a4y1Q000000hnMEQAY",
+        "roles": [
+          "Member Experience Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "63c1985b08b6d9dc6356db37"
+        },
+        "locationContactRelationSfId": "a4yVS000000HyCfYAK",
+        "roles": [
+          "Area Sales Lead"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "67ae1852946c0407ea31ac53"
+        },
+        "locationContactRelationSfId": "a4yVS000003G5oPYAS",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "6329a126a2b4904433ed55d1"
+        },
+        "locationContactRelationSfId": "a4yVS000000N049YAC",
+        "roles": [
+          "General Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "651e0e78d2d7b06a352092b5"
+        },
+        "locationContactRelationSfId": "a4yVS0000043y29YAA",
+        "roles": [
+          "Assistant General Manager"
+        ]
+      }
+    ],
+    "lodgingAndDining": [],
+    "matterportImageLink": "https://my.matterport.com/show/?m=9bD9e6Q6tQt",
+    "meetingSpaces": {
+      "active": true,
+      "learnMoreLink": null,
+      "breatherLink": "https://breather.com/discover/search?isMapSearch=true&latlng=34.1493245686578%2C-118.25748001329859&search_term=500+North+Brand+Boulevard%2C+Glendale%2C+CA%2C+USA&sorting=distance&zoom=14&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousDowntownGlendale"
+    },
+    "metaDescription": {
+      "en": "Industrious at Downtown Glendale: productivity meets luxury. Discover coworking, dedicated offices, and on-demand conference rooms in a high-end design location.",
+      "fr": "Industrious à Downtown Glendale : là où la productivité rencontre le luxe. Découvrez le coworking, les bureaux dédiés et les salles de conférence à la demande dans un lieu au design haut de gamme.",
+      "de": null,
+      "nl": "Industrious in Downtown Glendale: productiviteit en luxe. Ontdek coworking, privékantoren en conferentieruimten op aanvraag in een eersteklas designlocatie.",
+      "es": null
+    },
+    "metroName": "Los Angeles",
+    "metroSfId": "a003600000Xu8nGAAR",
+    "name": "Downtown Glendale",
+    "parkingAlt": "Industrious Glendale is not easily accessible via public transportation.",
+    "parkingGuest": "Parking is available in the 500 N Brand building located on East Milford St. on the same side as Starbucks. The daily max parking rate is $16, or $6/hr.",
+    "parkingInfos": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null
+    },
+    "phase": "Open",
+    "phone": "+1 000-000-0000",
+    "products": {
+      "coworkingDayPass": {
+        "dailyOnDemandCapacity": 15,
+        "canBuyOnline": true,
+        "currentlySellable": true,
+        "availableAtLocation": true
+      },
+      "virtual": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      },
+      "suites": {
+        "availableAtLocation": false,
+        "currentlySellable": false
+      },
+      "meetingRoom": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "bookingUrl": null,
+        "breatherUrl": "https://breather.com/discover/search?isMapSearch=true&latlng=34.1493245686578%2C-118.25748001329859&search_term=500+North+Brand+Boulevard%2C+Glendale%2C+CA%2C+USA&sorting=distance&zoom=14&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousDowntownGlendale"
+      },
+      "dedicatedOffice": {
+        "availableAtLocation": true,
+        "currentlySellable": false
+      },
+      "access": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      }
+    },
+    "publishLocationPageOnWebsite": true,
+    "salesHighlightBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "sfId": "a001Q00000aggMEQAY",
+    "floorplanUrl": "/a001Q00000aggMEQAY.png",
+    "slug": "500-n-brand-blvd-suite-2000",
+    "state": "CA",
+    "summary": {
+      "en": "Located in the heart of Glendale’s Central Business District, Industrious at Downtown Glendale is where productivity meets luxury. Discover premium hospitality with coworking, dedicated offices, and on-demand conference rooms. No detail is missed when experiencing the high-end design of this location’s common areas, cafes and phone booths. Parking is available onsite for daily commuters and guests. Downtown Glendale is a popular Southern California home to over 200 shops, boutiques, restaurants, theaters and spas + weekly farmer's market, free concerts, critically acclaimed theater, festivals, and more. Just steps from the Glendale Galleria, Porto’s Bakery, and other popular spots, walkability is just one of the main attractions of this neighborhood in Los Angeles. Experience an unparalleled flexible workday — visit Industrious at Downtown Glendale.",
+      "fr": "Situé au cœur du quartier des affaires, Industrious at Downtown Glendale est l'endroit où la productivité rencontre le luxe. Découvrez l'hospitalité haut de gamme avec le coworking, les bureaux dédiés et les salles de conférence à la demande. Aucun détail n'a été oublié lors de l'expérience du design haut de gamme des espaces communs, des cafés et des cabines téléphoniques de cet établissement. Un parking est disponible sur place pour les navetteurs quotidiens et les invités. Le centre-ville de Glendale est un quartier populaire de Californie du Sud qui abrite plus de 200 magasins, boutiques, restaurants, théâtres et spas, ainsi qu'un marché fermier hebdomadaire, des concerts gratuits, des théâtres acclamés par la critique, des festivals et bien d'autres choses encore. À quelques pas de la Glendale Galleria, de Porto's Bakery et d'autres lieux populaires, la facilité de circulation est l'un des principaux attraits de ce quartier de Los Angeles. Faites l'expérience d'une journée de travail flexible inégalée - visitez Industrious à Downtown Glendale.",
+      "de": null,
+      "nl": "Industrious in Downtown Glendale ligt in het hart van het Central Business District van Glendale, waar productiviteit en luxe samenkomen. Ontdek premium voorzieningen met coworking, privékantoren en on-demand vergaderruimten. Geen detail is overgeslagen bij het ontwerp van de gemeenschappelijke ruimten, cafés en belcabines van deze locatie. Er is parkeergelegenheid op het terrein voor het dagelijkse woon-werkverkeer en voor gasten. Downtown Glendale is een populaire stad in Zuid-Californië met meer dan 200 winkels, boetiekjes, restaurants, theaters en kuuroorden + een wekelijkse boerenmarkt, gratis concerten, een gerenommeerd theater, festivals en nog veel meer. Op een steenworp afstand van de Glendale Galleria, Porto's Bakery en andere populaire plekken is de bereikbaarheid slechts een van de vele pluspunten van deze buurt in Los Angeles. Beleef een ongekende flexwerkdag - bezoek Industrious in Downtown Glendale.",
+      "es": null
+    },
+    "tier": 2,
+    "timezone": "America/Los_Angeles",
+    "transitInfos": [
+      {
+        "description": {
+          "en": "Brand & Milford",
+          "fr": "Brand & Milford",
+          "de": null,
+          "nl": "Brand & Milford",
+          "es": null
+        },
+        "category": "Driving"
+      },
+      {
+        "description": {
+          "en": "Easy access to CA-134",
+          "fr": "Accès facile à la CA-134",
+          "de": null,
+          "nl": "Gemakkelijke toegang tot de CA-134",
+          "es": null
+        },
+        "category": "Driving"
+      },
+      {
+        "description": {
+          "en": "On-site parking",
+          "fr": "Parking sur place",
+          "de": null,
+          "nl": "Parkeren op het terrein",
+          "es": null
+        },
+        "category": "Parking"
+      },
+      {
+        "description": {
+          "en": "Bob Hope Airport (10 miles)",
+          "fr": "Aéroport Bob Hope à 16 km",
+          "de": null,
+          "nl": "Bob Hope Airport (16 km)",
+          "es": null
+        },
+        "category": "Airport"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      }
+    ],
+    "updatedAt": {
+      "$date": "2026-01-29T15:21:55.228Z"
+    },
+    "wifiInstructions": "Guests can use \"Industrious Wif\". The password is honeycomb but will need to input their name and email before logging on.",
+    "zipCode": "91203",
+    "isEarlyInPersonTourEnabled": false,
+    "hideOpeningDate": false,
+    "licensor": "Industrious GLN 500 N. BRAND BLVD LLC",
+    "locationCode": "LAX0500BRA",
+    "salesOfficeAddress": null,
+    "blackoutDates": [
+      {
+        "date": {
+          "$date": "2024-04-24T00:00:00.000Z"
+        },
+        "description": "Volunteer Around the World Event "
+      },
+      {
+        "date": {
+          "$date": "2024-05-24T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-05-27T00:00:00.000Z"
+        },
+        "description": "Memorial Day"
+      },
+      {
+        "date": {
+          "$date": "2024-05-31T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-06-07T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-06-14T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-06-19T00:00:00.000Z"
+        },
+        "description": "Juneteenth"
+      },
+      {
+        "date": {
+          "$date": "2024-06-21T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-06-28T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-07-05T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-07-12T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-07-19T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-07-26T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-08-02T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-08-09T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-08-16T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-08-23T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-08-30T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-09-02T00:00:00.000Z"
+        },
+        "description": "Labor Day"
+      },
+      {
+        "date": {
+          "$date": "2024-09-07T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-09-14T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-09-21T00:00:00.000Z"
+        },
+        "description": "Summer Friday's"
+      },
+      {
+        "date": {
+          "$date": "2024-10-14T00:00:00.000Z"
+        },
+        "description": "Holiday"
+      },
+      {
+        "date": {
+          "$date": "2024-11-04T00:00:00.000Z"
+        },
+        "description": "Isofy Migration"
+      },
+      {
+        "date": {
+          "$date": "2024-11-27T00:00:00.000Z"
+        },
+        "description": "Day before Thanksgiving"
+      },
+      {
+        "date": {
+          "$date": "2024-11-28T00:00:00.000Z"
+        },
+        "description": "Thanksgiving"
+      },
+      {
+        "date": {
+          "$date": "2024-11-29T00:00:00.000Z"
+        },
+        "description": "Thanksgiving "
+      },
+      {
+        "date": {
+          "$date": "2024-12-13T00:00:00.000Z"
+        },
+        "description": "Volunteer Day for Industrious Staff"
+      },
+      {
+        "date": {
+          "$date": "2024-12-13T00:00:00.000Z"
+        },
+        "description": "Volunteer around the world "
+      },
+      {
+        "date": {
+          "$date": "2024-12-24T00:00:00.000Z"
+        },
+        "description": "Christmas Eve"
+      },
+      {
+        "date": {
+          "$date": "2024-12-24T00:00:00.000Z"
+        },
+        "description": "Christmas Eve"
+      },
+      {
+        "date": {
+          "$date": "2024-12-25T00:00:00.000Z"
+        },
+        "description": "Christmas"
+      },
+      {
+        "date": {
+          "$date": "2024-12-25T00:00:00.000Z"
+        },
+        "description": "Christmas"
+      },
+      {
+        "date": {
+          "$date": "2024-12-31T00:00:00.000Z"
+        },
+        "description": "New Year's Eve"
+      },
+      {
+        "date": {
+          "$date": "2024-12-31T00:00:00.000Z"
+        },
+        "description": "New Year's Eve"
+      },
+      {
+        "date": {
+          "$date": "2025-01-01T00:00:00.000Z"
+        },
+        "description": "New Year's Day"
+      },
+      {
+        "date": {
+          "$date": "2025-01-01T00:00:00.000Z"
+        },
+        "description": "New Year's Day"
+      },
+      {
+        "date": {
+          "$date": "2025-01-08T00:00:00.000Z"
+        },
+        "description": "Fire Evacuations"
+      },
+      {
+        "date": {
+          "$date": "2025-01-08T00:00:00.000Z"
+        },
+        "description": "Fire Evacuations"
+      },
+      {
+        "date": {
+          "$date": "2025-01-08T00:00:00.000Z"
+        },
+        "description": "Fire Evacuations"
+      },
+      {
+        "date": {
+          "$date": "2025-01-08T00:00:00.000Z"
+        },
+        "description": "Fire Evacuations"
+      },
+      {
+        "date": {
+          "$date": "2025-01-08T00:00:00.000Z"
+        },
+        "description": "LA Fires"
+      },
+      {
+        "date": {
+          "$date": "2025-01-13T00:00:00.000Z"
+        },
+        "description": "fire"
+      },
+      {
+        "date": {
+          "$date": "2025-01-14T00:00:00.000Z"
+        },
+        "description": "fire"
+      }
+    ],
+    "openingHours": {
+      "mon": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "tue": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "wed": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "thu": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "fri": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "sat": null,
+      "sun": null
+    },
+    "legalEntityName": "Glendale - 500 N Brand Blvd",
+    "netsuiteId": "89",
+    "floorPlanUrl": "https://drive.google.com/file/d/1iMhrHxT9ThRvlQmBcuo-ZOndQynAh6_T/view?usp=drive_link",
+    "infoSheetUrl": "www.canva.com/design/DAFW7RyOf0w/SU6p0sU2GR8EFwK2Vt9UIg/edit",
+    "visibleTo": [
+      "Nuveen",
+      "Industrious",
+      "Gable",
+      "UpFlex",
+      "Desana",
+      "Cbre",
+      "InstantGroup",
+      "Yardi",
+      "LiquidSpace",
+      "IndustriousInternal",
+      "Workthere"
+    ],
+    "commonSpaceRsf": 12733,
+    "dailyVisitorCapacity": 30,
+    "contractType": "Management Contract",
+    "landlord": "GPI 500 Brand LTD",
+    "isCrawlable": true,
+    "bikeParking": {
+      "en": "Bike racks are free for members to utilize in the 500 N Brand parking garage.",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "carParking": {
+      "en": "<p>Parking arrangements: If any team members require parking, please have them complete the parking request form at this&nbsp;<a href=\"https://groove.grvlnk4.com/url/ocpfmty3dp0eb122fkdvx9/aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vZm9ybXMvZC8xSFlnMjJQRDVsNmNtQnVtZG0tRldwQm5vYmlTLWRlN2lkRm9URVEtMmViVS9lZGl0I3Jlc3BvbnNlPUFDWURCTmdZYmV4Q19Yc2Z2Qmt1NDBfMkU1NGpiakc3YjNBOF81cU1FZ2JwUHphcmJNREFuSjVybzVRLTJWYU5EVGJJVnNjI2dyb292ZXN1bTo5NjY4ODMyOTE%3D\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(17, 85, 204);\">LINK</a>&nbsp;and email it to&nbsp;<a href=\"mailto:laglendale@industriousoffice.com\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(17, 85, 204);\">laglendale@industriousoffice.com</a><span style=\"color: rgb(29, 28, 29);\">. Please indicate whether the company or the individual team member will be responsible for parking fees.</span></p>",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "internetServiceProvider": "IsoFy",
+    "isWaitlisting": false,
+    "lunchSpots": [
+      {
+        "placeId": "ChIJ7XjkYP7AwoARYyeBPtsNUPw",
+        "name": "Din Tai Fung",
+        "address": "1164 Galleria Way, Glendale",
+        "geolocalization": {
+          "lat": 34.144386,
+          "lng": -118.2583313
+        }
+      },
+      {
+        "placeId": "ChIJQUg13__AwoARvk-bW1CVLHE",
+        "name": "Joon Shabu Shabu",
+        "address": "220 E Broadway, Glendale",
+        "geolocalization": {
+          "lat": 34.1461481,
+          "lng": -118.2528253
+        }
+      },
+      {
+        "placeId": "ChIJpcUaV_7AwoARe7ZMFIB6POA",
+        "name": "Bacari GDL",
+        "address": "757 Americana Way, Glendale",
+        "geolocalization": {
+          "lat": 34.143972,
+          "lng": -118.255287
+        }
+      },
+      {
+        "placeId": "ChIJT-gY5v_AwoARdIyaxG1PkLQ",
+        "name": "Raffi's Place",
+        "address": "211 E Broadway, Glendale",
+        "geolocalization": {
+          "lat": 34.1465559,
+          "lng": -118.2534519
+        }
+      },
+      {
+        "placeId": "ChIJD-JglBHBwoARA2bztio9wKY",
+        "name": "Salt and Olive",
+        "address": "400 N Brand Blvd, Glendale",
+        "geolocalization": {
+          "lat": 34.1519193,
+          "lng": -118.254782
+        }
+      }
+    ],
+    "printingInstructionsUrl": "https://docs.google.com/document/d/1DT-T41FPwU5xmYO1B139t45xXWPZSp7xcYeS0T4J0eM/edit?tab=t.0",
+    "supplier": null,
+    "hsId": "12596607119",
+    "tourInstructions": {
+      "en": "Please park in the 500 N Brand garage. Entrance is off of Milford St. and on the same side as the Starbucks. Please check in with security in the 500 first floor lobby and they will let you up to the 20th floor.  Please call 818-213-2220 if you have trouble finding us.",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "metroAreaId": {
+      "$oid": "67cf3b13f3672fa8b41de827"
+    },
+    "countryId": {
+      "$oid": "655e2bb003706eaf1879c23a"
+    },
+    "buildingPortal": {
+      "loginInfo": "INDwestcoast / 6Y900Facilities",
+      "url": "https://www.ng1.angusanywhere.com/Tenant/granite/granite/default.aspx"
+    },
+    "calendlyLabels": {
+      "inPersonTour": "Industrious Los Angeles Downtown Glendale Tour",
+      "phoneCall": "Industrious Los Angeles Downtown Glendale Phone Call"
+    },
+    "cleaningScopeUrl": "https://docs.google.com/document/d/1M8KX0V4yWUXrTP08KsocXBHfAgALKbxrCwAkxJ7ppG0/edit",
+    "coi": {
+      "documentUrl": "https://drive.google.com/open?id=0B2FMTXPYZo-cbGtTaTcxNVpLQm14ZWxrTTAwRkRTZnZGY1I4",
+      "required": true
+    },
+    "deskSize": "2'-4\" x 4'-8\"",
+    "freightElevator": {
+      "dimensions": "",
+      "requiresReservation": true,
+      "open": null,
+      "close": null,
+      "usageDirections": "-Approval needed from the building at least 24-48 hours in advance due to strict COI requirements"
+    },
+    "locationPhotosUrl": "https://drive.google.com/drive/folders/1YbYi4Keu7pC-2db_nwL3PJyf0jvpp8IB?usp=drive_link",
+    "propertyContactInfo": {
+      "management": "Granite Properties\r\nJake Hollis\r\n818-265-7500\r\njhollis@graniteprop.com, 500northbrand@graniteprop.com",
+      "janitorial": "",
+      "security": ""
+    },
+    "rentableSquareFootage": 24414,
+    "nbOfBuiltInPhoneBooths": 0,
+    "nbOfModularPhoneBooths": 0,
+    "constructionTurnoverDate": {
+      "$date": "2019-06-17T00:00:00.000Z"
+    },
+    "contigencyPlan": "https://docs.google.com/spreadsheets/d/1rKTM8zU9DPDtxBP9eAmXlim_hi950tTtDVnRcJsnUvY/edit?usp=sharing",
+    "floorsOccupied": "20 & 21",
+    "maxNbOfDesks": 264,
+    "nbOfConferenceRooms": 6,
+    "nbOfOffices": 81,
+    "nbOfSuites": 0,
+    "partnership": false,
+    "petPolicy": "Service animals only",
+    "union": false,
+    "securityDepositFactor": 150,
+    "subBrandName": "Industrious",
+    "isPrioritzedOnSearch": false,
+    "commonAreasTotalSeats": 23,
+    "requiredIdentityVerificationTypes": [],
+    "locationUiCustomizations": {
+      "locationPagePrimaryCtaTextOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "locationFormPageTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showSimplifiedRightRail": false,
+      "locationDescriptionTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showLocationNameAsPageTitle": false,
+      "showPrivateOfficeStartingFromPrice": true
+    },
+    "featuredPromoBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "showFloorPlanOnWebsite": false,
+    "spotlight": null,
+    "earliestLicenseAgreementDate": {
+      "$date": "2019-06-17T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6424657d16a40d45431865e1"
+    },
+    "address": "1212 Broadway Plaza",
+    "address2": "Suite 2100",
+    "amenities": {
+      "standard": [
+        "642ed3588bf6c389c39858ae",
+        "642ed358ac422fdb0f5315fb",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e3e6cf0fd868e6d584",
+        "643755e38d8f008035da4a5c",
+        "643756618d8f008035da4a65",
+        "643756611ea063e001eb4f87",
+        "6746afa231c07c4d86ec567f",
+        "6746afa231c07c4d86ec5683",
+        "6746afa231c07c4d86ec5680",
+        "6746afa231c07c4d86ec5682",
+        "6746afa231c07c4d86ec5681",
+        "66394a7609fb2c2049896e44",
+        "667a083e0e7a3edbabaf1065",
+        "6746bd932f605015d01a8486",
+        "643756611ea063e001eb4f86"
+      ],
+      "unique": [
+        "642ed358ac422fdb0f5315fa",
+        "643756618d8f008035da4a69",
+        "66a7d49c3d0b8bcdd70cebc9",
+        "64375661e6cf0fd868e6d58b"
+      ],
+      "onDemand": [
+        "642ed358ac422fdb0f5315f9",
+        "642ed3588bf6c389c39858b2",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e38d8f008035da4a5c",
+        "643756611ea063e001eb4f89",
+        "66394a7609fb2c2049896e44"
+      ]
+    },
+    "attractions": [],
+    "bikeRacks": "Yes",
+    "brandName": "Industrious",
+    "brochureLink": "https://www.canva.com/design/DAFW0VoJIjw/NJNnHE2eqsaSQyPijmsozg/edit?utm_content=DAFW0VoJIjw&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton",
+    "buildingCheckInInstructions": "Pin Code access is required 24/7 into the space at our 2nd floor entrance. First floor building access is open during mall hours and starting at 8:00 am, Monday - Friday.    This location does not require guests to check-in with building security. Once you have arrived at Industrious Broadway Plaza, you will find our offices located on the second floor, suite 2100.",
+    "calendlyLinks": {
+      "inPersonTour": "calendly.com/industrious-west-region/broadway-plaza-tour",
+      "phoneCall": "calendly.com/industrious-west-region/industrious-bay-area-broadway-plaza-call"
+    },
+    "city": "Walnut Creek",
+    "country": "United States",
+    "createdAt": {
+      "$date": "2023-04-13T01:09:49.879Z"
+    },
+    "currencyIsoCode": "USD",
+    "email": "6424657d16a40d45431865e1@domain.invalid",
+    "embedSocialId": null,
+    "firstDayOfBusiness": {
+      "$date": "2020-01-27T00:00:00.000Z"
+    },
+    "geolocalization": {
+      "type": "Point",
+      "coordinates": [
+        -122.057556,
+        37.895877
+      ]
+    },
+    "images": [
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a256d2913d6070b2d4900.webp",
+        "altText": {
+          "en": "Meeting room with a large dining table and chairs.",
+          "fr": "un espace de coworking moderne à Walnut Creek avec une grande table à manger et des chaises.",
+          "de": "Moderne Bürolounge mit einem komfortablen Arbeitsbereich mit Stühlen und Sofas, einem großen Tisch und Sitzgelegenheiten mit runden Spiegeln an der Wand, alles unter einer freiliegenden Industriedecke. Ein perfekter Rückzugsort für Berufstätige in Walnut Creek.",
+          "nl": "Moderne kantoorlounge met een comfortabele werkruimte met stoelen en banken, een grote tafel en zitplaatsen versierd met ronde spiegels aan de muur, allemaal onder een zichtbaar industrieel plafond. Een perfect toevluchtsoord voor professionals in Walnut Creek.",
+          "es": "Salón de oficina moderno con una cómoda zona de trabajo con sillas y sofás, una mesa grande y asientos con espejos redondos en la pared, todo bajo un techo industrial visto. Un retiro profesional perfecto en Walnut Creek."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 1,
+        "tags": [
+          "Cafe",
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation",
+          "LargeEventsSpace"
+        ],
+        "thumbHash": "pBgKFYJ7mVmdd5eEhwiIdwKWAUAZ"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a255f2913d6070b2d48fd.webp",
+        "altText": {
+          "en": "A Walnut Creek coworking space with glass-walled meeting rooms and desks.",
+          "fr": "Un espace de coworking avec des parois vitrées et un bureau.",
+          "de": "Ein moderner Büroraum in Walnut Creek verfügt über einen Raum mit Glaswänden, einem Schreibtisch, einem Stuhl, einer Stehlampe, Wandkunst und natürlichem Licht durch große Fenster. Für eine größere Arbeitsfläche stehen außerhalb des Zimmers zusätzliche Schreibtische zur Verfügung.",
+          "nl": "Een moderne kantoorruimte in Walnut Creek met een kamer met glazen wanden, een bureau, een stoel, een staande lamp, kunstwerken aan de muur en natuurlijk licht door grote ramen. Er zijn extra bureaus buiten de kamer beschikbaar voor een grotere werkruimte.",
+          "es": "Un espacio de oficina moderno en Walnut Creek cuenta con una sala con paredes de vidrio con escritorio, silla, lámpara de pie, arte en la pared y luz natural que entra por grandes ventanales. Hay escritorios adicionales disponibles fuera de la habitación para tener un espacio de trabajo más amplio."
+        },
+        "caption": {
+          "en": "Private office",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 2,
+        "tags": [
+          "OfficeUpTo15Seats"
+        ],
+        "thumbHash": "5/cJDYJgp5tod4ZViFiJao+t9qyJ"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a254a2913d6070b2d48f8.webp",
+        "altText": {
+          "en": "A modern Walnut Creek coworking meeting room with stools and a pendant light.",
+          "fr": "Une cuisine de coworking moderne à Walnut Creek avec des tabourets et une suspension.",
+          "de": "Eine Bar mit Hockern und Kronleuchter, perfekt für eine kurze Pause in Ihrem Büro in Walnut Creek.",
+          "nl": "Een bar met krukken en een kroonluchter, perfect voor een korte pauze op uw kantoor in Walnut Creek.",
+          "es": "Una barra con taburetes y una lámpara de araña, perfecta para un descanso rápido en su oficina de Walnut Creek."
+        },
+        "caption": {
+          "en": "Café",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 3,
+        "tags": [
+          "CommonArea",
+          "Cafe",
+          "HasPeople",
+          "HasSoftSeating",
+          "LargeEventsSpace"
+        ],
+        "thumbHash": "qhgKDYL4t4mPhnWUiTd4ejlwVwGp"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a25592913d6070b2d48fb.webp",
+        "altText": {
+          "en": "A Walnut Creek coworking workspace with a chair and a mirror.",
+          "fr": "Un bureau avec une chaise et un miroir.",
+          "de": "Ein modernes, minimalistisches Zimmer in Walnut Creek verfügt über einen runden Spiegel über einem Waschbecken, einen gepolsterten Stuhl mit Kissen, Wandlampen und Dekorationsgegenstände auf einem kleinen Tisch unter gerahmten Kunstwerken. Diese ruhige Umgebung wäre ein idealer Arbeitsplatz oder Büro.",
+          "nl": "Een moderne, minimalistische kamer in Walnut Creek met een ronde spiegel boven een gootsteen, een stoel met kussens en kussens, aan de muur gemonteerde lampen en decoritems op een tafeltje onder ingelijste kunstwerken. Deze serene omgeving zou een ideale werkruimte of kantoor zijn.",
+          "es": null
+        },
+        "caption": {
+          "en": "Example shown: Wellness room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 4,
+        "tags": [
+          "HasSoftSeating",
+          "WellnessRoom"
+        ],
+        "thumbHash": "JggODYCSeIV8iYWAiGiGiQ2xp0HP"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a25682913d6070b2d48ff.webp",
+        "altText": {
+          "en": "A coworking meeting room in Walnut Creek furnished with a wooden table and a TV.",
+          "fr": "Une salle de réunion de bureau à Walnut Creek meublée d'une table en bois et d'une télévision.",
+          "de": "Ein moderner Tagungsraum in Walnut Creek mit Holztisch, Stühlen, wandmontiertem TV-Bildschirm, Glastrennwand und Whiteboard. Der Coworking Space wird durch eine Lampe und geschmackvolle Wanddekorationen aufgewertet, wobei durch das Glas ein Bürobereich sichtbar ist.",
+          "nl": "Een moderne vergaderruimte in Walnut Creek met een houten tafel, stoelen, een aan de muur gemonteerd tv-scherm, een glazen scheidingswand en een whiteboard. De coworkingruimte wordt versterkt door een lamp en smaakvolle wanddecoraties, waarbij door het glas een kantoorgedeelte zichtbaar is.",
+          "es": "Una moderna sala de reuniones en Walnut Creek con mesa de madera, sillas, pantalla de televisión montada en la pared, mampara de cristal y pizarra. El espacio de coworking se ve realzado por una lámpara y elegantes decoraciones en las paredes, con una zona de oficina visible a través del cristal."
+        },
+        "caption": {
+          "en": "Meeting room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 5,
+        "tags": [
+          "MeetingRoom"
+        ],
+        "thumbHash": "ZRgSFYK4hId1iIiAeGh3eItCnwX0"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a25452913d6070b2d48f7.webp",
+        "altText": {
+          "en": "A coworking space in Walnut Creek offering a compact workspace with a few booths.",
+          "fr": "Un espace de travail compact dans le bureau de Walnut Creek équipé de quelques cabines.",
+          "de": "Moderne Coworking-Büroräume mit individuellen Arbeitskabinen mit eingebauten Schreibtischen und Hockern, weißen Wänden und minimalistischem Design.",
+          "nl": "Moderne coworking-kantoorruimte met individuele werkpods met ingebouwde bureaus en krukken, witte muren en een minimalistisch ontwerp.",
+          "es": null
+        },
+        "caption": {
+          "en": "Phone booths",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 6,
+        "tags": [
+          "HasPhoneBooths",
+          "CommonArea"
+        ],
+        "thumbHash": "ZAgKFYJgXH5kpXiCizaXif9p+I92"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a25632913d6070b2d48fe.webp",
+        "altText": {
+          "en": "A Walnut Creek office with bookshelves and a coffee table.",
+          "fr": "Un salon servant d'espace de travail avec des étagères et une table basse.",
+          "de": null,
+          "nl": "Een moderne woonkamer met twee banken, meerdere boekenplanken vol boeken en decoratieartikelen, drie hanglampen, diverse kamerplanten en een gezellig hoekje dat tevens dienst doet als stijlvolle werkruimte.",
+          "es": null
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 7,
+        "tags": [
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation",
+          "Library"
+        ],
+        "thumbHash": "3vcFFYKra5gDvaVKc5eoeM6T0CsK"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a25552913d6070b2d48fa.webp",
+        "altText": {
+          "en": "a modern workspace with plants on the wall.",
+          "fr": "Un espace de travail moderne avec des murs végétaux.",
+          "de": "Ein gemütlicher Büroraum in Walnut Creek mit Schreibtisch und Stühlen, perfekt für die Schaffung eines produktiven Arbeitsplatzes.",
+          "nl": "Een gezellige kantoorruimte in Walnut Creek met een bureau en stoelen, perfect voor het creëren van een productieve werkplek.",
+          "es": "Un acogedor espacio de oficina en Walnut Creek con escritorio y sillas perfecto para crear un espacio de trabajo productivo."
+        },
+        "caption": {
+          "en": "Reception",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 8,
+        "tags": [
+          "HasSoftSeating",
+          "Reception"
+        ],
+        "thumbHash": "6CgOFYSGdpiYl3eQekh4l95wygy4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a254f2913d6070b2d48f9.webp",
+        "altText": {
+          "en": "a living room with couches and a coffee table converted into a coworking office space.",
+          "fr": "Un espace de bureau Walnut Creek avec des canapés et une table basse pour le coworking.",
+          "de": "Ein modernes und geräumiges Wohnzimmer in Walnut Creek mit bequemen Stühlen, bunten Kissen, Zimmerpflanzen, gerahmten Fotos an der Wand und von der Decke hängenden Pendelleuchten: perfekt anpassbar für einen Coworking Space.",
+          "nl": "Een moderne en ruime woonkamer in Walnut Creek met comfortabele stoelen, kleurrijke kussens, kamerplanten, ingelijste foto's aan de muur en hanglampen die aan het plafond hangen: perfect aanpasbaar voor een coworkingruimte.",
+          "es": null
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 9,
+        "tags": [
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation"
+        ],
+        "thumbHash": "pygKDYKddoRPtoeDmBiahJKRIAs4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865e1/649a255d2913d6070b2d48fc.webp",
+        "altText": {
+          "en": "a bustling shopping center with people bustling around.",
+          "fr": "Un espace de coworking à Walnut Creek très animé.",
+          "de": null,
+          "nl": "Een bruisend openluchtwinkelcentrum met diverse winkels, mensen die op de trottoirs lopen, auto's op de weg en bomen langs de straat onder een heldere hemel, die een inspirerende achtergrond creëren voor de nabijgelegen coworking-ruimtes.",
+          "es": null
+        },
+        "caption": {
+          "en": "Building exterior",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 10,
+        "tags": [
+          "BuildingExterior"
+        ],
+        "thumbHash": "5vcNJIZ3h3h/eHeHh3WGcGEHJw=="
+      }
+    ],
+    "isTenantExperienceManaged": false,
+    "locationManagers": [
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b074f95"
+        },
+        "locationContactRelationSfId": "a4y1Q0000001eiVQAQ",
+        "roles": [
+          "Assistant General Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b06e005"
+        },
+        "locationContactRelationSfId": "a4y1Q0000001iAxQAI",
+        "roles": [
+          "Member Experience Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b081cf6"
+        },
+        "locationContactRelationSfId": "a4y1Q000000TtTyQAK",
+        "roles": [
+          "Area Sales Lead"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "6329a126a2b4904433edf683"
+        },
+        "locationContactRelationSfId": "a4yVS000002NjJSYA0",
+        "roles": [
+          "Account Manager",
+          "Enterprise Sales"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "67ddcc86d390ad99fb0881de"
+        },
+        "locationContactRelationSfId": "a4yVS000003s489YAA",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "66c89f2e75fe1dee860421e6"
+        },
+        "locationContactRelationSfId": "a4yVS0000042D3hYAE",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "63c1989808b6d9dc6356db3d"
+        },
+        "locationContactRelationSfId": "a4yVS000004TjaXYAS",
+        "roles": [
+          "Regional Director"
+        ]
+      }
+    ],
+    "lodgingAndDining": [],
+    "matterportImageLink": "https://my.matterport.com/show/?m=454HCN12ps2",
+    "meetingSpaces": {
+      "active": true,
+      "learnMoreLink": null,
+      "breatherLink": "https://breather.com/discover/search?isMapSearch=true&latlng=37.88824118653109%2C-122.0465751548013&search_term=1212+Broadway+Plaza%2C+Walnut+Creek%2C+CA%2C+USA&sorting=distance&zoom=13&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousWalnutCreekBroadwayPlaza"
+    },
+    "metaDescription": {
+      "en": "Experience flexible coworking options and private offices at Industrious Broadway Plaza in the San Francisco Bay Area. Enjoy top-notch amenities and a vibrant community. Book now!",
+      "fr": null,
+      "de": null,
+      "nl": "Ervaar flexibele coworking-opties en privékantoren bij Industrious Broadway Plaza in de San Francisco Bay Area. Geniet van eersteklas voorzieningen en een levendige omgeving. Boek nu!",
+      "es": null
+    },
+    "metroName": "San Francisco",
+    "metroSfId": "a001Q00000YzNwgQAF",
+    "name": "Walnut Creek - Broadway Plaza",
+    "parkingAlt": "Broadway Plaza is easily accessible via public transit. The best method of public transit is to arrive via Walnut Creek BART station, and take the free ride trolley - Route 4 - that goes straight from Broadway Plaza to BART every 30 minutes.",
+    "parkingGuest": "Nordstrom/Macy's Garage:  First 3 hours are FREE, no validation required; Hours 3-4 = $5; Hours 4-5 = $7; 5+ Hours = Maximum Daily Rate of $25    Customers should keep their tickets with them and visit a pay-station before they exit the garage.",
+    "parkingInfos": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null
+    },
+    "phase": "Open",
+    "phone": "+1 000-000-0000",
+    "products": {
+      "coworkingDayPass": {
+        "dailyOnDemandCapacity": 15,
+        "canBuyOnline": true,
+        "currentlySellable": true,
+        "availableAtLocation": true
+      },
+      "virtual": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      },
+      "suites": {
+        "availableAtLocation": false,
+        "currentlySellable": false
+      },
+      "meetingRoom": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "bookingUrl": null,
+        "breatherUrl": "https://breather.com/discover/search?isMapSearch=true&latlng=37.88824118653109%2C-122.0465751548013&search_term=1212+Broadway+Plaza%2C+Walnut+Creek%2C+CA%2C+USA&sorting=distance&zoom=13&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousWalnutCreekBroadwayPlaza"
+      },
+      "dedicatedOffice": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      },
+      "access": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      }
+    },
+    "publishLocationPageOnWebsite": true,
+    "salesHighlightBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "sfId": "a001Q00000ZbFtTQAV",
+    "floorplanUrl": "/a001Q00000ZbFtTQAV.png",
+    "slug": "1212-broadway-plaza-suite-2100",
+    "state": "CA",
+    "summary": {
+      "en": "Nestled in the heart of Walnut Creek, Industrious at Walnut Creek-Broadway Plaza is your ideal flexible workspace. This beautifully designed location offers options for coworking, private offices, and on-demand meeting spaces, making it perfect for solopreneurs and small to midsize teams. Commuters can take advantage of the nearby Walnut Creek BART Station, while drivers have easy access to Interstate 680 and Highway 24, as well as on-site parking and valet. Located within Broadway Plaza’s upscale open-air shopping center, you’ll be surrounded by endless options for shopping or dining, all in a gorgeous setting. Members are sure to have all their needs met with our best-in-class amenities, including a wellness room, library, café and phone booths. Come experience your dream work day in a warm, inviting environment with Industrious at Walnut Creek-Broadway Plaza.",
+      "fr": "Situé au cœur du centre-ville de Walnut Creek, notre bureau est idéalement situé dans le centre commercial haut de gamme en plein air de Broadway Plaza. Le site propose des services et des équipements de premier ordre, conçus pour vous permettre de travailler de manière plus productive, tous les jours.",
+      "de": null,
+      "nl": "Industrious at Walnut Creek-Broadway Plaza ligt in het hart van Walnut Creek en is de perfecte flexibele werkruimte. Deze prachtig ontworpen locatie biedt mogelijkheden voor coworking, privékantoren en on-demand vergaderruimten, waardoor het perfect is voor zelfstandige ondernemers en kleine tot middelgrote teams. Forenzen kunnen gebruik maken van het nabijgelegen Walnut Creek BART Station, terwijl automobilisten gemakkelijk toegang hebben tot de Interstate 680 en de Highway 24. Ook is er parkeergelegenheid en parkeerservice op eigen terrein. De locatie bevindt zich in het luxe openluchtwinkelcentrum Broadway Plaza met talloze winkels en restaurants in een prachtige omgeving. Onze eersteklas faciliteiten, waaronder een wellnessruimte, bibliotheek, café en belcabines, bieden leden alles wat ze nodig hebben. Beleef een inspirerende werkdag in een gezellige, uitnodigende omgeving bij Industrious in Walnut Creek-Broadway Plaza.",
+      "es": null
+    },
+    "tier": 2,
+    "timezone": "America/Los_Angeles",
+    "transitInfos": [
+      {
+        "description": {
+          "en": "BART to Walnut Creek",
+          "fr": "BART (Walnut Creek)",
+          "de": null,
+          "nl": "BART naar Walnut Creek",
+          "es": null
+        },
+        "category": "Train"
+      },
+      {
+        "description": {
+          "en": "Easy access to Interstate 680 and Highway 24",
+          "fr": "Accès facile à l'Interstate 680 et l'Autoroute 24",
+          "de": null,
+          "nl": "Gemakkelijke toegang tot de Interstate 680 en de Highway 24",
+          "es": null
+        },
+        "category": "Driving"
+      },
+      {
+        "description": {
+          "en": "Parking through Broadway Plaza parking garage",
+          "fr": "Parking sur place avec service de voiturier",
+          "de": null,
+          "nl": "Parkeerservice en parkeergelegenheid op het terrein",
+          "es": null
+        },
+        "category": "Parking"
+      },
+      {
+        "description": {
+          "en": "Bike racks",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Bike"
+      },
+      {
+        "description": {
+          "en": "Trolley from Bart to Broadway Plaza",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Bus"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      }
+    ],
+    "updatedAt": {
+      "$date": "2026-01-29T15:21:55.228Z"
+    },
+    "wifiInstructions": "https://drive.google.com/open?id=1BEVf9Rc9mgPQS-MNnZh9AFSKZxmUlm58",
+    "zipCode": "94596",
+    "isEarlyInPersonTourEnabled": false,
+    "hideOpeningDate": false,
+    "licensor": "INDUSTRIOUS WAL 1275 BROADWAY PLAZA LLC",
+    "locationCode": "WAL1212BRO",
+    "salesOfficeAddress": null,
+    "blackoutDates": [
+      {
+        "date": {
+          "$date": "2024-04-24T00:00:00.000Z"
+        },
+        "description": "Volunteer event"
+      },
+      {
+        "date": {
+          "$date": "2024-10-11T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-10-14T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-10-15T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-10-16T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-10-17T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-10-18T00:00:00.000Z"
+        },
+        "description": "Isofy"
+      },
+      {
+        "date": {
+          "$date": "2024-12-13T00:00:00.000Z"
+        },
+        "description": "Industrious Volunteer Day"
+      },
+      {
+        "date": {
+          "$date": "2025-02-07T00:00:00.000Z"
+        },
+        "description": "Annual NOAPies"
+      },
+      {
+        "date": {
+          "$date": "2025-02-14T00:00:00.000Z"
+        },
+        "description": "President's Day (Extended)"
+      },
+      {
+        "date": {
+          "$date": "2025-02-17T00:00:00.000Z"
+        },
+        "description": "President's Day"
+      }
+    ],
+    "openingHours": {
+      "mon": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "tue": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "wed": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "thu": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "fri": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "sat": null,
+      "sun": null
+    },
+    "legalEntityName": "Walnut Creek - 1212 Broadway Plaza",
+    "netsuiteId": "179",
+    "floorPlanUrl": "https://drive.google.com/file/d/1Mo3W6_Bg8RoB6FLnI4d_XbrJDRnZKNVD/view?usp=drive_link",
+    "infoSheetUrl": "www.canva.com/design/DAFW0VoJIjw/NJNnHE2eqsaSQyPijmsozg/edit?utm_content=DAFW0VoJIjw&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton",
+    "isWaitlisting": false,
+    "supplier": null,
+    "visibleTo": [
+      "Nuveen",
+      "Industrious",
+      "Gable",
+      "UpFlex",
+      "Desana",
+      "Cbre",
+      "InstantGroup",
+      "Yardi",
+      "LiquidSpace",
+      "IndustriousInternal",
+      "Workthere"
+    ],
+    "commonSpaceRsf": 17477,
+    "dailyVisitorCapacity": 30,
+    "contractType": "Variable Lease",
+    "landlord": "MACERICH HHF BROADWAY PLAZA LLC",
+    "isCrawlable": true,
+    "bikeParking": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "carParking": {
+      "en": "<p>Parking is managed and billed through PCI located at the Macy's Parking Garage off of South Broadway.</p>",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "internetServiceProvider": "IsoFy",
+    "lunchSpots": [
+      {
+        "placeId": "ChIJWw_2asJhhYARW6tIJYou2GA",
+        "name": "Gott's Roadside",
+        "address": "1275 S Main St, Walnut Creek",
+        "geolocalization": {
+          "lat": 37.8949705,
+          "lng": -122.0597168
+        }
+      },
+      {
+        "placeId": "ChIJ_-IxtG1hhYARVX0T2kL63Ok",
+        "name": "sweetgreen",
+        "address": "1556 Mt Diablo Blvd Suite A, Walnut Creek",
+        "geolocalization": {
+          "lat": 37.8978156,
+          "lng": -122.0612394
+        }
+      },
+      {
+        "placeId": "ChIJMSLRRWdhhYARPLfkY9zwB8E",
+        "name": "Cholita Linda",
+        "address": "24 Broadway Ln, Walnut Creek",
+        "geolocalization": {
+          "lat": 37.8965732,
+          "lng": -122.0577389
+        }
+      },
+      {
+        "placeId": "ChIJ22W3TsJhhYARGF5WvDq2FhA",
+        "name": "True Food Kitchen",
+        "address": "120 Broadway Ln Bld #4 Space #1044, Walnut Creek",
+        "geolocalization": {
+          "lat": 37.8953184,
+          "lng": -122.0568623
+        }
+      },
+      {
+        "placeId": "ChIJIRGcMsBhhYARsnDTPa97Mlc",
+        "name": "Main Street Kitchen & Bar",
+        "address": "1358 N Main St, Walnut Creek",
+        "geolocalization": {
+          "lat": 37.8985791,
+          "lng": -122.0601911
+        }
+      }
+    ],
+    "printingInstructionsUrl": "https://docs.google.com/document/d/1SqMQAhhQ4AJpHcug45t1vHXtZRR7NpOtLqjLo2geJT4/edit?usp=drive_link",
+    "hsId": "12597323614",
+    "tourInstructions": {
+      "en": "We are situated on the second level of the Broadway Plaza Shopping Center, located at 1212 Broadway Plaza.  Our building entrance is on the first level and is located between See’s Candy and Lululemon, across from the Nordstrom ebar. If you have any trouble finding the space, please contact us at (925) 297-5399, press option 2.    Parking is available at the Nordstrom/Macy’s parking garages. The Plaza also has metered street parking available.    Members can register for monthly parking at the PCI Parking Office, located in the basement of the South Broadway Parking Structure on the Macy&#39;s side, Monday through Friday, from 8:30am to 6pm.  For more information, Industrious Members can call 925-287-5048 or email BroadwayPlaza@parkingconcepts.com ($75/month)",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "metroAreaId": {
+      "$oid": "67cf3b13f3672fa8b41de80e"
+    },
+    "countryId": {
+      "$oid": "655e2bb003706eaf1879c23a"
+    },
+    "calendlyLabels": {
+      "inPersonTour": "Industrious Broadway Plaza Tour",
+      "phoneCall": "Industrious Bay Area Broadway Plaza Phone Call"
+    },
+    "cleaningScopeUrl": "https://drive.google.com/file/d/1d_pzawLlQe4YZR0ALznrrsFX8Li-88EY/view?usp=share_link",
+    "coi": {
+      "documentUrl": "https://drive.google.com/file/d/1zxzx0B3vbPoGp28PMCaJIBMBTw-ji9E4/view?usp=sharing",
+      "required": true
+    },
+    "deskSize": "48x24",
+    "freightElevator": {
+      "dimensions": "",
+      "requiresReservation": false,
+      "open": null,
+      "close": null,
+      "usageDirections": ""
+    },
+    "locationPhotosUrl": "https://drive.google.com/drive/folders/1LEv2c9wo2cpciRYjq0Me0fYcIZAZEv2z?usp=sharing",
+    "nbOfBuiltInPhoneBooths": 2,
+    "nbOfModularPhoneBooths": 17,
+    "propertyContactInfo": {
+      "management": "Shelly Dress, CSM  |  Senior Manager, Property Management \r\n. . . . . . . . . . . . . . . . . . . . . . . . . . .\r\nBroadway Plaza \r\n1275 Broadway Plaza \r\nWalnut Creek, CA 94596 \r\np. 925.287.5033",
+      "security": "To contact Broadway Plaza Security, call (925) 943-2037.",
+      "janitorial": ""
+    },
+    "rentableSquareFootage": 35981,
+    "buildingPortal": {
+      "loginInfo": "",
+      "url": ""
+    },
+    "constructionTurnoverDate": {
+      "$date": "2020-01-27T00:00:00.000Z"
+    },
+    "contigencyPlan": "https://docs.google.com/spreadsheets/d/1K_Cmh6WzLBA1SiALST1eEjac3vAIZZEXd6spPRy0FEA/edit#gid=1291681107",
+    "floorsOccupied": "2nd Floor",
+    "maxNbOfDesks": 429,
+    "nbOfConferenceRooms": 14,
+    "nbOfOffices": 112,
+    "nbOfSuites": 0,
+    "partnership": false,
+    "petPolicy": "Pets allowed",
+    "union": false,
+    "securityDepositFactor": 150,
+    "subBrandName": "Industrious",
+    "isPrioritzedOnSearch": false,
+    "commonAreasTotalSeats": 22,
+    "requiredIdentityVerificationTypes": [
+      "Document",
+      "NameMatching"
+    ],
+    "locationUiCustomizations": {
+      "locationPagePrimaryCtaTextOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "locationFormPageTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showSimplifiedRightRail": false,
+      "locationDescriptionTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showLocationNameAsPageTitle": false,
+      "showPrivateOfficeStartingFromPrice": true
+    },
+    "featuredPromoBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "showFloorPlanOnWebsite": false,
+    "spotlight": null,
+    "earliestLicenseAgreementDate": {
+      "$date": "2020-01-27T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6424657d16a40d4543186623"
+    },
+    "address": "444 South Flower Street",
+    "address2": "13th Fl",
+    "amenities": {
+      "standard": [
+        "642ed3588bf6c389c39858ae",
+        "642ed358ac422fdb0f5315fb",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e3e6cf0fd868e6d584",
+        "643755e38d8f008035da4a5c",
+        "643756618d8f008035da4a65",
+        "643756611ea063e001eb4f87",
+        "6746afa231c07c4d86ec567f",
+        "6746afa231c07c4d86ec5683",
+        "6746afa231c07c4d86ec5680",
+        "6746afa231c07c4d86ec5682",
+        "6746afa231c07c4d86ec5681",
+        "6746bd932f605015d01a8486",
+        "643756611ea063e001eb4f86"
+      ],
+      "unique": [
+        "642ed358ac422fdb0f5315fe",
+        "642ed358ac422fdb0f5315fa",
+        "643755e31ea063e001eb4f79",
+        "643756618d8f008035da4a69",
+        "644bc08ba926bb4153bcb480",
+        "643756618d8f008035da4a68"
+      ],
+      "onDemand": [
+        "642ed358ac422fdb0f5315f9",
+        "642ed3588bf6c389c39858b2",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e38d8f008035da4a5c",
+        "643756611ea063e001eb4f89",
+        "66394a7609fb2c2049896e44"
+      ]
+    },
+    "attractions": [],
+    "bikeRacks": "Yes",
+    "brandName": "Industrious",
+    "brochureLink": "https://www.canva.com/design/DAFWpVd6gQc/R_ZAkVzrRukRZsCR5rO7lw/edit",
+    "buildingCheckInInstructions": "This location requires guests to check-in with building security. Once you arrive, check in with your ID with security at Lobby level PL. They will send you up in the elevator to Industrious in Suite 1300/1400.",
+    "calendlyLinks": {
+      "inPersonTour": "calendly.com/industrious-west-region/los-angeles-5th-and-flower-tour",
+      "phoneCall": "calendly.com/industrious-west-region/industrious-los-angeles-5th-flower-call"
+    },
+    "city": "Los Angeles",
+    "country": "United States",
+    "createdAt": {
+      "$date": "2023-04-13T01:09:49.884Z"
+    },
+    "currencyIsoCode": "USD",
+    "email": "6424657d16a40d4543186623@domain.invalid",
+    "embedSocialId": null,
+    "firstDayOfBusiness": {
+      "$date": "2019-09-23T00:00:00.000Z"
+    },
+    "geolocalization": {
+      "type": "Point",
+      "coordinates": [
+        -118.2553339,
+        34.0521432
+      ]
+    },
+    "images": [
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11472913d6070b2d4562.webp",
+        "altText": {
+          "en": "Common area at Industrious 5th and Flower",
+          "fr": "un bureau de coworking moderne avec beaucoup de mobilier et de plantes.",
+          "de": "Ein moderner Büroarbeitsplatz mit vielen Möbeln und Pflanzen.",
+          "nl": "Een moderne kantoorwerkruimte met veel meubels en planten.",
+          "es": "Un lugar de trabajo de oficina moderno con muchos muebles y plantas."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 1,
+        "tags": [
+          "HasSoftSeating",
+          "HasPhoneBooths",
+          "CommonArea",
+          "Cafe",
+          "Reception"
+        ],
+        "thumbHash": "7fcJDYKYpnh/lmaHeDd3fHC3DTn6"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11432913d6070b2d4561.webp",
+        "altText": {
+          "en": "Private office at Industrious 5th and Flower",
+          "fr": "Un bureau avec deux bureaux et une fenêtre à Los Angeles.",
+          "de": "Ein sauberes, modernes Büro in Los Angeles verfügt über drei Schreibtische, ergonomische Stühle, eine Stehlampe und eine kleine Pflanze vor einem Fenster mit herrlichem Blick auf die Stadt. Perfekt vielseitig einsetzbar als inspirierender Besprechungsraum.",
+          "nl": "Een schoon, modern kantoor in Los Angeles heeft drie bureaus, ergonomische bureaustoelen, een staande lamp en een kleine plant tegen een raam met een prachtig uitzicht over de stad. Perfect veelzijdig als inspirerende vergaderruimte.",
+          "es": "Una oficina limpia y moderna en Los Ángeles tiene tres escritorios, sillas ergonómicas, una lámpara de pie y una pequeña planta contra una ventana con una hermosa vista de la ciudad. Perfectamente versátil como sala de reuniones inspiradora."
+        },
+        "caption": {
+          "en": "Private office",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 2,
+        "tags": [
+          "Bathrooms"
+        ],
+        "thumbHash": "7vcJDYJ1q5mfWIZzeBeKbECVDib5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11552913d6070b2d4565.webp",
+        "altText": {
+          "en": "Meeting room at Industrious 5th and Flower",
+          "fr": "Une salle de réunion de coworking équipée d'une TV murale.",
+          "de": "Ein Konferenzraum in einem Büro in Los Angeles, ausgestattet mit einem an der Wand montierten Fernseher.",
+          "nl": "Een vergaderruimte in een kantoor in Los Angeles, uitgerust met een tv aan de muur.",
+          "es": "Una sala de conferencias en una oficina de Los Ángeles, equipada con un televisor montado en la pared."
+        },
+        "caption": {
+          "en": "Meeting room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 3,
+        "thumbHash": "4gcODYKEyXWOiYbVikaHcGqCrxb4"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a114c2913d6070b2d4563.webp",
+        "altText": {
+          "en": "Café at Industrious 5th and Flower",
+          "fr": "Un espace de travail Los Angeles agrémenté d'une table, de chaises et de plantes, idéal pour les réunions.",
+          "de": "Ein Coworking-Büro in Los Angeles mit Tisch, Stühlen und Pflanzen.",
+          "nl": "Een coworking-kantoor in Los Angeles met een tafel, stoelen en planten.",
+          "es": "Una oficina de coworking en Los Ángeles con mesa, sillas y plantas."
+        },
+        "caption": {
+          "en": "Café",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 4,
+        "tags": [
+          "Cafe",
+          "CommonArea",
+          "HasPeople",
+          "HasPhoneBooths",
+          "HasSoftSeating",
+          "HasWorkstation",
+          "Library",
+          "Reception"
+        ],
+        "thumbHash": "JggGBYJSxMmOU3ZUpgRoZ6f1KQN5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a115d2913d6070b2d4567.webp",
+        "altText": {
+          "en": "A Los Angeles coworking meeting room equipped with a chair and a mirror.",
+          "fr": "une salle de bain avec un miroir.",
+          "de": "Ein Badezimmer mit Stuhl und Spiegel, das auch als Arbeitsbereich dient.",
+          "nl": "Een badkamer met een stoel en een spiegel die tevens dienst doet als werkruimte.",
+          "es": "Un baño con silla y espejo que también sirve como zona de trabajo."
+        },
+        "caption": {
+          "en": "Example shown: Wellness room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 5,
+        "tags": [
+          "WellnessRoom"
+        ],
+        "thumbHash": "JggODYCSeIV8iYWAiGiGiQ2xp0HP"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a113a2913d6070b2d455f.webp",
+        "altText": {
+          "en": "A row of glass booths in a coworking office space.",
+          "fr": "Une rangée de cabines en verre dans un bureau de Los Angeles.",
+          "de": "In unserem Büro in Los Angeles stehen vier schalldichte Telefonzellen mit Glastüren und grauem Interieur, jede mit einem Stuhl und einem kleinen Schreibtisch, an einer Wand aufgereiht. Perfekt für kurze Anrufe oder private Gespräche abseits der geschäftigen Konferenzräume.",
+          "nl": "In ons kantoor in Los Angeles staan vier geluiddichte telefooncellen met glazen deuren en grijze interieurs, elk met een stoel en een klein bureau, opgesteld tegen een muur. Ideaal voor korte gesprekken of privégesprekken buiten drukke vergaderruimtes.",
+          "es": "En nuestra oficina de Los Ángeles, cuatro cabinas telefónicas insonorizadas con puertas de cristal e interiores grises, cada una con una silla y un pequeño escritorio, están alineadas contra una pared. Ideal para conversaciones breves o conversaciones privadas fuera de salas de reuniones concurridas."
+        },
+        "caption": {
+          "en": "Example shown: Phone booths",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 6,
+        "tags": [
+          "HasWorkstation",
+          "HasPhoneBooths"
+        ],
+        "thumbHash": "JwgGFYLy/ZrGaVVchgeEh4SRTwj5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a113f2913d6070b2d4560.webp",
+        "altText": {
+          "en": "Reception at Industrious 5th and Flower",
+          "fr": "Un bureau de coworking à Los Angeles, avec une table, des chaises et des plantes.",
+          "de": "Modernes Bürowohnzimmer in Los Angeles mit zwei roten Stühlen, einem kleinen Tisch und grünen Pflanzen. Ein runder Marmortisch mit Stühlen steht in diesem Coworking Space im Vordergrund. Das „Industrious“-Logo ist auf einer eleganten schwarzen Wand zu sehen.",
+          "nl": "Moderne kantoorwoonkamer in Los Angeles met twee rode stoelen, een kleine tafel en groene planten. Een ronde marmeren tafel met stoelen staat centraal in deze coworkingruimte. Het ‘Industrious’-logo is te zien op een strakke zwarte muur.",
+          "es": "Moderna sala de estar de oficina en Los Ángeles con dos sillas rojas, una mesa pequeña y plantas verdes. Una mesa redonda de mármol con sillas se encuentra en primer plano en este espacio de coworking. El logotipo de \"Industrious\" se muestra en una elegante pared negra."
+        },
+        "caption": {
+          "en": "Reception",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 7,
+        "tags": [
+          "Reception",
+          "Library",
+          "HasWorkstation",
+          "HasSoftSeating",
+          "HasPhoneBooths",
+          "HasPeople",
+          "CommonArea",
+          "Cafe"
+        ],
+        "thumbHash": "YwgKDYLJimtph3avZFeWc7CKa0X6"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11592913d6070b2d4566.webp",
+        "altText": {
+          "en": "Common area at Industrious 5th and Flower",
+          "fr": "Un espace de travail à Los Angeles avec des chaises noires et une plante en pot.",
+          "de": "Moderner Wartebereich in einem Büro in Los Angeles mit zwei schwarzen Stühlen um einen kleinen Tisch, Pflanzen auf beiden Seiten und einem Foto einer Meereslandschaft an der Wand.",
+          "nl": "Moderne wachtruimte in een kantoor in Los Angeles met twee zwarte stoelen rond een tafeltje, planten aan weerszijden en een foto van een zeegezicht aan de muur.",
+          "es": "Moderna sala de espera en una oficina de Los Ángeles con dos sillas negras alrededor de una mesa, plantas a cada lado y una fotografía de un paisaje marino en la pared."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 8,
+        "tags": [
+          "HasWorkstation",
+          "HasSoftSeating"
+        ],
+        "thumbHash": "IfgNBYIfuWiKd3d4mWeHi8VVj4j8"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11502913d6070b2d4564.webp",
+        "altText": {
+          "en": "Common area at Industrious 5th and Flower",
+          "fr": "un espace de travail dans un bureau situé à Los Angeles.",
+          "de": "Ein Arbeitsplatz in einem Büro mit vielen Möbeln.",
+          "nl": "Een werkruimte in een kantoor met veel meubilair.",
+          "es": "Un lugar de trabajo en una oficina con muchos muebles."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 9,
+        "tags": [
+          "HasSoftSeating",
+          "HasPeople",
+          "CommonArea",
+          "Cafe"
+        ],
+        "thumbHash": "ahgKHYZ7aIivdnlIeUZ4bJCXBmpZ"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d4543186623/649a11352913d6070b2d455e.webp",
+        "altText": {
+          "en": "Industrious 5th and Flower building",
+          "fr": "Un gratte-ciel de Los Angeles avec une salle de réunion et un espace de travail à côté d'un mur de briques.",
+          "de": "Hohe, moderne Wolkenkratzer vor einem klaren, blauen Himmel, mit viel Grün im Vordergrund, umrahmen im Inneren einen geschäftigen Arbeitsbereich.",
+          "nl": "Hoge, moderne wolkenkrabbers tegen een helderblauwe lucht, met groen op de voorgrond, omlijsten binnen een drukke werkruimte.",
+          "es": "Rascacielos altos y modernos contra un cielo azul brillante, con vegetación en primer plano, enmarcan un espacio de trabajo ajetreado."
+        },
+        "caption": {
+          "en": "Building exterior",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 10,
+        "tags": [
+          "BuildingExterior"
+        ],
+        "thumbHash": "3dYNJYQMeJdJdWeCV4lod9CVC22o"
+      }
+    ],
+    "isTenantExperienceManaged": false,
+    "locationManagers": [
+      {
+        "userId": {
+          "$oid": "63c1989808b6d9dc6356db3d"
+        },
+        "locationContactRelationSfId": "a4y1Q000000SwEDQA0",
+        "roles": [
+          "Regional Director"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "63c1985b08b6d9dc6356db37"
+        },
+        "locationContactRelationSfId": "a4y1Q000000SwG9QAK",
+        "roles": [
+          "Area Sales Lead"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "655b69b0e194b9f666b9d4e8"
+        },
+        "locationContactRelationSfId": "a4y1Q000000hOHzQAM",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "63f789686da245593a77b6b3"
+        },
+        "locationContactRelationSfId": "a4yVS000000ACG1YAO",
+        "roles": [
+          "Member Experience Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "65dd0f0094b0481f9f9adb7a"
+        },
+        "locationContactRelationSfId": "a4yVS000001NSZJYA4",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "651e0e78d2d7b06a352092b5"
+        },
+        "locationContactRelationSfId": "a4yVS0000043rgdYAA",
+        "roles": [
+          "Assistant General Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "6329a126a2b4904433ed55d1"
+        },
+        "locationContactRelationSfId": "a4yVS000000N05lYAC",
+        "roles": [
+          "General Manager"
+        ]
+      }
+    ],
+    "lodgingAndDining": [],
+    "matterportImageLink": "https://my.matterport.com/show/?m=ANCiRZyPQUF",
+    "meetingSpaces": {
+      "active": false,
+      "learnMoreLink": null,
+      "breatherLink": "https://breather.com/discover/search?isMapSearch=true&latlng=34.050368164654444%2C-118.25813057913808&search_term=444+Flower+Street%2C+Los+Angeles%2C+CA%2C+USA&sorting=distance&zoom=15&utm_source=Industrious&utm_medium=Meetings&utm_campaign=Industrious5thandFlower"
+    },
+    "metaDescription": {
+      "en": "Discover the best coworking and workspace options in Los Angeles at Industrious in Fifth Flower. Conveniently located on South Flower Street, enjoy stunning office spaces, inclusive amenities, and more. Book now!",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "metroName": "Los Angeles",
+    "metroSfId": "a003600000Xu8nGAAR",
+    "name": "5th and Flower",
+    "parkingAlt": "Industrious 5th & Flower is easily accessible via public transit. Transportation options include: Bus stops at 5th & Flower, Metro Stations at Pershing Square and 7th/Metro. Rideshare users should dropoff on 5th Street just before the light for Flower St, right by the Starbucks.",
+    "parkingGuest": "Parking is available onsite for hourly/daily usage for all guests. Parking is   $20/hour  $40/daily max.",
+    "parkingInfos": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null
+    },
+    "phase": "Open",
+    "phone": "+1 000-000-0000",
+    "products": {
+      "dedicatedOffice": {
+        "availableAtLocation": true,
+        "currentlySellable": false
+      },
+      "suites": {
+        "availableAtLocation": false,
+        "currentlySellable": false
+      },
+      "access": {
+        "availableAtLocation": true,
+        "currentlySellable": false,
+        "canBuyOnline": false
+      },
+      "virtual": {
+        "availableAtLocation": true,
+        "currentlySellable": false
+      },
+      "meetingRoom": {
+        "availableAtLocation": false,
+        "currentlySellable": false,
+        "bookingUrl": null,
+        "breatherUrl": "https://breather.com/discover/search?isMapSearch=true&latlng=34.050368164654444%2C-118.25813057913808&search_term=444+Flower+Street%2C+Los+Angeles%2C+CA%2C+USA&sorting=distance&zoom=15&utm_source=Industrious&utm_medium=Meetings&utm_campaign=Industrious5thandFlower"
+      },
+      "coworkingDayPass": {
+        "availableAtLocation": false,
+        "currentlySellable": false,
+        "canBuyOnline": false,
+        "dailyOnDemandCapacity": 5
+      }
+    },
+    "publishLocationPageOnWebsite": true,
+    "salesHighlightBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "sfId": "a001Q00000ah4p9QAA",
+    "floorplanUrl": "/a001Q00000ah4p9QAA.png",
+    "slug": "444-south-flower-street-13th-fl",
+    "state": "CA",
+    "summary": {
+      "en": "Situated in the heart of downtown LA, this space is located in 444 South Flower, a striking, 48-story, stainless steel and glass office tower. Featuring three outdoor terraces, sun-drenched rooms, and best-in-class amenities, you've never experienced a workplace quite like this.",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "tier": 3,
+    "timezone": "America/Los_Angeles",
+    "transitInfos": [
+      {
+        "description": {
+          "en": "Red Line to Pershing Square",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Subway"
+      },
+      {
+        "description": {
+          "en": "Easy access to the 110 Freeway",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Driving"
+      },
+      {
+        "description": {
+          "en": "Indoor garage and valet parking",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Parking"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      },
+      {
+        "description": {
+          "en": "Metro E Line to 7th St./Metro Center",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Train"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      }
+    ],
+    "updatedAt": {
+      "$date": "2026-01-29T15:21:55.229Z"
+    },
+    "wifiInstructions": "",
+    "zipCode": "90071",
+    "isEarlyInPersonTourEnabled": false,
+    "hideOpeningDate": false,
+    "licensor": "INDUSTRIOUS LA 444 SOUTH FLOWER STREET LLC",
+    "locationCode": "LAX0444FLO",
+    "salesOfficeAddress": null,
+    "blackoutDates": [
+      {
+        "date": {
+          "$date": "2024-04-24T00:00:00.000Z"
+        },
+        "description": "Volunteer Around the World"
+      }
+    ],
+    "openingHours": {
+      "mon": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "tue": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "wed": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "thu": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "fri": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "sat": null,
+      "sun": null
+    },
+    "isWaitlisting": true,
+    "legalEntityName": "Los Angeles - 444 South Flower (Downtown)",
+    "netsuiteId": "101",
+    "floorPlanUrl": "https://drive.google.com/file/d/1U4LG-bFBJ_G7Xdel0JMlOEw8ORJ0XGEb/view?usp=drive_link",
+    "infoSheetUrl": "www.canva.com/design/DAFWpVd6gQc/R_ZAkVzrRukRZsCR5rO7lw/edit",
+    "visibleTo": [
+      "Nuveen",
+      "Industrious",
+      "Gable",
+      "UpFlex",
+      "Desana",
+      "Cbre",
+      "InstantGroup",
+      "Yardi",
+      "LiquidSpace",
+      "IndustriousInternal",
+      "Workthere"
+    ],
+    "supplier": null,
+    "commonSpaceRsf": 20949,
+    "dailyVisitorCapacity": 0,
+    "contractType": "Variable Lease",
+    "landlord": "CVFI-444 S FLOWER, LP",
+    "isCrawlable": true,
+    "bikeParking": {
+      "en": "Bike racks located on 5th and Flower",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "carParking": {
+      "en": "<p><span style=\"color: rgb(86, 89, 94);\">BRING YOUR ID! Park in Garage on Flower Street (look for SILVER sign saying \"Four Fourty Four\"). Free for first 15 minutes. Check in with security. They will send you up to the 13th floor. </span></p>",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "lunchSpots": [
+      {
+        "placeId": "ChIJtdCuP0zHwoAR2W61HTAcOcw",
+        "name": "Te Isshoku Sushi",
+        "address": "Library Steps / Bunker Hill Steps, 633 W 5th St, Los Angeles",
+        "geolocalization": {
+          "lat": 34.0511495,
+          "lng": -118.2548283
+        }
+      },
+      {
+        "placeId": "ChIJk-PEBrPHwoAR6H2cNHvlT9w",
+        "name": "Mendocino Farms",
+        "address": "444 Flower St, Los Angeles",
+        "geolocalization": {
+          "lat": 34.0519234,
+          "lng": -118.2553644
+        }
+      },
+      {
+        "placeId": "ChIJQ8d0fFnHwoARZdx_A2WSbHw",
+        "name": "Mr. Mustache",
+        "address": "505 Flower St, Los Angeles",
+        "geolocalization": {
+          "lat": 34.05142379999999,
+          "lng": -118.2564653
+        }
+      },
+      {
+        "placeId": "ChIJKV_WkUvGwoARxDayjmHKl00",
+        "name": "Golden Road Grand Central Market",
+        "address": "317 S Broadway, Los Angeles",
+        "geolocalization": {
+          "lat": 34.0510559,
+          "lng": -118.2493896
+        }
+      },
+      {
+        "placeId": "ChIJ8QbxZYTHwoAR9RMDcjmVra4",
+        "name": "JOEY DTLA",
+        "address": "700 W 7th St Ste S430, Los Angeles",
+        "geolocalization": {
+          "lat": 34.048017,
+          "lng": -118.2580506
+        }
+      }
+    ],
+    "internetServiceProvider": "IsoFy",
+    "printingInstructionsUrl": "https://mcusercontent.com/5cccc17030758195766214866/files/d2d7f467-4f64-b149-c24d-d94d784e5008/Isofy_Printer_IP_039_s.pdf?utm_source=Industrious+5th+and+Flower&utm_campaign=0ac0ebbba3-EMAIL_CAMPAIGN_2024_10_25_05_52&utm_medium=email&utm_term=0_-0ac0ebbba3-%5BLIST_EMAIL_ID%5D",
+    "hsId": "12597333144",
+    "tourInstructions": {
+      "en": "Please check-in at the security desk in the lobby and be ready to present a valid ID. Security will provide a badge and direct you up to the 13th floor. If you have any trouble finding the space, please contact us at 213-340-6265, press option 2.    Parking is on Level A, in the Valet Area which is on our first level. The entrance is off Flower Street on the left side and has an underground parking entrance. We will provide validation tickets. Our Valet drivers park and store the vehicle until departure.",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "metroAreaId": {
+      "$oid": "67cf3b13f3672fa8b41de827"
+    },
+    "countryId": {
+      "$oid": "655e2bb003706eaf1879c23a"
+    },
+    "calendlyLabels": {
+      "inPersonTour": "Industrious Los Angeles 5th & Flower Tour",
+      "phoneCall": "Industrious Los Angeles 5th & Flower Phone Call"
+    },
+    "cleaningScopeUrl": "https://docs.google.com/document/d/1mY6-m8YU2M_osXDxKh8nmFq6yQTfvnWWTyYKUPreFuQ/edit?usp=share_link",
+    "coi": {
+      "documentUrl": "https://drive.google.com/open?id=1JOlBm5AERdx2jlb35RIE70yYlzmaBj-Q",
+      "required": false
+    },
+    "deskSize": "2'-4\" x 4'-8\"",
+    "freightElevator": {
+      "dimensions": "",
+      "requiresReservation": false,
+      "open": null,
+      "close": null,
+      "usageDirections": ""
+    },
+    "nbOfModularPhoneBooths": 19,
+    "propertyContactInfo": {
+      "management": "Nattalia Acosta \r\nnattalia.acosta@444southflower.com\r\n2136243229",
+      "janitorial": "",
+      "security": ""
+    },
+    "rentableSquareFootage": 43789,
+    "buildingPortal": {
+      "loginInfo": "",
+      "url": ""
+    },
+    "nbOfBuiltInPhoneBooths": 0,
+    "constructionTurnoverDate": {
+      "$date": "2019-09-23T00:00:00.000Z"
+    },
+    "contigencyPlan": "https://docs.google.com/spreadsheets/d/1HYHVyWpgVjZUwiWhfYXiM5Jw1LPx9RWRWuBbim0Rc_E/edit?ts=5d855da5#gid=190604197",
+    "firstDayOfBusinessExpansion": {
+      "$date": "2021-06-01T00:00:00.000Z"
+    },
+    "floorsOccupied": "13, 14",
+    "maxNbOfDesks": 508,
+    "nbOfConferenceRooms": 4,
+    "nbOfOffices": 124,
+    "nbOfSuites": 3,
+    "partnership": false,
+    "petPolicy": "Service animals only",
+    "union": false,
+    "securityDepositFactor": 150,
+    "subBrandName": "Industrious",
+    "isPrioritzedOnSearch": false,
+    "requiredIdentityVerificationTypes": [],
+    "locationUiCustomizations": {
+      "locationPagePrimaryCtaTextOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "locationFormPageTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showSimplifiedRightRail": false,
+      "locationDescriptionTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showLocationNameAsPageTitle": false,
+      "showPrivateOfficeStartingFromPrice": true
+    },
+    "featuredPromoBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "showFloorPlanOnWebsite": false,
+    "spotlight": null,
+    "earliestLicenseAgreementDate": {
+      "$date": "2019-09-23T00:00:00.000Z"
+    },
+    "earliestLicenseAgreementDateExpansion": {
+      "$date": "2021-06-01T00:00:00.000Z"
+    }
   }
 ]
