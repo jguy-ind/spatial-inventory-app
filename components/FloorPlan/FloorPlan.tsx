@@ -85,16 +85,19 @@ export function FloorPlan({
       : { minY: dataMinY, maxY: dataMaxY };
 
   const handleMouseEnter = useCallback(
-    (region: Region) => {
+    (region: Region, e: React.MouseEvent) => {
       setHoveredId(region.id);
-      onRegionHover?.(region);
+      onRegionHover?.(region, e);
     },
     [onRegionHover]
   );
-  const handleMouseLeave = useCallback(() => {
-    setHoveredId(null);
-    onRegionHover?.(null);
-  }, [onRegionHover]);
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent) => {
+      setHoveredId(null);
+      onRegionHover?.(null, e);
+    },
+    [onRegionHover]
+  );
 
   const content = (
     <>
@@ -125,7 +128,7 @@ export function FloorPlan({
                 <g
                   key={region.id}
                   onClick={() => onRegionClick?.(region)}
-                  onMouseEnter={() => handleMouseEnter(region)}
+                  onMouseEnter={(e) => handleMouseEnter(region, e)}
                   onMouseLeave={handleMouseLeave}
                   className="cursor-pointer"
                 >
@@ -148,7 +151,7 @@ export function FloorPlan({
               <g
                 key={region.id}
                 onClick={() => onRegionClick?.(region)}
-                onMouseEnter={() => handleMouseEnter(region)}
+                onMouseEnter={(e) => handleMouseEnter(region, e)}
                 onMouseLeave={handleMouseLeave}
                 className="cursor-pointer"
               >

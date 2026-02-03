@@ -302,6 +302,8 @@ export function OfficesPageClient() {
   const [shortHillsHoveredRegion, setShortHillsHoveredRegion] = useState<Region | null>(null);
   const [shortHillsHoverCardVisible, setShortHillsHoverCardVisible] = useState(false);
   const [shortHillsDisplayRegion, setShortHillsDisplayRegion] = useState<Region | null>(null);
+  const [shortHillsHoverPosition, setShortHillsHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
+  const shortHillsFloorPlanContainerRef = useRef<HTMLDivElement>(null);
   const shortHillsHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const shortHillsHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemsPerPage = 15;
@@ -328,6 +330,7 @@ export function OfficesPageClient() {
       shortHillsHoverHideTimeoutRef.current = setTimeout(() => {
         setShortHillsHoverCardVisible(false);
         setShortHillsDisplayRegion(null);
+        setShortHillsHoverPosition(null);
         shortHillsHoverHideTimeoutRef.current = null;
       }, HOVER_CARD_HIDE_MS);
     }
@@ -1131,7 +1134,10 @@ export function OfficesPageClient() {
                     <p className="text-muted-foreground">Loading floor plan...</p>
                   </div>
                 ) : shortHillsRegions && shortHillsRegions.length > 0 ? (
-                  <div className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]">
+                  <div
+                    ref={shortHillsFloorPlanContainerRef}
+                    className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
+                  >
                     <FloorPlan
                       imageUrl="/short-hills-floor-plan.png"
                       regions={shortHillsRegions}
@@ -1145,14 +1151,41 @@ export function OfficesPageClient() {
                           setDrawerOpen(true);
                         }
                       }}
-                      onRegionHover={(region) => setShortHillsHoveredRegion(region)}
+                      onRegionHover={(region, event) => {
+                        setShortHillsHoveredRegion(region);
+                        if (region && event && shortHillsFloorPlanContainerRef.current) {
+                          const rect = shortHillsFloorPlanContainerRef.current.getBoundingClientRect();
+                          setShortHillsHoverPosition({
+                            x: event.clientX - rect.left,
+                            y: event.clientY - rect.top,
+                            containerW: rect.width,
+                            containerH: rect.height,
+                          });
+                        }
+                      }}
                     />
-                    {/* Hover card: delayed show/hide, animated, clear hierarchy, a11y (UX best practices) */}
+                    {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated (UX best practices) */}
                     <AnimatePresence mode="wait">
                       {shortHillsHoverCardVisible && shortHillsDisplayRegion && (() => {
                         const space = listSpacesForBuilding.find((s) => s.id === shortHillsDisplayRegion.id) ?? shortHillsSpaces.find((s) => s.id === shortHillsDisplayRegion.id);
                         if (!space) return null;
                         const hasMetrics = (space.capacity ?? 0) > 0 || ((space.sqft ?? space.lsf) ?? 0) > 0 || (space.price ?? 0) > 0;
+                        const CARD_W = 280;
+                        const CARD_H_APPROX = 180;
+                        const OFFSET = 12;
+                        const pos = shortHillsHoverPosition;
+                        const style: React.CSSProperties = pos
+                          ? (() => {
+                              let left = pos.x + OFFSET;
+                              let top = pos.y - OFFSET - CARD_H_APPROX;
+                              if (left + CARD_W > pos.containerW) left = pos.x - OFFSET - CARD_W;
+                              if (left < 0) left = OFFSET;
+                              if (left + CARD_W > pos.containerW) left = pos.containerW - CARD_W - OFFSET;
+                              if (top < 0) top = pos.y + OFFSET;
+                              if (top + CARD_H_APPROX > pos.containerH) top = Math.max(OFFSET, pos.containerH - CARD_H_APPROX - OFFSET);
+                              return { position: "absolute" as const, left, top, width: CARD_W, zIndex: 10 };
+                            })()
+                          : { position: "absolute" as const, top: 16, right: 16, width: CARD_W, zIndex: 10 };
                         return (
                           <motion.div
                             key={shortHillsDisplayRegion.id}
@@ -1160,8 +1193,9 @@ export function OfficesPageClient() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 4 }}
                             transition={{ duration: prefersReducedMotion ? 0 : 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+                            style={style}
                             className={cn(
-                              "absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[280px] z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
+                              "z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
                               "ring-1 ring-black/5",
                               space.status === "available" && "border-emerald-200/80",
                               space.status === "occupied" && "border-slate-200",

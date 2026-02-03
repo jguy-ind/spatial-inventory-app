@@ -42,9 +42,9 @@ function buildShortHillsSpaces(): Space[] {
 
 export const shortHillsSpaces: Space[] = buildShortHillsSpaces()
 
-/** Matterport 3D tour URL for Short Hills - 1200 Morris Turnpike */
+/** Matterport 3D tour URL for Short Hills - 1200 Morris Turnpike. Default state matches Industrious location page embed: model default start, no help overlay, highlight reel visible. See https://www.industriousoffice.com/locations/1200-morris-turnpike-suite-3005 */
 export const SHORT_HILLS_MATTERPORT_URL =
-  'https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57'
+  'https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&help=0&hl=1'
 
 /** Rich list-view spaces for Short Hills — same set as floor plan regions (86 offices). List view and floor plan share this data. */
 function buildShortHillsListSpaces(): Space[] {

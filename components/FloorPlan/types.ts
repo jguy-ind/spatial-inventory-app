@@ -11,7 +11,8 @@ export interface FloorPlanProps {
   imageUrl: string;
   regions: Region[];
   onRegionClick?: (region: Region) => void;
-  onRegionHover?: (region: Region | null) => void;
+  /** Second arg is the mouse event when entering a region (for cursor-based tooltip positioning). */
+  onRegionHover?: (region: Region | null, event?: React.MouseEvent) => void;
   selectedRegionId?: string | null;
   /** Intrinsic image size in pixels; when set, viewBox is 0 0 imageWidth imageHeight for correct aspect ratio. */
   imageWidth?: number;
