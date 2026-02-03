@@ -7,6 +7,9 @@ export interface Region {
 
 export type FloorPlanRotation = 0 | 90 | 180 | 270;
 
+/** Status per region for coloring (available = green, occupied = gray, etc.). */
+export type RegionStatus = "available" | "occupied" | "pending" | "maintenance";
+
 export interface FloorPlanProps {
   imageUrl: string;
   regions: Region[];
@@ -14,6 +17,8 @@ export interface FloorPlanProps {
   /** Second arg is the mouse event when entering a region (for cursor-based tooltip positioning). */
   onRegionHover?: (region: Region | null, event?: React.MouseEvent) => void;
   selectedRegionId?: string | null;
+  /** Optional map of region id → status for status-based colors and inactive overlay. */
+  regionStatus?: Record<string, RegionStatus>;
   /** Intrinsic image size in pixels; when set, viewBox is 0 0 imageWidth imageHeight for correct aspect ratio. */
   imageWidth?: number;
   imageHeight?: number;

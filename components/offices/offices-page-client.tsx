@@ -51,6 +51,8 @@ import {
   X,
   MapPin,
   Maximize2,
+  ZoomIn,
+  ZoomOut,
   Share2,
   Building,
   User,
@@ -304,6 +306,10 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const [floorPlanDisplayRegion, setFloorPlanDisplayRegion] = useState<Region | null>(null);
   const [floorPlanHoverPosition, setFloorPlanHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
   const floorPlanContainerRef = useRef<HTMLDivElement>(null);
+  const [floorPlanZoom, setFloorPlanZoom] = useState(1);
+  const [floorPlanPan, setFloorPlanPan] = useState({ x: 0, y: 0 });
+  const [floorPlanDragging, setFloorPlanDragging] = useState(false);
+  const [floorPlanDragStart, setFloorPlanDragStart] = useState({ x: 0, y: 0 });
   const floorPlanHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const floorPlanHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemsPerPage = 15;
@@ -395,6 +401,15 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   );
   const currentRegions = regionsByLocationId[currentBuilding] ?? [];
   const currentSpaces = spacesByLocationId[currentBuilding] ?? [];
+  // Region id → status for Short Hills floor plan (region id may match space.id or space.name)
+  const regionIdToStatus = useMemo(() => {
+    const map: Record<string, SpaceStatus> = {};
+    for (const s of currentSpaces) {
+      map[s.id] = s.status;
+      map[s.name] = s.status;
+    }
+    return map;
+  }, [currentSpaces]);
   const matterportUrl =
     currentSpaces.find((s) => s.matterportUrl)?.matterportUrl ?? DEFAULT_MATTERPORT_URL;
 
@@ -606,10 +621,6 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Button className="bg-primary-dark hover:bg-primary-dark-hover text-primary-foreground gap-2 min-h-[44px] shrink-0 w-full sm:w-auto">
-                <Plus className="h-4 w-4" />
-                New office
-              </Button>
             </div>
 
             {/* Persistent Location Overview - Compact for desktop */}
@@ -1139,34 +1150,60 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
             {viewMode === "2d" && currentBuildingData?.image && (
               <div
                 ref={floorPlanContainerRef}
-                className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
+                className={cn(
+                  "relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)] overflow-hidden rounded-lg border border-grey-70 bg-grey-95",
+                  floorPlanDragging ? "cursor-grabbing" : "cursor-grab"
+                )}
+                onMouseDown={(e) => {
+                  if (e.target === floorPlanContainerRef.current || (e.target as HTMLElement).closest?.("[data-floor-plan-content]")) {
+                    setFloorPlanDragging(true);
+                    setFloorPlanDragStart({ x: e.clientX - floorPlanPan.x, y: e.clientY - floorPlanPan.y });
+                  }
+                }}
+                onMouseMove={(e) => {
+                  if (floorPlanDragging) {
+                    setFloorPlanPan({ x: e.clientX - floorPlanDragStart.x, y: e.clientY - floorPlanDragStart.y });
+                  }
+                }}
+                onMouseUp={() => setFloorPlanDragging(false)}
+                onMouseLeave={() => setFloorPlanDragging(false)}
               >
-                <FloorPlan
-                  imageUrl={currentBuildingData.image}
-                  regions={currentRegions}
-                  imageWidth={currentBuildingData.floorPlanWidth}
-                  imageHeight={currentBuildingData.floorPlanHeight}
-                  flipY
-                  onRegionClick={(region) => {
-                    const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
-                    if (space) {
-                      setSelectedSpaceForDrawer(space);
-                      setDrawerOpen(true);
-                    }
+                <motion.div
+                  data-floor-plan-content
+                  className="absolute inset-0 w-full h-full origin-center"
+                  style={{
+                    transform: `translate(${floorPlanPan.x}px, ${floorPlanPan.y}px) scale(${floorPlanZoom})`,
                   }}
-                  onRegionHover={(region, event) => {
-                    setFloorPlanHoveredRegion(region);
-                    if (region && event && floorPlanContainerRef.current) {
-                      const rect = floorPlanContainerRef.current.getBoundingClientRect();
-                      setFloorPlanHoverPosition({
-                        x: event.clientX - rect.left,
-                        y: event.clientY - rect.top,
-                        containerW: rect.width,
-                        containerH: rect.height,
-                      });
-                    }
-                  }}
-                />
+                >
+                  <FloorPlan
+                    imageUrl={currentBuildingData.image}
+                    regions={currentRegions}
+                    regionStatus={regionIdToStatus}
+                    imageWidth={currentBuildingData.floorPlanWidth ?? 3300}
+                    imageHeight={currentBuildingData.floorPlanHeight ?? 2550}
+                    flipY
+                    className="w-full h-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)] border-0"
+                    onRegionClick={(region) => {
+                      const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
+                      if (space) {
+                        setSelectedSpaceForDrawer(space);
+                        setDrawerOpen(true);
+                      }
+                    }}
+                    onRegionHover={(region, event) => {
+                      setFloorPlanHoveredRegion(region);
+                      if (region && event && floorPlanContainerRef.current) {
+                        const rect = floorPlanContainerRef.current.getBoundingClientRect();
+                        setFloorPlanHoverPosition({
+                          x: event.clientX - rect.left,
+                          y: event.clientY - rect.top,
+                          containerW: rect.width,
+                          containerH: rect.height,
+                        });
+                      }
+                    }}
+                  />
+                </motion.div>
                 {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated */}
                 <AnimatePresence mode="wait">
                   {floorPlanHoverCardVisible && floorPlanDisplayRegion && (() => {
@@ -1258,6 +1295,66 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                     );
                   })()}
                 </AnimatePresence>
+                {/* Status legend - bottom-left */}
+                <div className="absolute bottom-4 left-4 z-20 flex flex-wrap items-center gap-x-3 gap-y-1.5 bg-background/90 backdrop-blur-sm border border-grey-60 rounded-lg shadow-sm px-3 py-2 text-xs">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-sm shrink-0 bg-[#d1fae5] border border-[#059669]" aria-hidden />
+                    <span className="text-grey-25">Available</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-sm shrink-0 bg-[#f1f5f9] border border-[#64748b]" aria-hidden />
+                    <span className="text-grey-25">Occupied</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-sm shrink-0 bg-[#fef3c7] border border-[#d97706]" aria-hidden />
+                    <span className="text-grey-25">Pending</span>
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-sm shrink-0 bg-[#f1f5f9] border border-[#64748b] relative overflow-hidden" aria-hidden>
+                      <span className="absolute inset-0 bg-[rgba(148,163,184,0.5)]" aria-hidden />
+                    </span>
+                    <span className="text-grey-25">Inactive</span>
+                  </span>
+                </div>
+                {/* Zoom controls - bottom-right */}
+                <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1 bg-background/90 backdrop-blur-sm border border-grey-60 rounded-lg shadow-sm p-1">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 shrink-0"
+                    aria-label="Zoom out"
+                    onClick={() => setFloorPlanZoom((z) => Math.max(z - 0.25, 0.5))}
+                  >
+                    <ZoomOut className="h-4 w-4" />
+                  </Button>
+                  <span className="text-xs text-grey-25 w-12 text-center tabular-nums">
+                    {Math.round(floorPlanZoom * 100)}%
+                  </span>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 shrink-0"
+                    aria-label="Zoom in"
+                    onClick={() => setFloorPlanZoom((z) => Math.min(z + 0.25, 2))}
+                  >
+                    <ZoomIn className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 shrink-0"
+                    aria-label="Reset view"
+                    onClick={() => {
+                      setFloorPlanZoom(1);
+                      setFloorPlanPan({ x: 0, y: 0 });
+                    }}
+                  >
+                    <Maximize2 className="h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             )}
             {viewMode === "2d" && currentBuildingData && !currentBuildingData.image && (
@@ -1542,17 +1639,13 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                     <div className="text-[10px] text-muted-foreground uppercase tracking-wide">LSF</div>
                     <div className="text-sm font-medium mt-0.5">{selectedSpaceForDrawer.lsf || selectedSpaceForDrawer.sqft}</div>
                   </div>
-                  <div className="text-center py-2 px-1 rounded-md bg-muted/50">
-                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">Seats</div>
-                    <div className="text-sm font-medium mt-0.5">{selectedSpaceForDrawer.capacity}</div>
-                  </div>
                 </div>
 
-                {/* Package Details - Enhanced for offices with 8+ seats */}
+                {/* Office Includes - Enhanced for offices with 8+ seats */}
                 {selectedSpaceForDrawer.capacity > 8 ? (
                   <div className="p-3 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary-muted to-white">
                     <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">
-                      Package Includes
+                      Office Includes
                     </div>
                     <div className="grid grid-cols-3 gap-3">
                       <div className="text-center p-2 rounded-md bg-white/80">

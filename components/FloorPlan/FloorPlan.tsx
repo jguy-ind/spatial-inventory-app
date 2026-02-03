@@ -1,8 +1,19 @@
 "use client";
 
 import React, { useMemo, useState, useCallback } from "react";
-import type { Region, FloorPlanProps } from "./types";
+import type { Region, FloorPlanProps, RegionStatus } from "./types";
 import { cn } from "@/lib/utils";
+
+const STATUS_COLORS: Record<
+  RegionStatus,
+  { fill: string; stroke: string; hoverFill: string; hoverStroke: string }
+> = {
+  available: { fill: "#d1fae5", stroke: "#059669", hoverFill: "#a7f3d0", hoverStroke: "#047857" },
+  occupied: { fill: "#f1f5f9", stroke: "#64748b", hoverFill: "#e2e8f0", hoverStroke: "#475569" },
+  pending: { fill: "#fef3c7", stroke: "#d97706", hoverFill: "#fde68a", hoverStroke: "#b45309" },
+  maintenance: { fill: "#f1f5f9", stroke: "#64748b", hoverFill: "#e2e8f0", hoverStroke: "#475569" },
+};
+const INACTIVE_OVERLAY_FILL = "rgba(148, 163, 184, 0.5)";
 
 const PADDING = 20;
 
@@ -84,6 +95,7 @@ export function FloorPlan({
   onRegionClick,
   onRegionHover,
   selectedRegionId,
+  regionStatus,
   imageWidth: imageWidthProp,
   imageHeight: imageHeightProp,
   flipY = false,
@@ -143,11 +155,17 @@ export function FloorPlan({
       >
         <g style={{ pointerEvents: "all" }}>
           {regions.map((region) => {
+            const status: RegionStatus = regionStatus?.[region.id] ?? "available";
+            const colors = STATUS_COLORS[status];
             const isHovered = hoveredId === region.id || selectedRegionId === region.id;
             const isSinglePoint = region.points.length <= 1;
             const pts = region.points.map((p) =>
               transformPoint(p, flipY, flipBounds)
             );
+            const fill = isHovered ? colors.hoverFill : colors.fill;
+            const stroke = isHovered ? colors.hoverStroke : colors.stroke;
+            const strokeWidth = isHovered ? 3 : 1.5;
+            const dropShadow = isHovered ? `drop-shadow(0 2px 4px rgba(0,0,0,0.15))` : undefined;
             if (isSinglePoint && pts.length === 1) {
               const [p] = pts;
               const r = 8;
@@ -163,12 +181,22 @@ export function FloorPlan({
                     cx={p.x}
                     cy={p.y}
                     r={r}
-                    fill={isHovered ? "rgba(26, 127, 100, 0.45)" : "rgba(26, 127, 100, 0.2)"}
-                    stroke={isHovered ? "#0f5c4a" : "#1a7f64"}
-                    strokeWidth={isHovered ? 3 : 1.5}
+                    fill={fill}
+                    stroke={stroke}
+                    strokeWidth={strokeWidth}
                     className="transition-all duration-200 ease-out"
-                    style={{ filter: isHovered ? "drop-shadow(0 2px 4px rgba(26, 127, 100, 0.3))" : undefined }}
+                    style={{ filter: dropShadow }}
                   />
+                  {status === "maintenance" && (
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={r}
+                      fill={INACTIVE_OVERLAY_FILL}
+                      stroke="none"
+                      pointerEvents="none"
+                    />
+                  )}
                 </g>
               );
             }
@@ -184,12 +212,20 @@ export function FloorPlan({
               >
                 <polygon
                   points={pointsStr}
-                  fill={isHovered ? "rgba(26, 127, 100, 0.38)" : "rgba(26, 127, 100, 0.15)"}
-                  stroke={isHovered ? "#0f5c4a" : "#1a7f64"}
-                  strokeWidth={isHovered ? 3 : 1.5}
+                  fill={fill}
+                  stroke={stroke}
+                  strokeWidth={strokeWidth}
                   className="transition-all duration-200 ease-out"
-                  style={{ filter: isHovered ? "drop-shadow(0 2px 4px rgba(26, 127, 100, 0.25))" : undefined }}
+                  style={{ filter: dropShadow }}
                 />
+                {status === "maintenance" && (
+                  <polygon
+                    points={pointsStr}
+                    fill={INACTIVE_OVERLAY_FILL}
+                    stroke="none"
+                    pointerEvents="none"
+                  />
+                )}
               </g>
             );
           })}
