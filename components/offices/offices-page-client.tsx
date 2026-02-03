@@ -301,6 +301,8 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const [selectedSpaceForDrawer, setSelectedSpaceForDrawer] = useState<Space | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedTerm, setSelectedTerm] = useState(24);
+  const [drawerFetchedPrice, setDrawerFetchedPrice] = useState<number | null>(null);
+  const [drawerPriceLoading, setDrawerPriceLoading] = useState(false);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
   const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
@@ -356,6 +358,48 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
       setCurrentBuilding(buildings[0].id);
     }
   }, [buildings, currentBuilding, setCurrentBuilding]);
+
+  // Fetch price when drawer opens with an office or when term changes in drawer
+  useEffect(() => {
+    if (!drawerOpen || !selectedSpaceForDrawer?.id) {
+      setDrawerFetchedPrice(null);
+      return;
+    }
+    const url = `/api/offices/${encodeURIComponent(selectedSpaceForDrawer.id)}/pricing?term=${selectedTerm}`;
+    const request = { method: "GET", url };
+    console.log("[pricing] Request (floor plan office click):", JSON.stringify(request, null, 2));
+
+    let cancelled = false;
+    setDrawerPriceLoading(true);
+    fetch(url)
+      .then((res) => {
+        const responseMeta = {
+          status: res.status,
+          statusText: res.statusText,
+          url: res.url,
+          ok: res.ok,
+        };
+        return res.json().then((data: unknown) => {
+          console.log("[pricing] Response (floor plan office click):", JSON.stringify({ ...responseMeta, body: data }, null, 2));
+          return data as { price?: number };
+        });
+      })
+      .then((data) => {
+        if (!cancelled && typeof data?.price === "number") {
+          setDrawerFetchedPrice(data.price);
+        }
+      })
+      .catch((err) => {
+        console.log("[pricing] Response error (floor plan office click):", err);
+        if (!cancelled) setDrawerFetchedPrice(null);
+      })
+      .finally(() => {
+        if (!cancelled) setDrawerPriceLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [drawerOpen, selectedSpaceForDrawer?.id, selectedTerm]);
 
   // List-view spaces from inventory for current building
   const listSpacesForBuilding = useMemo(
@@ -1471,7 +1515,11 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                       <div className="flex items-center gap-1.5 text-sm">
                         <span className="text-muted-foreground">Occupied by</span>
                         <a
-                          href={`https://admin-portal.industriousoffice.com/accounts/unit/${selectedSpaceForDrawer.id || '67abf8ac06607405a6995136'}`}
+                          href={
+                            selectedSpaceForDrawer.accountId
+                              ? `https://admin-portal.industriousoffice.com/accounts/${selectedSpaceForDrawer.accountId}`
+                              : `https://admin-portal.industriousoffice.com/accounts/unit/${selectedSpaceForDrawer.id || "67abf8ac06607405a6995136"}`
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:underline font-medium inline-flex items-center gap-1"
@@ -1481,14 +1529,43 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                         </a>
                       </div>
                     )}
-                    <div className="flex items-center gap-1.5 text-sm">
-                      <span className="text-muted-foreground">Next available:</span>
-                      <span className="font-medium text-slate-700">
-                        {selectedSpaceForDrawer.moveOutDate
-                          ? new Date(selectedSpaceForDrawer.moveOutDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })
-                          : '6/1/26'}
-                      </span>
-                    </div>
+                    {(selectedSpaceForDrawer.occupancyStartDate ?? selectedSpaceForDrawer.occupancyEndDate) ? (
+                      <div className="flex flex-col gap-0.5 text-sm">
+                        <span className="text-muted-foreground">
+                          {selectedSpaceForDrawer.occupancyStartDate && selectedSpaceForDrawer.occupancyEndDate
+                            ? "Occupied from"
+                            : "Occupied through"}
+                        </span>
+                        <span className="font-medium text-slate-700">
+                          {selectedSpaceForDrawer.occupancyStartDate &&
+                            new Date(selectedSpaceForDrawer.occupancyStartDate).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          {selectedSpaceForDrawer.occupancyStartDate && selectedSpaceForDrawer.occupancyEndDate && " – "}
+                          {selectedSpaceForDrawer.occupancyEndDate &&
+                            new Date(selectedSpaceForDrawer.occupancyEndDate).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 text-sm">
+                        <span className="text-muted-foreground">Next available:</span>
+                        <span className="font-medium text-slate-700">
+                          {selectedSpaceForDrawer.moveOutDate
+                            ? new Date(selectedSpaceForDrawer.moveOutDate).toLocaleDateString("en-US", {
+                                month: "numeric",
+                                day: "numeric",
+                                year: "2-digit",
+                              })
+                            : "6/1/26"}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 )}
                 {selectedSpaceForDrawer.hasPromotion && (
@@ -1623,24 +1700,30 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                   </div>
                 </div>
 
-                {/* Price Display */}
+                {/* Price Display: from GET /api/offices/[id]/pricing?term=... only; no fallback */}
                 <div className="p-3 rounded-lg bg-primary-muted border border-primary/20">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs text-muted-foreground">Monthly Rate</div>
-                      <div className="text-xl font-bold text-primary">
-                        ${Math.round(selectedSpaceForDrawer.price * (1 - (selectedTerm - 1) * 0.01)).toLocaleString()}/mo
-                      </div>
+                      {drawerPriceLoading ? (
+                        <div className="text-xl font-bold text-primary animate-pulse">—</div>
+                      ) : (
+                        <div className="text-xl font-bold text-primary">
+                          ${(drawerFetchedPrice ?? 0).toLocaleString()}/mo
+                        </div>
+                      )}
                     </div>
-                    {selectedTerm > 1 && (
+                    {!drawerPriceLoading && selectedTerm > 1 && (
                       <Badge variant="secondary" className="bg-white text-xs">
                         Save {Math.round((selectedTerm - 1) * 1)}%
                       </Badge>
                     )}
                   </div>
-                  <div className="text-[10px] text-muted-foreground mt-1">
-                    Total: ${(Math.round(selectedSpaceForDrawer.price * (1 - (selectedTerm - 1) * 0.01)) * selectedTerm).toLocaleString()}
-                  </div>
+                  {!drawerPriceLoading && (
+                    <div className="text-[10px] text-muted-foreground mt-1">
+                      Total: ${((drawerFetchedPrice ?? 0) * selectedTerm).toLocaleString()}
+                    </div>
+                  )}
                 </div>
               </div>
 

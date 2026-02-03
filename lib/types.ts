@@ -23,6 +23,9 @@ export interface Space {
   occupiedBy?: string
   moveOutDate?: string
   renewalDate?: string
+  accountId?: string
+  occupancyStartDate?: string
+  occupancyEndDate?: string
   onDemandPrice?: { hourly: number; daily: number } | null
   lsf?: number
   productTier?: string
