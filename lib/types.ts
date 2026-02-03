@@ -45,6 +45,7 @@ export interface Building {
   image: string
   floorPlanWidth?: number
   floorPlanHeight?: number
+  floorPlanFlipY?: boolean
 }
 
 export interface Booking {

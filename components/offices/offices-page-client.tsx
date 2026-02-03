@@ -1179,9 +1179,9 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                     imageUrl={currentBuildingData.image}
                     regions={currentRegions}
                     regionStatus={regionIdToStatus}
-                    imageWidth={currentBuildingData.floorPlanWidth ?? 3300}
-                    imageHeight={currentBuildingData.floorPlanHeight ?? 2550}
-                    flipY
+                    imageWidth={currentBuildingData.floorPlanWidth}
+                    imageHeight={currentBuildingData.floorPlanHeight}
+                    flipY={currentBuildingData.floorPlanFlipY ?? true}
                     className="w-full h-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)] border-0"
                     onRegionClick={(region) => {
                       const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);

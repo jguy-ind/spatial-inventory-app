@@ -17,21 +17,31 @@ const INACTIVE_OVERLAY_FILL = "rgba(148, 163, 184, 0.5)";
 
 const PADDING = 20;
 
-/** Detect image dimensions on load; used when imageWidth/imageHeight are not provided. */
 function useImageDimensions(imageUrl: string): { width: number; height: number } | null {
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
   React.useEffect(() => {
     if (!imageUrl) return;
-    setDimensions(null);
+
+    let active = true;
     const img = new Image();
-    img.onload = () => {
-      setDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-    };
     img.src = imageUrl;
+
+    const update = () => {
+      if (active) {
+        setDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+      }
+    };
+
+    if (img.complete && img.naturalWidth > 0) {
+      update();
+    } else {
+      img.onload = update;
+    }
+
     return () => {
+      active = false;
       img.onload = null;
-      img.src = "";
     };
   }, [imageUrl]);
 
@@ -123,6 +133,10 @@ export function FloorPlan({
       ? { imageHeight }
       : { minY: dataMinY, maxY: dataMaxY };
 
+  // If we have an image URL but no dimensions yet, we're loading.
+  // Avoid showing misaligned overlay (falling back to bounds) while waiting for image size.
+  const isDimensionsPending = !!imageUrl && (imageWidth == null || imageHeight == null);
+
   const handleMouseEnter = useCallback(
     (region: Region, e: React.MouseEvent) => {
       setHoveredId(region.id);
@@ -147,28 +161,54 @@ export function FloorPlan({
         className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
       />
       {/* SVG overlay - same viewBox as coordinate space so polygons align */}
-      <svg
-        className="absolute inset-0 w-full h-full object-contain object-center"
-        viewBox={viewBox}
-        preserveAspectRatio="xMidYMid meet"
-        style={{ pointerEvents: "none" }}
-      >
-        <g style={{ pointerEvents: "all" }}>
-          {regions.map((region) => {
-            const status: RegionStatus = regionStatus?.[region.id] ?? "available";
-            const colors = STATUS_COLORS[status];
-            const isHovered = hoveredId === region.id || selectedRegionId === region.id;
-            const isSinglePoint = region.points.length <= 1;
-            const pts = region.points.map((p) =>
-              transformPoint(p, flipY, flipBounds)
-            );
-            const fill = isHovered ? colors.hoverFill : colors.fill;
-            const stroke = isHovered ? colors.hoverStroke : colors.stroke;
-            const strokeWidth = isHovered ? 3 : 1.5;
-            const dropShadow = isHovered ? `drop-shadow(0 2px 4px rgba(0,0,0,0.15))` : undefined;
-            if (isSinglePoint && pts.length === 1) {
-              const [p] = pts;
-              const r = 8;
+      {!isDimensionsPending && (
+        <svg
+          className="absolute inset-0 w-full h-full object-contain object-center"
+          viewBox={viewBox}
+          preserveAspectRatio="xMidYMid meet"
+          style={{ pointerEvents: "none" }}
+        >
+          <g style={{ pointerEvents: "all" }}>
+            {regions.map((region) => {
+              const status: RegionStatus = regionStatus?.[region.id] ?? "available";
+              const colors = STATUS_COLORS[status] ?? STATUS_COLORS.available;
+              const isHovered = hoveredId === region.id || selectedRegionId === region.id;
+              const isSinglePoint = region.points.length <= 1;
+              const pts = region.points.map((p) =>
+                transformPoint(p, flipY, flipBounds)
+              );
+              // Use default colors if status color is missing
+              const fill = isHovered ? (colors?.hoverFill ?? "#a7f3d0") : (colors?.fill ?? "#d1fae5");
+              const stroke = isHovered ? (colors?.hoverStroke ?? "#047857") : (colors?.stroke ?? "#059669");
+              const strokeWidth = isHovered ? 3 : 1.5;
+              const dropShadow = isHovered ? `drop-shadow(0 2px 4px rgba(0,0,0,0.15))` : undefined;
+
+              if (isSinglePoint && pts.length === 1) {
+                const [p] = pts;
+                const r = 8;
+                return (
+                  <g
+                    key={region.id}
+                    onClick={() => onRegionClick?.(region)}
+                    onMouseEnter={(e) => handleMouseEnter(region, e)}
+                    onMouseLeave={handleMouseLeave}
+                    className="cursor-pointer"
+                  >
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={r}
+                      fill={fill}
+                      stroke={stroke}
+                      strokeWidth={strokeWidth}
+                      className="transition-all duration-200 ease-out"
+                      style={{ filter: dropShadow }}
+                    />
+                  </g>
+                );
+              }
+              if (pts.length < 2) return null;
+              const pointsStr = pointsToPolygonPoints(pts);
               return (
                 <g
                   key={region.id}
@@ -177,60 +217,20 @@ export function FloorPlan({
                   onMouseLeave={handleMouseLeave}
                   className="cursor-pointer"
                 >
-                  <circle
-                    cx={p.x}
-                    cy={p.y}
-                    r={r}
+                  <polygon
+                    points={pointsStr}
                     fill={fill}
                     stroke={stroke}
                     strokeWidth={strokeWidth}
                     className="transition-all duration-200 ease-out"
                     style={{ filter: dropShadow }}
                   />
-                  {status === "maintenance" && (
-                    <circle
-                      cx={p.x}
-                      cy={p.y}
-                      r={r}
-                      fill={INACTIVE_OVERLAY_FILL}
-                      stroke="none"
-                      pointerEvents="none"
-                    />
-                  )}
                 </g>
               );
-            }
-            if (pts.length < 2) return null;
-            const pointsStr = pointsToPolygonPoints(pts);
-            return (
-              <g
-                key={region.id}
-                onClick={() => onRegionClick?.(region)}
-                onMouseEnter={(e) => handleMouseEnter(region, e)}
-                onMouseLeave={handleMouseLeave}
-                className="cursor-pointer"
-              >
-                <polygon
-                  points={pointsStr}
-                  fill={fill}
-                  stroke={stroke}
-                  strokeWidth={strokeWidth}
-                  className="transition-all duration-200 ease-out"
-                  style={{ filter: dropShadow }}
-                />
-                {status === "maintenance" && (
-                  <polygon
-                    points={pointsStr}
-                    fill={INACTIVE_OVERLAY_FILL}
-                    stroke="none"
-                    pointerEvents="none"
-                  />
-                )}
-              </g>
-            );
-          })}
-        </g>
-      </svg>
+            })}
+          </g>
+        </svg>
+      )}
     </>
   );
 
