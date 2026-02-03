@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useAppStore } from "@/lib/store";
-import { mockBuildings, mockSpaces } from "@/lib/mock-data";
+import { mockBuildings, mockSpaces, SHORT_HILLS_BUILDING_ID, shortHillsSpaces, shortHillsListSpaces, SHORT_HILLS_MATTERPORT_URL } from "@/lib/mock-data";
 import type { Space, SpaceStatus } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -79,6 +79,8 @@ import {
 } from "@/components/ui/tooltip";
 
 import { FloorPlanView } from "@/components/offices/floor-plan-view";
+import { FloorPlan, parseRegionsCsv } from "@/components/FloorPlan";
+import type { Region } from "@/components/FloorPlan";
 import { cn } from "@/lib/utils";
 import { useBreakpoint } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
@@ -141,33 +143,36 @@ function SidebarNavContent({
   const handleClick = () => {
     onItemClick?.();
   };
-  const sectionClass = mobileDrawer ? "mb-6" : "mb-2.5";
-  const labelClass = mobileDrawer ? "text-xs" : "text-[10px]";
+  const sectionClass = mobileDrawer ? "mb-2 md:mb-3" : "mb-2.5";
+  const labelClass = mobileDrawer ? "text-[10px]" : "text-[10px]";
   const sectionHeaderClass = mobileDrawer
     ? "font-semibold text-nav-label uppercase tracking-wider"
     : "font-bold text-nav-item-active uppercase tracking-wider";
   const itemClass = cn(
     "w-full flex items-center rounded-md transition-colors",
     collapsed && "justify-center",
-    mobileDrawer ? "gap-4 px-4 py-3.5 text-base min-h-[48px]" : "gap-3 px-3 py-1.5 text-sm"
+    mobileDrawer ? "gap-3 px-3 py-2.5 text-sm min-h-[44px] md:gap-3 md:px-3 md:py-2.5 md:text-sm" : "gap-3 px-3 py-1.5 text-sm"
   );
-  const iconSize = mobileDrawer ? "h-5 w-5" : "h-[18px] w-[18px]";
+  const iconSize = mobileDrawer ? "h-4 w-4 md:h-[18px] md:w-[18px]" : "h-[18px] w-[18px]";
   return (
     <nav
       className={cn(
-        "flex flex-col min-h-0",
-        mobileDrawer ? "flex-1 overflow-y-auto py-6 pb-8" : "flex-1 py-3 pb-4"
+        "flex flex-col min-h-0 flex-1",
+        mobileDrawer ? "overflow-hidden py-0" : "py-3 pb-4"
       )}
     >
-      {/* Top sections: scrollable on sidebar so bottom section can stick */}
-      <div className={cn(!mobileDrawer && "flex-1 min-h-0 overflow-y-auto")}>
+      {/* Top sections: scrollable only on desktop sidebar; no scroll on mobile/tablet drawer */}
+      <div className={cn(
+        "flex flex-col min-h-0",
+        mobileDrawer ? "flex-1 overflow-hidden flex-shrink min-h-0" : "flex-1 min-h-0 overflow-y-auto"
+      )}>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className={cn(mobileDrawer ? "mb-2 px-4" : "mb-1 px-4")}>
+          <div className={cn(mobileDrawer ? "mb-1 px-3 md:px-4" : "mb-1 px-4")}>
             <span className={cn(sectionHeaderClass, labelClass)}>Activity</span>
           </div>
         )}
-        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-0.5")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <Calendar className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Reservations</span>}
@@ -176,11 +181,11 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+          <div className={cn("px-4", mobileDrawer ? "mb-1 px-3 md:px-4" : "mb-1")}>
             <span className={cn(sectionHeaderClass, labelClass)}>Manage</span>
           </div>
         )}
-        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-0.5")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <Building className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Accounts</span>}
@@ -203,11 +208,11 @@ function SidebarNavContent({
             )}
           </button>
           {!collapsed && (
-            <div className={cn("space-y-0.5", mobileDrawer ? "pl-12 space-y-1" : "pl-9 space-y-0.5")}>
-              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors", mobileDrawer ? "px-4 py-3 text-base text-nav-item hover:bg-nav-item-active-bg min-h-[44px]" : "px-3 py-1.5 text-sm text-nav-item hover:text-nav-item-active hover:bg-nav-item-active-bg")}>
+            <div className={cn("space-y-0.5", mobileDrawer ? "pl-9 space-y-0.5 md:pl-10" : "pl-9 space-y-0.5")}>
+              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors", mobileDrawer ? "px-3 py-2 text-sm text-nav-item hover:bg-nav-item-active-bg min-h-[40px] md:py-2.5" : "px-3 py-1.5 text-sm text-nav-item hover:text-nav-item-active hover:bg-nav-item-active-bg")}>
                 Meeting Rooms
               </button>
-              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors font-medium text-nav-item-active bg-nav-item-active-bg", mobileDrawer ? "px-4 py-3 text-base min-h-[44px]" : "px-3 py-1.5 text-sm")}>
+              <button type="button" onClick={handleClick} className={cn("w-full text-left rounded-md transition-colors font-medium text-nav-item-active bg-nav-item-active-bg", mobileDrawer ? "px-3 py-2 text-sm min-h-[40px] md:py-2.5" : "px-3 py-1.5 text-sm")}>
                 Offices
               </button>
             </div>
@@ -216,11 +221,11 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+          <div className={cn("px-4", mobileDrawer ? "mb-1 px-3 md:px-4" : "mb-1")}>
             <span className={cn(sectionHeaderClass, labelClass)}>Sales</span>
           </div>
         )}
-        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-0.5")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <Tag className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Promotions</span>}
@@ -233,11 +238,11 @@ function SidebarNavContent({
       </div>
       <div className={sectionClass}>
         {!collapsed && (
-          <div className={cn("px-4", mobileDrawer ? "mb-2" : "mb-1")}>
+          <div className={cn("px-4", mobileDrawer ? "mb-1 px-3 md:px-4" : "mb-1")}>
             <span className={cn(sectionHeaderClass, labelClass)}>Finance</span>
           </div>
         )}
-        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-0.5")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <Wallet className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Security Deposits</span>}
@@ -249,10 +254,10 @@ function SidebarNavContent({
       <div
         className={cn(
           "border-t border-sidebar-border shrink-0",
-          mobileDrawer ? "py-4" : "py-2.5 mt-auto"
+          mobileDrawer ? "py-2 md:py-3" : "py-2.5 mt-auto"
         )}
       >
-        <div className={cn("space-y-0.5", mobileDrawer && "space-y-1")}>
+        <div className={cn("space-y-0.5", mobileDrawer && "space-y-0.5")}>
           <button type="button" onClick={handleClick} className={cn(itemClass, "text-nav-item hover:bg-nav-item-active-bg")}>
             <BarChart3 className={cn("shrink-0 text-nav-label", iconSize)} />
             {!collapsed && <span>Analytics</span>}
@@ -290,12 +295,34 @@ export function OfficesPageClient() {
   const [selectedTerm, setSelectedTerm] = useState(24);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
+  const [shortHillsRegions, setShortHillsRegions] = useState<Region[] | null>(null);
+  const [shortHillsRegionsLoading, setShortHillsRegionsLoading] = useState(false);
   const itemsPerPage = 15;
+
+  useEffect(() => {
+    if (currentBuilding !== SHORT_HILLS_BUILDING_ID) return;
+    setShortHillsRegionsLoading(true);
+    fetch("/short-hills-regions.csv")
+      .then((r) => r.text())
+      .then((csv) => {
+        setShortHillsRegions(parseRegionsCsv(csv));
+      })
+      .catch(() => setShortHillsRegions([]))
+      .finally(() => setShortHillsRegionsLoading(false));
+  }, [currentBuilding]);
+
+  // List-view spaces: use Short Hills list data when that building is selected, else mockSpaces by building
+  const listSpacesForBuilding = useMemo(
+    () =>
+      currentBuilding === SHORT_HILLS_BUILDING_ID
+        ? shortHillsListSpaces
+        : mockSpaces.filter((s) => s.building === currentBuilding),
+    [currentBuilding]
+  );
 
   // Filter spaces based on current filters
   const filteredSpaces = useMemo(() => {
-    return mockSpaces.filter((space) => {
-      if (space.building !== currentBuilding) return false;
+    return listSpacesForBuilding.filter((space) => {
       if (
         selectedStatuses.length > 0 &&
         !selectedStatuses.includes(space.status)
@@ -309,7 +336,7 @@ export function OfficesPageClient() {
         return false;
       return true;
     });
-  }, [currentBuilding, selectedStatuses, searchQuery]);
+  }, [listSpacesForBuilding, selectedStatuses, searchQuery]);
 
   // Initialize expandedRows with first office expanded by default
   const [expandedRows, setExpandedRows] = useState<Set<string>>(() => {
@@ -424,13 +451,13 @@ export function OfficesPageClient() {
             </span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Mobile: hamburger on the right */}
+            {/* Mobile & tablet: hamburger (nav drawer); desktop shows persistent sidebar */}
             {!showPersistentSidebar && (
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-9 w-9 shrink-0 sm:hidden"
+                className="h-9 w-9 shrink-0 lg:hidden"
                 onClick={() => setNavDrawerOpen(true)}
                 aria-label="Open menu"
               >
@@ -485,13 +512,13 @@ export function OfficesPageClient() {
         </aside>
         )}
 
-        {/* Nav drawer for mobile/tablet (< lg) */}
+        {/* Nav drawer for mobile & tablet (< lg); optimized width for tablet */}
         <Sheet open={navDrawerOpen} onOpenChange={setNavDrawerOpen}>
-          <SheetContent side="right" className="w-full max-w-[100vw] sm:max-w-sm p-0 flex flex-col">
+          <SheetContent side="right" className="w-full max-w-[100vw] sm:max-w-[280px] md:max-w-[320px] p-0 flex flex-col overflow-hidden">
             <SheetHeader className="sr-only">
               <SheetTitle>Navigation menu</SheetTitle>
             </SheetHeader>
-            <div className="flex flex-col h-full pt-8 pb-8 px-5 sm:px-4">
+            <div className="flex flex-col h-full min-h-0 overflow-hidden pt-6 pb-6 px-4 md:px-5">
               <SidebarNavContent collapsed={false} onItemClick={() => setNavDrawerOpen(false)} mobileDrawer />
             </div>
           </SheetContent>
@@ -581,7 +608,7 @@ export function OfficesPageClient() {
                       </div>
                     </div>
                     <div className="text-[11px] text-slate-400 shrink-0">
-                      Floor 31 | {currentBuildingData?.name || "101 Marietta St"}
+                      Floor {currentBuildingData?.floors ?? 1} | {currentBuildingData?.name || "Short Hills"}
                     </div>
                   </div>
                 </div>
@@ -1057,7 +1084,35 @@ export function OfficesPageClient() {
               </div>
             )}
 
-            {viewMode === "2d" && (
+            {viewMode === "2d" && currentBuilding === SHORT_HILLS_BUILDING_ID && (
+              <>
+                {shortHillsRegionsLoading ? (
+                  <div className="flex items-center justify-center min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] rounded-lg border border-border bg-muted/30">
+                    <p className="text-muted-foreground">Loading floor plan...</p>
+                  </div>
+                ) : shortHillsRegions && shortHillsRegions.length > 0 ? (
+                  <FloorPlan
+                    imageUrl="/short-hills-floor-plan.png"
+                    regions={shortHillsRegions}
+                    imageWidth={3300}
+                    imageHeight={2550}
+                    flipY
+                    onRegionClick={(region) => {
+                      const space = shortHillsSpaces.find((s) => s.id === region.id);
+                      if (space) {
+                        setSelectedSpaceForDrawer(space);
+                        setDrawerOpen(true);
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] rounded-lg border border-border bg-muted/30">
+                    <p className="text-muted-foreground">No floor plan data. Add short-hills-regions.csv and short-hills-floor-plan.png to public/.</p>
+                  </div>
+                )}
+              </>
+            )}
+            {viewMode === "2d" && currentBuilding !== SHORT_HILLS_BUILDING_ID && (
               <FloorPlanView
                 spaces={filteredSpaces}
                 building={currentBuildingData}
@@ -1075,7 +1130,7 @@ export function OfficesPageClient() {
                 {/* Matterport Viewer - Primary Focus (takes most space); full width when sidebar stacks below */}
                 <div className="flex-1 min-h-0 relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
                   <iframe
-                    src="https://my.matterport.com/show/?m=8WCGaab4DrW"
+                    src={SHORT_HILLS_MATTERPORT_URL}
                     className="w-full h-full"
                     title="3D Matterport View"
                     allowFullScreen
@@ -1114,7 +1169,7 @@ export function OfficesPageClient() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-sm text-slate-900">3D Virtual Tour</h3>
-                        <p className="text-[11px] text-slate-500">Floor 31</p>
+                        <p className="text-[11px] text-slate-500">Floor {currentBuildingData?.floors ?? 1}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-[11px] text-slate-500 pt-2 border-t border-slate-100">
@@ -1185,7 +1240,7 @@ export function OfficesPageClient() {
                         variant="outline"
                         className="h-9 gap-1 text-xs font-medium bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm"
                         onClick={() => {
-                          navigator.clipboard.writeText("https://my.matterport.com/show/?m=8WCGaab4DrW");
+                          navigator.clipboard.writeText(SHORT_HILLS_MATTERPORT_URL);
                           const btn = document.activeElement as HTMLButtonElement;
                           if (btn) {
                             btn.innerText = "Copied!";
@@ -1505,7 +1560,7 @@ export function OfficesPageClient() {
             <X className="h-4 w-4" />
           </button>
           <iframe
-            src="https://my.matterport.com/show/?m=fateZME8N81&play=1&ss=92&sr=-.07,.37"
+            src={SHORT_HILLS_MATTERPORT_URL}
             className="w-full h-full rounded-lg"
             title="3D Matterport View"
             allowFullScreen

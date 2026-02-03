@@ -1,7 +1,7 @@
 // Simple client-side state management
 import { create } from 'zustand'
 import type { Space, FilterState, ChatMessage, SpaceStatus } from './types'
-import { mockSpaces, mockAuditLogs } from './mock-data'
+import { mockSpaces, mockAuditLogs, SHORT_HILLS_BUILDING_ID } from './mock-data'
 
 interface AppState {
   // Spaces
@@ -98,9 +98,9 @@ export const useAppStore = create<AppState>((set) => ({
   resetFilters: () => set({ filters: defaultFilters }),
   
   // View state
-  currentFloor: 2,
+  currentFloor: 1,
   setCurrentFloor: (floor) => set({ currentFloor: floor }),
-  currentBuilding: 'bld-1',
+  currentBuilding: SHORT_HILLS_BUILDING_ID,
   setCurrentBuilding: (buildingId) => set({ currentBuilding: buildingId }),
   viewMode: 'list',
   setViewMode: (mode) => set({ viewMode: mode }),

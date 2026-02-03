@@ -1,43 +1,86 @@
 import type { Space, Building, Booking, Deal, AuditLog, Insight, TourRequest, User } from './types'
 
+/** Short Hills is the only location and default for now. */
 export const mockBuildings: Building[] = [
   {
-    id: 'bld-1',
-    name: 'Industrious Beverly Hills',
-    address: '9465 Wilshire Blvd',
-    city: 'Beverly Hills, CA',
-    floors: 4,
-    totalSpaces: 65,
-    availableSpaces: 18,
-    coordinates: { lat: 34.0696, lng: -118.3985 },
-    image: '/placeholder.svg?height=400&width=600'
-  },
-  {
-    id: 'bld-2',
-    name: 'Industrious Santa Monica',
-    address: '401 Wilshire Blvd',
-    city: 'Santa Monica, CA',
-    floors: 3,
-    totalSpaces: 42,
-    availableSpaces: 11,
-    coordinates: { lat: 34.0195, lng: -118.4912 },
-    image: '/placeholder.svg?height=400&width=600'
-  },
-  {
-    id: 'bld-3',
-    name: 'Industrious Downtown LA',
-    address: '707 Wilshire Blvd',
-    city: 'Los Angeles, CA',
-    floors: 5,
-    totalSpaces: 78,
-    availableSpaces: 15,
-    coordinates: { lat: 34.0488, lng: -118.2570 },
-    image: '/placeholder.svg?height=400&width=600'
+    id: 'bld-short-hills',
+    name: 'Short Hills - 1200 Morris Turnpike',
+    address: '1200 Morris Turnpike',
+    city: 'Short Hills, NJ',
+    floors: 1,
+    totalSpaces: 86,
+    availableSpaces: 86,
+    coordinates: { lat: 40.7237, lng: -74.3647 },
+    image: '/short-hills-floor-plan.png'
   }
 ]
 
+export const SHORT_HILLS_BUILDING_ID = 'bld-short-hills'
+
+/** Minimal Space records for Short Hills floor plan regions (CSV office ids). Used for drawer on region click. */
+function buildShortHillsSpaces(): Space[] {
+  const ids: string[] = ['EWRMOR901']
+  for (let i = 1; i <= 85; i++) ids.push(`EWRMOR${String(i).padStart(3, '0')}`)
+  const now = new Date().toISOString()
+  return ids.map((id) => ({
+    id,
+    name: id,
+    type: 'office' as const,
+    status: 'available' as const,
+    floor: 1,
+    building: SHORT_HILLS_BUILDING_ID,
+    capacity: 0,
+    sqft: 0,
+    price: 0,
+    amenities: [],
+    position: { x: 0, y: 0, width: 0, height: 0 },
+    images: [],
+    description: `Office ${id} at Short Hills - 1200 Morris Turnpike.`,
+    lastUpdated: now,
+  }))
+}
+
+export const shortHillsSpaces: Space[] = buildShortHillsSpaces()
+
+/** Matterport 3D tour URL for Short Hills - 1200 Morris Turnpike */
+export const SHORT_HILLS_MATTERPORT_URL =
+  'https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57'
+
+/** Rich list-view spaces for Short Hills (same shape as Beverly Hills list). Used when building is Short Hills. */
+function buildShortHillsListSpaces(): Space[] {
+  const base = shortHillsSpaces.slice(0, 20)
+  const statuses: Space['status'][] = ['available', 'available', 'occupied', 'available', 'pending', 'available', 'available', 'occupied', 'available', 'available', 'available', 'occupied', 'available', 'available', 'available', 'available', 'pending', 'available', 'available', 'available']
+  const capacities = [4, 6, 8, 4, 6, 8, 8, 6, 4, 8, 6, 8, 4, 6, 6, 8, 4, 6, 8, 4]
+  const prices = [3200, 4380, 4380, 2800, 3600, 4380, 4380, 3600, 2800, 4380, 3600, 4380, 2800, 3600, 3600, 4380, 2800, 3600, 4380, 2800]
+  const names = ['Office 101', 'Office 102', 'Office 103', 'Office 104', 'Office 105', 'Office 106', 'Office 107', 'Office 108', 'Office 109', 'Office 110', 'Office 111', 'Office 112', 'Office 113', 'Office 114', 'Office 115', 'Office 116', 'Office 117', 'Office 118', 'Office 119', 'Office 120']
+  const now = new Date().toISOString()
+  return base.map((s, i) => ({
+    ...s,
+    name: names[i],
+    status: statuses[i],
+    capacity: capacities[i],
+    sqft: 195,
+    price: prices[i],
+    amenities: ['Window View', 'Video Conferencing', 'Standing Desk'].slice(0, (i % 3) + 1),
+    images: ['/images/office-rep-2-interior.webp'],
+    description: 'Professional private office at Short Hills - 1200 Morris Turnpike.',
+    availableFrom: statuses[i] === 'available' ? 'Today' : undefined,
+    occupiedBy: statuses[i] === 'occupied' ? (i === 2 ? 'Great Days LLC' : i === 7 ? 'Acme Corp' : 'Tenant LLC') : undefined,
+    moveOutDate: statuses[i] === 'occupied' ? 'pending' : undefined,
+    renewalDate: statuses[i] === 'occupied' ? '04/30/2025' : undefined,
+    onDemandPrice: statuses[i] === 'available' ? { hourly: 100, daily: 500 } : null,
+    lsf: 195,
+    productTier: 'Tier 1',
+    lastUpdated: now,
+    windowType: i % 3 === 0 ? 'window' : 'interior',
+    matterportUrl: SHORT_HILLS_MATTERPORT_URL,
+  }))
+}
+
+export const shortHillsListSpaces: Space[] = buildShortHillsListSpaces()
+
 export const mockSpaces: Space[] = [
-  // Floor 2 - Beverly Hills - Top row (above corridor)
+  // Floor 2 - Beverly Hills - Top row (above corridor) - kept for type reference; list uses shortHillsListSpaces when building is Short Hills
   {
     id: 'sp-1',
     name: 'Office 102',
