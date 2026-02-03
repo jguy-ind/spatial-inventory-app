@@ -3,8 +3,11 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useAppStore } from "@/lib/store";
-import { mockBuildings, mockSpaces, SHORT_HILLS_BUILDING_ID, shortHillsSpaces, shortHillsListSpaces, SHORT_HILLS_MATTERPORT_URL } from "@/lib/mock-data";
 import type { Space, SpaceStatus } from "@/lib/types";
+import type { InventoryData } from "@/lib/inventory-types";
+
+const DEFAULT_MATTERPORT_URL =
+  "https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -80,8 +83,7 @@ import {
 } from "@/components/ui/tooltip";
 
 import { FloorPlanView } from "@/components/offices/floor-plan-view";
-import { FloorPlan, parseRegionsCsv } from "@/components/FloorPlan";
-import type { Region } from "@/components/FloorPlan";
+import { FloorPlan } from "@/components/FloorPlan";
 import { cn } from "@/lib/utils";
 import { useBreakpoint } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
@@ -277,7 +279,11 @@ function SidebarNavContent({
   );
 }
 
-export function OfficesPageClient() {
+interface OfficesPageClientProps {
+  inventoryData: InventoryData;
+}
+
+export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
     useAppStore();
   const breakpoint = useBreakpoint();
@@ -297,70 +303,64 @@ export function OfficesPageClient() {
   const [selectedTerm, setSelectedTerm] = useState(24);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
-  const [shortHillsRegions, setShortHillsRegions] = useState<Region[] | null>(null);
-  const [shortHillsRegionsLoading, setShortHillsRegionsLoading] = useState(false);
-  const [shortHillsHoveredRegion, setShortHillsHoveredRegion] = useState<Region | null>(null);
-  const [shortHillsHoverCardVisible, setShortHillsHoverCardVisible] = useState(false);
-  const [shortHillsDisplayRegion, setShortHillsDisplayRegion] = useState<Region | null>(null);
-  const [shortHillsHoverPosition, setShortHillsHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
-  const shortHillsFloorPlanContainerRef = useRef<HTMLDivElement>(null);
-  const shortHillsHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const shortHillsHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanHoverCardVisible, setFloorPlanHoverCardVisible] = useState(false);
+  const [floorPlanDisplayRegion, setFloorPlanDisplayRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanHoverPosition, setFloorPlanHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
+  const floorPlanContainerRef = useRef<HTMLDivElement>(null);
+  const floorPlanHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const floorPlanHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemsPerPage = 15;
+
+  const { buildings, spacesByLocationId, regionsByLocationId } = inventoryData;
 
   // Delayed show/hide for floor plan hover card (UX: reduce flicker, allow moving between regions)
   const HOVER_CARD_SHOW_MS = 280;
   const HOVER_CARD_HIDE_MS = 120;
   useEffect(() => {
-    if (shortHillsHoveredRegion) {
-      if (shortHillsHoverHideTimeoutRef.current) {
-        clearTimeout(shortHillsHoverHideTimeoutRef.current);
-        shortHillsHoverHideTimeoutRef.current = null;
+    if (floorPlanHoveredRegion) {
+      if (floorPlanHoverHideTimeoutRef.current) {
+        clearTimeout(floorPlanHoverHideTimeoutRef.current);
+        floorPlanHoverHideTimeoutRef.current = null;
       }
-      shortHillsHoverShowTimeoutRef.current = setTimeout(() => {
-        setShortHillsDisplayRegion(shortHillsHoveredRegion);
-        setShortHillsHoverCardVisible(true);
-        shortHillsHoverShowTimeoutRef.current = null;
+      floorPlanHoverShowTimeoutRef.current = setTimeout(() => {
+        setFloorPlanDisplayRegion(floorPlanHoveredRegion);
+        setFloorPlanHoverCardVisible(true);
+        floorPlanHoverShowTimeoutRef.current = null;
       }, HOVER_CARD_SHOW_MS);
     } else {
-      if (shortHillsHoverShowTimeoutRef.current) {
-        clearTimeout(shortHillsHoverShowTimeoutRef.current);
-        shortHillsHoverShowTimeoutRef.current = null;
+      if (floorPlanHoverShowTimeoutRef.current) {
+        clearTimeout(floorPlanHoverShowTimeoutRef.current);
+        floorPlanHoverShowTimeoutRef.current = null;
       }
-      shortHillsHoverHideTimeoutRef.current = setTimeout(() => {
-        setShortHillsHoverCardVisible(false);
-        setShortHillsDisplayRegion(null);
-        setShortHillsHoverPosition(null);
-        shortHillsHoverHideTimeoutRef.current = null;
+      floorPlanHoverHideTimeoutRef.current = setTimeout(() => {
+        setFloorPlanHoverCardVisible(false);
+        setFloorPlanDisplayRegion(null);
+        setFloorPlanHoverPosition(null);
+        floorPlanHoverHideTimeoutRef.current = null;
       }, HOVER_CARD_HIDE_MS);
     }
-  }, [shortHillsHoveredRegion]);
+  }, [floorPlanHoveredRegion]);
   useEffect(() => {
     return () => {
-      if (shortHillsHoverShowTimeoutRef.current) clearTimeout(shortHillsHoverShowTimeoutRef.current);
-      if (shortHillsHoverHideTimeoutRef.current) clearTimeout(shortHillsHoverHideTimeoutRef.current);
+      if (floorPlanHoverShowTimeoutRef.current) clearTimeout(floorPlanHoverShowTimeoutRef.current);
+      if (floorPlanHoverHideTimeoutRef.current) clearTimeout(floorPlanHoverHideTimeoutRef.current);
     };
   }, []);
 
+  // Sync currentBuilding when it's not in the buildings list (e.g. first load with new data)
   useEffect(() => {
-    if (currentBuilding !== SHORT_HILLS_BUILDING_ID) return;
-    setShortHillsRegionsLoading(true);
-    fetch("/short-hills-regions.csv")
-      .then((r) => r.text())
-      .then((csv) => {
-        setShortHillsRegions(parseRegionsCsv(csv));
-      })
-      .catch(() => setShortHillsRegions([]))
-      .finally(() => setShortHillsRegionsLoading(false));
-  }, [currentBuilding]);
+    if (buildings.length === 0) return;
+    const buildingIds = new Set(buildings.map((b) => b.id));
+    if (!currentBuilding || !buildingIds.has(currentBuilding)) {
+      setCurrentBuilding(buildings[0].id);
+    }
+  }, [buildings, currentBuilding, setCurrentBuilding]);
 
-  // List-view spaces: use Short Hills list data when that building is selected, else mockSpaces by building
+  // List-view spaces from inventory for current building
   const listSpacesForBuilding = useMemo(
-    () =>
-      currentBuilding === SHORT_HILLS_BUILDING_ID
-        ? shortHillsListSpaces
-        : mockSpaces.filter((s) => s.building === currentBuilding),
-    [currentBuilding]
+    () => spacesByLocationId[currentBuilding] ?? [],
+    [spacesByLocationId, currentBuilding]
   );
 
   // Filter spaces based on current filters
@@ -387,9 +387,14 @@ export function OfficesPageClient() {
     return firstSpaceId ? new Set([firstSpaceId]) : new Set();
   });
 
-  const currentBuildingData = mockBuildings.find(
+  const currentBuildingData = buildings.find(
     (b) => b.id === currentBuilding
   );
+
+  const currentRegions = regionsByLocationId[currentBuilding] ?? [];
+  const currentSpaces = spacesByLocationId[currentBuilding] ?? [];
+  const matterportUrl =
+    currentSpaces.find((s) => s.matterportUrl)?.matterportUrl ?? DEFAULT_MATTERPORT_URL;
 
   const toggleRowExpansion = (spaceId: string) => {
     setExpandedRows((prev) => {
@@ -587,7 +592,7 @@ export function OfficesPageClient() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
-                    {mockBuildings.map((building) => (
+                    {buildings.map((building) => (
                       <DropdownMenuCheckboxItem
                         key={building.id}
                         checked={currentBuilding === building.id}
@@ -613,7 +618,7 @@ export function OfficesPageClient() {
               const totalSeats = filteredSpaces.filter(s => s.type === "office" || s.type === "suite").reduce((acc, s) => acc + s.capacity, 0);
               const occupiedSeats = filteredSpaces.filter(s => (s.type === "office" || s.type === "suite") && s.status === "occupied").reduce((acc, s) => acc + s.capacity, 0);
               const occupancyRate = totalSeats > 0 ? Math.round((occupiedSeats / totalSeats) * 100) : 0;
-              
+
               return (
                 <div className="bg-white rounded-lg border border-slate-200 px-3 md:px-4 py-2.5 mb-3 shadow-sm">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
@@ -651,7 +656,7 @@ export function OfficesPageClient() {
                       </div>
                     </div>
                     <div className="text-[11px] text-slate-400 shrink-0">
-                      Floor {currentBuildingData?.floors ?? 1} | {currentBuildingData?.name || "Short Hills"}
+                      Floor {currentBuildingData?.floors ?? 1} | {currentBuildingData?.name ?? "—"}
                     </div>
                   </div>
                 </div>
@@ -1007,7 +1012,7 @@ export function OfficesPageClient() {
                                               Next Available
                                             </span>
                                             <span className="font-medium">
-                                              {space.moveOutDate 
+                                              {space.moveOutDate
                                                 ? new Date(space.moveOutDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })
                                                 : '6/1/26'}
                                             </span>
@@ -1127,146 +1132,134 @@ export function OfficesPageClient() {
               </div>
             )}
 
-            {viewMode === "2d" && currentBuilding === SHORT_HILLS_BUILDING_ID && (
-              <>
-                {shortHillsRegionsLoading ? (
-                  <div className="flex items-center justify-center min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] rounded-lg border border-border bg-muted/30">
-                    <p className="text-muted-foreground">Loading floor plan...</p>
-                  </div>
-                ) : shortHillsRegions && shortHillsRegions.length > 0 ? (
-                  <div
-                    ref={shortHillsFloorPlanContainerRef}
-                    className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
-                  >
-                    <FloorPlan
-                      imageUrl="/short-hills-floor-plan.png"
-                      regions={shortHillsRegions}
-                      imageWidth={3300}
-                      imageHeight={2550}
-                      flipY
-                      onRegionClick={(region) => {
-                        const space = listSpacesForBuilding.find((s) => s.id === region.id) ?? shortHillsSpaces.find((s) => s.id === region.id);
-                        if (space) {
-                          setSelectedSpaceForDrawer(space);
-                          setDrawerOpen(true);
-                        }
-                      }}
-                      onRegionHover={(region, event) => {
-                        setShortHillsHoveredRegion(region);
-                        if (region && event && shortHillsFloorPlanContainerRef.current) {
-                          const rect = shortHillsFloorPlanContainerRef.current.getBoundingClientRect();
-                          setShortHillsHoverPosition({
-                            x: event.clientX - rect.left,
-                            y: event.clientY - rect.top,
-                            containerW: rect.width,
-                            containerH: rect.height,
-                          });
-                        }
-                      }}
-                    />
-                    {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated (UX best practices) */}
-                    <AnimatePresence mode="wait">
-                      {shortHillsHoverCardVisible && shortHillsDisplayRegion && (() => {
-                        const space = listSpacesForBuilding.find((s) => s.id === shortHillsDisplayRegion.id) ?? shortHillsSpaces.find((s) => s.id === shortHillsDisplayRegion.id);
-                        if (!space) return null;
-                        const hasMetrics = (space.capacity ?? 0) > 0 || ((space.sqft ?? space.lsf) ?? 0) > 0 || (space.price ?? 0) > 0;
-                        const CARD_W = 280;
-                        const CARD_H_APPROX = 180;
-                        const OFFSET = 12;
-                        const pos = shortHillsHoverPosition;
-                        const style: React.CSSProperties = pos
-                          ? (() => {
-                              let left = pos.x + OFFSET;
-                              let top = pos.y - OFFSET - CARD_H_APPROX;
-                              if (left + CARD_W > pos.containerW) left = pos.x - OFFSET - CARD_W;
-                              if (left < 0) left = OFFSET;
-                              if (left + CARD_W > pos.containerW) left = pos.containerW - CARD_W - OFFSET;
-                              if (top < 0) top = pos.y + OFFSET;
-                              if (top + CARD_H_APPROX > pos.containerH) top = Math.max(OFFSET, pos.containerH - CARD_H_APPROX - OFFSET);
-                              return { position: "absolute" as const, left, top, width: CARD_W, zIndex: 10 };
-                            })()
-                          : { position: "absolute" as const, top: 16, right: 16, width: CARD_W, zIndex: 10 };
-                        return (
-                          <motion.div
-                            key={shortHillsDisplayRegion.id}
-                            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 4 }}
-                            transition={{ duration: prefersReducedMotion ? 0 : 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
-                            style={style}
-                            className={cn(
-                              "z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
-                              "ring-1 ring-black/5",
-                              space.status === "available" && "border-emerald-200/80",
-                              space.status === "occupied" && "border-slate-200",
-                              space.status === "pending" && "border-amber-200/80",
-                              space.status === "maintenance" && "border-red-200/80"
-                            )}
-                            role="status"
-                            aria-live="polite"
-                            aria-label={`${space.name}, ${space.status}`}
-                          >
-                            {/* Primary: name + status */}
-                            <div
+            {viewMode === "2d" && currentRegions.length > 0 && (
+              <div
+                ref={floorPlanContainerRef}
+                className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
+              >
+                <FloorPlan
+                  imageUrl={currentBuildingData?.image ?? "/short-hills-floor-plan.png"}
+                  regions={currentRegions}
+                  imageWidth={3300}
+                  imageHeight={2550}
+                  flipY
+                  onRegionClick={(region) => {
+                    const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
+                    if (space) {
+                      setSelectedSpaceForDrawer(space);
+                      setDrawerOpen(true);
+                    }
+                  }}
+                  onRegionHover={(region, event) => {
+                    setFloorPlanHoveredRegion(region);
+                    if (region && event && floorPlanContainerRef.current) {
+                      const rect = floorPlanContainerRef.current.getBoundingClientRect();
+                      setFloorPlanHoverPosition({
+                        x: event.clientX - rect.left,
+                        y: event.clientY - rect.top,
+                        containerW: rect.width,
+                        containerH: rect.height,
+                      });
+                    }
+                  }}
+                />
+                {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated (UX best practices) */}
+                <AnimatePresence mode="wait">
+                  {floorPlanHoverCardVisible && floorPlanDisplayRegion && (() => {
+                    const space = currentSpaces.find((s) => s.name === floorPlanDisplayRegion.id || s.id === floorPlanDisplayRegion.id);
+                    if (!space) return null;
+                    const hasMetrics = (space.capacity ?? 0) > 0 || ((space.sqft ?? space.lsf) ?? 0) > 0 || (space.price ?? 0) > 0;
+                    const CARD_W = 280;
+                    const CARD_H_APPROX = 180;
+                    const OFFSET = 12;
+                    const pos = floorPlanHoverPosition;
+                    const style: React.CSSProperties = pos
+                      ? (() => {
+                          let left = pos.x + OFFSET;
+                          let top = pos.y - OFFSET - CARD_H_APPROX;
+                          if (left + CARD_W > pos.containerW) left = pos.x - OFFSET - CARD_W;
+                          if (left < 0) left = OFFSET;
+                          if (left + CARD_W > pos.containerW) left = pos.containerW - CARD_W - OFFSET;
+                          if (top < 0) top = pos.y + OFFSET;
+                          if (top + CARD_H_APPROX > pos.containerH) top = Math.max(OFFSET, pos.containerH - CARD_H_APPROX - OFFSET);
+                          return { position: "absolute" as const, left, top, width: CARD_W, zIndex: 10 };
+                        })()
+                      : { position: "absolute" as const, top: 16, right: 16, width: CARD_W, zIndex: 10 };
+                    return (
+                      <motion.div
+                        key={floorPlanDisplayRegion.id}
+                        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 4 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        style={style}
+                        className={cn(
+                          "z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
+                          "ring-1 ring-black/5",
+                          space.status === "available" && "border-emerald-200/80",
+                          space.status === "occupied" && "border-slate-200",
+                          space.status === "pending" && "border-amber-200/80",
+                          space.status === "maintenance" && "border-red-200/80"
+                        )}
+                        role="status"
+                        aria-live="polite"
+                        aria-label={`${space.name}, ${space.status}`}
+                      >
+                        {/* Primary: name + status */}
+                        <div
+                          className={cn(
+                            "px-4 py-3 border-b",
+                            space.status === "available" && "bg-emerald-50/90 border-emerald-100",
+                            space.status === "occupied" && "bg-slate-50/90 border-slate-100",
+                            space.status === "pending" && "bg-amber-50/90 border-amber-100",
+                            space.status === "maintenance" && "bg-red-50/90 border-red-100"
+                          )}
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            <h4 className="font-semibold text-[15px] text-slate-900 truncate">{space.name}</h4>
+                            <span
                               className={cn(
-                                "px-4 py-3 border-b",
-                                space.status === "available" && "bg-emerald-50/90 border-emerald-100",
-                                space.status === "occupied" && "bg-slate-50/90 border-slate-100",
-                                space.status === "pending" && "bg-amber-50/90 border-amber-100",
-                                space.status === "maintenance" && "bg-red-50/90 border-red-100"
+                                "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium capitalize shrink-0",
+                                space.status === "available" && "bg-emerald-100 text-emerald-700",
+                                space.status === "occupied" && "bg-slate-100 text-slate-600",
+                                space.status === "pending" && "bg-amber-100 text-amber-700",
+                                space.status === "maintenance" && "bg-red-100 text-red-700"
                               )}
                             >
-                              <div className="flex items-center justify-between gap-3">
-                                <h4 className="font-semibold text-[15px] text-slate-900 truncate">{space.name}</h4>
-                                <span
-                                  className={cn(
-                                    "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium capitalize shrink-0",
-                                    space.status === "available" && "bg-emerald-100 text-emerald-700",
-                                    space.status === "occupied" && "bg-slate-100 text-slate-600",
-                                    space.status === "pending" && "bg-amber-100 text-amber-700",
-                                    space.status === "maintenance" && "bg-red-100 text-red-700"
-                                  )}
-                                >
-                                  {space.status}
-                                </span>
-                              </div>
-                            </div>
-                            {/* Secondary: metrics row */}
-                            {hasMetrics && (
-                              <div className="px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-600 border-b border-slate-100">
-                                {(space.capacity ?? 0) > 0 && (
-                                  <span className="flex items-center gap-1.5">
-                                    <Users className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-                                    {space.capacity} seats
-                                  </span>
-                                )}
-                                {((space.sqft ?? space.lsf) ?? 0) > 0 && (
-                                  <span>{(space.sqft ?? space.lsf)?.toLocaleString()} sq ft</span>
-                                )}
-                                {(space.price ?? 0) > 0 && (
-                                  <span className="font-semibold text-emerald-700">
-                                    ${(space.price ?? 0).toLocaleString()}/mo
-                                  </span>
-                                )}
-                              </div>
+                              {space.status}
+                            </span>
+                          </div>
+                        </div>
+                        {/* Secondary: metrics row */}
+                        {hasMetrics && (
+                          <div className="px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-600 border-b border-slate-100">
+                            {(space.capacity ?? 0) > 0 && (
+                              <span className="flex items-center gap-1.5">
+                                <Users className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                                {space.capacity} seats
+                              </span>
                             )}
-                            {/* Tertiary: affordance hint */}
-                            <div className="px-4 py-2 bg-slate-50/80">
-                              <p className="text-[11px] text-slate-500">Click for full details</p>
-                            </div>
-                          </motion.div>
-                        );
-                      })()}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] rounded-lg border border-border bg-muted/30">
-                    <p className="text-muted-foreground">No floor plan data. Add short-hills-regions.csv and short-hills-floor-plan.png to public/.</p>
-                  </div>
-                )}
-              </>
+                            {((space.sqft ?? space.lsf) ?? 0) > 0 && (
+                              <span>{(space.sqft ?? space.lsf)?.toLocaleString()} sq ft</span>
+                            )}
+                            {(space.price ?? 0) > 0 && (
+                              <span className="font-semibold text-emerald-700">
+                                ${(space.price ?? 0).toLocaleString()}/mo
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        {/* Tertiary: affordance hint */}
+                        <div className="px-4 py-2 bg-slate-50/80">
+                          <p className="text-[11px] text-slate-500">Click for full details</p>
+                        </div>
+                      </motion.div>
+                    );
+                  })()}
+                </AnimatePresence>
+              </div>
             )}
-            {viewMode === "2d" && currentBuilding !== SHORT_HILLS_BUILDING_ID && (
+            {viewMode === "2d" && currentRegions.length === 0 && currentBuildingData && (
               <FloorPlanView
                 spaces={filteredSpaces}
                 building={currentBuildingData}
@@ -1284,7 +1277,7 @@ export function OfficesPageClient() {
                 {/* Matterport Viewer - Primary Focus (takes most space); full width when sidebar stacks below */}
                 <div className="flex-1 min-h-0 relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
                   <iframe
-                    src={SHORT_HILLS_MATTERPORT_URL}
+                    src={matterportUrl}
                     className="w-full h-full"
                     title="3D Matterport View"
                     allowFullScreen
@@ -1299,8 +1292,8 @@ export function OfficesPageClient() {
                   </div>
                   {/* Top-right fullscreen button */}
                   <div className="absolute top-3 right-3">
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       className="h-8 gap-1.5 text-xs bg-white/90 backdrop-blur-sm text-slate-700 hover:bg-white shadow-sm"
                       onClick={() => {
                         const iframe = document.querySelector('iframe[title="3D Matterport View"]') as HTMLIFrameElement;
@@ -1328,7 +1321,7 @@ export function OfficesPageClient() {
                     </div>
                     <div className="flex items-center gap-2 text-[11px] text-slate-500 pt-2 border-t border-slate-100">
                       <MapPin className="h-3 w-3" />
-                      <span>{currentBuildingData?.name || "101 Marietta St"}</span>
+                      <span>{currentBuildingData?.name ?? "—"}</span>
                     </div>
                   </div>
 
@@ -1353,13 +1346,13 @@ export function OfficesPageClient() {
 
                   {/* CTA Buttons - Stacked, high contrast */}
                   <div className="flex-1 flex flex-col justify-end gap-2">
-                    <Button 
+                    <Button
                       className="w-full h-9 bg-[#1a7f64] hover:bg-[#15685a] gap-2 text-xs font-semibold shadow-sm"
                       asChild
                     >
-                      <a 
-                        href="https://admin-portal.industriousoffice.com/locations/67460d70262529d276de0e88" 
-                        target="_blank" 
+                      <a
+                        href="https://admin-portal.industriousoffice.com/locations/67460d70262529d276de0e88"
+                        target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Settings className="h-3.5 w-3.5" />
@@ -1367,10 +1360,10 @@ export function OfficesPageClient() {
                         <ExternalLink className="h-3 w-3 ml-auto opacity-70" />
                       </a>
                     </Button>
-                    
+
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button 
+                        <Button
                           className="w-full h-9 gap-2 text-xs font-medium bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
                         >
                           <FileText className="h-3.5 w-3.5" />
@@ -1388,13 +1381,13 @@ export function OfficesPageClient() {
                         <DropdownMenuItem>Proposal #1235</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    
+
                     <div className="grid grid-cols-2 gap-2">
-                      <Button 
+                      <Button
                         variant="outline"
                         className="h-9 gap-1 text-xs font-medium bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm"
                         onClick={() => {
-                          navigator.clipboard.writeText(SHORT_HILLS_MATTERPORT_URL);
+                          navigator.clipboard.writeText(matterportUrl);
                           const btn = document.activeElement as HTMLButtonElement;
                           if (btn) {
                             btn.innerText = "Copied!";
@@ -1407,7 +1400,7 @@ export function OfficesPageClient() {
                         <Share2 className="h-3.5 w-3.5" />
                         Share
                       </Button>
-                      <Button 
+                      <Button
                         variant="outline"
                         className="h-9 gap-1 text-xs font-medium bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm"
                       >
@@ -1491,7 +1484,7 @@ export function OfficesPageClient() {
                     <div className="flex items-center gap-1.5 text-sm">
                       <span className="text-muted-foreground">Next available:</span>
                       <span className="font-medium text-slate-700">
-                        {selectedSpaceForDrawer.moveOutDate 
+                        {selectedSpaceForDrawer.moveOutDate
                           ? new Date(selectedSpaceForDrawer.moveOutDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })
                           : '6/1/26'}
                       </span>
@@ -1683,9 +1676,9 @@ export function OfficesPageClient() {
                     </Button>
                   </div>
                   <Button variant="outline" size="sm" className="w-full gap-1.5 bg-transparent text-xs h-9" asChild>
-                    <a 
-                      href="https://www.industriousoffice.com/locations/101-glen-lennox-suite-300/offices/697bdd91c723b6a6cfa2b9df697bdd91c723b6a6cfa2b9d7?day=2026-03-16&monthTerm=12-month" 
-                      target="_blank" 
+                    <a
+                      href="https://www.industriousoffice.com/locations/101-glen-lennox-suite-300/offices/697bdd91c723b6a6cfa2b9df697bdd91c723b6a6cfa2b9d7?day=2026-03-16&monthTerm=12-month"
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Globe className="h-3.5 w-3.5" />
@@ -1714,7 +1707,7 @@ export function OfficesPageClient() {
             <X className="h-4 w-4" />
           </button>
           <iframe
-            src={SHORT_HILLS_MATTERPORT_URL}
+            src={matterportUrl}
             className="w-full h-full rounded-lg"
             title="3D Matterport View"
             allowFullScreen
