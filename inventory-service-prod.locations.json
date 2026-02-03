@@ -3,7 +3,7 @@
     "_id": {
       "$oid": "6424657d16a40d45431865c6"
     },
-    "floorplanUrl": "./public/short_hills_floorplan.png",
+    "floorplanUrl": "/short-hills-floor-plan.png",
     "address": "1200 Morris Turnpike",
     "address2": "Suite 3005",
     "amenities": {
@@ -3240,7 +3240,7 @@
       "es": null
     },
     "sfId": "a001Q00000aggMEQAY",
-    "floorplanUrl": "./public/a001Q00000aggMEQAY.png",
+    "floorplanUrl": "/a001Q00000aggMEQAY.png",
     "slug": "500-n-brand-blvd-suite-2000",
     "state": "CA",
     "summary": {
@@ -4247,7 +4247,7 @@
       "es": null
     },
     "sfId": "a001Q00000ZbFtTQAV",
-    "floorplanUrl": "./public/a001Q00000ZbFtTQAV.png",
+    "floorplanUrl": "/a001Q00000ZbFtTQAV.png",
     "slug": "1212-broadway-plaza-suite-2100",
     "state": "CA",
     "summary": {
@@ -5057,7 +5057,7 @@
       "es": null
     },
     "sfId": "a001Q00000ah4p9QAA",
-    "floorplanUrl": "./public/a001Q00000ah4p9QAA.png",
+    "floorplanUrl": "/a001Q00000ah4p9QAA.png",
     "slug": "444-south-flower-street-13th-fl",
     "state": "CA",
     "summary": {
