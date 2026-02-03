@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useAppStore } from "@/lib/store";
 import type { Space, SpaceStatus } from "@/lib/types";
 import type { InventoryData } from "@/lib/inventory-types";
@@ -286,6 +287,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
     useAppStore();
   const breakpoint = useBreakpoint();
+  const prefersReducedMotion = useReducedMotion();
   const showPersistentSidebar = breakpoint === "desktop";
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
   const [selectedPricing, setSelectedPricing] = useState<string[]>(["24-35"]);
@@ -301,9 +303,50 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
   const [selectedTerm, setSelectedTerm] = useState(24);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
+  const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanHoverCardVisible, setFloorPlanHoverCardVisible] = useState(false);
+  const [floorPlanDisplayRegion, setFloorPlanDisplayRegion] = useState<{ id: string; label: string; points: { x: number; y: number }[] } | null>(null);
+  const [floorPlanHoverPosition, setFloorPlanHoverPosition] = useState<{ x: number; y: number; containerW: number; containerH: number } | null>(null);
+  const floorPlanContainerRef = useRef<HTMLDivElement>(null);
+  const floorPlanHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const floorPlanHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemsPerPage = 15;
 
   const { buildings, spacesByLocationId, regionsByLocationId } = inventoryData;
+
+  // Delayed show/hide for floor plan hover card (UX: reduce flicker, allow moving between regions)
+  const HOVER_CARD_SHOW_MS = 280;
+  const HOVER_CARD_HIDE_MS = 120;
+  useEffect(() => {
+    if (floorPlanHoveredRegion) {
+      if (floorPlanHoverHideTimeoutRef.current) {
+        clearTimeout(floorPlanHoverHideTimeoutRef.current);
+        floorPlanHoverHideTimeoutRef.current = null;
+      }
+      floorPlanHoverShowTimeoutRef.current = setTimeout(() => {
+        setFloorPlanDisplayRegion(floorPlanHoveredRegion);
+        setFloorPlanHoverCardVisible(true);
+        floorPlanHoverShowTimeoutRef.current = null;
+      }, HOVER_CARD_SHOW_MS);
+    } else {
+      if (floorPlanHoverShowTimeoutRef.current) {
+        clearTimeout(floorPlanHoverShowTimeoutRef.current);
+        floorPlanHoverShowTimeoutRef.current = null;
+      }
+      floorPlanHoverHideTimeoutRef.current = setTimeout(() => {
+        setFloorPlanHoverCardVisible(false);
+        setFloorPlanDisplayRegion(null);
+        setFloorPlanHoverPosition(null);
+        floorPlanHoverHideTimeoutRef.current = null;
+      }, HOVER_CARD_HIDE_MS);
+    }
+  }, [floorPlanHoveredRegion]);
+  useEffect(() => {
+    return () => {
+      if (floorPlanHoverShowTimeoutRef.current) clearTimeout(floorPlanHoverShowTimeoutRef.current);
+      if (floorPlanHoverHideTimeoutRef.current) clearTimeout(floorPlanHoverHideTimeoutRef.current);
+    };
+  }, []);
 
   // Sync currentBuilding when it's not in the buildings list (e.g. first load with new data)
   useEffect(() => {
@@ -651,7 +694,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                     onClick={() => setViewMode("2d")}
                   >
                     <LayoutGrid className="h-4 w-4 shrink-0" />
-                    <span className="sm:inline">2D</span>
+                    <span className="sm:inline">Floor plan</span>
                   </Button>
                   <Button
                     variant="ghost"
@@ -1090,20 +1133,131 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
             )}
 
             {viewMode === "2d" && currentRegions.length > 0 && (
-              <FloorPlan
-                imageUrl={currentBuildingData?.image ?? "/short-hills-floor-plan.png"}
-                regions={currentRegions}
-                imageWidth={3300}
-                imageHeight={2550}
-                flipY
-                onRegionClick={(region) => {
-                  const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
-                  if (space) {
-                    setSelectedSpaceForDrawer(space);
-                    setDrawerOpen(true);
-                  }
-                }}
-              />
+              <div
+                ref={floorPlanContainerRef}
+                className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]"
+              >
+                <FloorPlan
+                  imageUrl={currentBuildingData?.image ?? "/short-hills-floor-plan.png"}
+                  regions={currentRegions}
+                  imageWidth={3300}
+                  imageHeight={2550}
+                  flipY
+                  onRegionClick={(region) => {
+                    const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
+                    if (space) {
+                      setSelectedSpaceForDrawer(space);
+                      setDrawerOpen(true);
+                    }
+                  }}
+                  onRegionHover={(region, event) => {
+                    setFloorPlanHoveredRegion(region);
+                    if (region && event && floorPlanContainerRef.current) {
+                      const rect = floorPlanContainerRef.current.getBoundingClientRect();
+                      setFloorPlanHoverPosition({
+                        x: event.clientX - rect.left,
+                        y: event.clientY - rect.top,
+                        containerW: rect.width,
+                        containerH: rect.height,
+                      });
+                    }
+                  }}
+                />
+                {/* Hover card: near cursor (or top-right fallback), delayed show/hide, animated (UX best practices) */}
+                <AnimatePresence mode="wait">
+                  {floorPlanHoverCardVisible && floorPlanDisplayRegion && (() => {
+                    const space = currentSpaces.find((s) => s.name === floorPlanDisplayRegion.id || s.id === floorPlanDisplayRegion.id);
+                    if (!space) return null;
+                    const hasMetrics = (space.capacity ?? 0) > 0 || ((space.sqft ?? space.lsf) ?? 0) > 0 || (space.price ?? 0) > 0;
+                    const CARD_W = 280;
+                    const CARD_H_APPROX = 180;
+                    const OFFSET = 12;
+                    const pos = floorPlanHoverPosition;
+                    const style: React.CSSProperties = pos
+                      ? (() => {
+                          let left = pos.x + OFFSET;
+                          let top = pos.y - OFFSET - CARD_H_APPROX;
+                          if (left + CARD_W > pos.containerW) left = pos.x - OFFSET - CARD_W;
+                          if (left < 0) left = OFFSET;
+                          if (left + CARD_W > pos.containerW) left = pos.containerW - CARD_W - OFFSET;
+                          if (top < 0) top = pos.y + OFFSET;
+                          if (top + CARD_H_APPROX > pos.containerH) top = Math.max(OFFSET, pos.containerH - CARD_H_APPROX - OFFSET);
+                          return { position: "absolute" as const, left, top, width: CARD_W, zIndex: 10 };
+                        })()
+                      : { position: "absolute" as const, top: 16, right: 16, width: CARD_W, zIndex: 10 };
+                    return (
+                      <motion.div
+                        key={floorPlanDisplayRegion.id}
+                        initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 4 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        style={style}
+                        className={cn(
+                          "z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
+                          "ring-1 ring-black/5",
+                          space.status === "available" && "border-emerald-200/80",
+                          space.status === "occupied" && "border-slate-200",
+                          space.status === "pending" && "border-amber-200/80",
+                          space.status === "maintenance" && "border-red-200/80"
+                        )}
+                        role="status"
+                        aria-live="polite"
+                        aria-label={`${space.name}, ${space.status}`}
+                      >
+                        {/* Primary: name + status */}
+                        <div
+                          className={cn(
+                            "px-4 py-3 border-b",
+                            space.status === "available" && "bg-emerald-50/90 border-emerald-100",
+                            space.status === "occupied" && "bg-slate-50/90 border-slate-100",
+                            space.status === "pending" && "bg-amber-50/90 border-amber-100",
+                            space.status === "maintenance" && "bg-red-50/90 border-red-100"
+                          )}
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            <h4 className="font-semibold text-[15px] text-slate-900 truncate">{space.name}</h4>
+                            <span
+                              className={cn(
+                                "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium capitalize shrink-0",
+                                space.status === "available" && "bg-emerald-100 text-emerald-700",
+                                space.status === "occupied" && "bg-slate-100 text-slate-600",
+                                space.status === "pending" && "bg-amber-100 text-amber-700",
+                                space.status === "maintenance" && "bg-red-100 text-red-700"
+                              )}
+                            >
+                              {space.status}
+                            </span>
+                          </div>
+                        </div>
+                        {/* Secondary: metrics row */}
+                        {hasMetrics && (
+                          <div className="px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-600 border-b border-slate-100">
+                            {(space.capacity ?? 0) > 0 && (
+                              <span className="flex items-center gap-1.5">
+                                <Users className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                                {space.capacity} seats
+                              </span>
+                            )}
+                            {((space.sqft ?? space.lsf) ?? 0) > 0 && (
+                              <span>{(space.sqft ?? space.lsf)?.toLocaleString()} sq ft</span>
+                            )}
+                            {(space.price ?? 0) > 0 && (
+                              <span className="font-semibold text-emerald-700">
+                                ${(space.price ?? 0).toLocaleString()}/mo
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        {/* Tertiary: affordance hint */}
+                        <div className="px-4 py-2 bg-slate-50/80">
+                          <p className="text-[11px] text-slate-500">Click for full details</p>
+                        </div>
+                      </motion.div>
+                    );
+                  })()}
+                </AnimatePresence>
+              </div>
             )}
             {viewMode === "2d" && currentRegions.length === 0 && currentBuildingData && (
               <FloorPlanView
