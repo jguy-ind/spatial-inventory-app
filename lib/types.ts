@@ -43,6 +43,8 @@ export interface Building {
   availableSpaces: number
   coordinates: { lat: number; lng: number }
   image: string
+  floorPlanWidth?: number
+  floorPlanHeight?: number
 }
 
 export interface Booking {

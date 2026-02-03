@@ -1144,8 +1144,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 <FloorPlan
                   imageUrl={currentBuildingData.image}
                   regions={currentRegions}
-                  imageWidth={3300}
-                  imageHeight={2550}
+                  imageWidth={currentBuildingData.floorPlanWidth}
+                  imageHeight={currentBuildingData.floorPlanHeight}
                   flipY
                   onRegionClick={(region) => {
                     const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
