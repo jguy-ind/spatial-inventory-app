@@ -1,0 +1,2817 @@
+[
+  {
+    "_id": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "floorplanUrl": "./public/short_hills_floorplan.png",
+    "address": "1200 Morris Turnpike",
+    "address2": "Suite 3005",
+    "amenities": {
+      "standard": [
+        "642ed3588bf6c389c39858ae",
+        "642ed358ac422fdb0f5315fb",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e3e6cf0fd868e6d584",
+        "643755e38d8f008035da4a5c",
+        "643756618d8f008035da4a65",
+        "643756611ea063e001eb4f87",
+        "6746afa231c07c4d86ec567f",
+        "6746afa231c07c4d86ec5683",
+        "6746afa231c07c4d86ec5680",
+        "6746afa231c07c4d86ec5682",
+        "6746afa231c07c4d86ec5681",
+        "6746bd932f605015d01a8486",
+        "643756611ea063e001eb4f86"
+      ],
+      "unique": [
+        "642ed358ac422fdb0f5315fa",
+        "643756618d8f008035da4a69",
+        "6447e47eec010bdce54e45b4",
+        "66db573c25aae6fe8b37d858"
+      ],
+      "onDemand": [
+        "642ed358ac422fdb0f5315f9",
+        "642ed3588bf6c389c39858b2",
+        "643755e31ea063e001eb4f7b",
+        "643755e31ea063e001eb4f7c",
+        "643755e38d8f008035da4a5c",
+        "643756611ea063e001eb4f89",
+        "66394a7609fb2c2049896e44"
+      ]
+    },
+    "attractions": [],
+    "bikeRacks": "Yes",
+    "brandName": "Industrious",
+    "brochureLink": "https://www.canva.com/design/DAFW0NPyMAg/V-FbqNpRR14sITsc5FDNYA/edit",
+    "buildingCheckInInstructions": "We have two convenient entrances:\n\nMain Entrance: Located on the third level of the Teal Parking Garage. Park and walk directly into our space.\nSide Entrance: Enter the mall at Crate & Barrel\u2019s entrance, then take the stairs or elevator up one floor.\n\nGPS Tip: If you\u2019re having trouble, enter \u201cFineran Way\u201d into your GPS. From this street, you have direct access into the Teal Parking Garage.\n\nWe\u2019re situated above Crate & Barrel and next to Bloomingdale\u2019s on the third level.",
+    "calendlyLinks": {
+      "inPersonTour": "calendly.com/industrious-east-region/industrious-the-mall-at-short-hills-tour",
+      "phoneCall": "calendly.com/industrious-east-region/industrious-the-mall-at-short-hills-phone-call"
+    },
+    "city": "Short Hills",
+    "country": "United States",
+    "createdAt": {
+      "$date": "2023-04-13T01:09:49.878Z"
+    },
+    "currencyIsoCode": "USD",
+    "email": "shorthills@industriousoffice.com",
+    "embedSocialId": null,
+    "firstDayOfBusiness": {
+      "$date": "2020-06-29T00:00:00.000Z"
+    },
+    "geolocalization": {
+      "type": "Point",
+      "coordinates": [
+        -74.36424255371094,
+        40.740875244140625
+      ]
+    },
+    "images": [
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ed42913d6070b2d47b8.webp",
+        "altText": {
+          "en": "A modern restaurant in Short Hills featuring wooden tables and chairs.",
+          "fr": "Le restaurant moderne de Short Hills propose un espace de travail de coworking accueillant avec des tables et des chaises en bois.",
+          "de": "Eine ger\u00e4umige, moderne Lounge mit Oberlicht dient als einladender Coworking-Bereich und verf\u00fcgt \u00fcber einen zentralen Blumenkasten mit \u00fcppigen Gr\u00fcnpflanzen. Er ist von Tischen und einer Vielzahl von St\u00fchlen umgeben, die sich perfekt f\u00fcr die Zusammenarbeit eignen, w\u00e4hrend im Vordergrund eine Holzkonsole prominent steht.",
+          "nl": "Een ruime, moderne lounge met dakraam doet dienst als uitnodigende coworkingruimte en beschikt over een centrale plantenbak met weelderige groene planten. Het is omgeven door tafels en een verscheidenheid aan stoelen, perfect voor samenwerking, terwijl een houten console prominent op de voorgrond staat.",
+          "es": "Un sal\u00f3n espacioso y moderno con tragaluz sirve como un acogedor espacio de trabajo conjunto y cuenta con una maceta central con exuberantes plantas verdes. Est\u00e1 rodeado de mesas y una variedad de sillas, perfectas para la colaboraci\u00f3n, mientras que una consola de madera ocupa un lugar destacado en primer plano."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 1,
+        "tags": [
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation"
+        ],
+        "thumbHash": "pRgKJYhzaUiPcnaZeLdXimhwiQfH"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1edf2913d6070b2d47bb.webp",
+        "altText": {
+          "en": "A Short Hills workspace featuring two desks and a window.",
+          "fr": "Un bureau de coworking \u00e0 Short Hills, avec deux bureaux et une fen\u00eatre.",
+          "de": "Ein modernes Coworking-B\u00fcro mit zwei Schreibtischen, St\u00fchlen, Laptops und gro\u00dfen Fenstern. Der Raum verf\u00fcgt \u00fcber Glasw\u00e4nde und minimalistisches Dekor, darunter eine Pflanze und elegante Lampen \u2013 eine perfekte Umgebung f\u00fcr produktive Meetings.",
+          "nl": "Een modern coworking-kantoor met twee bureaus, stoelen, laptops en grote ramen. De ruimte is voorzien van glazen wanden en een minimalistische inrichting, waaronder een plant en elegante lampen: een perfecte omgeving voor productieve vergaderingen.",
+          "es": "Una oficina de coworking moderna con dos escritorios, sillas, port\u00e1tiles y grandes ventanales. El espacio cuenta con paredes de vidrio y una decoraci\u00f3n minimalista, que incluye una planta y elegantes l\u00e1mparas: un ambiente perfecto para reuniones productivas."
+        },
+        "caption": {
+          "en": "Private office",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 2,
+        "tags": [
+          "HasWorkstation",
+          "OfficeUpTo15Seats",
+          "HasSoftSeating"
+        ],
+        "thumbHash": "J/gFDYL7h3uPgmmFSaVHpkiUrwTq"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ee62913d6070b2d47be.webp",
+        "altText": {
+          "en": "A workspace with glass doors and a table and chairs.",
+          "fr": "Un espace de travail de coworking \u00e0 Short Hills avec des portes vitr\u00e9es, une table et des chaises.",
+          "de": "Ein moderner Coworking-Space mit zwei verglasten Konferenzr\u00e4umen auf beiden Seiten und einem Korridor, der zu einem mit Zimmerpflanzen geschm\u00fcckten Sitzbereich f\u00fchrt.",
+          "nl": "Een moderne coworkingruimte met aan weerszijden twee vergaderzalen met glazen wanden en een gang die leidt naar een met kamerplanten versierde zithoek.",
+          "es": "Un moderno espacio de coworking con dos salas de reuniones con paredes de cristal a cada lado y un pasillo que conduce a una zona de estar decorada con plantas de interior."
+        },
+        "caption": {
+          "en": "Meeting Rooms",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 3,
+        "tags": [
+          "HasSoftSeating",
+          "HasWorkstation",
+          "MeetingRoom"
+        ],
+        "thumbHash": "JAgODYKIl1d4eYZ5dIhXf6hwmwvn"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ed72913d6070b2d47b9.webp",
+        "altText": {
+          "en": "A Short Hills office/workspace furnished with a modern table and chairs.",
+          "fr": "Bureau de coworking Short Hills avec une table et des chaises.",
+          "de": "Moderne B\u00fcrolounge in Short Hills mit rundem Tisch und St\u00fchlen, bequemen Sofas, lebendiger Wandkunst und \u00fcppigen Pflanzen. Auf der rechten Seite befindet sich ein K\u00fcchenbereich, w\u00e4hrend im Hintergrund ein Konferenzraum mit Glasw\u00e4nden die dynamische Coworking-Umgebung erg\u00e4nzt.",
+          "nl": "Moderne kantoorlounge in Short Hills met ronde tafel en stoelen, comfortabele banken, levendige kunst aan de muur en weelderige planten. Aan de rechterkant bevindt zich een keukengedeelte, terwijl op de achtergrond een vergaderruimte met glazen wanden de dynamische coworking-omgeving aanvult.",
+          "es": "Sal\u00f3n de oficina moderno en Short Hills con mesa redonda y sillas, c\u00f3modos sof\u00e1s, vibrantes obras de arte en las paredes y plantas exuberantes. A la derecha hay un \u00e1rea de cocina, mientras que al fondo una sala de reuniones con paredes de vidrio complementa el din\u00e1mico ambiente de coworking."
+        },
+        "caption": {
+          "en": "Caf\u00e9",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 4,
+        "tags": [
+          "Cafe",
+          "HasPeople",
+          "HasSoftSeating"
+        ],
+        "thumbHash": "nxgKFYQHV3ZiY3unimdKe7xguwjm"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1eeb2913d6070b2d47c0.webp",
+        "altText": {
+          "en": "An office workspace in Short Hills featuring a chair and a mirror.",
+          "fr": "Un espace de coworking \u00e0 Short Hills avec une chaise et un miroir.",
+          "de": "Ein moderner Besprechungsraum mit rundem Spiegel, wandmontiertem Waschbecken und gepolstertem Stuhl. Ein kleiner Tisch mit Dekoration steht vor einer mit Kunstwerken geschm\u00fcckten Wand. Zwei Lampen sorgen f\u00fcr Beleuchtung und schaffen eine inspirierende Arbeitsatmosph\u00e4re.",
+          "nl": "Een moderne vergaderruimte met ronde spiegel, aan de muur gemonteerde wastafel en gestoffeerde stoel. Voor een muur versierd met kunstwerken staat een tafeltje met versieringen. Twee lampen zorgen voor verlichting en cre\u00ebren een inspirerende werksfeer.",
+          "es": "Una sala de reuniones moderna con espejo redondo, lavabo de pared y silla tapizada. Hay una mesa con adornos frente a una pared decorada con obras de arte. Dos l\u00e1mparas iluminan y crean una atm\u00f3sfera de trabajo inspiradora."
+        },
+        "caption": {
+          "en": "Example shown: Wellness room",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 5,
+        "tags": [
+          "HasSoftSeating",
+          "WellnessRoom"
+        ],
+        "thumbHash": "JggODYCSeIV8iYWAiGiGiQ2xp0HP"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1eda2913d6070b2d47ba.webp",
+        "altText": {
+          "en": "Short Hills office with glass booths for coworking workspace.",
+          "fr": "Un bureau \u00e0 Short Hills avec des cabines en verre pour les r\u00e9unions.",
+          "de": "Eine Reihe von vier schallisolierten Privatkabinen mit Glast\u00fcren und Hockern im Inneren, konzipiert f\u00fcr individuelles Arbeiten oder Telefonieren, in einer modernen Coworking-B\u00fcroumgebung mit Holzboden.",
+          "nl": "Een rij van vier geluidsdichte privacycabines met glazen deuren en krukken aan de binnenkant, ontworpen voor individueel werk of telefoongesprekken, in een moderne coworking-kantooromgeving met houten vloer.",
+          "es": "Una fila de cuatro cabinas de privacidad insonorizadas con puertas de vidrio y taburetes en el interior, dise\u00f1adas para trabajo individual o llamadas telef\u00f3nicas, en un ambiente de oficina de coworking moderno con piso de madera."
+        },
+        "caption": {
+          "en": "Example shown: Phone booths",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 6,
+        "tags": [
+          "HasPhoneBooths",
+          "HasWorkstation",
+          "HasPeople"
+        ],
+        "thumbHash": "JwgGFYLy/ZrGaVVchgeEh4SRTwj5"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ee82913d6070b2d47bf.webp",
+        "altText": {
+          "en": "The coworking office in Short Hills features a reception area with black walls and wooden floors.",
+          "fr": "Bureau de Short Hills avec des murs noirs et du parquet dans la zone de r\u00e9ception.",
+          "de": "Die moderne Coworking-Lobby verf\u00fcgt \u00fcber einen h\u00f6lzernen Rezeptionstresen vor einer schwarzen Akzentwand mit einem Schild mit der Aufschrift \u201eINDUSTRIOUS\u201c. Der einladende Sitzbereich bietet gelbe und graue St\u00fchle, erg\u00e4nzt durch Pflanzen, die dem Raum Lebendigkeit verleihen.",
+          "nl": "De moderne coworking-lobby is voorzien van een houten receptiebalie voor een zwarte accentmuur met een bord met de tekst \u2018INDUSTRIOUS\u2019. Het uitnodigende zitgedeelte is voorzien van gele en grijze stoelen, aangevuld met planten die levendigheid aan de ruimte toevoegen.",
+          "es": "El moderno vest\u00edbulo de coworking cuenta con un mostrador de recepci\u00f3n de madera frente a una pared decorativa negra con un letrero que dice \"INDUSTRIOUS\". La acogedora zona de estar cuenta con sillas amarillas y grises, complementadas con plantas que a\u00f1aden vitalidad al espacio."
+        },
+        "caption": {
+          "en": "Reception",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 7,
+        "tags": [
+          "HasPeople",
+          "HasSoftSeating",
+          "Reception"
+        ],
+        "thumbHash": "oBgOJYb4jXmAmHd5dneHeEWQXATY"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ee42913d6070b2d47bd.webp",
+        "altText": {
+          "en": "a Short Hills workspace with orange and black furniture.",
+          "fr": "Une salle de r\u00e9union de coworking \u00e0 Short Hills am\u00e9nag\u00e9e avec des meubles orange et noirs et un sol en damier.",
+          "de": "Die moderne B\u00fcrolounge in Short Hills verf\u00fcgt \u00fcber orangefarbene Sofas und schwarze St\u00fchle auf einem geometrisch gemusterten Boden. Deckenleuchten erhellen den Raum, w\u00e4hrend eine gro\u00dfe Pflanze in der Ecke f\u00fcr Gr\u00fcn sorgt. Glasfenster entlang einer Wand verst\u00e4rken das luftige Gef\u00fchl und machen es zu einem idealen Konferenzraum.",
+          "nl": "De moderne kantoorlounge in Short Hills is voorzien van oranje banken en zwarte stoelen op een vloer met geometrische patronen. Plafondlampen verlichten de kamer, terwijl een grote plant in de hoek voor groen zorgt. Glazen ramen langs \u00e9\u00e9n muur dragen bij aan het luchtige gevoel, waardoor het een ideale vergaderruimte is.",
+          "es": "El moderno sal\u00f3n de oficinas en Short Hills cuenta con sof\u00e1s naranjas y sillas negras sobre un piso con motivos geom\u00e9tricos. Las luces del techo iluminan la habitaci\u00f3n, mientras que una gran planta en la esquina proporciona vegetaci\u00f3n. Las ventanas de vidrio a lo largo de una pared aumentan la sensaci\u00f3n de amplitud, convirti\u00e9ndola en una sala de reuniones ideal."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 8,
+        "tags": [
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation"
+        ],
+        "thumbHash": "JwgKFYJ6k2aJV4qadweadY9H8WcU"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1eef2913d6070b2d47c1.webp",
+        "altText": {
+          "en": "A contemporary coworking space designed as a modern office with couches, tables and plants to provide a versatile and collaborative workspace.",
+          "fr": "Un espace de coworking avec un mobilier moderne et une v\u00e9g\u00e9tation luxuriante.",
+          "de": "In diesem Coworking Space verf\u00fcgt die moderne B\u00fcrolounge \u00fcber Tageslicht, einen gro\u00dfen Grundriss, beige und graue Sitze, Marmortische und einen Hartholzboden.",
+          "nl": "In deze coworkingruimte beschikt de moderne kantoorlounge over natuurlijk licht, een grote plattegrond, beige en grijze stoelen, marmeren tafels en een hardhouten vloer.",
+          "es": "En este espacio de coworking, el moderno sal\u00f3n de oficina cuenta con luz natural, una gran planta, asientos beige y grises, mesas de m\u00e1rmol y piso de madera."
+        },
+        "caption": {
+          "en": "Common area",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 9,
+        "tags": [
+          "CommonArea",
+          "HasPeople",
+          "HasSoftSeating",
+          "HasWorkstation"
+        ],
+        "thumbHash": "oBgKFYQGlYunWYjZaNmJh40giAXD"
+      },
+      {
+        "url": "https://inventory-service-assets.industriousoffice.com/locations/6424657d16a40d45431865c6/649a1ee22913d6070b2d47bc.webp",
+        "altText": {
+          "en": "A coworking office space located in the Short Hills shopping mall, featuring a stunning glass ceiling.",
+          "fr": "Un centre commercial moderne avec un plafond de verre offrant des espaces de coworking et des salles de r\u00e9union.",
+          "de": "Das Innere eines modernen Einkaufszentrums mit Oberlichtern, Sitzbereichen und verschiedenen, \u00fcber mehrere Ebenen sichtbaren Luxus-Einzelhandelsgesch\u00e4ften bietet einen innovativen Coworking-Bereich, der Arbeit und Freizeit f\u00fcr die dynamischen Berufst\u00e4tigen von heute nahtlos miteinander verbindet.",
+          "nl": "Het interieur van een modern winkelcentrum met dakramen, zitgedeeltes en diverse luxe winkels zichtbaar over meerdere niveaus biedt een innovatieve coworking-ruimte die werk en ontspanning naadloos combineert voor de dynamische professionals van vandaag.",
+          "es": "El interior de un moderno centro comercial con tragaluces, \u00e1reas para sentarse y varias tiendas de lujo visibles en m\u00faltiples niveles ofrece un innovador espacio de coworking que combina a la perfecci\u00f3n trabajo y diversi\u00f3n para los din\u00e1micos profesionales de hoy."
+        },
+        "caption": {
+          "en": "Short Hills Mall",
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "order": 10,
+        "tags": [
+          "BuildingAmenity",
+          "HasPeople",
+          "HasSoftSeating"
+        ],
+        "thumbHash": "pAgKHYRJSHfPV4hJlyh6Z4ZQXAfF"
+      }
+    ],
+    "isTenantExperienceManaged": false,
+    "locationManagers": [
+      {
+        "userId": {
+          "$oid": "671bbcd9c4577f61571c9fa9"
+        },
+        "locationContactRelationSfId": "a4yVS0000023ZBNYA2",
+        "roles": [
+          "Member Experience Associate"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "65f21231631a14a2f0de7d02"
+        },
+        "locationContactRelationSfId": "a4yVS000002Nn3hYAC",
+        "roles": [
+          "Account Manager",
+          "Enterprise Sales"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b0606b5"
+        },
+        "locationContactRelationSfId": "a4yVS000005h7zRYAQ",
+        "roles": [
+          "General Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b068466"
+        },
+        "locationContactRelationSfId": "a4y1Q0000001lTwQAI",
+        "roles": [
+          "Regional Director"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "6516f6af4a3acae061d6026f"
+        },
+        "locationContactRelationSfId": "a4y1Q0000001m9xQAA",
+        "roles": [
+          "Area Sales Lead"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "69261f373512616a0566935a"
+        },
+        "locationContactRelationSfId": "a4yVS0000088SH3YAM",
+        "roles": [
+          "Member Experience Manager"
+        ]
+      },
+      {
+        "userId": {
+          "$oid": "637f736aea1978782b08324f"
+        },
+        "locationContactRelationSfId": "a4yVS0000088YpVYAU",
+        "roles": [
+          "Assistant General Manager"
+        ]
+      }
+    ],
+    "lodgingAndDining": [],
+    "matterportImageLink": "https://my.matterport.com/show/?m=7d6o1jQBAoV",
+    "meetingSpaces": {
+      "active": true,
+      "learnMoreLink": null,
+      "breatherLink": "https://breather.com/discover/search?isMapSearch=true&latlng=40.75033591955966%2C-74.36534424517869&search_term=1200+Morris+Turnpike%2C+Short+Hills%2C+NJ%2C+USA&zoom=13&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousShortHills"
+    },
+    "metaDescription": {
+      "en": "Discover flexible coworking options and private offices at Industrious Short Hills, situated in a premier New Jersey shopping destination. Book now!",
+      "fr": null,
+      "de": null,
+      "nl": "Ontdek flexibele mogelijkheden voor coworking en priv\u00e9kantoren bij Industrious Short Hills, gelegen op een populaire shoppinglocatie in New Jersey. Boek nu!",
+      "es": null
+    },
+    "metroName": "New Jersey",
+    "metroSfId": "a001Q00000ZbCgDQAV",
+    "name": "Short Hills",
+    "parkingAlt": "Industrious Short Hills is moderately accessible via public transit. Transportation options include a bus station on-site, train station within 5 miles. We are easily accessible from the Morris and Essex Turnpike (Route 24) and John F Kennedy Blvd.",
+    "parkingGuest": "Parking is available onsite for daily usage for all guests. We offer complimentary parking on the 3rd and 4th levels of the Teal Parking Deck.",
+    "parkingInfos": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null
+    },
+    "phase": "Open",
+    "phone": "973-315-8850",
+    "products": {
+      "coworkingDayPass": {
+        "dailyOnDemandCapacity": 15,
+        "canBuyOnline": true,
+        "currentlySellable": true,
+        "availableAtLocation": true
+      },
+      "virtual": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      },
+      "suites": {
+        "availableAtLocation": false,
+        "currentlySellable": false
+      },
+      "meetingRoom": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "bookingUrl": null,
+        "breatherUrl": "https://breather.com/discover/search?isMapSearch=true&latlng=40.75033591955966%2C-74.36534424517869&search_term=1200+Morris+Turnpike%2C+Short+Hills%2C+NJ%2C+USA&zoom=13&utm_source=Industrious&utm_medium=Meetings&utm_campaign=IndustriousShortHills"
+      },
+      "dedicatedOffice": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true
+      },
+      "access": {
+        "availableAtLocation": true,
+        "currentlySellable": true,
+        "canBuyOnline": true,
+        "useReserveAccessBranding": false
+      }
+    },
+    "publishLocationPageOnWebsite": true,
+    "salesHighlightBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "sfId": "a001Q00000ZbCgIQAV",
+    "slug": "1200-morris-turnpike-suite-3005",
+    "state": "NJ",
+    "summary": {
+      "en": "Located just 20 miles west of New York City, Industrious Short Hills is ideally situated in the Mall at Short Hills, a premiere shopping destination in New Jersey. Ideal for solopreneurs and small to midsize teams, this location offers flexible options for coworking, private offices, and on-demand meeting space. At this location, you\u2019ll enjoy daily breakfast, craft coffee, and other all-inclusive amenities. When you\u2019re ready for a break, you\u2019ll have convenient access to premium retail options inside the mall. Industrious Short Hills is easily accessible from the Morris and Essex turnpike (Route 24) and John F Kennedy Blvd. On-site complimentary parking is available. If you\u2019re looking for a beautiful workspace that\u2019s designed to enhance your productivity, look no further than Industrious Short Hills.",
+      "fr": "Situ\u00e9 \u00e0 seulement 30 km \u00e0 l'ouest de New York City, Industrious Short Hills est id\u00e9alement situ\u00e9 dans le Mall at Short Hills, une destination commerciale de premier plan dans le New Jersey. Id\u00e9al pour les autoentrepreneurs et les petites et moyennes \u00e9quipes, cet emplacement offre des options flexibles pour le coworking, les bureaux priv\u00e9s et l'espace de r\u00e9union \u00e0 la demande. Vous y trouverez un petit-d\u00e9jeuner quotidien, du caf\u00e9 artisanal et d'autres services tout compris. Lorsque vous serez pr\u00eat \u00e0 faire une pause, vous aurez un acc\u00e8s pratique \u00e0 des options de vente au d\u00e9tail de premier ordre \u00e0 l'int\u00e9rieur du centre commercial. L'Industrious Short Hills est facilement accessible depuis l'autoroute Morris et Essex (Route 24) et le boulevard John F Kennedy. Un parking gratuit est disponible sur place. Si vous \u00eates \u00e0 la recherche d'un bel espace de travail con\u00e7u pour am\u00e9liorer votre productivit\u00e9, ne cherchez pas plus loin qu'Industrious Short Hills.",
+      "de": null,
+      "nl": "Industrious Short Hills ligt op slechts 20 mijl ten westen van New York City en is ideaal gelegen in de Mall in Short Hills, een vooraanstaande winkelbestemming in New Jersey. Deze locatie is ideaal voor zelfstandige ondernemers en kleine tot middelgrote teams en biedt flexibele mogelijkheden voor coworking, priv\u00e9kantoren en on-demand vergaderruimten. Op deze locatie profiteer je van dagelijks ontbijt, ambachtelijke koffie en andere all-inclusive voorzieningen. Als je even wilt pauzeren, heb je gemakkelijk toegang tot uitstekende winkelmogelijkheden in het winkelcentrum. Industrious Short Hills is gemakkelijk bereikbaar vanaf de Morris and Essex turnpike (Route 24) en de John F Kennedy Blvd. Er is gratis parkeergelegenheid op het terrein. Als je op zoek bent naar een prachtige werkplek, speciaal ontworpen om je productiviteit te verhogen, kom dan naar Industrious Short Hills.",
+      "es": null
+    },
+    "tier": 2,
+    "timezone": "America/New_York",
+    "transitInfos": [
+      {
+        "description": {
+          "en": "free dedicated parking for office (Teal garage level 3)",
+          "fr": "New Jersey Transit (Short Hills)",
+          "de": null,
+          "nl": "New Jersey Transit naar Short Hills",
+          "es": null
+        },
+        "category": "Parking"
+      },
+      {
+        "description": {
+          "en": "Easy access to JFK Parkway and Route 24",
+          "fr": "Acc\u00e8s facile au JFK Parkway et \u00e0 la Route 24",
+          "de": null,
+          "nl": "Gemakkelijke toegang tot JFK Parkway en Route 24",
+          "es": null
+        },
+        "category": "Driving"
+      },
+      {
+        "description": {
+          "en": "New Jersey Transit train at Short Hills station",
+          "fr": "Parking sur place avec service de voiturier",
+          "de": null,
+          "nl": "Parkeerservice en parkeergelegenheid op het terrein",
+          "es": null
+        },
+        "category": "Train"
+      },
+      {
+        "description": {
+          "en": "Newark Liberty International Airport (10 miles)",
+          "fr": null,
+          "de": null,
+          "nl": "Newark Liberty International Airport (21 km)",
+          "es": null
+        },
+        "category": "Airport"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      },
+      {
+        "description": {
+          "en": null,
+          "fr": null,
+          "de": null,
+          "nl": null,
+          "es": null
+        },
+        "category": "Other"
+      }
+    ],
+    "updatedAt": {
+      "$date": "2026-01-29T16:36:43.389Z"
+    },
+    "wifiInstructions": "To access and setup Wifi for this location, please follow the instructions that have been sent via email from no-reply@isofy.net. You may also connect to Industrious Guest with no password. Should you have any trouble completing this step, we are happy to assist upon your arrival.",
+    "zipCode": "07078",
+    "isEarlyInPersonTourEnabled": false,
+    "hideOpeningDate": false,
+    "licensor": "INDUSTRIOUS SHO 1200 MORRIS TURNPIKE LLC",
+    "locationCode": "EWR1200MOR",
+    "salesOfficeAddress": null,
+    "blackoutDates": [
+      {
+        "date": {
+          "$date": "2024-09-16T00:00:00.000Z"
+        },
+        "description": "Isofy Transition"
+      },
+      {
+        "date": {
+          "$date": "2025-04-10T00:00:00.000Z"
+        },
+        "description": "Solo MxA"
+      },
+      {
+        "date": {
+          "$date": "2026-01-19T00:00:00.000Z"
+        },
+        "description": "Martin Luther King's Day"
+      },
+      {
+        "date": {
+          "$date": "2026-01-26T00:00:00.000Z"
+        },
+        "description": "Snow Closure"
+      }
+    ],
+    "openingHours": {
+      "mon": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "tue": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "wed": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "thu": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "fri": {
+        "open": "09:00",
+        "close": "17:00"
+      },
+      "sat": null,
+      "sun": null
+    },
+    "isWaitlisting": false,
+    "legalEntityName": "Short Hills - 1200 Morris Turnpike",
+    "netsuiteId": "161",
+    "floorPlanUrl": "https://drive.google.com/file/d/1axSSxdlUJ3C8XBjBgCpQFsBpomAO7YSG/view?usp=drive_link",
+    "infoSheetUrl": "www.canva.com/design/DAFW0NPyMAg/V-FbqNpRR14sITsc5FDNYA/edit",
+    "visibleTo": [
+      "Nuveen",
+      "Industrious",
+      "Gable",
+      "UpFlex",
+      "Desana",
+      "Cbre",
+      "InstantGroup",
+      "Yardi",
+      "LiquidSpace",
+      "IndustriousInternal",
+      "Workthere"
+    ],
+    "commonSpaceRsf": 15362,
+    "dailyVisitorCapacity": 15,
+    "contractType": "Variable Lease",
+    "landlord": "SHORT HILLS ASSOCIATES, L.L.C.",
+    "isCrawlable": true,
+    "bikeParking": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "carParking": {
+      "en": "<p>Teal Garage Level 3 dedicated to Industrious members. Located next to Bloomingdales and Crate &amp; Barrel</p>",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "lunchSpots": [
+      {
+        "placeId": "ChIJO1IOeCusw4kR0_N_xqmTHfg",
+        "name": "Millburn Deli",
+        "address": "328 Millburn Ave, Millburn",
+        "geolocalization": {
+          "lat": 40.7238721,
+          "lng": -74.3064358
+        }
+      },
+      {
+        "placeId": "ChIJBxBOuRyvw4kRKetUb6GKLhY",
+        "name": "The Cheesecake Factory",
+        "address": "1200 Morris Tpke Suite D-103, Short Hills",
+        "geolocalization": {
+          "lat": 40.7409747,
+          "lng": -74.3637123
+        }
+      },
+      {
+        "placeId": "ChIJBxBOuRyvw4kRpZst2bhG080",
+        "name": "California Pizza Kitchen at Short Hills Mall",
+        "address": "Mall, 1200 Morris Tpke Unit 8270, Short Hills",
+        "geolocalization": {
+          "lat": 40.7402794,
+          "lng": -74.36357439999999
+        }
+      },
+      {
+        "placeId": "ChIJ-dHuBryvw4kRmkysf8ClLYU",
+        "name": "Forty Carrots",
+        "address": "The Mall at Short Hills, 1200 Morris Tpke 3rd Floor, Short Hills",
+        "geolocalization": {
+          "lat": 40.7408743,
+          "lng": -74.3642457
+        }
+      },
+      {
+        "placeId": "ChIJiV0uhk-pw4kR61Mr_Me19bc",
+        "name": "Calabria Pizzeria & Restaurant",
+        "address": "588 S Livingston Ave, Livingston",
+        "geolocalization": {
+          "lat": 40.7735595,
+          "lng": -74.3260803
+        }
+      }
+    ],
+    "supplier": null,
+    "internetServiceProvider": "IsoFy",
+    "printingInstructionsUrl": "https://drive.google.com/file/d/1J4rs0CIz2zb18arO5SFv_kpoN_7oy7m4/view",
+    "hsId": "13567707480",
+    "tourInstructions": {
+      "en": "Once you have arrived at 1200 Morris Turnpike, Suite 3005, please park on the\u00a03rd\u00a0level of the\u00a0Teal\u00a0Parking\u00a0Garage. This is the garage closest to Bloomingdales and Crate and Barrel.\u00a0You can access our main entrance from the garage. If you have any questions, please call us at (973) 315-8850, press option 2.",
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "metroAreaId": {
+      "$oid": "67cf3b13f3672fa8b41de807"
+    },
+    "countryId": {
+      "$oid": "655e2bb003706eaf1879c23a"
+    },
+    "buildingPortal": {
+      "loginInfo": "N/A",
+      "url": "https://drive.google.com/file/d/1D4_SpcEU1ju_RoG1Rq5CL1TUtgB8EUY_/view?usp=share_link"
+    },
+    "calendlyLabels": {
+      "inPersonTour": "Industrious The Mall at Short Hills Tour",
+      "phoneCall": "Industrious The Mall at Short Hills Phone Call"
+    },
+    "cleaningScopeUrl": "https://drive.google.com/file/d/1D4_SpcEU1ju_RoG1Rq5CL1TUtgB8EUY_/view?usp=share_link",
+    "coi": {
+      "documentUrl": "https://drive.google.com/drive/folders/1_dAg8PtZ0PkdpgtLh-Vl93qmviLUGFxo",
+      "required": true
+    },
+    "deskSize": "24\"x48\"",
+    "freightElevator": {
+      "dimensions": "N/A",
+      "requiresReservation": false,
+      "open": null,
+      "close": null,
+      "usageDirections": "FREIGHT ELEVATOR: Please go to the Service Area labeled C/Truck Tunnel. Once drivers arrive to C/truck tunnel, they'll need to press button, say \"Industrious delivery.\" Proceed to the loading dock at end of the tunnel on the right, labeled Industrious Suite 3005"
+    },
+    "hvacNotes": "RTUs maintained by Mall. Supplemental and VAVs under maintenance with J. Moore. Request access to roof through Mall Management",
+    "locationPhotosUrl": "https://drive.google.com/drive/folders/1X-ttxK_DExxl8Sy3UrUwL4d9hNUL66Nf?usp=drive_link",
+    "nbOfBuiltInPhoneBooths": 1,
+    "nbOfModularPhoneBooths": 14,
+    "propertyContactInfo": {
+      "management": "Gregory Ahart, Sr. Facilities Director\r\nGAhart@taubman.com\r\n(O) 973 376-7359 x2220\r\n(M) 973 714-8459",
+      "janitorial": "Industrious managed",
+      "security": "Allied Universal\r\nMartin Graham, Security Director\r\nDispatcher: 973-376-1320\r\nOffice: 973-376-1816\r\nCell: 973-714-8701\r\nmartin.graham@aus.com"
+    },
+    "rentableSquareFootage": 31463,
+    "constructionTurnoverDate": {
+      "$date": "2020-04-13T00:00:00.000Z"
+    },
+    "contigencyPlan": "https://docs.google.com/spreadsheets/d/1eonMwzh9B6R4rGIDNESq0iaJ3-mZJogEveOHa2IH7Qg/edit#gid=1457668043",
+    "floorsOccupied": "3rd",
+    "latestForecastUpdate": {
+      "$date": "2024-09-27T00:00:00.000Z"
+    },
+    "maxNbOfDesks": 389,
+    "nbOfConferenceRooms": 12,
+    "nbOfOffices": 85,
+    "nbOfSuites": 0,
+    "partnership": false,
+    "petPolicy": "Pets allowed",
+    "union": false,
+    "securityDepositFactor": 150,
+    "subBrandName": "Industrious",
+    "isPrioritzedOnSearch": false,
+    "evacuationPlanUrl": "https://drive.google.com/drive/folders/1dReY8RcKP9Ln7vwxQFF9DbAeMoD-AyqK?dmr=1&ec=wgc-drive-globalnav-goto",
+    "commonAreasTotalSeats": 26,
+    "requiredIdentityVerificationTypes": [
+      "Document",
+      "NameMatching"
+    ],
+    "locationUiCustomizations": {
+      "locationPagePrimaryCtaTextOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "locationFormPageTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showSimplifiedRightRail": false,
+      "locationDescriptionTitleOverride": {
+        "en": null,
+        "fr": null,
+        "de": null,
+        "nl": null,
+        "es": null
+      },
+      "showLocationNameAsPageTitle": false,
+      "showPrivateOfficeStartingFromPrice": true
+    },
+    "featuredPromoBanner": {
+      "en": null,
+      "fr": null,
+      "de": null,
+      "nl": null,
+      "es": null
+    },
+    "showFloorPlanOnWebsite": false,
+    "spotlight": null,
+    "earliestLicenseAgreementDate": {
+      "$date": "2020-06-29T00:00:00.000Z"
+    },
+    "floorPlanRegions": [
+      {
+        "id": "EWRMOR901",
+        "label": "EWRMOR901",
+        "points": [
+          {
+            "x": 2295.0,
+            "y": 1327.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR001",
+        "label": "EWRMOR001",
+        "points": [
+          {
+            "x": 2467.015625,
+            "y": 1053.5
+          },
+          {
+            "x": 2467.015625,
+            "y": 882.5
+          },
+          {
+            "x": 2664.015625,
+            "y": 882.5
+          },
+          {
+            "x": 2666.015625,
+            "y": 1053.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR002",
+        "label": "EWRMOR002",
+        "points": [
+          {
+            "x": 2467.015625,
+            "y": 882.5
+          },
+          {
+            "x": 2467.015625,
+            "y": 722.5
+          },
+          {
+            "x": 2681.015625,
+            "y": 722.5
+          },
+          {
+            "x": 2681.015625,
+            "y": 881.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR003",
+        "label": "EWRMOR003",
+        "points": [
+          {
+            "x": 2467.015625,
+            "y": 722.5
+          },
+          {
+            "x": 2467.015625,
+            "y": 454.0
+          },
+          {
+            "x": 2680.015625,
+            "y": 454.0
+          },
+          {
+            "x": 2681.015625,
+            "y": 722.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR004",
+        "label": "EWRMOR004",
+        "points": [
+          {
+            "x": 2467.015625,
+            "y": 454.0
+          },
+          {
+            "x": 2467.015625,
+            "y": 440.0
+          },
+          {
+            "x": 2421.015625,
+            "y": 388.0
+          },
+          {
+            "x": 2356.015625,
+            "y": 388.0
+          },
+          {
+            "x": 2356.015625,
+            "y": 211.0
+          },
+          {
+            "x": 2544.015625,
+            "y": 211.0
+          },
+          {
+            "x": 2544.015625,
+            "y": 250.0
+          },
+          {
+            "x": 2640.015625,
+            "y": 341.0
+          },
+          {
+            "x": 2679.015625,
+            "y": 341.0
+          },
+          {
+            "x": 2680.015625,
+            "y": 454.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR005",
+        "label": "EWRMOR005",
+        "points": [
+          {
+            "x": 2356.015625,
+            "y": 388.0
+          },
+          {
+            "x": 2060.015625,
+            "y": 388.0
+          },
+          {
+            "x": 2060.015625,
+            "y": 210.5
+          },
+          {
+            "x": 2356.015625,
+            "y": 211.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR006",
+        "label": "EWRMOR006",
+        "points": [
+          {
+            "x": 2060.015625,
+            "y": 388.0
+          },
+          {
+            "x": 1764.515625,
+            "y": 388.0
+          },
+          {
+            "x": 1764.515625,
+            "y": 297.5
+          },
+          {
+            "x": 1724.515625,
+            "y": 297.5
+          },
+          {
+            "x": 1724.515625,
+            "y": 172.5
+          },
+          {
+            "x": 1844.515625,
+            "y": 172.5
+          },
+          {
+            "x": 1844.515625,
+            "y": 226.5
+          },
+          {
+            "x": 2059.515625,
+            "y": 226.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR007",
+        "label": "EWRMOR007",
+        "points": [
+          {
+            "x": 2274.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2418.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2418.515625,
+            "y": 454.5
+          },
+          {
+            "x": 2273.515625,
+            "y": 454.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR008",
+        "label": "EWRMOR008",
+        "points": [
+          {
+            "x": 2274.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2274.515625,
+            "y": 776.5
+          },
+          {
+            "x": 2419.515625,
+            "y": 775.5
+          },
+          {
+            "x": 2418.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2275.515625,
+            "y": 688.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR009",
+        "label": "EWRMOR009",
+        "points": [
+          {
+            "x": 2274.515625,
+            "y": 776.5
+          },
+          {
+            "x": 2274.515625,
+            "y": 867.5
+          },
+          {
+            "x": 2418.515625,
+            "y": 867.5
+          },
+          {
+            "x": 2418.515625,
+            "y": 773.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR010",
+        "label": "EWRMOR010",
+        "points": [
+          {
+            "x": 2126.015625,
+            "y": 1182.0
+          },
+          {
+            "x": 2126.015625,
+            "y": 1023.5
+          },
+          {
+            "x": 2419.515625,
+            "y": 1023.5
+          },
+          {
+            "x": 2420.515625,
+            "y": 1182.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR011",
+        "label": "EWRMOR011",
+        "points": [
+          {
+            "x": 2126.015625,
+            "y": 1023.5
+          },
+          {
+            "x": 2126.015625,
+            "y": 869.0
+          },
+          {
+            "x": 2418.515625,
+            "y": 867.5
+          },
+          {
+            "x": 2419.515625,
+            "y": 1023.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR012",
+        "label": "EWRMOR012",
+        "points": [
+          {
+            "x": 2126.015625,
+            "y": 869.0
+          },
+          {
+            "x": 2126.515625,
+            "y": 775.5
+          },
+          {
+            "x": 2274.515625,
+            "y": 776.5
+          },
+          {
+            "x": 2274.515625,
+            "y": 867.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR013",
+        "label": "EWRMOR013",
+        "points": [
+          {
+            "x": 2126.515625,
+            "y": 775.5
+          },
+          {
+            "x": 2127.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2275.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2274.515625,
+            "y": 776.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR014",
+        "label": "EWRMOR014",
+        "points": [
+          {
+            "x": 2275.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2127.515625,
+            "y": 688.5
+          },
+          {
+            "x": 2127.515625,
+            "y": 636.5
+          },
+          {
+            "x": 2067.515625,
+            "y": 636.5
+          },
+          {
+            "x": 2067.515625,
+            "y": 452.5
+          },
+          {
+            "x": 2273.515625,
+            "y": 454.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR015",
+        "label": "EWRMOR015",
+        "points": [
+          {
+            "x": 2067.515625,
+            "y": 636.5
+          },
+          {
+            "x": 1829.015625,
+            "y": 636.5
+          },
+          {
+            "x": 1829.015625,
+            "y": 454.0
+          },
+          {
+            "x": 2067.515625,
+            "y": 452.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR016",
+        "label": "EWRMOR016",
+        "points": [
+          {
+            "x": 1820.515625,
+            "y": 877.5
+          },
+          {
+            "x": 2077.515625,
+            "y": 877.5
+          },
+          {
+            "x": 2077.515625,
+            "y": 687.5
+          },
+          {
+            "x": 1819.515625,
+            "y": 687.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR017",
+        "label": "EWRMOR017",
+        "points": [
+          {
+            "x": 2077.515625,
+            "y": 877.5
+          },
+          {
+            "x": 2077.515625,
+            "y": 968.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 968.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 877.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR018",
+        "label": "EWRMOR018",
+        "points": [
+          {
+            "x": 2077.515625,
+            "y": 968.5
+          },
+          {
+            "x": 2077.515625,
+            "y": 1057.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 1057.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 968.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR019",
+        "label": "EWRMOR019",
+        "points": [
+          {
+            "x": 2077.515625,
+            "y": 1057.5
+          },
+          {
+            "x": 2077.515625,
+            "y": 1147.5
+          },
+          {
+            "x": 1949.515625,
+            "y": 1147.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 1057.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR020",
+        "label": "EWRMOR020",
+        "points": [
+          {
+            "x": 1949.515625,
+            "y": 1147.5
+          },
+          {
+            "x": 1820.515625,
+            "y": 1147.5
+          },
+          {
+            "x": 1820.515625,
+            "y": 877.5
+          },
+          {
+            "x": 1950.515625,
+            "y": 877.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR021",
+        "label": "EWRMOR021",
+        "points": [
+          {
+            "x": 1456.515625,
+            "y": 866.0
+          },
+          {
+            "x": 1774.515625,
+            "y": 866.0
+          },
+          {
+            "x": 1774.515625,
+            "y": 685.0
+          },
+          {
+            "x": 1456.515625,
+            "y": 685.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR022",
+        "label": "EWRMOR022",
+        "points": [
+          {
+            "x": 1475.515625,
+            "y": 639.0
+          },
+          {
+            "x": 1605.515625,
+            "y": 639.0
+          },
+          {
+            "x": 1605.515625,
+            "y": 452.0
+          },
+          {
+            "x": 1475.515625,
+            "y": 452.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR023",
+        "label": "EWRMOR023",
+        "points": [
+          {
+            "x": 1280.515625,
+            "y": 638.0
+          },
+          {
+            "x": 1406.515625,
+            "y": 638.0
+          },
+          {
+            "x": 1406.515625,
+            "y": 911.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 911.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR024",
+        "label": "EWRMOR024",
+        "points": [
+          {
+            "x": 1406.515625,
+            "y": 911.0
+          },
+          {
+            "x": 1406.515625,
+            "y": 1181.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 1181.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 911.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR025",
+        "label": "EWRMOR025",
+        "points": [
+          {
+            "x": 1406.515625,
+            "y": 1181.0
+          },
+          {
+            "x": 1406.515625,
+            "y": 1300.5
+          },
+          {
+            "x": 1281.515625,
+            "y": 1299.5
+          },
+          {
+            "x": 1280.515625,
+            "y": 1181.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR026",
+        "label": "EWRMOR026",
+        "points": [
+          {
+            "x": 1281.515625,
+            "y": 1300.5
+          },
+          {
+            "x": 1154.515625,
+            "y": 1300.5
+          },
+          {
+            "x": 1154.515625,
+            "y": 1180.5
+          },
+          {
+            "x": 1280.515625,
+            "y": 1181.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR027",
+        "label": "EWRMOR027",
+        "points": [
+          {
+            "x": 1154.515625,
+            "y": 1180.5
+          },
+          {
+            "x": 1154.515625,
+            "y": 1055.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 1055.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 1181.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR028",
+        "label": "EWRMOR028",
+        "points": [
+          {
+            "x": 1154.515625,
+            "y": 1055.0
+          },
+          {
+            "x": 1154.515625,
+            "y": 967.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 967.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 1055.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR029",
+        "label": "EWRMOR029",
+        "points": [
+          {
+            "x": 1154.515625,
+            "y": 967.0
+          },
+          {
+            "x": 1154.515625,
+            "y": 877.0
+          },
+          {
+            "x": 1281.515625,
+            "y": 877.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 967.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR030",
+        "label": "EWRMOR030",
+        "points": [
+          {
+            "x": 1154.515625,
+            "y": 877.0
+          },
+          {
+            "x": 1154.515625,
+            "y": 638.0
+          },
+          {
+            "x": 1280.515625,
+            "y": 638.0
+          },
+          {
+            "x": 1281.515625,
+            "y": 877.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR031",
+        "label": "EWRMOR031",
+        "points": [
+          {
+            "x": 949.515625,
+            "y": 866.0
+          },
+          {
+            "x": 1103.515625,
+            "y": 866.0
+          },
+          {
+            "x": 1103.515625,
+            "y": 566.0
+          },
+          {
+            "x": 948.515625,
+            "y": 566.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR032",
+        "label": "EWRMOR032",
+        "points": [
+          {
+            "x": 1109.515625,
+            "y": 385.5
+          },
+          {
+            "x": 1378.515625,
+            "y": 385.5
+          },
+          {
+            "x": 1378.515625,
+            "y": 272.5
+          },
+          {
+            "x": 1470.515625,
+            "y": 272.5
+          },
+          {
+            "x": 1470.515625,
+            "y": 297.5
+          },
+          {
+            "x": 1501.515625,
+            "y": 297.5
+          },
+          {
+            "x": 1501.515625,
+            "y": 198.5
+          },
+          {
+            "x": 1478.515625,
+            "y": 198.5
+          },
+          {
+            "x": 1478.515625,
+            "y": 169.5
+          },
+          {
+            "x": 1384.515625,
+            "y": 169.5
+          },
+          {
+            "x": 1384.515625,
+            "y": 229.5
+          },
+          {
+            "x": 1167.515625,
+            "y": 229.5
+          },
+          {
+            "x": 1167.515625,
+            "y": 210.5
+          },
+          {
+            "x": 1109.515625,
+            "y": 210.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR033",
+        "label": "EWRMOR033",
+        "points": [
+          {
+            "x": 1109.515625,
+            "y": 385.5
+          },
+          {
+            "x": 844.515625,
+            "y": 385.5
+          },
+          {
+            "x": 844.515625,
+            "y": 210.0
+          },
+          {
+            "x": 1109.515625,
+            "y": 210.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR034",
+        "label": "EWRMOR034",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 565.0
+          },
+          {
+            "x": 791.015625,
+            "y": 477.0
+          },
+          {
+            "x": 835.015625,
+            "y": 436.0
+          },
+          {
+            "x": 1104.015625,
+            "y": 436.0
+          },
+          {
+            "x": 1103.515625,
+            "y": 566.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR035",
+        "label": "EWRMOR035",
+        "points": [
+          {
+            "x": 844.515625,
+            "y": 385.5
+          },
+          {
+            "x": 810.515625,
+            "y": 385.5
+          },
+          {
+            "x": 738.515625,
+            "y": 458.0
+          },
+          {
+            "x": 548.515625,
+            "y": 458.0
+          },
+          {
+            "x": 548.515625,
+            "y": 341.5
+          },
+          {
+            "x": 585.515625,
+            "y": 341.5
+          },
+          {
+            "x": 679.515625,
+            "y": 248.5
+          },
+          {
+            "x": 679.515625,
+            "y": 209.5
+          },
+          {
+            "x": 844.515625,
+            "y": 210.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR036",
+        "label": "EWRMOR036",
+        "points": [
+          {
+            "x": 740.515625,
+            "y": 460.0
+          },
+          {
+            "x": 742.515625,
+            "y": 635.0
+          },
+          {
+            "x": 550.515625,
+            "y": 636.0
+          },
+          {
+            "x": 548.515625,
+            "y": 458.0
+          },
+          {
+            "x": 740.515625,
+            "y": 459.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR037",
+        "label": "EWRMOR037",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 565.0
+          },
+          {
+            "x": 791.015625,
+            "y": 668.0
+          },
+          {
+            "x": 949.515625,
+            "y": 668.0
+          },
+          {
+            "x": 948.515625,
+            "y": 566.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR038",
+        "label": "EWRMOR038",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 668.0
+          },
+          {
+            "x": 791.015625,
+            "y": 767.5
+          },
+          {
+            "x": 949.515625,
+            "y": 767.5
+          },
+          {
+            "x": 949.515625,
+            "y": 668.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR039",
+        "label": "EWRMOR039",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 767.5
+          },
+          {
+            "x": 791.515625,
+            "y": 865.5
+          },
+          {
+            "x": 949.515625,
+            "y": 866.0
+          },
+          {
+            "x": 949.515625,
+            "y": 767.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR040",
+        "label": "EWRMOR040",
+        "points": [
+          {
+            "x": 791.515625,
+            "y": 865.5
+          },
+          {
+            "x": 791.515625,
+            "y": 988.5
+          },
+          {
+            "x": 949.515625,
+            "y": 988.5
+          },
+          {
+            "x": 949.515625,
+            "y": 866.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR041",
+        "label": "EWRMOR041",
+        "points": [
+          {
+            "x": 791.515625,
+            "y": 988.5
+          },
+          {
+            "x": 791.515625,
+            "y": 1166.5
+          },
+          {
+            "x": 949.515625,
+            "y": 1166.5
+          },
+          {
+            "x": 949.515625,
+            "y": 988.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR042",
+        "label": "EWRMOR042",
+        "points": [
+          {
+            "x": 791.515625,
+            "y": 1166.5
+          },
+          {
+            "x": 791.515625,
+            "y": 1302.0
+          },
+          {
+            "x": 949.515625,
+            "y": 1302.0
+          },
+          {
+            "x": 949.515625,
+            "y": 1166.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR043",
+        "label": "EWRMOR043",
+        "points": [
+          {
+            "x": 949.515625,
+            "y": 1302.0
+          },
+          {
+            "x": 1105.015625,
+            "y": 1302.0
+          },
+          {
+            "x": 1105.015625,
+            "y": 1106.0
+          },
+          {
+            "x": 950.015625,
+            "y": 1106.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR044",
+        "label": "EWRMOR044",
+        "points": [
+          {
+            "x": 742.015625,
+            "y": 1290.0
+          },
+          {
+            "x": 553.015625,
+            "y": 1290.0
+          },
+          {
+            "x": 553.015625,
+            "y": 1441.0
+          },
+          {
+            "x": 588.015625,
+            "y": 1441.0
+          },
+          {
+            "x": 588.015625,
+            "y": 1478.0
+          },
+          {
+            "x": 742.015625,
+            "y": 1478.0
+          },
+          {
+            "x": 743.015625,
+            "y": 1292.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR045",
+        "label": "EWRMOR045",
+        "points": [
+          {
+            "x": 742.015625,
+            "y": 1478.0
+          },
+          {
+            "x": 742.015625,
+            "y": 1732.0
+          },
+          {
+            "x": 551.015625,
+            "y": 1732.0
+          },
+          {
+            "x": 551.015625,
+            "y": 1567.0
+          },
+          {
+            "x": 588.015625,
+            "y": 1566.0
+          },
+          {
+            "x": 588.015625,
+            "y": 1478.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR046",
+        "label": "EWRMOR046",
+        "points": [
+          {
+            "x": 742.015625,
+            "y": 1732.0
+          },
+          {
+            "x": 742.015625,
+            "y": 1909.0
+          },
+          {
+            "x": 550.015625,
+            "y": 1909.0
+          },
+          {
+            "x": 551.015625,
+            "y": 1732.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR047",
+        "label": "EWRMOR047",
+        "points": [
+          {
+            "x": 742.015625,
+            "y": 1909.0
+          },
+          {
+            "x": 742.015625,
+            "y": 2010.0
+          },
+          {
+            "x": 550.015625,
+            "y": 2010.0
+          },
+          {
+            "x": 550.015625,
+            "y": 1909.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR048",
+        "label": "EWRMOR048",
+        "points": [
+          {
+            "x": 948.015625,
+            "y": 2052.0
+          },
+          {
+            "x": 854.015625,
+            "y": 2052.0
+          },
+          {
+            "x": 791.015625,
+            "y": 1989.0
+          },
+          {
+            "x": 791.015625,
+            "y": 1934.0
+          },
+          {
+            "x": 947.015625,
+            "y": 1934.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR049",
+        "label": "EWRMOR049",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 1934.0
+          },
+          {
+            "x": 791.015625,
+            "y": 1779.0
+          },
+          {
+            "x": 949.015625,
+            "y": 1779.0
+          },
+          {
+            "x": 947.015625,
+            "y": 1934.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR050",
+        "label": "EWRMOR050",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 1779.0
+          },
+          {
+            "x": 791.015625,
+            "y": 1665.5
+          },
+          {
+            "x": 949.015625,
+            "y": 1665.5
+          },
+          {
+            "x": 949.015625,
+            "y": 1779.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR051",
+        "label": "EWRMOR051",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 1665.5
+          },
+          {
+            "x": 791.015625,
+            "y": 1568.0
+          },
+          {
+            "x": 948.015625,
+            "y": 1568.0
+          },
+          {
+            "x": 949.015625,
+            "y": 1665.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR052",
+        "label": "EWRMOR052",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 1568.0
+          },
+          {
+            "x": 791.015625,
+            "y": 1470.5
+          },
+          {
+            "x": 947.015625,
+            "y": 1470.5
+          },
+          {
+            "x": 948.015625,
+            "y": 1568.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR053",
+        "label": "EWRMOR053",
+        "points": [
+          {
+            "x": 791.015625,
+            "y": 1470.5
+          },
+          {
+            "x": 791.015625,
+            "y": 1350.5
+          },
+          {
+            "x": 948.015625,
+            "y": 1350.5
+          },
+          {
+            "x": 947.015625,
+            "y": 1470.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR054",
+        "label": "EWRMOR054",
+        "points": [
+          {
+            "x": 948.015625,
+            "y": 1350.5
+          },
+          {
+            "x": 1105.015625,
+            "y": 1350.5
+          },
+          {
+            "x": 1106.015625,
+            "y": 1562.5
+          },
+          {
+            "x": 947.015625,
+            "y": 1563.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR055",
+        "label": "EWRMOR055",
+        "points": [
+          {
+            "x": 1106.015625,
+            "y": 1562.5
+          },
+          {
+            "x": 1106.015625,
+            "y": 1779.5
+          },
+          {
+            "x": 949.015625,
+            "y": 1779.0
+          },
+          {
+            "x": 947.015625,
+            "y": 1563.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR056",
+        "label": "EWRMOR056",
+        "points": [
+          {
+            "x": 1106.015625,
+            "y": 1779.5
+          },
+          {
+            "x": 1106.015625,
+            "y": 2054.0
+          },
+          {
+            "x": 948.015625,
+            "y": 2052.0
+          },
+          {
+            "x": 949.015625,
+            "y": 1779.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR057",
+        "label": "EWRMOR057",
+        "points": [
+          {
+            "x": 1154.015625,
+            "y": 1955.0
+          },
+          {
+            "x": 1154.015625,
+            "y": 1784.0
+          },
+          {
+            "x": 1408.015625,
+            "y": 1784.0
+          },
+          {
+            "x": 1409.015625,
+            "y": 1954.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR058",
+        "label": "EWRMOR058",
+        "points": [
+          {
+            "x": 1154.015625,
+            "y": 1784.0
+          },
+          {
+            "x": 1154.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1783.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR059",
+        "label": "EWRMOR059",
+        "points": [
+          {
+            "x": 1154.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1154.015625,
+            "y": 1610.5
+          },
+          {
+            "x": 1281.015625,
+            "y": 1612.0
+          },
+          {
+            "x": 1280.015625,
+            "y": 1698.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR060",
+        "label": "EWRMOR060",
+        "points": [
+          {
+            "x": 1154.015625,
+            "y": 1610.5
+          },
+          {
+            "x": 1154.015625,
+            "y": 1498.0
+          },
+          {
+            "x": 1280.015625,
+            "y": 1498.0
+          },
+          {
+            "x": 1281.015625,
+            "y": 1612.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR061",
+        "label": "EWRMOR061",
+        "points": [
+          {
+            "x": 1154.015625,
+            "y": 1498.0
+          },
+          {
+            "x": 1154.015625,
+            "y": 1349.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1349.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1498.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR062",
+        "label": "EWRMOR062",
+        "points": [
+          {
+            "x": 1280.015625,
+            "y": 1349.5
+          },
+          {
+            "x": 1409.015625,
+            "y": 1349.5
+          },
+          {
+            "x": 1409.015625,
+            "y": 1497.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1498.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR063",
+        "label": "EWRMOR063",
+        "points": [
+          {
+            "x": 1409.015625,
+            "y": 1497.5
+          },
+          {
+            "x": 1409.015625,
+            "y": 1612.5
+          },
+          {
+            "x": 1281.015625,
+            "y": 1612.0
+          },
+          {
+            "x": 1280.015625,
+            "y": 1498.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR064",
+        "label": "EWRMOR064",
+        "points": [
+          {
+            "x": 1409.015625,
+            "y": 1612.5
+          },
+          {
+            "x": 1408.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1281.015625,
+            "y": 1612.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR065",
+        "label": "EWRMOR065",
+        "points": [
+          {
+            "x": 1407.015625,
+            "y": 1699.5
+          },
+          {
+            "x": 1408.015625,
+            "y": 1784.0
+          },
+          {
+            "x": 1280.015625,
+            "y": 1783.5
+          },
+          {
+            "x": 1280.015625,
+            "y": 1698.5
+          },
+          {
+            "x": 1407.015625,
+            "y": 1698.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR066",
+        "label": "EWRMOR066",
+        "points": [
+          {
+            "x": 1613.515625,
+            "y": 1768.5
+          },
+          {
+            "x": 1457.515625,
+            "y": 1768.5
+          },
+          {
+            "x": 1457.515625,
+            "y": 1533.5
+          },
+          {
+            "x": 1613.515625,
+            "y": 1533.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR067",
+        "label": "EWRMOR067",
+        "points": [
+          {
+            "x": 1457.515625,
+            "y": 1768.5
+          },
+          {
+            "x": 1457.515625,
+            "y": 1894.0
+          },
+          {
+            "x": 1612.515625,
+            "y": 1894.0
+          },
+          {
+            "x": 1613.515625,
+            "y": 1768.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR068",
+        "label": "EWRMOR068",
+        "points": [
+          {
+            "x": 1457.515625,
+            "y": 1894.0
+          },
+          {
+            "x": 1457.515625,
+            "y": 1980.0
+          },
+          {
+            "x": 1614.515625,
+            "y": 1980.0
+          },
+          {
+            "x": 1612.515625,
+            "y": 1894.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR069",
+        "label": "EWRMOR069",
+        "points": [
+          {
+            "x": 1457.515625,
+            "y": 1980.0
+          },
+          {
+            "x": 1457.515625,
+            "y": 2067.5
+          },
+          {
+            "x": 1612.515625,
+            "y": 2067.5
+          },
+          {
+            "x": 1614.515625,
+            "y": 1980.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR070",
+        "label": "EWRMOR070",
+        "points": [
+          {
+            "x": 1457.515625,
+            "y": 2067.5
+          },
+          {
+            "x": 1457.515625,
+            "y": 2152.5
+          },
+          {
+            "x": 1613.515625,
+            "y": 2152.5
+          },
+          {
+            "x": 1612.515625,
+            "y": 2067.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR071",
+        "label": "EWRMOR071",
+        "points": [
+          {
+            "x": 1189.015625,
+            "y": 2389.5
+          },
+          {
+            "x": 940.015625,
+            "y": 2389.5
+          },
+          {
+            "x": 940.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1188.015625,
+            "y": 2207.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR072",
+        "label": "EWRMOR072",
+        "points": [
+          {
+            "x": 1188.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1463.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1463.015625,
+            "y": 2389.5
+          },
+          {
+            "x": 1189.015625,
+            "y": 2389.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR073",
+        "label": "EWRMOR073",
+        "points": [
+          {
+            "x": 1463.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1765.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1765.015625,
+            "y": 2389.5
+          },
+          {
+            "x": 1463.015625,
+            "y": 2389.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR074",
+        "label": "EWRMOR074",
+        "points": [
+          {
+            "x": 1765.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1820.015625,
+            "y": 2207.5
+          },
+          {
+            "x": 1820.015625,
+            "y": 2177.0
+          },
+          {
+            "x": 2071.015625,
+            "y": 2177.0
+          },
+          {
+            "x": 2070.015625,
+            "y": 2390.0
+          },
+          {
+            "x": 1765.015625,
+            "y": 2389.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR075",
+        "label": "EWRMOR075",
+        "points": [
+          {
+            "x": 1820.015625,
+            "y": 2177.0
+          },
+          {
+            "x": 1820.015625,
+            "y": 2070.5
+          },
+          {
+            "x": 2070.015625,
+            "y": 2070.5
+          },
+          {
+            "x": 2071.015625,
+            "y": 2177.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR076",
+        "label": "EWRMOR076",
+        "points": [
+          {
+            "x": 1613.515625,
+            "y": 2152.5
+          },
+          {
+            "x": 1771.015625,
+            "y": 2152.5
+          },
+          {
+            "x": 1771.015625,
+            "y": 2066.0
+          },
+          {
+            "x": 1612.515625,
+            "y": 2067.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR077",
+        "label": "EWRMOR077",
+        "points": [
+          {
+            "x": 1771.015625,
+            "y": 2066.0
+          },
+          {
+            "x": 1771.015625,
+            "y": 1980.0
+          },
+          {
+            "x": 1614.515625,
+            "y": 1980.0
+          },
+          {
+            "x": 1612.515625,
+            "y": 2067.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR078",
+        "label": "EWRMOR078",
+        "points": [
+          {
+            "x": 1771.015625,
+            "y": 1980.0
+          },
+          {
+            "x": 1771.015625,
+            "y": 1894.0
+          },
+          {
+            "x": 1612.515625,
+            "y": 1894.0
+          },
+          {
+            "x": 1614.515625,
+            "y": 1980.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR079",
+        "label": "EWRMOR079",
+        "points": [
+          {
+            "x": 1771.015625,
+            "y": 1894.0
+          },
+          {
+            "x": 1771.015625,
+            "y": 1767.0
+          },
+          {
+            "x": 1613.515625,
+            "y": 1768.5
+          },
+          {
+            "x": 1612.515625,
+            "y": 1894.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR080",
+        "label": "EWRMOR080",
+        "points": [
+          {
+            "x": 1771.015625,
+            "y": 1767.0
+          },
+          {
+            "x": 1771.015625,
+            "y": 1533.0
+          },
+          {
+            "x": 1613.515625,
+            "y": 1533.5
+          },
+          {
+            "x": 1613.515625,
+            "y": 1768.5
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR081",
+        "label": "EWRMOR081",
+        "points": [
+          {
+            "x": 1820.015625,
+            "y": 1842.0
+          },
+          {
+            "x": 1994.015625,
+            "y": 1842.0
+          },
+          {
+            "x": 1994.015625,
+            "y": 1703.0
+          },
+          {
+            "x": 1820.015625,
+            "y": 1703.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR082",
+        "label": "EWRMOR082",
+        "points": [
+          {
+            "x": 1820.015625,
+            "y": 1703.0
+          },
+          {
+            "x": 1820.015625,
+            "y": 1605.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1605.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1702.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR083",
+        "label": "EWRMOR083",
+        "points": [
+          {
+            "x": 1820.015625,
+            "y": 1605.0
+          },
+          {
+            "x": 1820.015625,
+            "y": 1506.0
+          },
+          {
+            "x": 1949.515625,
+            "y": 1506.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1605.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR084",
+        "label": "EWRMOR084",
+        "points": [
+          {
+            "x": 1949.515625,
+            "y": 1506.0
+          },
+          {
+            "x": 2079.015625,
+            "y": 1506.0
+          },
+          {
+            "x": 2079.015625,
+            "y": 1605.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1605.0
+          }
+        ]
+      },
+      {
+        "id": "EWRMOR085",
+        "label": "EWRMOR085",
+        "points": [
+          {
+            "x": 2079.015625,
+            "y": 1605.0
+          },
+          {
+            "x": 2079.015625,
+            "y": 1702.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1702.0
+          },
+          {
+            "x": 1950.015625,
+            "y": 1605.0
+          }
+        ]
+      }
+    ]
+  }
+]

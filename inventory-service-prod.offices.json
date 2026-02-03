@@ -1,0 +1,5623 @@
+[
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b92"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CPQAY",
+    "name": "EWRMOR006",
+    "floor": 3,
+    "seats": 11,
+    "squareFootage": 394,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 16,
+    "officeNumber": "6",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 769,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=128&sr=-1.77,1.38",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR006",
+        "x": 2060.015625,
+        "y": 388.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1764.515625,
+        "y": 388.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1764.515625,
+        "y": 297.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1724.515625,
+        "y": 297.5,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1724.515625,
+        "y": 172.5,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1844.515625,
+        "y": 172.5,
+        "path_ID": 5
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 1844.515625,
+        "y": 226.5,
+        "path_ID": 6
+      },
+      {
+        "identifier": "EWRMOR006",
+        "x": 2059.515625,
+        "y": 226.5,
+        "path_ID": 7
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9c"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CoQAI",
+    "name": "EWRMOR031",
+    "floor": 3,
+    "seats": 9,
+    "squareFootage": 333,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 14,
+    "officeNumber": "31",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 650,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=21&sr=-.12,.67",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR031",
+        "x": 949.515625,
+        "y": 866.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR031",
+        "x": 1103.515625,
+        "y": 866.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR031",
+        "x": 1103.515625,
+        "y": 566.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR031",
+        "x": 948.515625,
+        "y": 566.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba0"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CkQAI",
+    "name": "EWRMOR027",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 108,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "27",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 211,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=36&sr=-2.85,-.34",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR027",
+        "x": 1154.515625,
+        "y": 1180.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR027",
+        "x": 1154.515625,
+        "y": 1055.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR027",
+        "x": 1280.515625,
+        "y": 1055.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR027",
+        "x": 1280.515625,
+        "y": 1181.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba2"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CiQAI",
+    "name": "EWRMOR025",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 103,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "25",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 201,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=254&sr=-.16,-.04",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR025",
+        "x": 1406.515625,
+        "y": 1181.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR025",
+        "x": 1406.515625,
+        "y": 1300.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR025",
+        "x": 1281.515625,
+        "y": 1299.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR025",
+        "x": 1280.515625,
+        "y": 1181.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba5"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CfQAI",
+    "name": "EWRMOR022",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 160,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "22",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 312,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=107&sr=-.49,.87",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR022",
+        "x": 1475.515625,
+        "y": 639.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR022",
+        "x": 1605.515625,
+        "y": 639.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR022",
+        "x": 1605.515625,
+        "y": 452.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR022",
+        "x": 1475.515625,
+        "y": 452.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9baa"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CaQAI",
+    "name": "EWRMOR017",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 76,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "17",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 148,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=349&sr=-.63,.5",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR017",
+        "x": 2077.515625,
+        "y": 877.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR017",
+        "x": 2077.515625,
+        "y": 968.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR017",
+        "x": 1950.515625,
+        "y": 968.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR017",
+        "x": 1950.515625,
+        "y": 877.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb1"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D9QAI",
+    "name": "EWRMOR052",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 103,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "52",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 201,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=179&sr=-2.73,-.68",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR052",
+        "x": 791.015625,
+        "y": 1568.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR052",
+        "x": 791.015625,
+        "y": 1470.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR052",
+        "x": 947.015625,
+        "y": 1470.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR052",
+        "x": 948.015625,
+        "y": 1568.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb5"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D5QAI",
+    "name": "EWRMOR048",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 113,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "48",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 220,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=201&sr=-2.94,.44",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR048",
+        "x": 948.015625,
+        "y": 2052.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR048",
+        "x": 854.015625,
+        "y": 2052.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR048",
+        "x": 791.015625,
+        "y": 1989.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR048",
+        "x": 791.015625,
+        "y": 1934.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR048",
+        "x": 947.015625,
+        "y": 1934.0,
+        "path_ID": 4
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb9"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D0QAI",
+    "name": "EWRMOR043",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 211,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "43",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 412,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=39&sr=-.3,-.18",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR043",
+        "x": 949.515625,
+        "y": 1302.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR043",
+        "x": 1105.015625,
+        "y": 1302.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR043",
+        "x": 1105.015625,
+        "y": 1106.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR043",
+        "x": 950.015625,
+        "y": 1106.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bbe"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CvQAI",
+    "name": "EWRMOR038",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 106,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "38",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 207,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=75&sr=-2.84,-.52",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR038",
+        "x": 791.015625,
+        "y": 668.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR038",
+        "x": 791.015625,
+        "y": 767.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR038",
+        "x": 949.515625,
+        "y": 767.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR038",
+        "x": 949.515625,
+        "y": 668.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bcf"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DQQAY",
+    "name": "EWRMOR069",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 92,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "69",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 179,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=398&sr=-2.97,.54",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR069",
+        "x": 1457.515625,
+        "y": 1980.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR069",
+        "x": 1457.515625,
+        "y": 2067.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR069",
+        "x": 1612.515625,
+        "y": 2067.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR069",
+        "x": 1614.515625,
+        "y": 1980.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd1"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DOQAY",
+    "name": "EWRMOR067",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 136,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "67",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 265,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=406&sr=-3.07,.49",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR067",
+        "x": 1457.515625,
+        "y": 1768.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR067",
+        "x": 1457.515625,
+        "y": 1894.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR067",
+        "x": 1612.515625,
+        "y": 1894.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR067",
+        "x": 1613.515625,
+        "y": 1768.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd2"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DNQAY",
+    "name": "EWRMOR066",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 260,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "66",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 508,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=272&sr=-.99,-1.45",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR066",
+        "x": 1613.515625,
+        "y": 1768.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR066",
+        "x": 1457.515625,
+        "y": 1768.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR066",
+        "x": 1457.515625,
+        "y": 1533.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR066",
+        "x": 1613.515625,
+        "y": 1533.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b89"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CZQAY",
+    "name": "EWRMOR016",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 348,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "16",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 680,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=335&sr=-.19,-.83",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR016",
+        "x": 1820.515625,
+        "y": 877.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR016",
+        "x": 2077.515625,
+        "y": 877.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR016",
+        "x": 2077.515625,
+        "y": 687.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR016",
+        "x": 1819.515625,
+        "y": 687.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8a"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CYQAY",
+    "name": "EWRMOR015",
+    "floor": 3,
+    "seats": 11,
+    "squareFootage": 311,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 16,
+    "officeNumber": "15",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 607,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=329&sr=-2.71,.75",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR015",
+        "x": 2067.515625,
+        "y": 636.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR015",
+        "x": 1829.015625,
+        "y": 636.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR015",
+        "x": 1829.015625,
+        "y": 454.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR015",
+        "x": 2067.515625,
+        "y": 452.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8c"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CWQAY",
+    "name": "EWRMOR013",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 88,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "13",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 171,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=344&sr=-2.87,-.4",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR013",
+        "x": 2126.515625,
+        "y": 775.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR013",
+        "x": 2127.515625,
+        "y": 688.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR013",
+        "x": 2275.515625,
+        "y": 688.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR013",
+        "x": 2274.515625,
+        "y": 776.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9a"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CqQAI",
+    "name": "EWRMOR033",
+    "floor": 3,
+    "seats": 8,
+    "squareFootage": 314,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 13,
+    "officeNumber": "33",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 613,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=93&sr=-2.03,1.45",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR033",
+        "x": 1109.515625,
+        "y": 385.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR033",
+        "x": 844.515625,
+        "y": 385.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR033",
+        "x": 844.515625,
+        "y": 210.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR033",
+        "x": 1109.515625,
+        "y": 210.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba3"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1ChQAI",
+    "name": "EWRMOR024",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 237,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "24",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 464,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=162&sr=-.02,.27",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR024",
+        "x": 1406.515625,
+        "y": 911.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR024",
+        "x": 1406.515625,
+        "y": 1181.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR024",
+        "x": 1280.515625,
+        "y": 1181.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR024",
+        "x": 1280.515625,
+        "y": 911.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba8"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CcQAI",
+    "name": "EWRMOR019",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 78,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "19",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 152,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=362&sr=-.33,.59",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR019",
+        "x": 2077.515625,
+        "y": 1057.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR019",
+        "x": 2077.515625,
+        "y": 1147.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR019",
+        "x": 1949.515625,
+        "y": 1147.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR019",
+        "x": 1950.515625,
+        "y": 1057.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba9"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CbQAI",
+    "name": "EWRMOR018",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 78,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "18",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 152,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=351&sr=-.24,-.61",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR018",
+        "x": 2077.515625,
+        "y": 968.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR018",
+        "x": 2077.515625,
+        "y": 1057.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR018",
+        "x": 1950.515625,
+        "y": 1057.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR018",
+        "x": 1950.515625,
+        "y": 968.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bab"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CtQAI",
+    "name": "EWRMOR036",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 220,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "36",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 429,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=81&sr=-.25,.46",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR036",
+        "x": 740.515625,
+        "y": 460.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR036",
+        "x": 742.515625,
+        "y": 635.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR036",
+        "x": 550.515625,
+        "y": 636.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR036",
+        "x": 548.515625,
+        "y": 458.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR036",
+        "x": 740.515625,
+        "y": 459.0,
+        "path_ID": 4
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb3"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D7QAI",
+    "name": "EWRMOR050",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 118,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "50",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 230,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=189&sr=-2.94,.71",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR050",
+        "x": 791.015625,
+        "y": 1779.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR050",
+        "x": 791.015625,
+        "y": 1665.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR050",
+        "x": 949.015625,
+        "y": 1665.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR050",
+        "x": 949.015625,
+        "y": 1779.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb4"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D6QAI",
+    "name": "EWRMOR049",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 167,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "49",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 328,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=191&sr=-2.99,-.66",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR049",
+        "x": 791.015625,
+        "y": 1934.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR049",
+        "x": 791.015625,
+        "y": 1779.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR049",
+        "x": 949.015625,
+        "y": 1779.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR049",
+        "x": 947.015625,
+        "y": 1934.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb8"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D1QAI",
+    "name": "EWRMOR044",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 224,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "44",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 437,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=170&sr=-.11,.08",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR044",
+        "x": 742.015625,
+        "y": 1290.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 553.015625,
+        "y": 1290.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 553.015625,
+        "y": 1441.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 588.015625,
+        "y": 1441.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 588.015625,
+        "y": 1478.0,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 742.015625,
+        "y": 1478.0,
+        "path_ID": 5
+      },
+      {
+        "identifier": "EWRMOR044",
+        "x": 743.015625,
+        "y": 1292.0,
+        "path_ID": 6
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bba"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-02-01T08:08:34.248Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CzQAI",
+    "name": "EWRMOR042",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 141,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "42",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 275,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=49&sr=-2.67,1.01",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "acousticScore": 2,
+    "desirabilityScore": 3,
+    "sunScore": 2,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR042",
+        "x": 791.515625,
+        "y": 1166.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR042",
+        "x": 791.515625,
+        "y": 1302.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR042",
+        "x": 949.515625,
+        "y": 1302.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR042",
+        "x": 949.515625,
+        "y": 1166.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bbc"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CxQAI",
+    "name": "EWRMOR040",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 130,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "40",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 255,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=61&sr=-2.85,-.44",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR040",
+        "x": 791.515625,
+        "y": 865.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR040",
+        "x": 791.515625,
+        "y": 988.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR040",
+        "x": 949.515625,
+        "y": 988.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR040",
+        "x": 949.515625,
+        "y": 866.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bbd"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CwQAI",
+    "name": "EWRMOR039",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 106,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "39",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 207,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=68&sr=-2.77,.27",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR039",
+        "x": 791.015625,
+        "y": 767.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR039",
+        "x": 791.515625,
+        "y": 865.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR039",
+        "x": 949.515625,
+        "y": 866.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR039",
+        "x": 949.515625,
+        "y": 767.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bbf"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CuQAI",
+    "name": "EWRMOR037",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 106,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "37",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 207,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=78&sr=-3.05,.14",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR037",
+        "x": 791.015625,
+        "y": 565.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR037",
+        "x": 791.015625,
+        "y": 668.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR037",
+        "x": 949.515625,
+        "y": 668.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR037",
+        "x": 948.515625,
+        "y": 566.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc4"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DHQAY",
+    "name": "EWRMOR060",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 99,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "60",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 193,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=250&sr=-2.84,-.67",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR060",
+        "x": 1154.015625,
+        "y": 1610.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR060",
+        "x": 1154.015625,
+        "y": 1498.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR060",
+        "x": 1280.015625,
+        "y": 1498.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR060",
+        "x": 1281.015625,
+        "y": 1612.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc6"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-02-01T08:08:36.096Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DFQAY",
+    "name": "EWRMOR058",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 72,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "58",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 140,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=239&sr=-2.67,-.71",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "acousticScore": 2,
+    "desirabilityScore": 4,
+    "sunScore": 3,
+    "viewScore": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR058",
+        "x": 1154.015625,
+        "y": 1784.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR058",
+        "x": 1154.015625,
+        "y": 1698.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR058",
+        "x": 1280.015625,
+        "y": 1698.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR058",
+        "x": 1280.015625,
+        "y": 1783.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc7"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DEQAY",
+    "name": "EWRMOR057",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 285,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "57",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 557,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=233&sr=3.07,-.71",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR057",
+        "x": 1154.015625,
+        "y": 1955.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR057",
+        "x": 1154.015625,
+        "y": 1784.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR057",
+        "x": 1408.015625,
+        "y": 1784.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR057",
+        "x": 1409.015625,
+        "y": 1954.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc8"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DXQAY",
+    "name": "EWRMOR076",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 89,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "76",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 173,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=396&sr=-.9,1.26",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR076",
+        "x": 1613.515625,
+        "y": 2152.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR076",
+        "x": 1771.015625,
+        "y": 2152.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR076",
+        "x": 1771.015625,
+        "y": 2066.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR076",
+        "x": 1612.515625,
+        "y": 2067.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bca"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DVQAY",
+    "name": "EWRMOR074",
+    "floor": 3,
+    "seats": 14,
+    "squareFootage": 418,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 19,
+    "officeNumber": "74",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 816,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=426&sr=-3.1,-.25",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR074",
+        "x": 1765.015625,
+        "y": 2207.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR074",
+        "x": 1820.015625,
+        "y": 2207.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR074",
+        "x": 1820.015625,
+        "y": 2177.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR074",
+        "x": 2071.015625,
+        "y": 2177.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR074",
+        "x": 2070.015625,
+        "y": 2390.0,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR074",
+        "x": 1765.015625,
+        "y": 2389.5,
+        "path_ID": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bcc"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-27T19:41:35.966Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DTQAY",
+    "name": "EWRMOR072",
+    "floor": 3,
+    "seats": 9,
+    "squareFootage": 325,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 14,
+    "officeNumber": "72",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 635,
+    "isOnDemandBookable": false,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=383&sr=2.97,-1.43",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "acousticScore": 2,
+    "desirabilityScore": 3,
+    "sunScore": 1,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR072",
+        "x": 1188.015625,
+        "y": 2207.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR072",
+        "x": 1463.015625,
+        "y": 2207.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR072",
+        "x": 1463.015625,
+        "y": 2389.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR072",
+        "x": 1189.015625,
+        "y": 2389.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8b"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-31T05:04:58.733Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CXQAY",
+    "name": "EWRMOR014",
+    "floor": 3,
+    "seats": 8,
+    "squareFootage": 319,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 13,
+    "officeNumber": "14",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 623,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=339&sr=-2.84,.74",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "acousticScore": 2,
+    "desirabilityScore": 3,
+    "sunScore": 2,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR014",
+        "x": 2275.515625,
+        "y": 688.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR014",
+        "x": 2127.515625,
+        "y": 688.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR014",
+        "x": 2127.515625,
+        "y": 636.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR014",
+        "x": 2067.515625,
+        "y": 636.5,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR014",
+        "x": 2067.515625,
+        "y": 452.5,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR014",
+        "x": 2273.515625,
+        "y": 454.5,
+        "path_ID": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8e"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CUQAY",
+    "name": "EWRMOR011",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 319,
+    "isActive": false,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "11",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 623,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=352&sr=-2.71,.67",
+    "shouldAutoLoadMatterport": true,
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR011",
+        "x": 2126.015625,
+        "y": 1023.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR011",
+        "x": 2126.015625,
+        "y": 869.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR011",
+        "x": 2418.515625,
+        "y": 867.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR011",
+        "x": 2419.515625,
+        "y": 1023.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b90"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CSQAY",
+    "name": "EWRMOR009",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 89,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "9",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 173,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=318&sr=-.45,.29",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 2,
+      "view": 3
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR009",
+        "x": 2274.515625,
+        "y": 776.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR009",
+        "x": 2274.515625,
+        "y": 867.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR009",
+        "x": 2418.515625,
+        "y": 867.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR009",
+        "x": 2418.515625,
+        "y": 773.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b95"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CMQAY",
+    "name": "EWRMOR003",
+    "floor": 3,
+    "seats": 11,
+    "squareFootage": 382,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 16,
+    "officeNumber": "3",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 746,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=300&sr=-2.94,-.52",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR003",
+        "x": 2467.015625,
+        "y": 722.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR003",
+        "x": 2467.015625,
+        "y": 454.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR003",
+        "x": 2680.015625,
+        "y": 454.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR003",
+        "x": 2681.015625,
+        "y": 722.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b97"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CKQAY",
+    "name": "EWRMOR001",
+    "floor": 3,
+    "seats": 8,
+    "squareFootage": 237,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 13,
+    "officeNumber": "1",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 464,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=321&sr=-2.94,.28",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR001",
+        "x": 2467.015625,
+        "y": 1053.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR001",
+        "x": 2467.015625,
+        "y": 882.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR001",
+        "x": 2664.015625,
+        "y": 882.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR001",
+        "x": 2666.015625,
+        "y": 1053.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b98"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CsQAI",
+    "name": "EWRMOR035",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 365,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "35",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 713,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=89&sr=-.3,.83",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR035",
+        "x": 844.515625,
+        "y": 385.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 810.515625,
+        "y": 385.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 738.515625,
+        "y": 458.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 548.515625,
+        "y": 458.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 548.515625,
+        "y": 341.5,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 585.515625,
+        "y": 341.5,
+        "path_ID": 5
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 679.515625,
+        "y": 248.5,
+        "path_ID": 6
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 679.515625,
+        "y": 209.5,
+        "path_ID": 7
+      },
+      {
+        "identifier": "EWRMOR035",
+        "x": 844.515625,
+        "y": 210.0,
+        "path_ID": 8
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9e"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CmQAI",
+    "name": "EWRMOR029",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 75,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "29",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 146,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=27&sr=-2.86,.46",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR029",
+        "x": 1154.515625,
+        "y": 967.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR029",
+        "x": 1154.515625,
+        "y": 877.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR029",
+        "x": 1281.515625,
+        "y": 877.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR029",
+        "x": 1280.515625,
+        "y": 967.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9f"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1ClQAI",
+    "name": "EWRMOR028",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 75,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "28",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 146,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=33&sr=-3.04,-.35",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR028",
+        "x": 1154.515625,
+        "y": 1055.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR028",
+        "x": 1154.515625,
+        "y": 967.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR028",
+        "x": 1280.515625,
+        "y": 967.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR028",
+        "x": 1280.515625,
+        "y": 1055.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bad"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DDQAY",
+    "name": "EWRMOR056",
+    "floor": 3,
+    "seats": 8,
+    "squareFootage": 303,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 13,
+    "officeNumber": "56",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 592,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=229&sr=-.33,-.41",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR056",
+        "x": 1106.015625,
+        "y": 1779.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR056",
+        "x": 1106.015625,
+        "y": 2054.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR056",
+        "x": 948.015625,
+        "y": 2052.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR056",
+        "x": 949.015625,
+        "y": 1779.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9baf"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DBQAY",
+    "name": "EWRMOR054",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 233,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "54",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 455,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=247&sr=-.21,.28",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR054",
+        "x": 948.015625,
+        "y": 1350.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR054",
+        "x": 1105.015625,
+        "y": 1350.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR054",
+        "x": 1106.015625,
+        "y": 1562.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR054",
+        "x": 947.015625,
+        "y": 1563.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb0"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DAQAY",
+    "name": "EWRMOR053",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 128,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "53",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 251,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=171&sr=-3.04,-.63",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR053",
+        "x": 791.015625,
+        "y": 1470.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR053",
+        "x": 791.015625,
+        "y": 1350.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR053",
+        "x": 948.015625,
+        "y": 1350.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR053",
+        "x": 947.015625,
+        "y": 1470.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb2"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D8QAI",
+    "name": "EWRMOR051",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 104,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "51",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 203,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=186&sr=-2.92,.71",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR051",
+        "x": 791.015625,
+        "y": 1665.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR051",
+        "x": 791.015625,
+        "y": 1568.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR051",
+        "x": 948.015625,
+        "y": 1568.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR051",
+        "x": 949.015625,
+        "y": 1665.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb7"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D2QAI",
+    "name": "EWRMOR045",
+    "floor": 3,
+    "seats": 8,
+    "squareFootage": 304,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 13,
+    "officeNumber": "45",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 595,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=181&sr=-.04,.06",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR045",
+        "x": 742.015625,
+        "y": 1478.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR045",
+        "x": 742.015625,
+        "y": 1732.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR045",
+        "x": 551.015625,
+        "y": 1732.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR045",
+        "x": 551.015625,
+        "y": 1567.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR045",
+        "x": 588.015625,
+        "y": 1566.0,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR045",
+        "x": 588.015625,
+        "y": 1478.0,
+        "path_ID": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd7"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DcQAI",
+    "name": "EWRMOR081",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 166,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "81",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 326,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=368&sr=-2.75,.71",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR081",
+        "x": 1820.015625,
+        "y": 1842.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR081",
+        "x": 1994.015625,
+        "y": 1842.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR081",
+        "x": 1994.015625,
+        "y": 1703.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR081",
+        "x": 1820.015625,
+        "y": 1703.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd8"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DbQAI",
+    "name": "EWRMOR080",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 259,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "80",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 507,
+    "isOnDemandBookable": false,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=271&sr=-1.64,-1.44",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR080",
+        "x": 1771.015625,
+        "y": 1767.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR080",
+        "x": 1771.015625,
+        "y": 1533.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR080",
+        "x": 1613.515625,
+        "y": 1533.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR080",
+        "x": 1613.515625,
+        "y": 1768.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bda"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DfQAI",
+    "name": "EWRMOR084",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 87,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "84",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 170,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=458&sr=-.08,-.02",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR084",
+        "x": 1949.515625,
+        "y": 1506.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR084",
+        "x": 2079.015625,
+        "y": 1506.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR084",
+        "x": 2079.015625,
+        "y": 1605.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR084",
+        "x": 1950.015625,
+        "y": 1605.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b88"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CQQAY",
+    "name": "EWRMOR007",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 237,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "7",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 463,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=137&sr=-.4,-.97",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR007",
+        "x": 2274.515625,
+        "y": 688.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR007",
+        "x": 2418.515625,
+        "y": 688.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR007",
+        "x": 2418.515625,
+        "y": 454.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR007",
+        "x": 2273.515625,
+        "y": 454.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8d"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CVQAY",
+    "name": "EWRMOR012",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 88,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "12",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 171,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=346&sr=-3,.23",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR012",
+        "x": 2126.015625,
+        "y": 869.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR012",
+        "x": 2126.515625,
+        "y": 775.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR012",
+        "x": 2274.515625,
+        "y": 776.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR012",
+        "x": 2274.515625,
+        "y": 867.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b8f"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-22T21:54:17.683Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CTQAY",
+    "name": "EWRMOR010",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 319,
+    "isActive": false,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "10",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 623,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=361&sr=-3.07,.14",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 4,
+    "acousticScore": 3,
+    "desirabilityScore": 4,
+    "sunScore": 2,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR010",
+        "x": 2126.015625,
+        "y": 1182.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR010",
+        "x": 2126.015625,
+        "y": 1023.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR010",
+        "x": 2419.515625,
+        "y": 1023.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR010",
+        "x": 2420.515625,
+        "y": 1182.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b91"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CRQAY",
+    "name": "EWRMOR008",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 89,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "8",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 173,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=312&sr=-.27,-.74",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR008",
+        "x": 2274.515625,
+        "y": 688.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR008",
+        "x": 2274.515625,
+        "y": 776.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR008",
+        "x": 2419.515625,
+        "y": 775.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR008",
+        "x": 2418.515625,
+        "y": 688.5,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR008",
+        "x": 2275.515625,
+        "y": 688.5,
+        "path_ID": 4
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b93"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1COQAY",
+    "name": "EWRMOR005",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 362,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "5",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 707,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=132&sr=-.23,1.33",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR005",
+        "x": 2356.015625,
+        "y": 388.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR005",
+        "x": 2060.015625,
+        "y": 388.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR005",
+        "x": 2060.015625,
+        "y": 210.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR005",
+        "x": 2356.015625,
+        "y": 211.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b94"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CNQAY",
+    "name": "EWRMOR004",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 400,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "4",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 781,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=297&sr=-.21,.9",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 1,
+    "points": [
+      {
+        "identifier": "EWRMOR004",
+        "x": 2467.015625,
+        "y": 454.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2467.015625,
+        "y": 440.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2421.015625,
+        "y": 388.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2356.015625,
+        "y": 388.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2356.015625,
+        "y": 211.0,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2544.015625,
+        "y": 211.0,
+        "path_ID": 5
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2544.015625,
+        "y": 250.0,
+        "path_ID": 6
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2640.015625,
+        "y": 341.0,
+        "path_ID": 7
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2679.015625,
+        "y": 341.0,
+        "path_ID": 8
+      },
+      {
+        "identifier": "EWRMOR004",
+        "x": 2680.015625,
+        "y": 454.0,
+        "path_ID": 9
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b96"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:07.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-02-01T08:12:57.194Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CLQAY",
+    "name": "EWRMOR002",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 228,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "2",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 445,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=314&sr=-2.83,-.55",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 2,
+    "acousticScore": 1,
+    "desirabilityScore": 2,
+    "sunScore": 1,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR002",
+        "x": 2467.015625,
+        "y": 882.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR002",
+        "x": 2467.015625,
+        "y": 722.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR002",
+        "x": 2681.015625,
+        "y": 722.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR002",
+        "x": 2681.015625,
+        "y": 881.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b99"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CrQAI",
+    "name": "EWRMOR034",
+    "floor": 3,
+    "seats": 7,
+    "squareFootage": 277,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 12,
+    "officeNumber": "34",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 542,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=90&sr=-2.93,-.96",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR034",
+        "x": 791.015625,
+        "y": 565.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR034",
+        "x": 791.015625,
+        "y": 477.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR034",
+        "x": 835.015625,
+        "y": 436.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR034",
+        "x": 1104.015625,
+        "y": 436.0,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR034",
+        "x": 1103.515625,
+        "y": 566.0,
+        "path_ID": 4
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9b"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CpQAI",
+    "name": "EWRMOR032",
+    "floor": 3,
+    "seats": 10,
+    "squareFootage": 395,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 15,
+    "officeNumber": "32",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 771,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=8&sr=-3.06,.65",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 2,
+      "sun": 1,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR032",
+        "x": 1109.515625,
+        "y": 385.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1378.515625,
+        "y": 385.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1378.515625,
+        "y": 272.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1470.515625,
+        "y": 272.5,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1470.515625,
+        "y": 297.5,
+        "path_ID": 4
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1501.515625,
+        "y": 297.5,
+        "path_ID": 5
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1501.515625,
+        "y": 198.5,
+        "path_ID": 6
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1478.515625,
+        "y": 198.5,
+        "path_ID": 7
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1478.515625,
+        "y": 169.5,
+        "path_ID": 8
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1384.515625,
+        "y": 169.5,
+        "path_ID": 9
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1384.515625,
+        "y": 229.5,
+        "path_ID": 10
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1167.515625,
+        "y": 229.5,
+        "path_ID": 11
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1167.515625,
+        "y": 210.5,
+        "path_ID": 12
+      },
+      {
+        "identifier": "EWRMOR032",
+        "x": 1109.515625,
+        "y": 210.5,
+        "path_ID": 13
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9b9d"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CnQAI",
+    "name": "EWRMOR030",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 207,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "30",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 406,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=16&sr=-2.75,-.65",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR030",
+        "x": 1154.515625,
+        "y": 877.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR030",
+        "x": 1154.515625,
+        "y": 638.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR030",
+        "x": 1280.515625,
+        "y": 638.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR030",
+        "x": 1281.515625,
+        "y": 877.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba1"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CjQAI",
+    "name": "EWRMOR026",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 103,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "26",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 201,
+    "isOnDemandBookable": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR026",
+        "x": 1281.515625,
+        "y": 1300.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR026",
+        "x": 1154.515625,
+        "y": 1300.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR026",
+        "x": 1154.515625,
+        "y": 1180.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR026",
+        "x": 1280.515625,
+        "y": 1181.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba4"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CgQAI",
+    "name": "EWRMOR023",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 237,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "23",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 464,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=100&sr=-.14,-.59",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR023",
+        "x": 1280.515625,
+        "y": 638.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR023",
+        "x": 1406.515625,
+        "y": 638.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR023",
+        "x": 1406.515625,
+        "y": 911.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR023",
+        "x": 1280.515625,
+        "y": 911.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba6"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CeQAI",
+    "name": "EWRMOR021",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 387,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "21",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 756,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=290&sr=-3.03,-.49",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR021",
+        "x": 1456.515625,
+        "y": 866.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR021",
+        "x": 1774.515625,
+        "y": 866.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR021",
+        "x": 1774.515625,
+        "y": 685.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR021",
+        "x": 1456.515625,
+        "y": 685.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9ba7"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:08.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CdQAI",
+    "name": "EWRMOR020",
+    "floor": 3,
+    "seats": 5,
+    "squareFootage": 242,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 10,
+    "officeNumber": "20",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 474,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=150&sr=-2.71,.55",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR020",
+        "x": 1949.515625,
+        "y": 1147.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR020",
+        "x": 1820.515625,
+        "y": 1147.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR020",
+        "x": 1820.515625,
+        "y": 877.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR020",
+        "x": 1950.515625,
+        "y": 877.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bac"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D4QAI",
+    "name": "EWRMOR047",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 123,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "47",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 241,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=199&sr=-.42,-.48",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 3,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR047",
+        "x": 742.015625,
+        "y": 1909.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR047",
+        "x": 742.015625,
+        "y": 2010.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR047",
+        "x": 550.015625,
+        "y": 2010.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR047",
+        "x": 550.015625,
+        "y": 1909.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bae"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DCQAY",
+    "name": "EWRMOR055",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 234,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "55",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 458,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=242&sr=-.07,-.3",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR055",
+        "x": 1106.015625,
+        "y": 1562.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR055",
+        "x": 1106.015625,
+        "y": 1779.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR055",
+        "x": 949.015625,
+        "y": 1779.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR055",
+        "x": 947.015625,
+        "y": 1563.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bb6"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1D3QAI",
+    "name": "EWRMOR046",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 223,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "46",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 437,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=196&sr=-.15,.51",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR046",
+        "x": 742.015625,
+        "y": 1732.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR046",
+        "x": 742.015625,
+        "y": 1909.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR046",
+        "x": 550.015625,
+        "y": 1909.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR046",
+        "x": 551.015625,
+        "y": 1732.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bbb"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:11.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1CyQAI",
+    "name": "EWRMOR041",
+    "floor": 3,
+    "seats": 6,
+    "squareFootage": 196,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 11,
+    "officeNumber": "41",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 383,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=56&sr=-2.64,-.41",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR041",
+        "x": 791.515625,
+        "y": 988.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR041",
+        "x": 791.515625,
+        "y": 1166.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR041",
+        "x": 949.515625,
+        "y": 1166.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR041",
+        "x": 949.515625,
+        "y": 988.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc0"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DLQAY",
+    "name": "EWRMOR064",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 73,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "64",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 142,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=411&sr=-.15,-.02",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR064",
+        "x": 1409.015625,
+        "y": 1612.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR064",
+        "x": 1408.015625,
+        "y": 1698.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR064",
+        "x": 1280.015625,
+        "y": 1698.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR064",
+        "x": 1281.015625,
+        "y": 1612.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc1"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DKQAY",
+    "name": "EWRMOR063",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 99,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "63",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 193,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=413&sr=-.3,-.76",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR063",
+        "x": 1409.015625,
+        "y": 1497.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR063",
+        "x": 1409.015625,
+        "y": 1612.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR063",
+        "x": 1281.015625,
+        "y": 1612.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR063",
+        "x": 1280.015625,
+        "y": 1498.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc2"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DJQAY",
+    "name": "EWRMOR062",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 126,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "62",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 247,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=275&sr=-.08,.06",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR062",
+        "x": 1280.015625,
+        "y": 1349.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR062",
+        "x": 1409.015625,
+        "y": 1349.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR062",
+        "x": 1409.015625,
+        "y": 1497.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR062",
+        "x": 1280.015625,
+        "y": 1498.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc3"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-02-01T08:13:08.380Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DIQAY",
+    "name": "EWRMOR061",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 124,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "61",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 242,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=66&sr=-2.85,.17",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "acousticScore": 2,
+    "desirabilityScore": 4,
+    "sunScore": 3,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR061",
+        "x": 1154.015625,
+        "y": 1498.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR061",
+        "x": 1154.015625,
+        "y": 1349.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR061",
+        "x": 1280.015625,
+        "y": 1349.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR061",
+        "x": 1280.015625,
+        "y": 1498.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc5"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DGQAY",
+    "name": "EWRMOR059",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 73,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "59",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 142,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=240&sr=-2.92,.84",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR059",
+        "x": 1154.015625,
+        "y": 1698.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR059",
+        "x": 1154.015625,
+        "y": 1610.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR059",
+        "x": 1281.015625,
+        "y": 1612.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR059",
+        "x": 1280.015625,
+        "y": 1698.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bc9"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DWQAY",
+    "name": "EWRMOR075",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 178,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "75",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Window",
+    "rentableSquareFootage": 347,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=423&sr=-3.1,-.63",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR075",
+        "x": 1820.015625,
+        "y": 2177.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR075",
+        "x": 1820.015625,
+        "y": 2070.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR075",
+        "x": 2070.015625,
+        "y": 2070.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR075",
+        "x": 2071.015625,
+        "y": 2177.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bcb"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-27T19:41:38.907Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DUQAY",
+    "name": "EWRMOR073",
+    "floor": 3,
+    "seats": 9,
+    "squareFootage": 359,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 14,
+    "officeNumber": "73",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 701,
+    "isOnDemandBookable": false,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=393&sr=3.03,-1.47",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "acousticScore": 2,
+    "desirabilityScore": 3,
+    "sunScore": 2,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR073",
+        "x": 1463.015625,
+        "y": 2207.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR073",
+        "x": 1765.015625,
+        "y": 2207.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR073",
+        "x": 1765.015625,
+        "y": 2389.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR073",
+        "x": 1463.015625,
+        "y": 2389.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bcd"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DSQAY",
+    "name": "EWRMOR071",
+    "floor": 3,
+    "seats": 4,
+    "squareFootage": 282,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 9,
+    "officeNumber": "71",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 551,
+    "isOnDemandBookable": false,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=373&sr=-.21,-1.08",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 1,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR071",
+        "x": 1189.015625,
+        "y": 2389.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR071",
+        "x": 940.015625,
+        "y": 2389.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR071",
+        "x": 940.015625,
+        "y": 2207.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR071",
+        "x": 1188.015625,
+        "y": 2207.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bce"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-21T19:30:28.622Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DRQAY",
+    "name": "EWRMOR070",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 90,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "70",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 175,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=387&sr=-1.91,1.31",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "acousticScore": 2,
+    "desirabilityScore": 3,
+    "sunScore": 2,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR070",
+        "x": 1457.515625,
+        "y": 2067.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR070",
+        "x": 1457.515625,
+        "y": 2152.5,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR070",
+        "x": 1613.515625,
+        "y": 2152.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR070",
+        "x": 1612.515625,
+        "y": 2067.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd0"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DPQAY",
+    "name": "EWRMOR068",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 92,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "68",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 179,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=404&sr=3.12,-.55",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR068",
+        "x": 1457.515625,
+        "y": 1894.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR068",
+        "x": 1457.515625,
+        "y": 1980.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR068",
+        "x": 1614.515625,
+        "y": 1980.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR068",
+        "x": 1612.515625,
+        "y": 1894.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd3"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:12.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DMQAY",
+    "name": "EWRMOR065",
+    "floor": 3,
+    "seats": 1,
+    "squareFootage": 73,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 6,
+    "officeNumber": "65",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 142,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=410&sr=-.07,-.81",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR065",
+        "x": 1407.015625,
+        "y": 1699.5,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR065",
+        "x": 1408.015625,
+        "y": 1784.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR065",
+        "x": 1280.015625,
+        "y": 1783.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR065",
+        "x": 1280.015625,
+        "y": 1698.5,
+        "path_ID": 3
+      },
+      {
+        "identifier": "EWRMOR065",
+        "x": 1407.015625,
+        "y": 1698.5,
+        "path_ID": 4
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd4"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-02-01T08:08:40.514Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DZQAY",
+    "name": "EWRMOR078",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 92,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "78",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 179,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=418&sr=-.23,-.34",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 3,
+    "acousticScore": 2,
+    "desirabilityScore": 4,
+    "sunScore": 3,
+    "viewScore": 2,
+    "points": [
+      {
+        "identifier": "EWRMOR078",
+        "x": 1771.015625,
+        "y": 1980.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR078",
+        "x": 1771.015625,
+        "y": 1894.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR078",
+        "x": 1612.515625,
+        "y": 1894.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR078",
+        "x": 1614.515625,
+        "y": 1980.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd5"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DeQAI",
+    "name": "EWRMOR083",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 87,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "83",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 170,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=364&sr=-2.55,.8",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR083",
+        "x": 1820.015625,
+        "y": 1605.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR083",
+        "x": 1820.015625,
+        "y": 1506.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR083",
+        "x": 1949.515625,
+        "y": 1506.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR083",
+        "x": 1950.015625,
+        "y": 1605.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd9"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DaQAI",
+    "name": "EWRMOR079",
+    "floor": 3,
+    "seats": 3,
+    "squareFootage": 135,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 8,
+    "officeNumber": "79",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 264,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=415&sr=-.4,.66",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 2
+    },
+    "tier": 4,
+    "points": [
+      {
+        "identifier": "EWRMOR079",
+        "x": 1771.015625,
+        "y": 1894.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR079",
+        "x": 1771.015625,
+        "y": 1767.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR079",
+        "x": 1613.515625,
+        "y": 1768.5,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR079",
+        "x": 1612.515625,
+        "y": 1894.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bd6"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DdQAI",
+    "name": "EWRMOR082",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 85,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "82",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 166,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=365&sr=-2.5,-.79",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR082",
+        "x": 1820.015625,
+        "y": 1703.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR082",
+        "x": 1820.015625,
+        "y": 1605.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR082",
+        "x": 1950.015625,
+        "y": 1605.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR082",
+        "x": 1950.015625,
+        "y": 1702.0,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bdb"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DYQAY",
+    "name": "EWRMOR077",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 92,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "77",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 179,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=420&sr=-.15,.09",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 3,
+      "sun": 2,
+      "view": 2
+    },
+    "tier": 3,
+    "points": [
+      {
+        "identifier": "EWRMOR077",
+        "x": 1771.015625,
+        "y": 2066.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR077",
+        "x": 1771.015625,
+        "y": 1980.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR077",
+        "x": 1614.515625,
+        "y": 1980.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR077",
+        "x": 1612.515625,
+        "y": 2067.5,
+        "path_ID": 3
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "661d6cec86b84705e26b9bdc"
+    },
+    "createdAt": {
+      "$date": "2019-12-19T14:46:14.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-19T16:29:33.558Z"
+    },
+    "locationId": {
+      "$oid": "6424657d16a40d45431865c6"
+    },
+    "productSfId": "01t1Q000007u1DgQAI",
+    "name": "EWRMOR085",
+    "floor": 3,
+    "seats": 2,
+    "squareFootage": 85,
+    "isActive": true,
+    "currencyIsoCode": "USD",
+    "productFamily": "Dedicated Office",
+    "conferenceRoomHours": 7,
+    "officeNumber": "85",
+    "securityDepositFactor": 150,
+    "officeConfigurationType": "Interior",
+    "rentableSquareFootage": 166,
+    "isOnDemandBookable": true,
+    "matterportImageUrl": "https://my.matterport.com/show/?m=7d6o1jQBAoV&ss=455&sr=-.27,-.6",
+    "shouldAutoLoadMatterport": true,
+    "scores": {
+      "acoustic": 2,
+      "desirability": 4,
+      "sun": 3,
+      "view": 3
+    },
+    "tier": 5,
+    "points": [
+      {
+        "identifier": "EWRMOR085",
+        "x": 2079.015625,
+        "y": 1605.0,
+        "path_ID": 0
+      },
+      {
+        "identifier": "EWRMOR085",
+        "x": 2079.015625,
+        "y": 1702.0,
+        "path_ID": 1
+      },
+      {
+        "identifier": "EWRMOR085",
+        "x": 1950.015625,
+        "y": 1702.0,
+        "path_ID": 2
+      },
+      {
+        "identifier": "EWRMOR085",
+        "x": 1950.015625,
+        "y": 1605.0,
+        "path_ID": 3
+      }
+    ]
+  }
+]

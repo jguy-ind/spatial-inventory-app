@@ -1,4 +1,5 @@
 import { OfficesPageClient } from "@/components/offices/offices-page-client";
+import { getInventoryData } from "@/lib/inventory-data";
 
 /**
  * Server component wrapper that awaits params/searchParams (Next.js 16 async APIs)
@@ -14,5 +15,6 @@ export default async function Page({
 }) {
   if (params) await params;
   if (searchParams) await searchParams;
-  return <OfficesPageClient />;
+  const inventoryData = await getInventoryData();
+  return <OfficesPageClient inventoryData={inventoryData} />;
 }
