@@ -2,7 +2,7 @@
 
 import { useAppStore } from '@/lib/store'
 import type { SpaceType, SpaceStatus } from '@/lib/types'
-import { amenityOptions } from '@/lib/mock-data'
+import { amenityOptions } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'

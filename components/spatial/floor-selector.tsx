@@ -1,7 +1,7 @@
 'use client'
 
 import { useAppStore } from '@/lib/store'
-import { mockBuildings } from '@/lib/mock-data'
+import type { Building } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -14,10 +14,11 @@ import {
 import { Building2, Layers } from 'lucide-react'
 
 interface FloorSelectorProps {
+  buildings?: Building[]
   className?: string
 }
 
-export function FloorSelector({ className }: FloorSelectorProps) {
+export function FloorSelector({ buildings = [], className }: FloorSelectorProps) {
   const { 
     currentBuilding, 
     setCurrentBuilding, 
@@ -25,7 +26,7 @@ export function FloorSelector({ className }: FloorSelectorProps) {
     setCurrentFloor 
   } = useAppStore()
 
-  const building = mockBuildings.find(b => b.id === currentBuilding)
+  const building = buildings.find(b => b.id === currentBuilding)
   const floors = building ? Array.from({ length: building.floors }, (_, i) => i + 1) : []
 
   return (
@@ -38,7 +39,7 @@ export function FloorSelector({ className }: FloorSelectorProps) {
             <SelectValue placeholder="Select building" />
           </SelectTrigger>
           <SelectContent>
-            {mockBuildings.map((b) => (
+            {buildings.map((b) => (
               <SelectItem key={b.id} value={b.id}>
                 <div className="flex flex-col">
                   <span>{b.name}</span>

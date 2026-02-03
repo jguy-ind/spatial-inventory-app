@@ -1,7 +1,6 @@
 // Simple client-side state management
 import { create } from 'zustand'
-import type { Space, FilterState, ChatMessage, SpaceStatus } from './types'
-import { mockSpaces, mockAuditLogs, SHORT_HILLS_BUILDING_ID } from './mock-data'
+import type { Space, FilterState, ChatMessage, SpaceStatus, AuditLog } from './types'
 
 interface AppState {
   // Spaces
@@ -48,8 +47,8 @@ interface AppState {
   setIsBookingDrawerOpen: (isOpen: boolean) => void
   
   // Admin
-  auditLogs: typeof mockAuditLogs
-  addAuditLog: (log: typeof mockAuditLogs[0]) => void
+  auditLogs: AuditLog[]
+  addAuditLog: (log: AuditLog) => void
 }
 
 const defaultFilters: FilterState = {
@@ -66,7 +65,7 @@ const defaultFilters: FilterState = {
 
 export const useAppStore = create<AppState>((set) => ({
   // Spaces
-  spaces: mockSpaces,
+  spaces: [],
   setSpaces: (spaces) => set({ spaces }),
   updateSpaceStatus: (spaceId, status) => set((state) => ({
     spaces: state.spaces.map(s => 
@@ -100,7 +99,7 @@ export const useAppStore = create<AppState>((set) => ({
   // View state
   currentFloor: 1,
   setCurrentFloor: (floor) => set({ currentFloor: floor }),
-  currentBuilding: SHORT_HILLS_BUILDING_ID,
+  currentBuilding: '',
   setCurrentBuilding: (buildingId) => set({ currentBuilding: buildingId }),
   viewMode: 'list',
   setViewMode: (mode) => set({ viewMode: mode }),
@@ -123,7 +122,7 @@ export const useAppStore = create<AppState>((set) => ({
   setIsBookingDrawerOpen: (isOpen) => set({ isBookingDrawerOpen: isOpen }),
   
   // Admin
-  auditLogs: mockAuditLogs,
+  auditLogs: [],
   addAuditLog: (log) => set((state) => ({
     auditLogs: [log, ...state.auditLogs]
   }))

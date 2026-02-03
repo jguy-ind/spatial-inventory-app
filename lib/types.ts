@@ -1,7 +1,7 @@
 // Core Types for Spatial Inventory App
 
 export type SpaceStatus = 'available' | 'occupied' | 'pending' | 'maintenance'
-export type SpaceType = 'office' | 'desk' | 'meeting-room' | 'event-space' | 'common-area'
+export type SpaceType = 'office' | 'suite' | 'desk' | 'meeting-room' | 'event-space' | 'common-area'
 
 export interface Space {
   id: string
