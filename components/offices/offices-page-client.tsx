@@ -312,7 +312,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const [floorPlanDragStart, setFloorPlanDragStart] = useState({ x: 0, y: 0 });
   const floorPlanHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const floorPlanHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const itemsPerPage = 15;
+  const [listPageSize, setListPageSize] = useState(25);
 
   const { buildings, spacesByLocationId, regionsByLocationId } = inventoryData;
   const prefersReducedMotion = useReducedMotion();
@@ -390,6 +390,15 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
     });
   }, [listSpacesForBuilding, selectedStatuses, searchQuery]);
 
+  const paginatedSpaces = useMemo(() => {
+    const start = (currentPage - 1) * listPageSize;
+    return filteredSpaces.slice(start, start + listPageSize);
+  }, [filteredSpaces, currentPage, listPageSize]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [listPageSize, selectedStatuses, searchQuery, selectedPricing]);
+
   // Initialize expandedRows with first office expanded by default
   const [expandedRows, setExpandedRows] = useState<Set<string>>(() => {
     const firstSpaceId = filteredSpaces[0]?.id;
@@ -400,6 +409,13 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
     (b) => b.id === currentBuilding
   );
   const currentRegions = regionsByLocationId[currentBuilding] ?? [];
+  const filteredRegions = useMemo(() => {
+    const ids = new Set([
+      ...filteredSpaces.map((s) => s.id),
+      ...filteredSpaces.map((s) => s.name),
+    ]);
+    return currentRegions.filter((r) => ids.has(r.id));
+  }, [currentRegions, filteredSpaces]);
   const currentSpaces = spacesByLocationId[currentBuilding] ?? [];
   // Region id → status for Short Hills floor plan (region id may match space.id or space.name)
   const regionIdToStatus = useMemo(() => {
@@ -727,8 +743,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                   </Button>
                 </div>
 
-                {/* Filters - Hidden on 3D tab */}
-                {viewMode === "list" && (
+                {/* Filters - List and Floor Plan tabs */}
+                {(viewMode === "list" || viewMode === "2d") && (
                   <>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -809,8 +825,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 )}
               </div>
 
-              {/* Search - Hidden on 3D and 2D tabs; full width on mobile */}
-              {viewMode === "list" && (
+              {/* Search - List and Floor Plan tabs; full width on mobile */}
+              {(viewMode === "list" || viewMode === "2d") && (
                 <div className="relative w-full max-w-full sm:max-w-xs md:w-72">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                   <Input
@@ -858,7 +874,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 {useCards && (
                   <div className="flex-1 overflow-auto">
                     <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-                      {filteredSpaces.map((space) => (
+                      {paginatedSpaces.map((space) => (
                         <OfficeCard
                           key={space.id}
                           space={space}
@@ -870,8 +886,26 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         />
                       ))}
                     </div>
-                    <div className="flex items-center justify-between pt-3 mt-2 border-t border-border">
-                      <span className="text-sm text-muted-foreground">{filteredSpaces.length} offices</span>
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-3 mt-2 border-t border-border">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-muted-foreground">{filteredSpaces.length} offices</span>
+                        <span className="text-xs text-muted-foreground">Show:</span>
+                        <div className="flex rounded-md border border-border overflow-hidden">
+                          {[25, 50, 75, 100].map((size) => (
+                            <button
+                              key={size}
+                              type="button"
+                              onClick={() => setListPageSize(size)}
+                              className={cn(
+                                "px-2 py-1 text-xs font-medium min-w-[2.25rem]",
+                                listPageSize === size ? "bg-muted text-foreground" : "text-muted-foreground hover:bg-muted/50"
+                              )}
+                            >
+                              {size}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                       <div className="flex items-center gap-1">
                         <Button
                           variant="outline"
@@ -883,13 +917,13 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                           <ChevronLeft className="h-4 w-4" />
                         </Button>
                         <span className="text-sm px-2">
-                          {currentPage} / {Math.max(1, Math.ceil(filteredSpaces.length / itemsPerPage))}
+                          {currentPage} / {Math.max(1, Math.ceil(filteredSpaces.length / listPageSize))}
                         </span>
                         <Button
                           variant="outline"
                           size="icon"
                           className="h-8 w-8"
-                          disabled={currentPage >= Math.ceil(filteredSpaces.length / itemsPerPage) || filteredSpaces.length === 0}
+                          disabled={currentPage >= Math.ceil(filteredSpaces.length / listPageSize) || filteredSpaces.length === 0}
                           onClick={() => setCurrentPage((p) => p + 1)}
                         >
                           <ChevronRight className="h-4 w-4" />
@@ -942,7 +976,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {filteredSpaces.map((space) => (
+                        {paginatedSpaces.map((space) => (
                           <React.Fragment key={space.id}>
                             <TableRow
                               className="cursor-pointer hover:bg-muted/30"
@@ -1081,10 +1115,28 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                     </Table>
                   </div>
                   {/* Pagination - Fixed at bottom */}
-                  <div className="flex items-center justify-between pt-3 shrink-0 px-4 pb-2">
-                    <span className="text-sm text-muted-foreground">
-                      {filteredSpaces.length} offices
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-3 shrink-0 px-4 pb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-muted-foreground">
+                        {filteredSpaces.length} offices
+                      </span>
+                      <span className="text-xs text-muted-foreground">Show:</span>
+                      <div className="flex rounded-md border border-border overflow-hidden">
+                        {[25, 50, 75, 100].map((size) => (
+                          <button
+                            key={size}
+                            type="button"
+                            onClick={() => setListPageSize(size)}
+                            className={cn(
+                              "px-2 py-1 text-xs font-medium min-w-[2.25rem]",
+                              listPageSize === size ? "bg-muted text-foreground" : "text-muted-foreground hover:bg-muted/50"
+                            )}
+                          >
+                            {size}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                     <div className="flex items-center gap-1">
                       <Button
                         variant="outline"
@@ -1095,7 +1147,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                       >
                         <ChevronLeft className="h-4 w-4" />
                       </Button>
-                      {Array.from({ length: Math.min(Math.ceil(filteredSpaces.length / itemsPerPage), 3) }, (_, i) => (
+                      {Array.from({ length: Math.min(Math.ceil(filteredSpaces.length / listPageSize), 3) }, (_, i) => (
                         <Button
                           key={i + 1}
                           variant={currentPage === i + 1 ? "default" : "outline"}
@@ -1111,23 +1163,23 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                           {i + 1}
                         </Button>
                       ))}
-                      {Math.ceil(filteredSpaces.length / itemsPerPage) > 3 && (
+                      {Math.ceil(filteredSpaces.length / listPageSize) > 3 && (
                         <>
                           <span className="px-2 text-muted-foreground">...</span>
                           <Button
                             variant={
-                              currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) ? "default" : "outline"
+                              currentPage === Math.ceil(filteredSpaces.length / listPageSize) ? "default" : "outline"
                             }
                             size="icon"
                             className={cn(
                               "h-8 w-8",
-                              currentPage === Math.ceil(filteredSpaces.length / itemsPerPage)
+                              currentPage === Math.ceil(filteredSpaces.length / listPageSize)
                                 ? "bg-foreground text-background hover:bg-foreground/90"
                                 : "bg-transparent"
                             )}
-                            onClick={() => setCurrentPage(Math.ceil(filteredSpaces.length / itemsPerPage))}
+                            onClick={() => setCurrentPage(Math.ceil(filteredSpaces.length / listPageSize))}
                           >
-                            {Math.ceil(filteredSpaces.length / itemsPerPage)}
+                            {Math.ceil(filteredSpaces.length / listPageSize)}
                           </Button>
                         </>
                       )}
@@ -1135,7 +1187,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         variant="outline"
                         size="icon"
                         className="h-8 w-8 bg-transparent"
-                        disabled={currentPage === Math.ceil(filteredSpaces.length / itemsPerPage) || filteredSpaces.length === 0}
+                        disabled={currentPage === Math.ceil(filteredSpaces.length / listPageSize) || filteredSpaces.length === 0}
                         onClick={() => setCurrentPage((p) => p + 1)}
                       >
                         <ChevronRight className="h-4 w-4" />
@@ -1177,7 +1229,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 >
                   <FloorPlan
                     imageUrl={currentBuildingData.image}
-                    regions={currentRegions}
+                    regions={filteredRegions}
                     regionStatus={regionIdToStatus}
                     imageWidth={currentBuildingData.floorPlanWidth ?? 3300}
                     imageHeight={currentBuildingData.floorPlanHeight ?? 2550}
@@ -1547,9 +1599,6 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h2 className="text-lg font-semibold leading-tight">{selectedSpaceForDrawer.name}</h2>
-                    <p className="text-[11px] text-muted-foreground font-mono mt-0.5">
-                      ATLPAC{selectedSpaceForDrawer.name.match(/\d+/)?.[0] || '102'}
-                    </p>
                   </div>
                   <Badge
                     variant="secondary"
@@ -1623,16 +1672,16 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
 
               {/* Middle Content - Grows to fill space */}
               <div className="flex-1 px-4 flex flex-col justify-evenly min-h-0">
-                {/* Quick Stats */}
-                <div className="grid grid-cols-4 gap-2">
+                {/* Quick Stats - TYPE, TIER, LSF only */}
+                <div className="grid grid-cols-3 gap-2">
                   <div className="text-center py-2 px-1 rounded-md bg-muted/50">
-                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">Type</div>
+                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">TYPE</div>
                     <div className="text-sm font-medium mt-0.5">
                       {selectedSpaceForDrawer.windowType === 'interior' ? 'Interior' : 'Window'}
                     </div>
                   </div>
                   <div className="text-center py-2 px-1 rounded-md bg-muted/50">
-                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">Tier</div>
+                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">TIER</div>
                     <div className="text-sm font-medium mt-0.5">{selectedSpaceForDrawer.productTier || 'Tier 1'}</div>
                   </div>
                   <div className="text-center py-2 px-1 rounded-md bg-muted/50">
@@ -1645,7 +1694,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                 {selectedSpaceForDrawer.capacity > 8 ? (
                   <div className="p-3 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary-muted to-white">
                     <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">
-                      Office Includes
+                      OFFICE INCLUDES
                     </div>
                     <div className="grid grid-cols-3 gap-3">
                       <div className="text-center p-2 rounded-md bg-white/80">
@@ -1672,6 +1721,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                     </div>
                   </div>
                 ) : (
+                    <div className="space-y-2">
+                    <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">OFFICE INCLUDES</div>
                     <div className="flex gap-4 p-3 rounded-lg border border-border bg-muted/20">
                     <div className="flex items-center gap-2.5 flex-1">
                       <div className="w-8 h-8 rounded-md bg-primary-muted flex items-center justify-center shrink-0">
@@ -1692,6 +1743,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         <div className="text-[10px] text-muted-foreground mt-0.5">Meeting Hours Included</div>
                       </div>
                     </div>
+                  </div>
                   </div>
                 )}
 
