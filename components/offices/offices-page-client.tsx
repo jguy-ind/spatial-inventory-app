@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useAppStore } from "@/lib/store";
 import { mockBuildings, mockSpaces, SHORT_HILLS_BUILDING_ID, shortHillsSpaces, shortHillsListSpaces, SHORT_HILLS_MATTERPORT_URL } from "@/lib/mock-data";
 import type { Space, SpaceStatus } from "@/lib/types";
@@ -280,6 +281,7 @@ export function OfficesPageClient() {
   const { viewMode, setViewMode, currentBuilding, setCurrentBuilding } =
     useAppStore();
   const breakpoint = useBreakpoint();
+  const prefersReducedMotion = useReducedMotion();
   const showPersistentSidebar = breakpoint === "desktop";
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
   const [selectedPricing, setSelectedPricing] = useState<string[]>(["24-35"]);
@@ -297,7 +299,45 @@ export function OfficesPageClient() {
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
   const [shortHillsRegions, setShortHillsRegions] = useState<Region[] | null>(null);
   const [shortHillsRegionsLoading, setShortHillsRegionsLoading] = useState(false);
+  const [shortHillsHoveredRegion, setShortHillsHoveredRegion] = useState<Region | null>(null);
+  const [shortHillsHoverCardVisible, setShortHillsHoverCardVisible] = useState(false);
+  const [shortHillsDisplayRegion, setShortHillsDisplayRegion] = useState<Region | null>(null);
+  const shortHillsHoverShowTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shortHillsHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const itemsPerPage = 15;
+
+  // Delayed show/hide for floor plan hover card (UX: reduce flicker, allow moving between regions)
+  const HOVER_CARD_SHOW_MS = 280;
+  const HOVER_CARD_HIDE_MS = 120;
+  useEffect(() => {
+    if (shortHillsHoveredRegion) {
+      if (shortHillsHoverHideTimeoutRef.current) {
+        clearTimeout(shortHillsHoverHideTimeoutRef.current);
+        shortHillsHoverHideTimeoutRef.current = null;
+      }
+      shortHillsHoverShowTimeoutRef.current = setTimeout(() => {
+        setShortHillsDisplayRegion(shortHillsHoveredRegion);
+        setShortHillsHoverCardVisible(true);
+        shortHillsHoverShowTimeoutRef.current = null;
+      }, HOVER_CARD_SHOW_MS);
+    } else {
+      if (shortHillsHoverShowTimeoutRef.current) {
+        clearTimeout(shortHillsHoverShowTimeoutRef.current);
+        shortHillsHoverShowTimeoutRef.current = null;
+      }
+      shortHillsHoverHideTimeoutRef.current = setTimeout(() => {
+        setShortHillsHoverCardVisible(false);
+        setShortHillsDisplayRegion(null);
+        shortHillsHoverHideTimeoutRef.current = null;
+      }, HOVER_CARD_HIDE_MS);
+    }
+  }, [shortHillsHoveredRegion]);
+  useEffect(() => {
+    return () => {
+      if (shortHillsHoverShowTimeoutRef.current) clearTimeout(shortHillsHoverShowTimeoutRef.current);
+      if (shortHillsHoverHideTimeoutRef.current) clearTimeout(shortHillsHoverHideTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (currentBuilding !== SHORT_HILLS_BUILDING_ID) return;
@@ -646,7 +686,7 @@ export function OfficesPageClient() {
                     onClick={() => setViewMode("2d")}
                   >
                     <LayoutGrid className="h-4 w-4 shrink-0" />
-                    <span className="sm:inline">2D</span>
+                    <span className="sm:inline">Floor plan</span>
                   </Button>
                   <Button
                     variant="ghost"
@@ -1091,20 +1131,100 @@ export function OfficesPageClient() {
                     <p className="text-muted-foreground">Loading floor plan...</p>
                   </div>
                 ) : shortHillsRegions && shortHillsRegions.length > 0 ? (
-                  <FloorPlan
-                    imageUrl="/short-hills-floor-plan.png"
-                    regions={shortHillsRegions}
-                    imageWidth={3300}
-                    imageHeight={2550}
-                    flipY
-                    onRegionClick={(region) => {
-                      const space = shortHillsSpaces.find((s) => s.id === region.id);
-                      if (space) {
-                        setSelectedSpaceForDrawer(space);
-                        setDrawerOpen(true);
-                      }
-                    }}
-                  />
+                  <div className="relative w-full min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] md:h-[calc(100vh-260px)]">
+                    <FloorPlan
+                      imageUrl="/short-hills-floor-plan.png"
+                      regions={shortHillsRegions}
+                      imageWidth={3300}
+                      imageHeight={2550}
+                      flipY
+                      onRegionClick={(region) => {
+                        const space = listSpacesForBuilding.find((s) => s.id === region.id) ?? shortHillsSpaces.find((s) => s.id === region.id);
+                        if (space) {
+                          setSelectedSpaceForDrawer(space);
+                          setDrawerOpen(true);
+                        }
+                      }}
+                      onRegionHover={(region) => setShortHillsHoveredRegion(region)}
+                    />
+                    {/* Hover card: delayed show/hide, animated, clear hierarchy, a11y (UX best practices) */}
+                    <AnimatePresence mode="wait">
+                      {shortHillsHoverCardVisible && shortHillsDisplayRegion && (() => {
+                        const space = listSpacesForBuilding.find((s) => s.id === shortHillsDisplayRegion.id) ?? shortHillsSpaces.find((s) => s.id === shortHillsDisplayRegion.id);
+                        if (!space) return null;
+                        const hasMetrics = (space.capacity ?? 0) > 0 || ((space.sqft ?? space.lsf) ?? 0) > 0 || (space.price ?? 0) > 0;
+                        return (
+                          <motion.div
+                            key={shortHillsDisplayRegion.id}
+                            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: prefersReducedMotion ? 0 : 4 }}
+                            transition={{ duration: prefersReducedMotion ? 0 : 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
+                            className={cn(
+                              "absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[280px] z-10 bg-white rounded-xl border shadow-xl overflow-hidden",
+                              "ring-1 ring-black/5",
+                              space.status === "available" && "border-emerald-200/80",
+                              space.status === "occupied" && "border-slate-200",
+                              space.status === "pending" && "border-amber-200/80",
+                              space.status === "maintenance" && "border-red-200/80"
+                            )}
+                            role="status"
+                            aria-live="polite"
+                            aria-label={`${space.name}, ${space.status}`}
+                          >
+                            {/* Primary: name + status */}
+                            <div
+                              className={cn(
+                                "px-4 py-3 border-b",
+                                space.status === "available" && "bg-emerald-50/90 border-emerald-100",
+                                space.status === "occupied" && "bg-slate-50/90 border-slate-100",
+                                space.status === "pending" && "bg-amber-50/90 border-amber-100",
+                                space.status === "maintenance" && "bg-red-50/90 border-red-100"
+                              )}
+                            >
+                              <div className="flex items-center justify-between gap-3">
+                                <h4 className="font-semibold text-[15px] text-slate-900 truncate">{space.name}</h4>
+                                <span
+                                  className={cn(
+                                    "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium capitalize shrink-0",
+                                    space.status === "available" && "bg-emerald-100 text-emerald-700",
+                                    space.status === "occupied" && "bg-slate-100 text-slate-600",
+                                    space.status === "pending" && "bg-amber-100 text-amber-700",
+                                    space.status === "maintenance" && "bg-red-100 text-red-700"
+                                  )}
+                                >
+                                  {space.status}
+                                </span>
+                              </div>
+                            </div>
+                            {/* Secondary: metrics row */}
+                            {hasMetrics && (
+                              <div className="px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-600 border-b border-slate-100">
+                                {(space.capacity ?? 0) > 0 && (
+                                  <span className="flex items-center gap-1.5">
+                                    <Users className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                                    {space.capacity} seats
+                                  </span>
+                                )}
+                                {((space.sqft ?? space.lsf) ?? 0) > 0 && (
+                                  <span>{(space.sqft ?? space.lsf)?.toLocaleString()} sq ft</span>
+                                )}
+                                {(space.price ?? 0) > 0 && (
+                                  <span className="font-semibold text-emerald-700">
+                                    ${(space.price ?? 0).toLocaleString()}/mo
+                                  </span>
+                                )}
+                              </div>
+                            )}
+                            {/* Tertiary: affordance hint */}
+                            <div className="px-4 py-2 bg-slate-50/80">
+                              <p className="text-[11px] text-slate-500">Click for full details</p>
+                            </div>
+                          </motion.div>
+                        );
+                      })()}
+                    </AnimatePresence>
+                  </div>
                 ) : (
                   <div className="flex items-center justify-center min-h-[50vh] md:min-h-[420px] h-[calc(100vh-240px)] rounded-lg border border-border bg-muted/30">
                     <p className="text-muted-foreground">No floor plan data. Add short-hills-regions.csv and short-hills-floor-plan.png to public/.</p>

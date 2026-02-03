@@ -133,10 +133,11 @@ export function FloorPlan({
                     cx={p.x}
                     cy={p.y}
                     r={r}
-                    fill={isHovered ? "rgba(26, 127, 100, 0.4)" : "rgba(26, 127, 100, 0.2)"}
-                    stroke="#1a7f64"
-                    strokeWidth={isHovered ? 2.5 : 1.5}
-                    className="transition-all duration-150"
+                    fill={isHovered ? "rgba(26, 127, 100, 0.45)" : "rgba(26, 127, 100, 0.2)"}
+                    stroke={isHovered ? "#0f5c4a" : "#1a7f64"}
+                    strokeWidth={isHovered ? 3 : 1.5}
+                    className="transition-all duration-200 ease-out"
+                    style={{ filter: isHovered ? "drop-shadow(0 2px 4px rgba(26, 127, 100, 0.3))" : undefined }}
                   />
                 </g>
               );
@@ -153,10 +154,11 @@ export function FloorPlan({
               >
                 <polygon
                   points={pointsStr}
-                  fill={isHovered ? "rgba(26, 127, 100, 0.35)" : "rgba(26, 127, 100, 0.15)"}
-                  stroke="#1a7f64"
-                  strokeWidth={isHovered ? 2.5 : 1.5}
-                  className="transition-all duration-150"
+                  fill={isHovered ? "rgba(26, 127, 100, 0.38)" : "rgba(26, 127, 100, 0.15)"}
+                  stroke={isHovered ? "#0f5c4a" : "#1a7f64"}
+                  strokeWidth={isHovered ? 3 : 1.5}
+                  className="transition-all duration-200 ease-out"
+                  style={{ filter: isHovered ? "drop-shadow(0 2px 4px rgba(26, 127, 100, 0.25))" : undefined }}
                 />
               </g>
             );

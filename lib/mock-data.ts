@@ -46,35 +46,42 @@ export const shortHillsSpaces: Space[] = buildShortHillsSpaces()
 export const SHORT_HILLS_MATTERPORT_URL =
   'https://my.matterport.com/show?play=1&lang=en-US&m=7d6o1jQBAoV&sm=2&sr=-.56,.26,.18&sp=40.78,29.58,54.57'
 
-/** Rich list-view spaces for Short Hills (same shape as Beverly Hills list). Used when building is Short Hills. */
+/** Rich list-view spaces for Short Hills — same set as floor plan regions (86 offices). List view and floor plan share this data. */
 function buildShortHillsListSpaces(): Space[] {
-  const base = shortHillsSpaces.slice(0, 20)
-  const statuses: Space['status'][] = ['available', 'available', 'occupied', 'available', 'pending', 'available', 'available', 'occupied', 'available', 'available', 'available', 'occupied', 'available', 'available', 'available', 'available', 'pending', 'available', 'available', 'available']
-  const capacities = [4, 6, 8, 4, 6, 8, 8, 6, 4, 8, 6, 8, 4, 6, 6, 8, 4, 6, 8, 4]
-  const prices = [3200, 4380, 4380, 2800, 3600, 4380, 4380, 3600, 2800, 4380, 3600, 4380, 2800, 3600, 3600, 4380, 2800, 3600, 4380, 2800]
-  const names = ['Office 101', 'Office 102', 'Office 103', 'Office 104', 'Office 105', 'Office 106', 'Office 107', 'Office 108', 'Office 109', 'Office 110', 'Office 111', 'Office 112', 'Office 113', 'Office 114', 'Office 115', 'Office 116', 'Office 117', 'Office 118', 'Office 119', 'Office 120']
+  const base = shortHillsSpaces
+  const statusPattern: Space['status'][] = ['available', 'available', 'occupied', 'available', 'pending', 'available', 'available', 'occupied', 'available', 'available', 'available', 'occupied', 'available', 'available', 'available', 'available', 'pending', 'available', 'available', 'available']
+  const capacityPattern = [4, 6, 8, 4, 6, 8, 8, 6, 4, 8, 6, 8, 4, 6, 6, 8, 4, 6, 8, 4]
+  const pricePattern = [3200, 4380, 4380, 2800, 3600, 4380, 4380, 3600, 2800, 4380, 3600, 4380, 2800, 3600, 3600, 4380, 2800, 3600, 4380, 2800]
+  const occupantNames = ['Great Days LLC', 'Acme Corp', 'Tenant LLC', 'Summit Ventures', 'North Star Inc', 'Horizon Group', 'Pinnacle Co', 'Apex Solutions']
+  const n = base.length
   const now = new Date().toISOString()
-  return base.map((s, i) => ({
-    ...s,
-    name: names[i],
-    status: statuses[i],
-    capacity: capacities[i],
-    sqft: 195,
-    price: prices[i],
-    amenities: ['Window View', 'Video Conferencing', 'Standing Desk'].slice(0, (i % 3) + 1),
-    images: ['/images/office-rep-2-interior.webp'],
-    description: 'Professional private office at Short Hills - 1200 Morris Turnpike.',
-    availableFrom: statuses[i] === 'available' ? 'Today' : undefined,
-    occupiedBy: statuses[i] === 'occupied' ? (i === 2 ? 'Great Days LLC' : i === 7 ? 'Acme Corp' : 'Tenant LLC') : undefined,
-    moveOutDate: statuses[i] === 'occupied' ? 'pending' : undefined,
-    renewalDate: statuses[i] === 'occupied' ? '04/30/2025' : undefined,
-    onDemandPrice: statuses[i] === 'available' ? { hourly: 100, daily: 500 } : null,
-    lsf: 195,
-    productTier: 'Tier 1',
-    lastUpdated: now,
-    windowType: i % 3 === 0 ? 'window' : 'interior',
-    matterportUrl: SHORT_HILLS_MATTERPORT_URL,
-  }))
+  return base.map((s, i) => {
+    const status = statusPattern[i % statusPattern.length]
+    const capacity = capacityPattern[i % capacityPattern.length]
+    const price = pricePattern[i % pricePattern.length]
+    const officeNum = i + 1
+    return {
+      ...s,
+      name: `Office ${officeNum}`,
+      status,
+      capacity,
+      sqft: 195,
+      price,
+      amenities: ['Window View', 'Video Conferencing', 'Standing Desk'].slice(0, (i % 3) + 1),
+      images: ['/images/office-rep-2-interior.webp'],
+      description: 'Professional private office at Short Hills - 1200 Morris Turnpike.',
+      availableFrom: status === 'available' ? 'Today' : undefined,
+      occupiedBy: status === 'occupied' ? occupantNames[i % occupantNames.length] : undefined,
+      moveOutDate: status === 'occupied' ? 'pending' : undefined,
+      renewalDate: status === 'occupied' ? '04/30/2025' : undefined,
+      onDemandPrice: status === 'available' ? { hourly: 100, daily: 500 } : null,
+      lsf: 195,
+      productTier: 'Tier 1',
+      lastUpdated: now,
+      windowType: i % 3 === 0 ? 'window' : 'interior',
+      matterportUrl: SHORT_HILLS_MATTERPORT_URL,
+    }
+  })
 }
 
 export const shortHillsListSpaces: Space[] = buildShortHillsListSpaces()

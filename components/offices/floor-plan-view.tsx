@@ -519,7 +519,7 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
 
       {/* Floor Plan Canvas */}
       <div ref={containerRef} className="relative flex-1 overflow-hidden cursor-grab active:cursor-grabbing bg-slate-50" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
-        <TooltipProvider delayDuration={0}>
+        <TooltipProvider delayDuration={300} skipDelayDuration={100}>
           <motion.div className="w-full h-full" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: "center center" }}>
             <svg viewBox={svgViewBox} className="w-full h-full" style={{ minHeight: "500px" }} preserveAspectRatio="xMidYMid meet">
               {/* Clean white background */}
