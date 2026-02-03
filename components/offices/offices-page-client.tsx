@@ -103,13 +103,16 @@ const STATUS_OPTIONS: { label: string; value: SpaceStatus }[] = [
 
 function OfficeCard({
   space,
+  displayPrice,
   onSelect,
   getStatusBadge,
 }: {
   space: Space;
+  displayPrice?: number;
   onSelect: () => void;
   getStatusBadge: (status: SpaceStatus) => React.ReactNode;
 }) {
+  const price = displayPrice ?? space.price ?? 0;
   return (
     <button
       type="button"
@@ -121,7 +124,7 @@ function OfficeCard({
         {getStatusBadge(space.status)}
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
-        <span>${space.price.toLocaleString()}/mo</span>
+        <span>${price.toLocaleString()}/mo</span>
         <span>{space.capacity} seats</span>
         <span>Floor {space.floor}</span>
       </div>
@@ -299,6 +302,10 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const [selectedSpaceForDrawer, setSelectedSpaceForDrawer] = useState<Space | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedTerm, setSelectedTerm] = useState(24);
+  /** Prices for current building + selectedTerm from GET /api/offices/[id]/pricing (keyed by space id) */
+  const [pricesBySpaceId, setPricesBySpaceId] = useState<Record<string, number | null>>({});
+  const [pricesLoading, setPricesLoading] = useState(false);
+  const [pricesFetchedFor, setPricesFetchedFor] = useState<{ buildingId: string; term: number } | null>(null);
   const [show3DModal, setShow3DModal] = useState(false);
   const [promotionsExpanded, setPromotionsExpanded] = useState(false);
   const [floorPlanHoveredRegion, setFloorPlanHoveredRegion] = useState<Region | null>(null);
@@ -366,11 +373,132 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
     };
   }, []);
 
+  // Sync currentBuilding when it's not in the buildings list (e.g. first load with new data)
+  useEffect(() => {
+    if (buildings.length === 0) return;
+    const buildingIds = new Set(buildings.map((b) => b.id));
+    if (!currentBuilding || !buildingIds.has(currentBuilding)) {
+      setCurrentBuilding(buildings[0].id);
+    }
+  }, [buildings, currentBuilding, setCurrentBuilding]);
+
+  // Pre-fetch prices for all offices in the current location when location or selected term changes
+  useEffect(() => {
+    const spaceIds = (spacesByLocationId[currentBuilding] ?? []).map((s) => s.id);
+    if (!currentBuilding || spaceIds.length === 0) {
+      setPricesBySpaceId({});
+      setPricesLoading(false);
+      setPricesFetchedFor(null);
+      return;
+    }
+    let cancelled = false;
+    setPricesLoading(true);
+    setPricesFetchedFor(null);
+    const term = selectedTerm;
+    const buildingId = currentBuilding;
+    const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
+    const endpoint = (id: string) => `/api/offices/${encodeURIComponent(id)}/pricing?term=${encodeURIComponent(term)}`;
+    const fullUrls = spaceIds.map((id) => `${baseUrl}${endpoint(id)}`);
+    console.log("[pricing] Client request (entire):", {
+      baseUrl,
+      endpointPattern: "/api/offices/:id/pricing?term=:term",
+      officeIds: spaceIds,
+      term,
+      buildingId,
+      fullRequests: fullUrls,
+    });
+    Promise.all(
+      spaceIds.map((id) => {
+        const fullEndpoint = endpoint(id);
+        const fullRequestUrl = `${baseUrl}${fullEndpoint}`;
+        console.log("[pricing] Fetching price:", { officeId: id, baseUrl, fullEndpoint, fullRequestUrl });
+        // #region agent log
+        fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            location: "offices-page-client.tsx:fetch-before",
+            message: "Client request URL (H1/H4: path may lack /api/)",
+            data: { officeId: id, fullEndpoint, fullRequestUrl, pathHasApi: fullEndpoint.startsWith("/api/") },
+            timestamp: Date.now(),
+            sessionId: "debug-session",
+            hypothesisId: "H1_H4",
+          }),
+        }).catch(() => {});
+        // #endregion
+        // This is our app's Next.js API route (same origin), not the Partner API. The server then calls the Partner API with the API key.
+        return fetch(fullEndpoint)
+          .then((res) => {
+            // #region agent log
+            fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                location: "offices-page-client.tsx:fetch-after",
+                message: "Client response status (404 = our app route missing?)",
+                data: { officeId: id, status: res.status, ok: res.ok, fullEndpoint },
+                timestamp: Date.now(),
+                sessionId: "debug-session",
+                hypothesisId: "H4",
+              }),
+            }).catch(() => {});
+            // #endregion
+            console.log("[pricing] Client response:", { officeId: id, status: res.status, ok: res.ok });
+            return res.ok ? res.json() : Promise.reject(new Error(`${res.status}`));
+          })
+          .then((data: { price?: number; source?: string }) => {
+            // #region agent log
+            fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                location: "offices-page-client.tsx:pricing-response",
+                message: "API response (source=unconfigured means mock)",
+                data: { officeId: id, price: data?.price, source: (data as { source?: string })?.source },
+                timestamp: Date.now(),
+                sessionId: "debug-session",
+                hypothesisId: "MOCK",
+              }),
+            }).catch(() => {});
+            // #endregion
+            return typeof data?.price === "number" ? data.price : null;
+          })
+          .catch((err) => {
+            console.warn("[pricing] Client fetch failed:", { officeId: id, error: String(err) });
+            return null;
+          })
+          .then((price) => ({ id, price }));
+      })
+    ).then((results) => {
+      if (cancelled) return;
+      const next: Record<string, number | null> = {};
+      results.forEach(({ id, price }) => {
+        next[id] = price;
+      });
+      setPricesBySpaceId(next);
+      setPricesFetchedFor({ buildingId, term });
+    }).finally(() => {
+      if (!cancelled) setPricesLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [currentBuilding, selectedTerm, spacesByLocationId]);
+
   // List-view spaces from inventory for current building
   const listSpacesForBuilding = useMemo(
     () => spacesByLocationId[currentBuilding] ?? [],
     [spacesByLocationId, currentBuilding]
   );
+
+  /** Display price for a space: from pre-fetched cache when available, else space.price */
+  const getDisplayPrice = (space: Space): number => {
+    if (space.id in pricesBySpaceId) {
+      const p = pricesBySpaceId[space.id];
+      return p ?? 0;
+    }
+    return space.price ?? 0;
+  };
 
   // Filter spaces based on current filters
   const filteredSpaces = useMemo(() => {
@@ -878,6 +1006,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         <OfficeCard
                           key={space.id}
                           space={space}
+                          displayPrice={getDisplayPrice(space)}
                           onSelect={() => {
                             setSelectedSpaceForDrawer(space);
                             setDrawerOpen(true);
@@ -1004,7 +1133,11 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                                 </button>
                               </TableCell>
                               <TableCell>
-                                ${space.price.toLocaleString()}/mo
+                                {pricesLoading ? (
+                                  <span className="text-muted-foreground">—</span>
+                                ) : (
+                                  `$${getDisplayPrice(space).toLocaleString()}/mo`
+                                )}
                               </TableCell>
                               <TableCell className="text-primary">
                                 {space.capacity}
@@ -1333,9 +1466,9 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                             {((space.sqft ?? space.lsf) ?? 0) > 0 && (
                               <span>{(space.sqft ?? space.lsf)?.toLocaleString()} sq ft</span>
                             )}
-                            {(space.price ?? 0) > 0 && (
+                            {(getDisplayPrice(space) ?? 0) > 0 && (
                               <span className="font-semibold text-emerald-700">
-                                ${(space.price ?? 0).toLocaleString()}/mo
+                                ${getDisplayPrice(space).toLocaleString()}/mo
                               </span>
                             )}
                           </div>
@@ -1618,7 +1751,11 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                       <div className="flex items-center gap-1.5 text-sm">
                         <span className="text-muted-foreground">Occupied by</span>
                         <a
-                          href={`https://admin-portal.industriousoffice.com/accounts/unit/${selectedSpaceForDrawer.id || '67abf8ac06607405a6995136'}`}
+                          href={
+                            selectedSpaceForDrawer.accountId
+                              ? `https://admin-portal.industriousoffice.com/accounts/${selectedSpaceForDrawer.accountId}`
+                              : `https://admin-portal.industriousoffice.com/accounts/unit/${selectedSpaceForDrawer.id || "67abf8ac06607405a6995136"}`
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:underline font-medium inline-flex items-center gap-1"
@@ -1628,14 +1765,45 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                         </a>
                       </div>
                     )}
-                    <div className="flex items-center gap-1.5 text-sm">
-                      <span className="text-muted-foreground">Next available:</span>
-                      <span className="font-medium text-slate-700">
-                        {selectedSpaceForDrawer.moveOutDate
-                          ? new Date(selectedSpaceForDrawer.moveOutDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })
-                          : '6/1/26'}
-                      </span>
-                    </div>
+                    {(selectedSpaceForDrawer.occupancyStartDate ?? selectedSpaceForDrawer.occupancyEndDate) ? (
+                      <div className="flex flex-col gap-0.5 text-sm">
+                        <span className="text-muted-foreground">
+                          {selectedSpaceForDrawer.occupancyStartDate && selectedSpaceForDrawer.occupancyEndDate
+                            ? "Occupied from"
+                            : selectedSpaceForDrawer.occupancyEndDate
+                              ? "Occupied through"
+                              : "Occupied from"}
+                        </span>
+                        <span className="font-medium text-slate-700">
+                          {selectedSpaceForDrawer.occupancyStartDate &&
+                            new Date(selectedSpaceForDrawer.occupancyStartDate).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          {selectedSpaceForDrawer.occupancyStartDate && selectedSpaceForDrawer.occupancyEndDate && " – "}
+                          {selectedSpaceForDrawer.occupancyEndDate &&
+                            new Date(selectedSpaceForDrawer.occupancyEndDate).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 text-sm">
+                        <span className="text-muted-foreground">Next available:</span>
+                        <span className="font-medium text-slate-700">
+                          {selectedSpaceForDrawer.moveOutDate
+                            ? new Date(selectedSpaceForDrawer.moveOutDate).toLocaleDateString("en-US", {
+                                month: "numeric",
+                                day: "numeric",
+                                year: "2-digit",
+                              })
+                            : "6/1/26"}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 )}
                 {selectedSpaceForDrawer.hasPromotion && (
@@ -1769,24 +1937,30 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                   </div>
                 </div>
 
-                {/* Price Display */}
+                {/* Price Display: from GET offices/[id]/pricing?term=... only; no fallback */}
                 <div className="p-3 rounded-lg bg-primary-muted border border-primary/20">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs text-muted-foreground">Monthly Rate</div>
-                      <div className="text-xl font-bold text-primary">
-                        ${Math.round(selectedSpaceForDrawer.price * (1 - (selectedTerm - 1) * 0.01)).toLocaleString()}/mo
-                      </div>
+                      {pricesLoading ? (
+                        <div className="text-xl font-bold text-primary animate-pulse">—</div>
+                      ) : (
+                        <div className="text-xl font-bold text-primary">
+                          ${(selectedSpaceForDrawer ? getDisplayPrice(selectedSpaceForDrawer) : 0).toLocaleString()}/mo
+                        </div>
+                      )}
                     </div>
-                    {selectedTerm > 1 && (
+                    {!pricesLoading && selectedTerm > 1 && (
                       <Badge variant="secondary" className="bg-white text-xs">
                         Save {Math.round((selectedTerm - 1) * 1)}%
                       </Badge>
                     )}
                   </div>
-                  <div className="text-[10px] text-muted-foreground mt-1">
-                    Total: ${(Math.round(selectedSpaceForDrawer.price * (1 - (selectedTerm - 1) * 0.01)) * selectedTerm).toLocaleString()}
-                  </div>
+                  {!pricesLoading && (
+                    <div className="text-[10px] text-muted-foreground mt-1">
+                      Total: ${((selectedSpaceForDrawer ? getDisplayPrice(selectedSpaceForDrawer) : 0) * selectedTerm).toLocaleString()}
+                    </div>
+                  )}
                 </div>
               </div>
 

@@ -1,5 +1,6 @@
-import type { Space } from "@/lib/types";
+import type { Space, SpaceStatus } from "@/lib/types";
 import type { OfficeDoc } from "@/lib/inventory-types";
+import type { OfficeOccupancyEnrichment } from "@/lib/partner-api/types";
 
 const PLACEHOLDER_IMAGE = "/images/office-rep-2-interior.webp";
 
@@ -28,16 +29,18 @@ function getPositionFromPoints(points: OfficeDoc["points"]): {
 
 export function mapOfficeToSpace(
   office: OfficeDoc,
-  locationId: string
+  locationId: string,
+  enrichment?: OfficeOccupancyEnrichment | null
 ): Space {
   const id = office._id?.$oid ?? office.name ?? "";
   const now = new Date().toISOString();
+  const status: SpaceStatus = enrichment?.status ?? "available";
 
   return {
     id,
     name: office.name ?? office.officeNumber ?? id,
     type: "office",
-    status: "available",
+    status,
     floor: office.floor ?? 1,
     building: locationId,
     capacity: office.seats ?? 0,
@@ -53,5 +56,10 @@ export function mapOfficeToSpace(
         ? "window"
         : "interior",
     matterportUrl: office.matterportImageUrl ?? undefined,
+    occupiedBy: enrichment?.occupiedBy,
+    moveOutDate: enrichment?.moveOutDate,
+    accountId: enrichment?.accountId,
+    occupancyStartDate: enrichment?.occupancyStartDate,
+    occupancyEndDate: enrichment?.occupancyEndDate,
   };
 }

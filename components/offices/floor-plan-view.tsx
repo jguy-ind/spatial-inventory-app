@@ -348,10 +348,19 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
   const floorSpaces = floorData.spaces;
   const viewBox = floorData.viewBox;
 
+  const floorSpacesWithApiStatus = useMemo(() => {
+    return floorSpaces.map((fs) => {
+      if (fs.type !== "office" && fs.type !== "suite") return fs;
+      const api = spaces.find((s) => s.id === fs.id);
+      if (!api) return fs;
+      return { ...fs, status: api.status, occupiedBy: api.occupiedBy };
+    });
+  }, [floorSpaces, spaces]);
+
   const stats = useMemo(() => {
-    const offices = floorSpaces.filter(s => s.type === "office" || s.type === "suite");
+    const offices = floorSpacesWithApiStatus.filter(s => s.type === "office" || s.type === "suite");
     return { total: offices.length, available: offices.filter(s => s.status === "available").length, occupied: offices.filter(s => s.status === "occupied").length };
-  }, [floorSpaces]);
+  }, [floorSpacesWithApiStatus]);
 
   const getSpaceFilterStatus = useCallback((space: FloorPlanSpace) => {
     if (["common", "conference", "coworking", "cafe"].includes(space.type)) return true;
@@ -378,10 +387,16 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
 
   const handleSpaceClick = useCallback((floorSpace: FloorPlanSpace) => {
     if (floorSpace.type !== "office" && floorSpace.type !== "suite") return;
-    const space: Space = { id: floorSpace.id, name: floorSpace.name, building: building?.id || "marietta-101", floor: floorSpace.floor, capacity: floorSpace.capacity, sqft: floorSpace.sqft || 0, price: floorSpace.price || 0, status: floorSpace.status, amenities: [], occupiedBy: floorSpace.occupiedBy, windowType: floorSpace.windowType || "window", moveOutDate: floorSpace.status === "occupied" ? "2026-06-01" : undefined };
+    const apiSpace = spaces.find((s) => s.id === floorSpace.id);
+    if (apiSpace) {
+      setSelectedSpace(apiSpace);
+      onSpaceSelect?.(apiSpace);
+      return;
+    }
+    const space: Space = { id: floorSpace.id, name: floorSpace.name, type: "office", building: building?.id || "marietta-101", floor: floorSpace.floor, capacity: floorSpace.capacity, sqft: floorSpace.sqft || 0, price: floorSpace.price || 0, status: floorSpace.status, amenities: [], occupiedBy: floorSpace.occupiedBy, windowType: floorSpace.windowType || "window", moveOutDate: floorSpace.status === "occupied" ? "2026-06-01" : undefined, position: { x: 0, y: 0, width: 0, height: 0 }, images: [], description: "", lastUpdated: new Date().toISOString() };
     setSelectedSpace(space);
     onSpaceSelect?.(space);
-  }, [building, onSpaceSelect, setSelectedSpace]);
+  }, [building, onSpaceSelect, setSelectedSpace, spaces]);
 
   const svgViewBox = `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`;
 
@@ -524,7 +539,7 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
             <svg viewBox={svgViewBox} className="w-full h-full" style={{ minHeight: "500px" }} preserveAspectRatio="xMidYMid meet">
               {/* Clean white background */}
               <rect x={viewBox.x} y={viewBox.y} width={viewBox.width} height={viewBox.height} fill="#ffffff" />
-              {floorSpaces.map((space) => {
+              {floorSpacesWithApiStatus.map((space) => {
                 const passesFilter = getSpaceFilterStatus(space);
                 const isGreyedOut = hasActiveFilters && !passesFilter;
                 return (

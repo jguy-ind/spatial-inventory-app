@@ -43,6 +43,7 @@ export interface OfficeDoc {
   officeConfigurationType?: string;
   matterportImageUrl?: string | null;
   points?: OfficePoint[];
+  price?: number;
 }
 
 export interface InventoryData {
