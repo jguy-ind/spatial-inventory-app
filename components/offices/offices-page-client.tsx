@@ -1097,7 +1097,7 @@ export function OfficesPageClient({ inventoryData }: OfficesPageClientProps) {
                 imageHeight={2550}
                 flipY
                 onRegionClick={(region) => {
-                  const space = currentSpaces.find((s) => s.id === region.id);
+                  const space = currentSpaces.find((s) => s.name === region.id || s.id === region.id);
                   if (space) {
                     setSelectedSpaceForDrawer(space);
                     setDrawerOpen(true);
