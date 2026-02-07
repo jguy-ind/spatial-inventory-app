@@ -84,7 +84,7 @@ import {
 import { FloorPlanView } from "@/components/offices/floor-plan-view";
 import { FloorPlan } from "@/components/FloorPlan";
 import type { Region } from "@/components/FloorPlan";
-import { cn } from "@/lib/utils";
+import { cn, getOfficeDisplayLabel } from "@/lib/utils";
 import { useBreakpoint } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
 
@@ -618,15 +618,6 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
 
   const getWindowInterior = (space: Space) => {
     return space.windowType === "window" ? "Window" : "Interior";
-  };
-
-  /** Display: "Office " + office number first; use trailing digits from code if present (e.g. LAXGLE003 → "Office 3"). */
-  const getOfficeDisplayLabel = (space: Space) => {
-    const value = space.officeNumber ?? space.name ?? space.id;
-    if (!value) return "Office";
-    const trailingDigits = value.match(/\d+$/);
-    const numberPart = trailingDigits ? String(parseInt(trailingDigits[0], 10)) : value;
-    return `Office ${numberPart}`;
   };
 
   const [listUi, setListUi] = useState<'cards' | 'table'>('table');
