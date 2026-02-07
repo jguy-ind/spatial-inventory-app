@@ -43,20 +43,6 @@ export async function partnerApiGet<T>(path: string): Promise<T> {
     },
     cache: "no-store",
   });
-  // #region agent log
-  fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      location: "partner-api/client.ts:after-fetch",
-      message: "Partner API response (H2/H5: 404 from Partner API?)",
-      data: { status: res.status, ok: res.ok, fullEndpoint, pathOnly },
-      timestamp: Date.now(),
-      sessionId: "debug-session",
-      hypothesisId: "H2_H5",
-    }),
-  }).catch(() => {});
-  // #endregion
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`Partner API ${res.status}: ${text || res.statusText}`);

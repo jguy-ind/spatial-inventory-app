@@ -19,6 +19,10 @@ export interface Space {
   description: string
   availableFrom?: string
   lastUpdated: string
+  /** Office/suite number from API (e.g. 73 or EWRMOR006). */
+  officeNumber?: string
+  /** Product ID from API (e.g. EWRMOR073). */
+  productId?: string
   // Extended office fields
   occupiedBy?: string
   moveOutDate?: string
@@ -34,6 +38,7 @@ export interface Space {
   promotionDetails?: string
   windowType?: 'window' | 'interior'
   matterportUrl?: string
+  meetingRoomHours?: number
 }
 
 export interface Building {

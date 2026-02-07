@@ -32,13 +32,15 @@ export function mapOfficeToSpace(
   locationId: string,
   enrichment?: OfficeOccupancyEnrichment | null
 ): Space {
-  const id = office._id?.$oid ?? office.name ?? "";
+  const id = office._id?.$oid ?? (office as { id?: string }).id ?? office.name ?? "";
   const now = new Date().toISOString();
   const status: SpaceStatus = enrichment?.status ?? "available";
 
   return {
     id,
     name: office.name ?? office.officeNumber ?? id,
+    officeNumber: office.officeNumber ?? undefined,
+    productId: office.productId ?? undefined,
     type: "office",
     status,
     floor: office.floor ?? 1,
@@ -48,14 +50,17 @@ export function mapOfficeToSpace(
     price: 0,
     amenities: [],
     position: getPositionFromPoints(office.points),
-    images: [PLACEHOLDER_IMAGE],
-    description: `Office ${office.name ?? id} at location.`,
+    images: (office.stockImageUrl && office.stockImageUrl.trim()) ? [office.stockImageUrl.trim()] : [PLACEHOLDER_IMAGE],
+    description: `Office ${office.name ?? office.officeNumber ?? id} at location.`,
     lastUpdated: now,
     windowType:
       office.officeConfigurationType?.toLowerCase().includes("window")
         ? "window"
         : "interior",
-    matterportUrl: office.matterportImageUrl ?? undefined,
+    matterportUrl: (office.matterportImageUrl && office.matterportImageUrl.trim()) ? office.matterportImageUrl.trim() : undefined,
+    meetingRoomHours: office.conferenceRoomHours,
+    lsf: office.squareFootage,
+    productTier: office.tier != null ? String(office.tier) : undefined,
     occupiedBy: enrichment?.occupiedBy,
     moveOutDate: enrichment?.moveOutDate,
     accountId: enrichment?.accountId,

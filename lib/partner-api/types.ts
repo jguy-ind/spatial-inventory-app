@@ -16,6 +16,8 @@ export interface PartnerApiLocation {
   geolocalization?: {
     type?: string;
     coordinates?: [number, number];
+    lng?: number;
+    lat?: number;
   };
   images?: Array<{ url?: string; order?: number }>;
   nbOfOffices?: number;
@@ -68,6 +70,8 @@ export interface PartnerApiOffice {
   officeNumber?: string;
   officeConfigurationType?: string;
   matterportImageUrl?: string | null;
+  stockImageUrl?: string | null;
+  conferenceRoomHours?: number;
   productSfId?: string;
   productId?: string;
   points?: PartnerApiOfficePoint[];

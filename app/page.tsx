@@ -1,5 +1,6 @@
 import { OfficesPageClient } from "@/components/offices/offices-page-client";
-import { getInventoryData } from "@/lib/inventory-data";
+import { getInventoryData, getLocationsOnly } from "@/lib/inventory-data";
+import { isPartnerApiConfigured } from "@/lib/data-sources/partner-api-inventory";
 
 /**
  * Server component wrapper that awaits params/searchParams (Next.js 16 async APIs)
@@ -15,6 +16,8 @@ export default async function Page({
 }) {
   if (params) await params;
   if (searchParams) await searchParams;
-  const inventoryData = await getInventoryData();
+  const inventoryData = isPartnerApiConfigured()
+    ? await getLocationsOnly()
+    : await getInventoryData();
   return <OfficesPageClient inventoryData={inventoryData} />;
 }

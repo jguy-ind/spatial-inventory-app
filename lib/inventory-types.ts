@@ -18,7 +18,10 @@ export interface LocationDoc {
   geolocalization?: {
     type?: string;
     coordinates?: [number, number]; // [lng, lat]
+    lng?: number;
+    lat?: number;
   };
+  id?: string;
   images?: Array<{ url?: string; order?: number }>;
   nbOfOffices?: number;
   nbOfSuites?: number;
@@ -42,8 +45,13 @@ export interface OfficeDoc {
   officeNumber?: string;
   officeConfigurationType?: string;
   matterportImageUrl?: string | null;
+  stockImageUrl?: string | null;
+  conferenceRoomHours?: number;
+  tier?: number;
   points?: OfficePoint[];
   price?: number;
+  /** Product ID (e.g. EWRMOR073). */
+  productId?: string;
 }
 
 export interface InventoryData {

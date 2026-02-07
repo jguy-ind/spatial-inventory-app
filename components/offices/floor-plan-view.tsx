@@ -67,7 +67,15 @@ interface FloorData {
 
 const DEFAULT_NEXT_AVAILABLE = "6/1/26";
 const TERM_PRICING: Record<number, number> = { 1: 1.0, 6: 0.95, 12: 0.90, 18: 0.85, 24: 0.80, 36: 0.75 };
-const TERM_OPTIONS = [1, 6, 12, 18, 24, 36];
+const TERM_OPTIONS = [1, 6, 12, 18, 24, 36] as const;
+const TERM_OPTIONS_WITH_LABELS: { term: number; label: string }[] = [
+  { term: 1, label: "1-month" },
+  { term: 6, label: "6-month" },
+  { term: 12, label: "12-month" },
+  { term: 18, label: "18-month" },
+  { term: 24, label: "24-month" },
+  { term: 36, label: "36-month" },
+];
 
 // Status-based colors for rentable offices (vibrant and distinct)
 const statusColorScheme = {
@@ -417,7 +425,7 @@ export function FloorPlanView({ spaces, building, onSpaceSelect, selectedTerm = 
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 bg-muted/50 rounded-lg p-1">
             <span className="text-xs text-muted-foreground px-2">Term:</span>
-            {TERM_OPTIONS.map((term) => (<button key={term} type="button" onClick={() => onTermChange?.(term)} className={cn("px-2.5 py-1 text-xs rounded-md transition-colors font-medium", selectedTerm === term ? "bg-white shadow-sm text-[#1a7f64]" : "text-muted-foreground hover:text-foreground hover:bg-white/50")}>{term}mo</button>))}
+            {TERM_OPTIONS_WITH_LABELS.map(({ term, label }) => (<button key={term} type="button" onClick={() => onTermChange?.(term)} className={cn("px-2.5 py-1 text-xs rounded-md transition-colors font-medium", selectedTerm === term ? "bg-white shadow-sm text-[#1a7f64]" : "text-muted-foreground hover:text-foreground hover:bg-white/50")}>{label}</button>))}
           </div>
           <div className="w-px h-6 bg-border" />
           <Button variant={showPrices ? "default" : "outline"} size="sm" className={cn("h-8 gap-1.5 font-normal", showPrices ? "bg-[#1a7f64] hover:bg-[#158a6d] text-white" : "bg-transparent")} onClick={() => setShowPrices(!showPrices)}>$ Prices</Button>

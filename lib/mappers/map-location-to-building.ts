@@ -3,10 +3,11 @@ import type { LocationDoc } from "@/lib/inventory-types";
 import { resolveFloorPlanImageUrl } from "./resolve-floor-plan-image-url";
 
 export function mapLocationToBuilding(loc: LocationDoc): Building {
-  const id = loc._id?.$oid ?? "";
-  const coords = loc.geolocalization?.coordinates;
-  const lat = coords?.[1] ?? 0;
-  const lng = coords?.[0] ?? 0;
+  const id = loc.id ?? loc._id?.$oid ?? "";
+  const geo = loc.geolocalization;
+  const coords = geo?.coordinates;
+  const lat = coords?.[1] ?? (geo as { lat?: number })?.lat ?? 0;
+  const lng = coords?.[0] ?? (geo as { lng?: number })?.lng ?? 0;
 
   const name =
     loc.name && loc.address

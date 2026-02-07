@@ -88,11 +88,15 @@ import { cn } from "@/lib/utils";
 import { useBreakpoint } from "@/hooks/use-mobile";
 import { Menu } from "lucide-react";
 
-const PRICING_OPTIONS = [
-  { label: "12-23 months", value: "12-23" },
-  { label: "24-35 months", value: "24-35" },
-  { label: "36+ months", value: "36+" },
-];
+/** Term options for pricing: API uses termFrom/termTo ranges (e.g. 24–35 for 24-month). */
+const TERM_OPTIONS = [
+  { label: "1-month", term: 1 },
+  { label: "6-month", term: 6 },
+  { label: "12-month", term: 12 },
+  { label: "18-month", term: 18 },
+  { label: "24-month", term: 24 },
+  { label: "36-month", term: 36 },
+] as const;
 
 const STATUS_OPTIONS: { label: string; value: SpaceStatus }[] = [
   { label: "Available", value: "available" },
@@ -120,7 +124,7 @@ function OfficeCard({
       className="w-full text-left p-4 rounded-lg border border-border bg-card hover:bg-muted/30 transition-colors"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
-        <span className="font-medium text-primary">{space.name}</span>
+        <span className="font-medium text-primary">{getOfficeDisplayLabel(space)}</span>
         {getStatusBadge(space.status)}
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
@@ -291,7 +295,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const breakpoint = useBreakpoint();
   const showPersistentSidebar = breakpoint === "desktop";
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
-  const [selectedPricing, setSelectedPricing] = useState<string[]>(["24-35"]);
+  const [selectedTerm, setSelectedTerm] = useState(24);
   const [selectedStatuses, setSelectedStatuses] = useState<SpaceStatus[]>([
     "available",
     "occupied",
@@ -301,7 +305,6 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selectedSpaceForDrawer, setSelectedSpaceForDrawer] = useState<Space | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [selectedTerm, setSelectedTerm] = useState(24);
   /** Prices for current building + selectedTerm from GET /api/offices/[id]/pricing (keyed by space id) */
   const [pricesBySpaceId, setPricesBySpaceId] = useState<Record<string, number | null>>({});
   const [pricesLoading, setPricesLoading] = useState(false);
@@ -321,7 +324,11 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   const floorPlanHoverHideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [listPageSize, setListPageSize] = useState(25);
 
-  const { buildings, spacesByLocationId, regionsByLocationId } = inventoryData;
+  // Merged inventory: initial from server; offices for each location merged when fetched via GET /api/locations/[id]/offices
+  const [inventoryState, setInventoryState] = useState<InventoryData>(inventoryData);
+  const officesFetchInFlight = useRef<string | null>(null);
+
+  const { buildings, spacesByLocationId, regionsByLocationId } = inventoryState;
   const prefersReducedMotion = useReducedMotion();
 
   // Sync currentBuilding when it's not in the buildings list (e.g. first load with new data)
@@ -332,6 +339,38 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
       setCurrentBuilding(buildings[0].id);
     }
   }, [buildings, currentBuilding, setCurrentBuilding]);
+
+  // Fetch offices for current location when we have buildings but no spaces for this location (Partner API locations-only flow)
+  useEffect(() => {
+    if (!currentBuilding || buildings.length === 0) return;
+    const existing = spacesByLocationId[currentBuilding] ?? [];
+    if (existing.length > 0) return;
+    if (officesFetchInFlight.current === currentBuilding) return;
+    officesFetchInFlight.current = currentBuilding;
+    const buildingId = currentBuilding;
+    fetch(`/api/locations/${encodeURIComponent(buildingId)}/offices`)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
+      })
+      .then((body: { spaces?: Space[]; regions?: Region[] }) => {
+        if (officesFetchInFlight.current !== buildingId) return;
+        const spaces = body.spaces ?? [];
+        const regions = body.regions ?? [];
+        setInventoryState((prev) => ({
+          ...prev,
+          spacesByLocationId: { ...prev.spacesByLocationId, [buildingId]: spaces },
+          regionsByLocationId: { ...prev.regionsByLocationId, [buildingId]: regions },
+        }));
+      })
+      .catch((err) => {
+        console.warn("[offices] Failed to fetch offices for location:", buildingId, err);
+        // Do not overwrite state on error
+      })
+      .finally(() => {
+        if (officesFetchInFlight.current === buildingId) officesFetchInFlight.current = null;
+      });
+  }, [currentBuilding, buildings.length, spacesByLocationId]);
 
   // Hydrate store with spaces from inventory (for MapCanvas, ShortlistPanel, CompareView)
   useEffect(() => {
@@ -412,55 +451,16 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
         const fullEndpoint = endpoint(id);
         const fullRequestUrl = `${baseUrl}${fullEndpoint}`;
         console.log("[pricing] Fetching price:", { officeId: id, baseUrl, fullEndpoint, fullRequestUrl });
-        // #region agent log
-        fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            location: "offices-page-client.tsx:fetch-before",
-            message: "Client request URL (H1/H4: path may lack /api/)",
-            data: { officeId: id, fullEndpoint, fullRequestUrl, pathHasApi: fullEndpoint.startsWith("/api/") },
-            timestamp: Date.now(),
-            sessionId: "debug-session",
-            hypothesisId: "H1_H4",
-          }),
-        }).catch(() => {});
-        // #endregion
         // This is our app's Next.js API route (same origin), not the Partner API. The server then calls the Partner API with the API key.
         return fetch(fullEndpoint)
           .then((res) => {
-            // #region agent log
-            fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                location: "offices-page-client.tsx:fetch-after",
-                message: "Client response status (404 = our app route missing?)",
-                data: { officeId: id, status: res.status, ok: res.ok, fullEndpoint },
-                timestamp: Date.now(),
-                sessionId: "debug-session",
-                hypothesisId: "H4",
-              }),
-            }).catch(() => {});
-            // #endregion
             console.log("[pricing] Client response:", { officeId: id, status: res.status, ok: res.ok });
             return res.ok ? res.json() : Promise.reject(new Error(`${res.status}`));
           })
-          .then((data: { price?: number; source?: string }) => {
-            // #region agent log
-            fetch("http://127.0.0.1:7242/ingest/9011e2dd-5deb-4901-a951-608c0365dbf2", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                location: "offices-page-client.tsx:pricing-response",
-                message: "API response (source=unconfigured means mock)",
-                data: { officeId: id, price: data?.price, source: (data as { source?: string })?.source },
-                timestamp: Date.now(),
-                sessionId: "debug-session",
-                hypothesisId: "MOCK",
-              }),
-            }).catch(() => {});
-            // #endregion
+          .then((data: { price?: number; source?: string; error?: string }) => {
+            if (data?.error) {
+              console.warn("[pricing] API returned price 0 with error:", data.error, { officeId: id });
+            }
             return typeof data?.price === "number" ? data.price : null;
           })
           .catch((err) => {
@@ -511,6 +511,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
       if (
         searchQuery &&
         !space.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        !(space.officeNumber ?? "").toLowerCase().includes(searchQuery.toLowerCase()) &&
         !space.occupiedBy?.toLowerCase().includes(searchQuery.toLowerCase())
       )
         return false;
@@ -525,13 +526,19 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [listPageSize, selectedStatuses, searchQuery, selectedPricing]);
+  }, [listPageSize, selectedStatuses, searchQuery, selectedTerm]);
 
-  // Initialize expandedRows with first office expanded by default
-  const [expandedRows, setExpandedRows] = useState<Set<string>>(() => {
-    const firstSpaceId = filteredSpaces[0]?.id;
-    return firstSpaceId ? new Set([firstSpaceId]) : new Set();
-  });
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(() => new Set());
+  const lastExpandedFirstIdRef = useRef<string | null>(null);
+  // When the list’s first office changes (new building/filter), expand that first row by default
+  useEffect(() => {
+    const firstId = filteredSpaces[0]?.id;
+    if (!firstId) return;
+    if (lastExpandedFirstIdRef.current !== firstId) {
+      lastExpandedFirstIdRef.current = firstId;
+      setExpandedRows((prev) => new Set([...prev, firstId]));
+    }
+  }, [filteredSpaces]);
 
   const currentBuildingData = buildings.find(
     (b) => b.id === currentBuilding
@@ -556,6 +563,8 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   }, [currentSpaces]);
   const matterportUrl =
     currentSpaces.find((s) => s.matterportUrl)?.matterportUrl ?? DEFAULT_MATTERPORT_URL;
+  /** When 3D modal is opened from the drawer, use the selected space's URL. */
+  const matterportUrlForModal = selectedSpaceForDrawer?.matterportUrl ?? matterportUrl;
 
   const toggleRowExpansion = (spaceId: string) => {
     setExpandedRows((prev) => {
@@ -608,7 +617,16 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
   };
 
   const getWindowInterior = (space: Space) => {
-    return space.amenities.includes("Window View") ? "Window" : "Interior";
+    return space.windowType === "window" ? "Window" : "Interior";
+  };
+
+  /** Display: "Office " + office number first; use trailing digits from code if present (e.g. LAXGLE003 → "Office 3"). */
+  const getOfficeDisplayLabel = (space: Space) => {
+    const value = space.officeNumber ?? space.name ?? space.id;
+    if (!value) return "Office";
+    const trailingDigits = value.match(/\d+$/);
+    const numberPart = trailingDigits ? String(parseInt(trailingDigits[0], 10)) : value;
+    return `Office ${numberPart}`;
   };
 
   const [listUi, setListUi] = useState<'cards' | 'table'>('table');
@@ -770,7 +788,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
             {/* Persistent Location Overview - Compact for desktop */}
             {(() => {
               const isOfficeOrSuite = (s: Space) => ["office", "suite"].includes(s.type);
-              const officeSpaces = filteredSpaces.filter(isOfficeOrSuite);
+              const officeSpaces = listSpacesForBuilding.filter(isOfficeOrSuite);
               const totalOffices = officeSpaces.length;
               const occupiedOffices = officeSpaces.filter(s => s.status === "occupied").length;
               const availableOffices = officeSpaces.filter(s => s.status === "available").length;
@@ -882,32 +900,18 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                           className="h-9 gap-2 font-normal bg-transparent"
                         >
                           Pricing:{" "}
-                          {selectedPricing.length > 0
-                            ? `${selectedPricing.join(", ")} months`
-                            : "All"}
+                          {TERM_OPTIONS.find((o) => o.term === selectedTerm)?.label ?? "24-month"}
                           <ChevronDown className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="start">
-                        {PRICING_OPTIONS.map((option) => (
-                          <DropdownMenuCheckboxItem
-                            key={option.value}
-                            checked={selectedPricing.includes(option.value)}
-                            onCheckedChange={(checked) => {
-                              if (checked) {
-                                setSelectedPricing([
-                                  ...selectedPricing,
-                                  option.value,
-                                ]);
-                              } else {
-                                setSelectedPricing(
-                                  selectedPricing.filter((p) => p !== option.value)
-                                );
-                              }
-                            }}
+                        {TERM_OPTIONS.map((option) => (
+                          <DropdownMenuItem
+                            key={option.term}
+                            onClick={() => setSelectedTerm(option.term)}
                           >
                             {option.label}
-                          </DropdownMenuCheckboxItem>
+                          </DropdownMenuItem>
                         ))}
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -1129,7 +1133,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                                     setDrawerOpen(true);
                                   }}
                                 >
-                                  {space.name}
+                                  {getOfficeDisplayLabel(space)}
                                 </button>
                               </TableCell>
                               <TableCell>
@@ -1169,74 +1173,71 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                               <TableRow className="bg-muted/20 hover:bg-muted/20">
                                 <TableCell />
                                 <TableCell colSpan={7}>
-                                  <div className="py-2">
-                                    {/* Details row */}
-                                    <div className="grid grid-cols-6 gap-6 text-sm">
+                                  <div className="py-3 px-1">
+                                    {/* Secondary row: definition-list style, grouped metrics then occupied context */}
+                                    <div className="flex flex-wrap items-stretch gap-x-8 gap-y-4 sm:gap-x-10">
+                                      {/* Core metrics — consistent label/value alignment */}
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
+                                          Memberships Included
+                                        </span>
+                                        <span className="text-sm font-semibold tabular-nums text-foreground">
+                                          {space.capacity + 2}
+                                        </span>
+                                      </div>
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
+                                          Meeting Room Hours
+                                        </span>
+                                        <span className="text-sm font-semibold tabular-nums text-foreground">
+                                          {space.meetingRoomHours != null ? `${space.meetingRoomHours} hrs/mo` : "—"}
+                                        </span>
+                                      </div>
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
+                                          LSF
+                                        </span>
+                                        <span className="text-sm font-semibold tabular-nums text-foreground">
+                                          {space.lsf ?? space.sqft ?? "—"}
+                                        </span>
+                                      </div>
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
+                                          Product tier
+                                        </span>
+                                        <span className="text-sm font-semibold text-foreground">
+                                          {space.productTier ?? "—"}
+                                        </span>
+                                      </div>
                                       {space.status === "occupied" && (
                                         <>
-                                          <div>
-                                            <span className="text-muted-foreground block text-xs mb-0.5">
+                                          <div className="flex flex-col min-w-0 border-l border-border pl-6 -ml-2">
+                                            <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                                               Occupied by
                                             </span>
                                             <a
                                               href={`https://admin-portal.industriousoffice.com/accounts/unit/${space.id || '67abf8ac06607405a6995136'}`}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="text-primary hover:underline flex items-center gap-1"
+                                              className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1 w-fit"
                                               onClick={(e) => e.stopPropagation()}
                                             >
-                                              {space.occupiedBy || "N/A"}
-                                              <ExternalLink className="h-3 w-3" />
+                                              {space.occupiedBy ?? "N/A"}
+                                              <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                                             </a>
                                           </div>
-                                          <div>
-                                            <span className="text-muted-foreground block text-xs mb-0.5">
+                                          <div className="flex flex-col min-w-0">
+                                            <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-1">
                                               Next Available
                                             </span>
-                                            <span className="font-medium">
+                                            <span className="text-sm font-semibold tabular-nums text-foreground">
                                               {space.moveOutDate
                                                 ? new Date(space.moveOutDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })
-                                                : '6/1/26'}
+                                                : "—"}
                                             </span>
                                           </div>
                                         </>
                                       )}
-                                      <div>
-                                        <span className="text-muted-foreground block text-xs mb-0.5">
-                                          Memberships Included
-                                        </span>
-                                        <span className="font-medium">{space.capacity + 2}</span>
-                                      </div>
-                                      <div>
-                                        <span className="text-muted-foreground block text-xs mb-0.5">
-                                          Meeting Room Hours
-                                        </span>
-                                        <span className="font-medium">{space.capacity * 2} hrs/mo</span>
-                                      </div>
-                                      <div>
-                                        <span className="text-muted-foreground block text-xs mb-0.5">
-                                          LSF
-                                        </span>
-                                        <span>{space.lsf || space.sqft}</span>
-                                      </div>
-                                      <div>
-                                        <span className="text-muted-foreground block text-xs mb-0.5">
-                                          Product tier
-                                        </span>
-                                        <span>{space.productTier || "N/A"}</span>
-                                      </div>
-                                      <div>
-                                        <span className="text-muted-foreground block text-xs mb-0.5">
-                                          {space.status === "occupied"
-                                            ? "Renewal date"
-                                            : "Last sold on"}
-                                        </span>
-                                        <span>
-                                          {space.status === "occupied"
-                                            ? space.renewalDate || "N/A"
-                                            : space.lastSoldOn || "N/A"}
-                                        </span>
-                                      </div>
                                     </div>
                                   </div>
                                 </TableCell>
@@ -1441,7 +1442,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                           )}
                         >
                           <div className="flex items-center justify-between gap-3">
-                            <h4 className="font-semibold text-[15px] text-slate-900 truncate">{space.name}</h4>
+                            <h4 className="font-semibold text-[15px] text-slate-900 truncate">{getOfficeDisplayLabel(space)}</h4>
                             <span
                               className={cn(
                                 "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium capitalize shrink-0",
@@ -1706,32 +1707,39 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
           {selectedSpaceForDrawer && (
             <div className="flex flex-col h-full">
               <SheetHeader className="sr-only">
-                <SheetTitle>{selectedSpaceForDrawer.name}</SheetTitle>
+                <SheetTitle>{getOfficeDisplayLabel(selectedSpaceForDrawer)}</SheetTitle>
               </SheetHeader>
 
-              {/* Large Thumbnail Image with View in 3D */}
+              {/* Large Thumbnail Image: API stockImageUrl; View in 3D uses API matterportImageUrl */}
               <div className="relative h-[22vh] min-h-[160px] bg-slate-100 shrink-0">
                 <img
-                  src={selectedSpaceForDrawer.images?.[0] || '/images/office-rep-2-interior.webp'}
-                  alt={selectedSpaceForDrawer.name}
+                  src={(selectedSpaceForDrawer.images?.[0]?.trim() || "") || "/images/office-rep-2-interior.webp"}
+                  alt={getOfficeDisplayLabel(selectedSpaceForDrawer)}
                   className="w-full h-full object-cover"
                 />
-                {/* View in 3D Button */}
-                <button
-                  type="button"
-                  onClick={() => setShow3DModal(true)}
-                  className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-full hover:bg-black/80 transition-colors"
-                >
-                  <Box className="h-4 w-4" />
-                  <span className="text-sm font-medium">View in 3D</span>
-                </button>
+                {selectedSpaceForDrawer.matterportUrl?.trim() && (
+                  <button
+                    type="button"
+                    onClick={() => setShow3DModal(true)}
+                    className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-full hover:bg-black/80 transition-colors"
+                  >
+                    <Box className="h-4 w-4" />
+                    <span className="text-sm font-medium">View in 3D</span>
+                  </button>
+                )}
               </div>
 
               {/* Title, Code and Status */}
               <div className="px-4 pt-4 pb-3 shrink-0">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h2 className="text-lg font-semibold leading-tight">{selectedSpaceForDrawer.name}</h2>
+                    <h2 className="text-lg font-semibold leading-tight">{getOfficeDisplayLabel(selectedSpaceForDrawer)}</h2>
+                    {(() => {
+                      const s = selectedSpaceForDrawer;
+                      const productId = s.productId ?? (s.name && s.name !== s.officeNumber && /^[A-Za-z0-9]{6,}$/.test(s.name) ? s.name : undefined);
+                      const secondary = productId ?? s.officeNumber;
+                      return secondary ? <p className="text-sm text-muted-foreground mt-0.5">{secondary}</p> : null;
+                    })()}
                   </div>
                   <Badge
                     variant="secondary"
@@ -1858,80 +1866,55 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
                   </div>
                 </div>
 
-                {/* Office Includes - Enhanced for offices with 8+ seats */}
-                {selectedSpaceForDrawer.capacity > 8 ? (
-                  <div className="p-3 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary-muted to-white">
-                    <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">
-                      OFFICE INCLUDES
-                    </div>
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="text-center p-2 rounded-md bg-white/80">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
-                          <Users className="h-4 w-4 text-primary" />
-                        </div>
-                        <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity}</div>
-                        <div className="text-[10px] text-muted-foreground">Seats</div>
-                      </div>
-                      <div className="text-center p-2 rounded-md bg-white/80">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
-                          <Users className="h-4 w-4 text-primary" />
-                        </div>
-                        <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity + 2}</div>
-                        <div className="text-[10px] text-muted-foreground">Memberships Included</div>
-                      </div>
-                      <div className="text-center p-2 rounded-md bg-white/80">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-1.5">
-                          <Calendar className="h-4 w-4 text-blue-600" />
-                        </div>
-                        <div className="text-lg font-bold text-blue-600">{selectedSpaceForDrawer.capacity * 2}</div>
-                        <div className="text-[10px] text-muted-foreground">Meeting Hours Included</div>
-                      </div>
-                    </div>
+                {/* Office Includes - same layout for all offices (list and floor plan) */}
+                <div className="p-3 rounded-lg border-2 border-primary/30 bg-gradient-to-br from-primary-muted to-white">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">
+                    OFFICE INCLUDES
                   </div>
-                ) : (
-                    <div className="space-y-2">
-                    <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wide">OFFICE INCLUDES</div>
-                    <div className="flex gap-4 p-3 rounded-lg border border-border bg-muted/20">
-                    <div className="flex items-center gap-2.5 flex-1">
-                      <div className="w-8 h-8 rounded-md bg-primary-muted flex items-center justify-center shrink-0">
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="text-center p-2 rounded-md bg-white/80">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
                         <Users className="h-4 w-4 text-primary" />
                       </div>
-                      <div>
-                        <div className="text-base font-semibold leading-none">{selectedSpaceForDrawer.capacity + 2}</div>
-                        <div className="text-[10px] text-muted-foreground mt-0.5">Memberships Included</div>
-                      </div>
+                      <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity}</div>
+                      <div className="text-[10px] text-muted-foreground">Seats</div>
                     </div>
-                    <div className="w-px bg-border" />
-                    <div className="flex items-center gap-2.5 flex-1">
-                      <div className="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center shrink-0">
+                    <div className="text-center p-2 rounded-md bg-white/80">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-1.5">
+                        <Users className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="text-lg font-bold text-primary">{selectedSpaceForDrawer.capacity + 2}</div>
+                      <div className="text-[10px] text-muted-foreground">Memberships Included</div>
+                    </div>
+                    <div className="text-center p-2 rounded-md bg-white/80">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-1.5">
                         <Calendar className="h-4 w-4 text-blue-600" />
                       </div>
-                      <div>
-                        <div className="text-base font-semibold leading-none">{selectedSpaceForDrawer.capacity * 2} hrs</div>
-                        <div className="text-[10px] text-muted-foreground mt-0.5">Meeting Hours Included</div>
+                      <div className="text-lg font-bold text-blue-600">
+                        {selectedSpaceForDrawer.meetingRoomHours != null ? selectedSpaceForDrawer.meetingRoomHours : "—"}
                       </div>
+                      <div className="text-[10px] text-muted-foreground">Meeting Hours Included</div>
                     </div>
                   </div>
-                  </div>
-                )}
+                </div>
 
-                {/* Term Length Toggle */}
+                {/* Term Length Toggle - matches API term ranges (1–5, 6–11, 12–17, 18–23, 24–35, 36–47) */}
                 <div>
                   <div className="text-xs font-medium text-muted-foreground mb-2">Term Length</div>
                   <div className="grid grid-cols-6 gap-1 p-1 bg-muted rounded-lg">
-                    {[1, 6, 12, 18, 24, 36].map((term) => (
+                    {TERM_OPTIONS.map((option) => (
                       <button
-                        key={term}
+                        key={option.term}
                         type="button"
-                        onClick={() => setSelectedTerm(term)}
+                        onClick={() => setSelectedTerm(option.term)}
                         className={cn(
                           "py-1.5 text-xs rounded-md transition-colors",
-                          selectedTerm === term
+                          selectedTerm === option.term
                             ? "bg-white shadow-sm font-medium"
                             : "text-muted-foreground hover:text-foreground"
                         )}
                       >
-                        {term}mo
+                        {option.label}
                       </button>
                     ))}
                   </div>
@@ -2027,7 +2010,7 @@ export function OfficesPageClient({ inventoryData }: { inventoryData: InventoryD
             <X className="h-4 w-4" />
           </button>
           <iframe
-            src={matterportUrl}
+            src={matterportUrlForModal}
             className="w-full h-full rounded-lg"
             title="3D Matterport View"
             allowFullScreen
